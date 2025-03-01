@@ -363,8 +363,8 @@ object-fit: cover;
 .container {
 background-color: #e6e5e5;
 background-image: url(/images/bg.svg);
-max-width: 1200px;
-margin: 0 auto;
+width: 100%;
+margin-top: 80px;
 padding: 20px 60px;
 display: flex;
 gap: 80px;
@@ -667,7 +667,7 @@ border: none;
       font-size: 1.1rem;
       letter-spacing: 2px;
   }
-  .banner-container {
+  /* .banner-container {
     display: flex;
     justify-content: center;
       width: 100%;
@@ -676,20 +676,22 @@ border: none;
       border-radius: 8px;
       overflow: hidden;
   }
-  
+   */
   .donation-banner {
-    width: 100%;
+    display: flex;
+    width:90%;
+    margin: auto;
     background: linear-gradient(90deg, #dba634, #c0840d), 
                 url(/images/pattren.png);
     background-blend-mode: overlay; /* Blends the image with the gradient */
-    padding: 40px;
+    padding: 30px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-bottom:20px;
+    
 }
 
   
