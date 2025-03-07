@@ -315,7 +315,6 @@
     font-size: 14px;
     margin-bottom: 20px;
     font-weight: bold;
-    text-align: center;
 
 }
 
@@ -329,7 +328,6 @@
     color: #fff;
     text-decoration: none;
     font-size: 14px;
-    padding-left:60px;
     transition: color 0.3s;
 }
 
@@ -349,7 +347,6 @@
 
 .contact-info {
     margin-bottom: 30px;
-    text-align: center;
 }
 
 .contact-info p {
@@ -425,13 +422,219 @@
     }
     
     .footer-links{
-        padding-left:30px;
+        text-align: start;
+    }
+    .footer-column h3 {
+        text-align: start;
+    }
+    .footer-links a{
+        padding:0px;
+    }
+    .footer-bottom{
+        flex-direction: column;
     }
 }
+
+ /* Loader styles */
+ #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loader-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .loader {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .letter {
+          padding-top: 40px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #c69438;
+            margin: 10px 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            text-shadow: 0 0 15px rgba(198, 148, 56, 0.5);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .letter:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .letter:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .letter:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        .letter:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        
+        .progress-bar {
+            width: 200px;
+            height: 5px;
+            background-color: rgba(198, 148, 56, 0.2);
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background-color: #c69438;
+            border-radius: 5px;
+            animation: progress 3s ease infinite;
+            box-shadow: 0 0 15px #c69438;
+        }
+        
+        .glow {
+            position: absolute;
+            width: 50px;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            animation: glow 3s linear infinite;
+        }
+        
+        .circle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 2px solid rgba(198, 148, 56, 0.2);
+            border-radius: 50%;
+            animation: rotate 8s linear infinite;
+        }
+        
+        .circle:nth-child(1) {
+            border-top-color: #c69438;
+            border-width: 1px;
+        }
+        
+        .circle:nth-child(2) {
+            width: 220px;
+            height: 220px;
+            border-right-color: #c69438;
+            animation-duration: 6s;
+            animation-direction: reverse;
+            border-width: 1px;
+        }
+        
+        /* Main content styles */
+        #main-content {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes progress {
+            0% {
+                width: 0%;
+            }
+            50% {
+                width: 100%;
+            }
+            100% {
+                width: 0%;
+            }
+        }
+        
+        @keyframes glow {
+            0% {
+                left: -50px;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s forwards;
+            display: block !important;
+        }
 
     </style>
 </head>
 <body>
+    <div id="loader-wrapper">
+        <div class="loader-container">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="loader">
+                <div class="letter">Z</div>
+                <div class="letter">U</div>
+                <div class="letter">H</div>
+                <div class="letter">D</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+                <div class="glow"></div>
+            </div>
+        </div>
+    </div>
     <nav>
         <div id="navbar"></div>
      </nav>
@@ -658,6 +861,19 @@
         function viewMoreInfo() {
             alert('Loading more information about Dr. Mufti Abdur Rahman Mangera...');
         }
+
+           // Wait for all resources to load
+           window.addEventListener('load', function() {
+            // Simulate a minimum loading time (you can adjust this)
+            setTimeout(function() {
+                // Hide loader with fade out animation
+                document.getElementById('loader-wrapper').classList.add('fade-out');
+                
+                // Show main content with fade in animation
+                document.getElementById('main-content').classList.add('fade-in');
+            }, 3000); // Adjust time as needed (3000ms = 3 seconds)
+        });
+
     </script>
         <script src="navbar.js"></script>
 </body>
