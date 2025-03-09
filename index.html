@@ -41,6 +41,15 @@
             align-items: center;
         }
         
+        .loading-message {
+            color: #c69438;
+            font-size: 1rem;
+            margin-top: 15px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 1s;
+        }
+        
         .loader {
             display: flex;
             justify-content: center;
@@ -217,6 +226,7 @@
               <div class="progress"></div>
               <div class="glow"></div>
           </div>
+          <div class="loading-message">Loading Islamic knowledge and wisdom...</div>
       </div>
   </div>
     <nav>
@@ -875,7 +885,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Show main content with fade in animation
                 document.getElementById('main-content').classList.add('fade-in');
-            }, 3000); // Adjust time as needed (3000ms = 3 seconds)
+            }, 1500); // Reduced from 3000ms to 1500ms for faster loading
         });
     </script>
    <script src="https://static.elfsight.com/platform/platform.js" async></script>
