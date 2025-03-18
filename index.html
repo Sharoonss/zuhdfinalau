@@ -247,7 +247,7 @@
             At Zuhd Academy, we offer a wide range of courses, including Quranic studies, Hadith studies, Islamic history, Islamic jurisprudence, and much more. Our courses are taught by experienced and knowledgeable instructors who have dedicated their lives to the study and practice of Islam.
           </p>
           <a href="#" class="learn-more">Learn More</a>
-          <img src="/images/mosqueinterior.svg" alt="Mosque Interior" class="mosque-image">
+          <img src="/assets/zuhdimg.jpg" alt="Mosque Interior" class="mosque-image">
         </div>
     
         <div class="right-section">
@@ -313,7 +313,7 @@
         </div>
       </section>
 <!-- Our Workshop Section -->
-<section class="workshop-section">
+<!-- <section class="workshop-section">
   <h2 class="section-heading">Our <span class="heading-highlight">Workshop</span></h2>
   <div class="workshop-container">
       <div class="workshop-slider" id="workshopSlider">
@@ -371,7 +371,7 @@
       <div class="workshop-dot active" data-index="0"></div>
       <div class="workshop-dot" data-index="1"></div>
   </div>
-</section>
+</section> -->
 
 <!-- Daily Reminders Section -->
 <section class="reminders-section">
@@ -887,6 +887,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('main-content').classList.add('fade-in');
             }, 1500); // Reduced from 3000ms to 1500ms for faster loading
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+  const staggerItems = document.querySelectorAll('[data-stagger-appear="fade-up"]');
+  const staggerDelay = parseInt(staggerItems[0].getAttribute('data-stagger-delay')) || 75;
+  
+  staggerItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('appeared');
+    }, index * staggerDelay);
+  });
+  
+  const staggerChildren = document.querySelectorAll('[data-stagger-appear="fade-up"] > *');
+  staggerChildren.forEach((child, index) => {
+    setTimeout(() => {
+      child.classList.add('appeared');
+    }, index * staggerDelay);
+  });
+});
     </script>
    <script src="https://static.elfsight.com/platform/platform.js" async></script>
    <script src="https://static.elfsight.com/platform/platform.js" async></script>

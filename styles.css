@@ -323,7 +323,6 @@ main{
 
 /* our partners */
 .partner-section {
-    background-color: #C3922E;
     height: 280px;
     flex-direction: column;
     padding-top: 30px;
@@ -337,7 +336,7 @@ main{
     width: 85%;
 }
 .title1 {
-color: white;
+color: rgb(12, 11, 11);
 font-size: 45px;
 font-weight: 300;
 font-family: Arial, sans-serif;
@@ -346,7 +345,7 @@ white-space: nowrap;
 .title1 span{
     font-size: 45px;
 font-weight: 600;
-color: white;
+color:#C3922E;
 }
 
 .carousel-container {
@@ -369,6 +368,7 @@ object-fit: cover;
     width:100%;
     background-color: #f5f5f5;
 background-image: url(/images/bg.svg);
+background-repeat: no-repeat;
 }
 .container {
 width:85%;
@@ -397,10 +397,11 @@ margin-bottom: 24px;
 }
 
 .description {
+width:80%;
 color: #1a1919;
 line-height: 1.6;
 margin-bottom: 30px;
-font-size: 18px;
+font-size: 20px;
 font-family: "Plus Jakarta Sans", serif;
 font-weight:400;
 
@@ -424,16 +425,16 @@ background-color: #C3922E;
 }
 
 .mosque-image {
-width: 100%;
+width: 80%;
 border-radius: 12px;
 margin-top: 24px;
 height: auto;
+border-right: #b08b29 12px solid;
 object-fit: cover;
 }
 .right-section{
-    margin-top:30px;
       background-color: #C3922E;
-      padding: 30px;
+      padding: 0px 20px;
       border-radius: 20px;
 
 }
@@ -441,8 +442,8 @@ object-fit: cover;
 .right-section h2 {
     padding-top:25px;
     color: #fffbfb;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 32px;
+    font-weight: 800;
     margin-bottom: 8px;
     position: relative;
     font-family: "Plus Jakarta Sans", serif;
