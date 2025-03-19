@@ -209,6 +209,152 @@
             animation: fadeIn 1s forwards;
             display: block !important;
         }
+
+        iframe {
+    max-width: 100%; /* Makes the video responsive */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    margin: 20px auto; /* Centers the video with margin */
+    display: flex; /* Helps with centering */
+}
+.reminders-video{
+  display:flex;
+}
+
+.reminders-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .section-heading {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    
+   
+    
+    /* Slider container */
+    .reminders-video {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    
+    .slider-container {
+      display: flex;
+      transition: transform 0.8s ease;
+      width: 100%;
+    }
+    
+    .slider-item {
+      min-width: calc(33.333% - 20px);
+      padding: 10px;
+    }
+    
+    /* Navigation dots */
+    .reminders-slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .reminder-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .reminder-dot.active {
+      background-color: #eea508;
+    }
+    
+    /* Make videos responsive */
+    iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .slider-item {
+        min-width: calc(50% - 20px);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .slider-item {
+        min-width: calc(100% - 20px);
+      }
+    }
+
+
+
+      .swift-panorama {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .swift-panorama__slider {
+            position: absolute;
+            width: 400%; /* 4 images * 100% */
+            height: 100%;
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        
+        .swift-panorama__slide {
+            width: 25%; /* 100% / 4 images */
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .swift-panorama__slide:nth-child(1) {
+            background-image: url('/Banner/Desktop/01\ .png');
+        }
+        
+        .swift-panorama__slide:nth-child(2) {
+            background-image: url('/Banner/Desktop/03.png');
+        }
+        
+        .swift-panorama__slide:nth-child(3) {
+            background-image: url('/Banner/Desktop/04.png');
+        }
+        
+        .swift-panorama__slide:nth-child(4) {
+            background-image: url('/Banner/Desktop/05.png');
+        }
+        
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .swift-panorama {
+                height: 60vh; /* Smaller height on mobile */
+            }
+            
+            .swift-panorama__slide {
+                background-position: top center; /* Better focus on mobile */
+            }
+        }
+        
+        /* For very small screens */
+        @media screen and (max-width: 480px) {
+            .swift-panorama {
+                height: 50vh; /* Even smaller height for very small screens */
+            }
+        }
+
    </style>
   </head>
   <body>
@@ -232,12 +378,14 @@
     <nav>
       <div id="navbar"></div>
    </nav>
-   <div class="hero">
-    <video id="background-video" autoplay muted loop playsinline>
-        <source src="/images/ZuhdAuVideoBanner.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
+   <div class="swift-panorama">
+        <div class="swift-panorama__slider">
+            <div class="swift-panorama__slide"></div>
+            <div class="swift-panorama__slide"></div>
+            <div class="swift-panorama__slide"></div>
+            <div class="swift-panorama__slide"></div>
+        </div>
+    </div>
 <div class="about">
       <div class="container">
         <div class="left-section">
@@ -313,78 +461,44 @@
         </div>
       </section>
 <!-- Our Workshop Section -->
-<!-- <section class="workshop-section">
-  <h2 class="section-heading">Our <span class="heading-highlight">Workshop</span></h2>
-  <div class="workshop-container">
-      <div class="workshop-slider" id="workshopSlider">
-          <div class="workshop-slide">
-              <div class="workshop-card">
-                  <div class="workshop-card-img">
-                      <img src="/images/pre-ramdan.svg" alt="Pre-Ramadan Workshop">
-                  </div>
-                  <div class="workshop-card-content">
-                      <div class="workshop-date">February 4, 2023</div>
-                      <h4 class="workshop-card-title">Pre-Ramadan Workshop</h4>
-                      <p>Ramadan transformation workshop on Practical Quran - Hadith, led by Ali Abdullah Al-Amine</p>
-                      <button class="workshop-read-more">Read More</button>
-                  </div>
-              </div>
-              <div class="workshop-card">
-                  <div class="workshop-card-img">
-                      <img src="/images/mulana.svg" alt="Maulana Sulaiman Khatani Australia Tour">
-                  </div>
-                  <div class="workshop-card-content">
-                      <div class="workshop-date">February 7, 2023</div>
-                      <h4 class="workshop-card-title">Maulana Sulaiman Khatani Australia Tour</h4>
-                      <p>Don't miss the inspiring visit of our prestigious Qadiriyah Muslim Scholar to Australia.</p>
-                      <button class="workshop-read-more">Read More</button>
-                  </div>
-              </div>
-          </div>
-          <div class="workshop-slide">
-              <div class="workshop-card">
-                  <div class="workshop-card-img">
-                      <img src="/images/pre-ramdan.svg" alt="Islamic Workshop">
-                  </div>
-                  <div class="workshop-card-content">
-                      <div class="workshop-date">March 12, 2023</div>
-                      <h4 class="workshop-card-title">Islamic Workshop Series</h4>
-                      <p>Join our specialized workshops on understanding Islamic principles and practices.</p>
-                      <button class="workshop-read-more">Read More</button>
-                  </div>
-              </div>
-              <div class="workshop-card">
-                  <div class="workshop-card-img">
-                      <img src="/images/mulana.svg" alt="Quran Study Circle">
-                  </div>
-                  <div class="workshop-card-content">
-                      <div class="workshop-date">March 20, 2023</div>
-                      <h4 class="workshop-card-title">Quran Study Circle</h4>
-                      <p>Weekly gathering to study and understand the meanings of Quranic verses.</p>
-                      <button class="workshop-read-more">Read More</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="workshop-slider-dots" id="workshopDots">
-      <div class="workshop-dot active" data-index="0"></div>
-      <div class="workshop-dot" data-index="1"></div>
-  </div>
-</section> -->
-
 <!-- Daily Reminders Section -->
-<section class="reminders-section">
-  <h2 class="section-heading">Daily <span class="heading-highlight">Reminders</span></h2>
-  <div class="reminders-container">
-    <div class="elfsight-app-c5d804e6-a7be-4ed8-b20e-9e46bdba793b" data-elfsight-app-lazy></div>
-  </div>
-  <div class="reminders-slider-dots" id="remindersDots">
+ <section class="reminders-section">
+    <h2 class="section-heading">Daily <span class="heading-highlight">Reminders</span></h2>
+    <section class="reminders-video">
+      <div class="slider-container" id="sliderContainer">
+        <!-- Video 1 -->
+        <div class="slider-item">
+          <iframe width="695" height="391" src="https://www.youtube.com/embed/eumgk3KSsYs" title="&quot;Ramadan’s Bonus Round: Are You Truly Ready? | Dr. Maulana Sami Al-Hashmi&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="slider-item">
+          <iframe width="695" height="391" src="https://www.youtube.com/embed/KIsBk76M8vA" title="📖 The Ultimate Goal of Knowledge: Understanding Allah SWT | Sheikh Yasir Al-Hanafi 🤍✨" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="slider-item">
+          <iframe width="695" height="391" src="https://www.youtube.com/embed/mG5A1IUK2Aw" title="🌿 &quot;Bir Ghars: The Well of the Prophet ﷺ – A Forgotten Treasure of Medina&quot; 🌿" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Video 4 -->
+        <div class="slider-item">
+          <iframe width="695" height="391" src="https://www.youtube.com/embed/XAuA9QtJFgQ" title="🔥 &quot;Abu Bakr (RA): Leadership, Loyalty &amp; The Lessons of Al-Hudaibiyyah&quot; 🔥" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Video 5 -->
+        <div class="slider-item">
+          <iframe width="695" height="391" src="https://www.youtube.com/embed/Al8TNDJTp4M" title="📖 &quot;When the Qur&#39;an Touches the Heart – A Life-Changing Reminder!&quot; ❤️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    
+    <div class="reminders-slider-dots" id="remindersDots">
       <div class="reminder-dot active" data-index="0"></div>
       <div class="reminder-dot" data-index="1"></div>
       <div class="reminder-dot" data-index="2"></div>
-  </div>
-</section>
+    </div>
+  </section>
 
     
         
@@ -905,6 +1019,120 @@ document.addEventListener('DOMContentLoaded', function() {
     }, index * staggerDelay);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+      // Get DOM elements
+      const sliderContainer = document.getElementById('sliderContainer');
+      const dots = document.querySelectorAll('.reminder-dot');
+      
+      // Set initial state
+      let currentIndex = 0;
+      const totalSlides = document.querySelectorAll('.slider-item').length;
+      const visibleSlides = 3;
+      const maxIndex = totalSlides - visibleSlides;
+      let autoSlideInterval;
+      
+      // Function to update the slider position
+      function updateSlider() {
+        // Calculate the percentage to shift by for a single item
+        const slideWidth = 100 / visibleSlides;
+        sliderContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        
+        // Update the active dot
+        // We need to map the item index to dot index (3 items per dot)
+        const activeDotIndex = Math.min(Math.floor(currentIndex / visibleSlides), dots.length - 1);
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeDotIndex);
+        });
+      }
+      
+      // Function to move to the next slide
+      function nextSlide() {
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+        } else {
+          // Reset to beginning when reaching the end
+          currentIndex = 0;
+        }
+        updateSlider();
+      }
+      
+      // Function to start auto sliding
+      function startAutoSlide() {
+        // Move slide every 4 seconds
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+      
+      // Function to stop auto sliding
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+      
+      // Add event listeners for dots
+      dots.forEach((dot) => {
+        dot.addEventListener('click', function() {
+          // Stop auto sliding temporarily when user interacts
+          stopAutoSlide();
+          
+          const dotIndex = parseInt(this.getAttribute('data-index'));
+          // Map dot index to item index
+          currentIndex = Math.min(dotIndex * visibleSlides, maxIndex);
+          updateSlider();
+          
+          // Resume auto sliding after a pause
+          setTimeout(startAutoSlide, 5000);
+        });
+      });
+      
+      // Pause auto-sliding when user hovers over the slider
+      sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+      sliderContainer.addEventListener('mouseleave', startAutoSlide);
+      
+      // Initial setup
+      updateSlider();
+      startAutoSlide();
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.swift-panorama__slider');
+            let currentSlide = 0;
+            const totalSlides = document.querySelectorAll('.swift-panorama__slide').length;
+            
+            function moveSlider() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slider.style.transform = `translateX(-${currentSlide * 25}%)`;
+            }
+            
+            // Move slider every 5 seconds
+            setInterval(moveSlider, 5000);
+            
+            // Add touch swipe capability for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            slider.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+            
+            slider.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX) {
+                    // Swipe left - go to next slide
+                    moveSlider();
+                }
+                if (touchEndX > touchStartX) {
+                    // Swipe right - go to previous slide
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    slider.style.transform = `translateX(-${currentSlide * 25}%)`;
+                }
+            }
+        });
     </script>
    <script src="https://static.elfsight.com/platform/platform.js" async></script>
    <script src="https://static.elfsight.com/platform/platform.js" async></script>
