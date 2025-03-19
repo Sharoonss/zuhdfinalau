@@ -707,6 +707,7 @@ border: none;
     margin: auto;
     background: linear-gradient(90deg, #dba634, #c0840d), url(/images/pattren.png);
     background-blend-mode: overlay;
+    background-size:cover;
     padding: 30px;
     border-radius: 8px;
     display: flex;
@@ -948,6 +949,7 @@ border: none;
     
     .footer-content {
         flex-direction: column;
+        gap:0px;
     }
     
     .footer-column {
@@ -971,7 +973,11 @@ border: none;
   /* Enhanced Mobile Responsiveness */
   @media (max-width: 768px) {
       .donation-banner {
+        width: 100%;
+        background: linear-gradient(90deg, #dba634, #c0840d), url(/images/pattren.png);
+        background-size: cover;
           padding: 25px 20px;
+          
       }
       
       h2 {
@@ -1084,7 +1090,8 @@ border: none;
 }
 
 .right-section h2 {
-  font-size: 18px;
+  font-size: 25px;
+  padding-top: 20px;
 }
 
 .right-section h2::before {
@@ -1122,12 +1129,10 @@ border: none;
   text-align: center;
 }
 
-.right-section h2 {
-  font-size: 16px;
-}
 
 .class-time, .coming-soon {
   font-size: 13px;
+  margin:0px;
 }
 }
 
