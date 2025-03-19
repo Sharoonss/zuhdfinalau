@@ -323,14 +323,13 @@ main{
 
 /* our partners */
 .partner-section {
-    height: 280px;
+    height: 300px;
     flex-direction: column;
-    padding-top: 30px;
-    padding-bottom: 30px;
+   
     text-align: center;
     gap: 0px;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 50px;
     border-radius: 20px;
     overflow: hidden;
     width: 85%;
@@ -341,11 +340,12 @@ font-size: 45px;
 font-weight: 300;
 font-family: Arial, sans-serif;
 white-space: nowrap;
+padding: 40px 0px;
 }
 .title1 span{
     font-size: 45px;
 font-weight: 600;
-color:#C3922E;
+color:#ca9836;
 }
 
 .carousel-container {
@@ -369,6 +369,7 @@ object-fit: cover;
     background-color: #f5f5f5;
 background-image: url(/images/bg.svg);
 background-repeat: no-repeat;
+background-size: cover;
 }
 .container {
 width:85%;
@@ -392,7 +393,7 @@ color: #0a0a0a;
 
 .academy-name {
 font-size: 66px;
-color: #C17F17;
+color: #C3922E;
 margin-bottom: 24px;
 }
 
@@ -695,8 +696,8 @@ border: none;
   }
    */
    .banner-container{
-    margin-top:15%;
-    margin-bottom:15%;
+    margin-top:10%;
+    margin-bottom:10%;
    }
    .donation-banner {
     display: flex
@@ -853,11 +854,11 @@ border: none;
 }
 
 .footer-links a:hover {
-    color: #c99c31;
+    color: #ca9836;
 }
 
 .hiring-tag {
-    background-color: #c99c31;
+    background-color: #ca9836;
     color: #000;
     font-size: 11px;
     padding: 2px 6px;
@@ -881,7 +882,7 @@ border: none;
 }
 
 .contact-info a:hover {
-    color: #c99c31;
+    color: #ca9836;
 }
 
 .preferences h3 {
@@ -933,6 +934,18 @@ border: none;
 }
 
 @media (max-width: 768px) {
+    .title1{
+        font-size:30px;
+        padding:30px 0px;
+    }
+    .title1 span{
+        font-size:30px;
+        padding:10px 0px;
+    }
+    .heading-highlight{
+        font-size: 30px;
+    }
+    
     .footer-content {
         flex-direction: column;
     }
@@ -1250,7 +1263,7 @@ animation-play-state: paused;
 }
 
 .heading-highlight {
-    color: #CBA135;
+    color: #ca9836;
     font-size:45px;
     font-weight: 600;
     font-family: Arial, sans-serif;
@@ -1338,7 +1351,7 @@ animation-play-state: paused;
 
 .workshop-read-more {
     display: inline-block;
-    background-color: #CBA135;
+    background-color: #ca9836;
     color: white;
     padding: 12px 22px;
     border-radius: 25px;
@@ -1351,7 +1364,7 @@ animation-play-state: paused;
 }
 
 .workshop-read-more:hover {
-    background-color: #b08b29;
+    background-color: #ca9836;
 }
 
 .workshop-slider-dots {
@@ -1416,7 +1429,7 @@ animation-play-state: paused;
 }
 
 .follow-btn {
-    background-color: #1da1f2;
+    background-color: #ca9836;
     color: white;
     border: none;
     border-radius: 4px;
@@ -1657,7 +1670,7 @@ animation-play-state: paused;
 }
 
 .reminder-dot.active {
-    background-color: #CBA135;
+    background-color: #ca9836;
 }
 
 @media (max-width: 768px) {
