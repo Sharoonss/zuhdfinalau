@@ -339,87 +339,66 @@
         .swift-panorama__slide:nth-child(4) {
             background-image: url('/Banner/Desktop/05.png');
         }
-        
-        /* Mobile Responsive Styles */
-        @media screen and (max-width: 768px) {
+        /* Default styles for larger screens */
+.swift-panorama__slide {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 
-          .swift-panorama__slide:nth-child(1) {
-            background-image: url('/Banner/Mobile/02.png');
-            background-size: cover;
-        }
-        
-        .swift-panorama__slide:nth-child(2) {
-            background-image: url('/Banner/Mobile/05.png');
-            background-size: cover;
+/* Medium Mobile Screens (Tablets & Large Phones) */
+@media screen and (max-width: 768px) {
+  .swift-panorama__slide:nth-child(1) {
+        background-image: url('/Banner/Mobile/bannerzhd.jpg');
+    }
 
-        }
-        
-        .swift-panorama__slide:nth-child(3) {
-            background-image: url('/Banner/Mobile/06\ \(1\).png');
-            background-size: cover;
+    .swift-panorama__slide:nth-child(2) {
+        background-image: url('/Banner/Mobile/zuhd2.jpg');
+    }
 
-        }
-        
-        .swift-panorama__slide:nth-child(4) {
-            background-image: url('/Banner/Mobile/08.png');
-            background-size: cover;
+    .swift-panorama__slide:nth-child(3) {
+        background-image: url('/Banner/Mobile/zuhd3.jpg'); /* Rename file to remove spaces */
+    }
 
-        }
-        
-            .swift-panorama {
-                height: 100vh; /* Smaller height on mobile */
-            }
-            
-            .swift-panorama__slide {
-                background-position: top center; /* Better focus on mobile */
-            }
-            .section-heading{
-              font-size:30px;
-            }
-            .heading-highlight{
-              font-size:30px;
-            }
-            .reminders-section{
-          padding:0px;
-          margin:0px;
-        } 
-        .slider-item{
-          min-width: calc(90.333% - 20px);
+    .swift-panorama__slide:nth-child(4) {
+        background-image: url('/Banner/Mobile/zuhd4.jpg');
+    }
 
-        }
-        }
-       
-        
-        /* For very small screens */
-        @media screen and (max-width: 480px) {
-          .swift-panorama__slide:nth-child(1) {
-            background-image: url('/Banner/Mobile/02.png');
-            background-size: cover;
-        }
-        
-        .swift-panorama__slide:nth-child(2) {
-            background-image: url('/Banner/Mobile/05.png');
-            background-size: cover;
+    .swift-panorama__slide:nth-child(5) {
+        background-image: url('/Banner/Mobile/zuhd5.jpg');
+    }
+    .swift-panorama__slide:nth-child(6) {
+        background-image: url('/Banner/Mobile/zuhd6.jpg');
+    }
+   
 
-        }
-        
-        .swift-panorama__slide:nth-child(3) {
-            background-image: url('/Banner/Mobile/06\ \(1\).png');
-            background-size: cover;
+    .swift-panorama {
+        height: 90vh; /* Reduce height slightly for better fit */
+    }
+}
 
-        }
-        
-        .swift-panorama__slide:nth-child(4) {
-            background-image: url('/Banner/Mobile/08.png');
-            background-size: cover;
+/* Small Mobile Screens (iPhones, Smaller Androids) */
+@media screen and (max-width: 576px) {
+    .swift-panorama {
+        height: 80vh;
+    }
 
-        }
-        
-            .swift-panorama {
-                height: 100vh; /* Smaller height on mobile */
-            }/* Even smaller height for very small screens */
-            }
-        
+    .swift-panorama__slide {
+        background-size: 100% auto;
+    }
+}
+
+/* Very Small Screens (Compact Phones) */
+@media screen and (max-width: 480px) {
+    .swift-panorama {
+        height: 75vh; /* Adjust height further */
+    }
+
+    .swift-panorama__slide {
+        background-size: 100% 100%; /* Ensures full fit */
+    }
+}
+
    </style>
   </head>
   <body>
