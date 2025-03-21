@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="Maktab/index.html">
     <link rel="stylesheet" href="scolar/scholars.html">
     <style>
-        :root {
+       @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+       :root {
             --primary-color: #C69C3F;
             --background-dark: #1a1a1a;
             --text-light: #ffffff;
@@ -28,10 +29,12 @@
             border-bottom: 1px solid var(--primary-color);
             position: relative;
             z-index: 1000;
+            font-family: "Open Sans", serif;
+
         }
 
         .logo {
-            height: 55px;
+            height:60px;
         }
 
         .nav-menu {
@@ -195,7 +198,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <img src="/zuhd acdmic/images/logo.png" alt="ZUHD Logo" class="logo">
+        <a href="/index.html"><img src="/assets/logo.png" alt="ZUHD Logo" class="logo"></a>
         
         <div class="nav-menu">
             <div class="nav-links">
@@ -207,7 +210,7 @@
                 <a href="/about/about.html">About Us</a>
                 <a href="/scolar/scholars.html">Our Scholars</a>
             </div>
-            <a href="#store" class="store-btn">Zuhd Store</a>
+            <a href="https://zuhd.store/" class="store-btn" target="_blank">Zuhd Store</a>
         </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
@@ -217,7 +220,7 @@
     <div class="overlay"></div>
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2>Navigation</h2>
+            <h2 style="color: #C69C3F;">Zuhd</h2>
             <button class="sidebar-close" aria-label="Close Navigation">
                 <i class="fas fa-times"></i>
             </button>
@@ -233,12 +236,12 @@
         <div class="voice-status" id="voice-status"></div>
 
         <ul class="sidebar-nav-links">
-            <li><a href="/home.html">Home</a></li>
+            <li><a href="/index.html">Home</a></li>
             <li><a href="/zuhd acdmic/academy.html">Academy</a></li>
             <li><a href="/workshop/workshops.html">Workshops</a></li>
-            <li><a href="/Maktab/index.html">After School Classes</a></li>
+            <li><a href="/Maktab/schooling.html">After School Classes</a></li>
             <li><a href="/mosque/mosque-landing-page.html">Masjid</a></li>
-            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/about/about.html">About Us</a></li>
             <li><a href="/scolar/scholars.html">Our Scholars</a></li>
             <li><a href="https://zuhd.store/">Zuhd Store</a></li>
         </ul>
