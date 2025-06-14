@@ -14,7 +14,6 @@
     --text-light: #080808;
 }
 
-
 /* Custom Pattern Logo Animation - Continuous Movement */
 .logo-container {
     perspective: 1000px;
@@ -41,12 +40,6 @@
 
 /* Animation with the pattern: 90° → 0° → 0° → -90° → 90° → 0° → 0° → -90° */
 @keyframes customLogoPattern {
-    /* 0% {
-        transform: rotateY(0deg);
-    } */
-    /* 12.5% {
-        transform: rotateY(90deg);
-    } */
     25% {
         transform: rotateY(0deg);
     }
@@ -65,24 +58,8 @@
     87.5% {
         transform: rotateY(0deg);
     }
-    
 }
 
-/* Keep the rest of your logo container CSS unchanged */
-.logo-container {
-    perspective: 1000px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.rotating-image {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: visible;
-    transform: translateZ(2px);
-}
 /* Rest of your CSS remains the same */
 .navbar {
     display: flex;
@@ -144,6 +121,7 @@
     border-radius: 20px;
     text-decoration: none;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .store-btn:hover {
@@ -173,6 +151,8 @@
     padding: 2rem;
     overflow-y: auto;
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar.active {
@@ -198,6 +178,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    flex: 1;
 }
 
 .sidebar-nav-links li {
@@ -271,6 +252,25 @@
     height: 20px;
 }
 
+/* Sidebar Store Button */
+.sidebar-store-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.sidebar-store-btn:hover {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -289,10 +289,9 @@
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
-    .nav-links,
-    .store-btn {
-        display:none;
-    } 
+    .nav-links {
+        display: none;
+    }
 
     .mobile-menu-toggle {
         display: block;
@@ -303,22 +302,45 @@
     }
     
     .logo-3d-container {
-        width: 85px; /* Smaller on mobile */
+        width: 70px;
+        height: 60px;
+    }
+
+    /* Keep store button visible on mobile in navbar */
+    .store-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 1rem 3%;
+    }
+    
+    .store-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.7rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     .logo-3d-container {
-    transform-style: preserve-3d;
-    width:80px;
-    height: 70px;
-    position: relative;
-    animation: customLogoPattern 8s infinite linear;
-}
-   
+        width: 60px;
+        height: 50px;
+    }
     
     .sidebar {
-        width: 80%; /* Make sidebar more responsive */
+        width: 85%;
+    }
+
+    .store-btn {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .navbar {
+        padding: 0.8rem 2%;
     }
 }
     </style>
@@ -334,25 +356,23 @@
         <div class="nav-menu">
             <div class="nav-links">
                 <a href="/index.html">Home</a>
-               <a href="/story.html">About Us</a>
-                <!-- <a href="/zuhd.html">Academy</a>
-                <a href="/workshop-sections.html">Workshops</a> -->
+                <a href="/story.html">About Us</a>
                 <a href="/maktab.html">After School Classes</a>
-                                <a href="/event.html">Islamic Events</a>
-         <a href="/consultation.html">Islamic Counselling</a>
-                  <a href="/mosque.html">Masjid</a>
+                <a href="/event.html">Islamic Events</a>
+                <a href="/consultation.html">Islamic Counselling</a>
+                <a href="/mosque.html">Masjid</a>
                 <a href="/scolar.html">Our Scholars</a>
                 <a href="/series.html">Series</a>
                 <a href="/Q&A.html">Q/A</a>
-
             </div>
-            <a href="https://zuhd.store/" class="store-btn" target="_blank">Zuhd Store</a>
-
         </div>
 
-        <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="https://zuhd.store/" class="store-btn" target="_blank">Zuhd Store</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
         
         <!-- Mobile Sidebar -->
         <div class="overlay"></div>
@@ -379,19 +399,19 @@
 
             <ul class="sidebar-nav-links">
                 <li><a href="/index.html">Home</a></li>
-                <!-- <li><a href="/zuhd.html">Academy</a></li>
-                <li><a href="/workshop-sections.html">Workshops</a></li> -->
+                <li><a href="/story.html">About Us</a></li>
                 <li><a href="/maktab.html">After School Classes</a></li>
-                 <li><a href="/story.html">About Us</a></li>
-                  <li><a href="/event.html">Islamic Events</a></li>
+                <li><a href="/event.html">Islamic Events</a></li>
+                <li><a href="/consultation.html">Islamic Counselling</a></li>
                 <li><a href="/mosque.html">Masjid</a></li>
-                 <li><a href="/consultation.html">Islamic Counselling</a></li>
                 <li><a href="/scolar.html">Our Scholars</a></li>
-                <li> <a href="/series.html">Series</a></li>
-                <a href="/Q&A.html">Q/A</a>
-                <li> <a href="https://zuhd.store/" class="store-btn" target="_blank"> <i class="fa-solid fa-cart-shopping"></i>
-                    Zuhd Store</a></li>
+                <li><a href="/series.html">Series</a></li>
+                <li><a href="/Q&A.html">Q/A</a></li>
             </ul>
+
+            <a href="https://zuhd.store/" class="sidebar-store-btn" target="_blank">
+                <i class="fas fa-store"></i> Visit Zuhd Store
+            </a>
         </div>
     </nav>
 
@@ -417,6 +437,12 @@
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
+
+            // Close sidebar when clicking on a link (optional)
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav-links a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
         });
     </script>
 </body>
