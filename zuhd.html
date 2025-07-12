@@ -14,14 +14,31 @@
             font-family: Arial, sans-serif;
         }
         
+        /* Ensure touch scrolling works on all devices */
+        body, html {
+            touch-action: manipulation;
+            -ms-touch-action: manipulation;
+        }
+        
         body {
             background-color: #f9f9f9;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        html {
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         
         .page-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            min-height: 100vh;
+            position: relative;
         }
         
         /* Reminders Section */
@@ -450,6 +467,31 @@
             color: #999;
         }
         
+        /* Mobile Scroll Fix */
+        @media (max-width: 768px) {
+            body {
+                position: relative;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            html {
+                overflow-x: hidden;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .page-container {
+                overflow-x: hidden;
+                overflow-y: visible;
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+        
         /* Mobile Responsive Styles */
         @media (max-width: 1024px) {
             .reminders-carousel-item {
@@ -514,7 +556,7 @@
             
             .seerah-heading, .seerah-heading1 {
                 font-size: 36px;
-                line-height: 10px;
+                line-height: 40px;
                 width: auto;
             }
             
@@ -588,7 +630,7 @@
             
             .seerah-heading, .seerah-heading1 {
                 font-size: 28px;
-                line-height: 10px;
+                line-height: 32px;
                 width: 100%;
             }
             
@@ -896,6 +938,16 @@
     </div>
     <!-- JavaScript -->
     <script>
+        // Ensure scrolling works on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix mobile scrolling issues
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                document.body.style.webkitOverflowScrolling = 'touch';
+                document.body.style.overflowY = 'scroll';
+                document.documentElement.style.overflowY = 'scroll';
+            }
+        });
+        
         // Carousel functionality
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.getElementById('reminders-carousel');
