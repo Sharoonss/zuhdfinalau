@@ -889,6 +889,7 @@ class IslamicHeroCarousel {
 
     addTouchNavigation() {
         let startX, startY, dist, threshold = 150;
+        let isHorizontalSwipe = false;
 
         if (!this.carousel) return;
 
@@ -896,21 +897,32 @@ class IslamicHeroCarousel {
             const touch = e.touches[0];
             startX = touch.clientX;
             startY = touch.clientY;
+            isHorizontalSwipe = false;
         });
 
         this.carousel.addEventListener('touchmove', (e) => {
-            e.preventDefault(); // Prevent scrolling
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - startX);
+            const deltaY = Math.abs(touch.clientY - startY);
+            
+            // Only prevent scrolling if it's a horizontal swipe
+            if (deltaX > deltaY && deltaX > 10) {
+                isHorizontalSwipe = true;
+                e.preventDefault();
+            }
         });
 
         this.carousel.addEventListener('touchend', (e) => {
-            const touch = e.changedTouches[0];
-            dist = touch.clientX - startX;
+            if (isHorizontalSwipe) {
+                const touch = e.changedTouches[0];
+                dist = touch.clientX - startX;
 
-            if (Math.abs(dist) > threshold) {
-                if (dist > 0) {
-                    this.previousSlide();
-                } else {
-                    this.nextSlide();
+                if (Math.abs(dist) > threshold) {
+                    if (dist > 0) {
+                        this.previousSlide();
+                    } else {
+                        this.nextSlide();
+                    }
                 }
             }
         });
