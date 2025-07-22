@@ -347,12 +347,13 @@ body {
         .item {
             display: flex;
             align-items: center;
-            padding: 5px 30px;
+            padding: 20px 30px;
             margin-right: 40px;
             font-weight: bold;
             color:var(--deep-green);
             font-size: 22px;
             white-space: nowrap;
+            letter-spacing:2px;
             font-family: "Serotiva-Regular";
         }
 
@@ -372,7 +373,17 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(0.6rem, 2vw, 1rem);
   }
-  
+   .item {
+            display: flex;
+            align-items: center;
+            padding: 5px 30px;
+            margin-right: 40px;
+            font-weight: bold;
+            color:var(--deep-green);
+            font-size:19px;
+            white-space: nowrap;
+            font-family: "Serotiva-Regular";
+        }
   .stat-card {
     padding: clamp(0.8rem, 2.5vw, 1.2rem);
   }
@@ -592,7 +603,6 @@ body {
 /* Instagram Posts Section */
 .instagram-main {
  background-color:var(--deep-green);
-  /* padding: 20px 0px; */
   width:100%;
   margin:auto;
   padding-bottom: 60px;
@@ -1119,12 +1129,13 @@ color:#0a2a1f;
   gap: clamp(15px, 4vw, 20px);
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: clamp(65px, 4vw, 20px);
+  /* padding: clamp(65px, 4vw, 20px); */
   scrollbar-width: none;
   -ms-overflow-style: none;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: nowrap;
+  padding-bottom:65px;
 }
 
 .story-slider::-webkit-scrollbar {
@@ -2440,11 +2451,11 @@ color:#0a2a1f;
     .newsletter {
         grid-column: 1 / -1;
         margin-top: 1rem;
-    }
+    
     
     .banner {
         padding: 20px 20px;
-        height: 250px;
+        height: 150px;
         margin: 1.5rem auto;
     }
     
@@ -2699,7 +2710,7 @@ color:#0a2a1f;
    .banner {
     width: 100%;
     max-width:5500px;
-    height: 300px;
+    height: 150px;
     background-image: 
         linear-gradient(135deg, #0f3d2e7c 0%, #1a5a4305 50%, #0F3D2E 100%),
         url('/600x200.png'); /* Replace with your actual image URL */
