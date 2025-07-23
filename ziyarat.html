@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziyarat - Sacred Journey</title>
+    <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/lecture.html">
+
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+ .ziyarat-html5-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+</style>
+</head>
+<body>
+    <nav>
+      <div id="navbar"></div>
+   </nav>
+   <!-- Header Section -->
+        <header class="ziyarat-header">
+            <h1 class="ziyarat-title">Ziyarat</h1>
+            <nav class="ziyarat-nav">
+                <button class="ziyarat-nav-btn ziyarat-active" data-category="all">All</button>
+                <button class="ziyarat-nav-btn" data-category="makkah">Makkah</button>
+                <button class="ziyarat-nav-btn" data-category="medina">Medina</button>
+            </nav>
+        </header>
+
+    <div class="ziyarat-container">
+     
+        <!-- Main Content -->
+        <main class="ziyarat-main">
+            <!-- Featured Section -->
+          <div class="ziyarat-featured-content">
+            <div class="ziyarat-video-section">
+                <div class="ziyarat-video-container">
+    <section class="ziyarat-video-section">
+        <video id="ziyarat-video" class="ziyarat-html5-video" controls>
+            <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Video Overlay with Play Button -->
+    <div class="ziyarat-video-overlay" id="video-overlay" onclick="playVideo()">
+        <div class="ziyarat-play-btn"></div>
+        <div class="ziyarat-video-title">
+            🔥 Walking the Path of the Prophet (ﷺ): Madina's Sacred Sites
+        </div>
+    </div>
+</div>
+
+                
+                <div class="ziyarat-featured-info">
+                    <h2 class="ziyarat-featured-title">Sacred Journey</h2>
+                    
+                    <!-- Video Information Box -->
+                    <div class="ziyarat-video-info">
+                        <h4>Featured: Zuhd Guidance</h4>
+                        <p>Experience an authentic spiritual journey through Medina's most sacred sites, following the blessed footsteps of Prophet Muhammad (ﷺ).</p>
+                    </div>
+                    
+                    <p class="ziyarat-featured-description">
+                        Discover the spiritual heart of Islam through an immersive journey to the holy cities of Makkah and Medina. 
+                        Experience the profound atmosphere of devotion and witness the beauty of Islamic architecture 
+                        and traditions that have been preserved for over fourteen centuries.
+                    </p>
+                    
+                    <!-- Statistics Section -->
+                    <div class="ziyarat-stats">
+                        <div class="ziyarat-stat">
+                            <span class="ziyarat-stat-number">2M+</span>
+                            <div class="ziyarat-stat-label">Annual Pilgrims</div>
+                        </div>
+                        <div class="ziyarat-stat">
+                            <span class="ziyarat-stat-number">1400+</span>
+                            <div class="ziyarat-stat-label">Years of History</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ziyarat-map-section">
+                <div class="ziyarat-map-header">
+                    <h3 class="ziyarat-map-title">Sacred Locations</h3>
+                    <p class="ziyarat-map-subtitle">Explore the holy sites of Saudi Arabia</p>
+                </div>
+
+                <!-- Map Controls -->
+                <div class="ziyarat-map-controls">
+                    <button class="ziyarat-location-btn active" onclick="showLocation('makkah')">Makkah</button>
+                    <button class="ziyarat-location-btn" onclick="showLocation('medina')">Medina</button>
+                    <button class="ziyarat-location-btn" onclick="showLocation('overview')">Overview</button>
+                </div>
+
+                <!-- Google Maps Iframe Container -->
+                <div class="ziyarat-map-container">
+                    <iframe 
+                        class="ziyarat-google-map" 
+                        id="google-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.674920267067!2d39.82663!3d21.42251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c204b74c5d1b91%3A0x3e5d8b8a5c5e5b5e!2sMasjid%20al-Haram!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Sacred Locations Map">
+                    </iframe>
+                </div>
+
+                <!-- Location Information -->
+                <div class="ziyarat-location-info" id="location-info">
+                    <h4>Masjid al-Haram, Makkah</h4>
+                    <p>The holiest mosque in Islam, surrounding the Kaaba. This is the direction of prayer for Muslims worldwide and the destination of the Hajj pilgrimage.</p>
+                </div>
+            </div>
+        </div>
+    
+   <!-- Map & Marker Section -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</div>
+
+            <!-- Side Content -->
+            <aside class="ziyarat-sidebar">
+                <article class="ziyarat-card" data-category="medina">
+                    <div class="ziyarat-card-image-container">
+                        <img src="images/madina1.png" alt="Prophet's Mosque" class="ziyarat-card-image">
+                        <div class="ziyarat-card-overlay">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                    </div>
+                    <div class="ziyarat-card-content">
+                        <h3 class="ziyarat-card-title">Visiting the Prophet's (pbuh) Mosque</h3>
+                        <p class="ziyarat-card-description">
+                            A visit to Masjid an-Nabawi in Medina, reflecting on its historical significance.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="ziyarat-card" data-category="makkah">
+                    <div class="ziyarat-card-image-container">
+                        <img src="/images/umrahimg.png" alt="Performing Umrah" class="ziyarat-card-image">
+                        <div class="ziyarat-card-overlay">
+                            <i class="fas fa-kaaba"></i>
+                        </div>
+                    </div>
+                    <div class="ziyarat-card-content">
+                        <h3 class="ziyarat-card-title">Performing Umrah</h3>
+                        <p class="ziyarat-card-description">
+                            A step-by-step guide to performing the blessed pilgrimage in Makkah.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="ziyarat-card" data-category="medina">
+                    <div class="ziyarat-card-image-container">
+                        <img src="/images/madinabeauty.png" alt="Beauty of Medina" class="ziyarat-card-image">
+                        <div class="ziyarat-card-overlay">
+                            <i class="fas fa-city"></i>
+                        </div>
+                    </div>
+                    <div class="ziyarat-card-content">
+                        <h3 class="ziyarat-card-title">The Beauty of Medina</h3>
+                        <p class="ziyarat-card-description">
+                            Exploring the serene and beautiful city of Medina, rich in history and culture.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="ziyarat-card" data-category="medina">
+                    <div class="ziyarat-card-image-container">
+                        <img src="/images/madinavisit.png" alt="Medina Streets" class="ziyarat-card-image">
+                        <div class="ziyarat-card-overlay">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                    </div>
+                    <div class="ziyarat-card-content">
+                        <h3 class="ziyarat-card-title">Exploring the serene and beautiful city of Medina</h3>
+                        <p class="ziyarat-card-description">
+                            Discover the peaceful streets and spiritual atmosphere of the Prophet's city.
+                        </p>
+                    </div>
+                </article>
+            </aside>
+        </main>
+
+        <!-- Video Modal -->
+        <div class="ziyarat-video-modal" id="videoModal">
+            <div class="ziyarat-modal-content">
+                <button class="ziyarat-close-btn" onclick="closeVideo()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="ziyarat-video-wrapper">
+                    <video class="ziyarat-video" controls>
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="main-banner">
+<div class="banner">
+        <div class="decorative-elements">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+        </div>
+        
+        <div class="banner-content">
+            <h2 class="channel-name">1 Million Subscribers</h2>
+            <p class="update-text">New Updates Coming</p>
+            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
+        </div>
+    </div>
+    </div>
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main">
+                        <img src="/logo-03.png" alt="ZUHD Logo">
+                    </div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>About Academy</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column newsletter">
+                    <h3>Sign Up and Save</h3>
+                    <p>Get exclusive offers and the latest updates.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1" class="social-link" onclick="socialClick('TikTok')" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.linkdin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+      <script>
+        // Location data with Google Maps embed URLs
+        const locationData = {
+            makkah: {
+                title: "Masjid al-Haram, Makkah",
+                description: "The holiest mosque in Islam, surrounding the Kaaba. This is the direction of prayer for Muslims worldwide and the destination of the Hajj pilgrimage.",
+                embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.674920267067!2d39.82663!3d21.42251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c204b74c5d1b91%3A0x3e5d8b8a5c5e5b5e!2sMasjid%20al-Haram!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
+            },
+            medina: {
+                title: "Masjid an-Nabawi, Medina",
+                description: "The Prophet's Mosque in Medina, the second holiest mosque in Islam. This is where Prophet Muhammad (PBUH) is buried and where he established the first Muslim community.",
+                embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3627.8544766967845!2d39.61191!3d24.46791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bd7b8c7b8c7b8c%3A0x7b8c7b8c7b8c7b8c!2sProphet's%20Mosque!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
+            },
+            overview: {
+                title: "Saudi Arabia - Sacred Land",
+                description: "Overview of Saudi Arabia showing both holy cities of Makkah and Medina, the two most sacred places in Islam visited by millions of pilgrims annually.",
+                embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1897799.1234567890!2d42.0!3d23.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e7b33fe7c5d1b91%3A0x3e5d8b8a5c5e5b5e!2sSaudi%20Arabia!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
+            }
+        };
+
+        // YouTube video URLs (you can replace with actual Makkah videos)
+        const videoUrls = {
+            main: "dQw4w9WgXcQ", // Replace with actual Makkah video ID
+            makkah: "dQw4w9WgXcQ", // Replace with Makkah-specific video
+            medina: "dQw4w9WgXcQ"  // Replace with Medina-specific video
+        };
+
+        // Function to play video
+        function playVideo() {
+            const overlay = document.getElementById('video-overlay');
+            const iframe = document.getElementById('youtube-iframe');
+            
+            // Hide overlay
+            overlay.classList.add('hidden');
+            
+            // Auto-play the video by changing the src with autoplay parameter
+            const currentSrc = iframe.src;
+            if (!currentSrc.includes('autoplay=1')) {
+                iframe.src = currentSrc.replace('autoplay=0', 'autoplay=1').replace('?', '?autoplay=1&');
+            }
+        }
+
+        // Function to show different locations on map
+        function showLocation(location) {
+            const mapIframe = document.getElementById('google-map');
+            const locationInfo = document.getElementById('location-info');
+            const data = locationData[location];
+            
+            if (data) {
+                // Update map
+                mapIframe.src = data.embedUrl;
+                
+                // Update location info
+                locationInfo.innerHTML = `
+                    <h4>${data.title}</h4>
+                    <p>${data.description}</p>
+                `;
+                
+                // Add loading state
+                mapIframe.style.opacity = '0.5';
+                setTimeout(() => {
+                    mapIframe.style.opacity = '1';
+                }, 500);
+            }
+        }
+
+        // Function to change video based on location
+        function changeVideo(location) {
+            const iframe = document.getElementById('youtube-iframe');
+            const overlay = document.getElementById('video-overlay');
+            const videoId = videoUrls[location] || videoUrls.main;
+            
+            // Show overlay again
+            overlay.classList.remove('hidden');
+            
+            // Change video
+            iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&controls=1&rel=0&modestbranding=1`;
+        }
+
+        // Enhanced location buttons with video integration
+        function showLocationWithVideo(location) {
+            showLocation(location);
+            changeVideo(location);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth transitions
+            const mapIframe = document.getElementById('google-map');
+            mapIframe.style.transition = 'opacity 0.5s ease';
+            
+            // Add click handlers to location buttons for enhanced functionality
+            const locationButtons = document.querySelectorAll('.ziyarat-location-btn');
+            locationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    locationButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                });
+            });
+            
+            // Set initial active button
+            locationButtons[0].classList.add('active');
+        });
+
+        // Handle iframe load events
+        document.getElementById('google-map').addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+
+        // Add CSS for active button state
+        const style = document.createElement('style');
+        style.textContent = `
+            .ziyarat-location-btn.active {
+                background: var(--accent-green) !important;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+        `;
+    </script>
+             <script src="navbar.js"></script>
+
+</body>
+</html>

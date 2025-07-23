@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Zuhd</title>
+     <!-- Styles -->
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+
+         .zuhd-timeline-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            /* padding:60px 0px; */
+        }
+
+        .zuhd-section-title2 {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--gold);
+           margin:40px 0px;
+            /* text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); */
+        }
+
+        .zuhd-timeline-container {
+            position: relative;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .zuhd-timeline-line {
+            position: absolute;
+            top: 25px;
+            left: 9.5%;
+            right:9.5%;
+            height: 4px;
+            background: linear-gradient(to right, white, var(--gold), var(--gold), var(--gold));
+            transform-origin: left;
+            animation: zuhdLineGrow 2s ease-in-out forwards;
+            animation-delay: 1s;
+            transform: scaleX(0);
+            z-index: 1;
+            border-radius: 2px;
+            /* box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); */
+        }
+
+        .zuhd-timeline-item {
+            position: relative;
+            width: 22%;
+            text-align: center;
+            opacity: 0;
+            z-index: 2;
+            animation: zuhdFadeInUp 0.6s ease-out forwards;
+        }
+
+        .zuhd-timeline-item:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+
+        .zuhd-timeline-item:nth-child(3) {
+            animation-delay: 1.8s;
+        }
+
+        .zuhd-timeline-item:nth-child(4) {
+            animation-delay: 2.1s;
+        }
+
+        .zuhd-timeline-item:nth-child(5) {
+            animation-delay: 2.4s;
+        }
+
+        .zuhd-timeline-item:nth-child(6) {
+            animation-delay: 2.7s;
+        }
+
+        .zuhd-timeline-dot {
+            width: 18px;
+            height: 18px;
+            background-color: var(--gold);
+            border: 3px solid var(--deep-green);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            position: relative;
+            transform: scale(0);
+            transition: all 0.3s ease;
+            animation: zuhdScaleIn 0.4s ease-out forwards;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .zuhd-timeline-item:nth-child(2) .zuhd-timeline-dot {
+            animation-delay: 1.8s;
+        }
+
+        .zuhd-timeline-item:nth-child(3) .zuhd-timeline-dot {
+            animation-delay: 2.1s;
+        }
+
+        .zuhd-timeline-item:nth-child(4) .zuhd-timeline-dot {
+            animation-delay: 2.4s;
+        }
+
+        .zuhd-timeline-item:nth-child(5) .zuhd-timeline-dot {
+            animation-delay: 2.7s;
+        }
+
+        .zuhd-timeline-item:nth-child(6) .zuhd-timeline-dot {
+            animation-delay: 3s;
+        }
+
+        .zuhd-timeline-dot:hover {
+            background-color: var(--deep-green);
+            border-color: var(--gold);
+            transform: scale(1.3);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+
+        .zuhd-timeline-dot.zuhd-pulse {
+            animation: zuhdPulse 2s ease-in-out infinite;
+            animation-delay: 4s;
+        }
+
+        .zuhd-timeline-content {
+            padding: 0 5px;
+        }
+
+        .zuhd-timeline-year {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .zuhd-timeline-description {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #e0e0e0;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Animations */
+        @keyframes zuhdLineGrow {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes zuhdFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zuhdScaleIn {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes zuhdPulse {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .zuhd-section-title2{
+                font-size: 2rem;
+            }
+            .zuhd-timeline-section{
+                padding: 0px;
+            }
+            .zuhd-timeline-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .zuhd-timeline-line {
+                display: none;
+            }
+
+            .zuhd-timeline-item {
+                /* max-width: 300px; */
+            }
+
+            .zuhd-timeline-dot {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <nav>
+      <div id="navbar"></div>
+   </nav>
+    <!-- Header Section -->
+        <header class="zuhd-header-section">
+            <h1 class="zuhd-main-title">About Us</h1>
+        </header>
+    <div class="zuhd-about-container">     
+<div class="about-main-section">
+        <!-- Vision & History Section -->
+        <section class="zuhd-vision-section">
+            <h2 class="zuhd-section-title">Vision & History</h2>
+            <p class="zuhd-vision-text">
+              At Zuhd Academy, we offer a wide range of courses, including Quranic studies, Hadith studies, Islamic history, Islamic jurisprudence, and much more. Our courses are taught by experienced and knowledgeable instructors who have dedicated their lives to the study and practice of Islam.
+            </p>
+        </section>
+
+        <!-- Founders Section -->
+        <section class="zuhd-founders-section">
+            <h2 class="zuhd-section-title3">Founders</h2>
+            <div class="zuhd-founder-card">
+                <div class="zuhd-founder-image-container">
+                    <img src="/images/mufti4.png" alt="Dr. Sami Al-Hashmi" class="zuhd-founder-image">
+                </div>
+                <div class="zuhd-founder-info">
+                    <h2 class="Founder">Dr. Sami Al-Hashmi</h2>
+                    <p class="zuhd-founder-description">
+                        Born in Vienna, Austria, he earned a Master’s in Dental Surgery from the University of Otago, New Zealand, on a full scholarship. While practicing dentistry, he completed a degree in Islamic Studies from WISE University in Jordan.
+
+
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+        </div>
+
+<!-- About Section -->
+<section id="about" class="zuhd-container">
+  <h2 class="tawheed-heading fade-in-barakah">WHY ZUHD ACADEMY</h2>
+
+  <!-- First Section: Text Left, Image Right -->
+  <div class="ilm-section fade-in-barakah">
+    <div class="hadith-content">
+      <p>
+        At Zuhd Academy, we offer a wide range of courses, including Quranic studies,
+        Hadith studies, Islamic history, Islamic jurisprudence, and much more.
+        Our courses are taught by experienced and knowledgeable instructors who
+        have dedicated their lives to the study and practice of Islam.
+      </p>
+    </div>
+    <div class="sunnah-image">
+      <img src="images/quranreading.png" alt="Islamic scholar reading and studying religious texts" />
+    </div>
+  </div>
+
+  <!-- Second Section: Image Left, Text Right -->
+  <div class="ilm-section reverse fade-in-barakah">
+    <div class="hadith-content">
+      <p>
+        We believe that every student is unique, which is why we offer personalized
+        learning experiences that cater to the individual needs and preferences of
+        each student. Our courses are designed to be interactive and engaging,
+        allowing students to participate in discussions, ask questions, and receive
+        feedback from their instructors.
+      </p>
+    </div>
+    <div class="sunnah-image">
+      <img src="images/laptopquran.png" alt="Two students studying together with laptop and books" />
+    </div>
+  </div>
+
+  <!-- Third Section: Text Left, Image Right -->
+  <div class="ilm-section fade-in-barakah">
+    <div class="hadith-content">
+      <p class="wisdom-quote">
+        "Whoever acquires knowledge in order to act on it, his knowledge humbles him.
+        And whoever seeks it for a purpose other than to act on it, it increases him in arrogance."
+      </p>
+    </div>
+    <div class="sunnah-image">
+      <img src="images/onlineedu.png" alt="Laptop displaying online Islamic education class" />
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- Courses Section -->
+    <section id="courses" class="madrasah-section">
+        <h2 class="courses-bismillah fade-in-barakah">Our Islamic Courses</h2>
+        <div class="dars-grid">
+            <div class="fiqh-card fade-in-barakah">
+                <h3 class="course-title">Quranic Studies</h3>
+                <p class="course1">Deep dive into the Holy Quran with Tafseer, Tajweed, and memorization programs guided by qualified scholars.</p>
+            </div>
+            <div class="fiqh-card fade-in-barakah">
+                <h3 class="course-title">Hadith Sciences</h3>
+                <p class="course1">Study the authentic sayings and traditions of Prophet Muhammad (PBUH) with proper chain of narration.</p>
+            </div>
+            <div class="fiqh-card fade-in-barakah">
+                <h3 class="course-title">Islamic Jurisprudence</h3>
+                <p class="course1">Learn Fiqh and Islamic law from the four major schools of thought with practical applications.</p>
+            </div>
+            <div class="fiqh-card fade-in-barakah">
+                <h3 class="course-title">Islamic History</h3>
+                <p class="course1">Explore the rich history of Islam from the time of Prophet Muhammad (PBUH) to the modern era.</p>
+            </div>
+            <div class="fiqh-card fade-in-barakah">
+                <h3 class="course-title">Arabic Language</h3>
+                <p class="course1">Master classical Arabic to understand the Quran and Islamic texts in their original language.</p>
+            </div>
+            <div class="fiqh-card fade-in-barakah">
+                <h3 class="course-title">Islamic Ethics</h3>
+                <p class="course1">Study Akhlaq and moral principles that guide a Muslim's character and behavior in daily life.</p>
+            </div>
+        </div>
+    </section>
+        <!-- Timeline Section -->
+         <section class="zuhd-timeline-section">
+        <h2 class="zuhd-section-title2">Timeline</h2>
+        <div class="zuhd-timeline-container">
+            <div class="zuhd-timeline-line"></div>
+            
+            <div class="zuhd-timeline-item" data-year="2021">
+                <div class="zuhd-timeline-dot"></div>
+                <div class="zuhd-timeline-content">
+                    <div class="zuhd-timeline-year">2021</div>
+                    <!-- <div class="zuhd-timeline-description">
+                        Launch of Instagram page
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="zuhd-timeline-item" data-year="2022">
+                <div class="zuhd-timeline-dot"></div>
+                <div class="zuhd-timeline-content">
+                    <div class="zuhd-timeline-year">2022</div>
+                    <!-- <div class="zuhd-timeline-description">
+                        Expansion to TikTok platform
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="zuhd-timeline-item" data-year="2023">
+                <div class="zuhd-timeline-dot"></div>
+                <div class="zuhd-timeline-content">
+                    <div class="zuhd-timeline-year">2023</div>
+                    <!-- <div class="zuhd-timeline-description">
+                        Over 1 million YouTube subscribers
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="zuhd-timeline-item" data-year="2024">
+                <div class="zuhd-timeline-dot"></div>
+                <div class="zuhd-timeline-content">
+                    <div class="zuhd-timeline-year">2024</div>
+                    <!-- <div class="zuhd-timeline-description">
+                        International recognition and awards
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="zuhd-timeline-item" data-year="2025">
+                <div class="zuhd-timeline-dot zuhd-pulse"></div>
+                <div class="zuhd-timeline-content">
+                    <div class="zuhd-timeline-year">2025</div>
+                    <!-- <div class="zuhd-timeline-description">
+                        Global expansion and new ventures
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+ <div class="main-banner">
+<div class="banner">             
+        <div class="banner-content">
+            <h2 class="channel-name">1 Million Subscriber</h2>
+             <p class="update-text">New Updates Coming</p>
+            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
+        </div>
+    </div>
+    </div>
+  <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main">
+                        <img src="/images/logo.png" alt="ZUHD Logo">
+                    </div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>zuhd Academy</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column newsletter">
+                    <h3>Stay Connected to Guidance</h3>
+                    <p>Exclusive insights, new lectures & timeless reminders — direct to your inbox.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1" class="social-link" onclick="socialClick('TikTok')" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.linkdin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+ // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.zuhd-timeline-item');
+            
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const dot = this.querySelector('.zuhd-timeline-dot');
+                    const year = this.querySelector('.zuhd-timeline-year');
+                    
+                    dot.style.transform = 'scale(1.5)';
+                    year.style.color = 'var(--gold)';
+                    year.style.textShadow = '0 0 20px rgba(255, 215, 0, 0.8)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    const dot = this.querySelector('.zuhd-timeline-dot');
+                    const year = this.querySelector('.zuhd-timeline-year');
+                    
+                    dot.style.transform = 'scale(1)';
+                    year.style.color = 'var(--gold)';
+                    year.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.3)';
+                });
+            });
+        });
+
+        // Mobile Footer Accordion Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all footer columns (excluding logo and newsletter)
+    const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
+    
+    footerColumns.forEach(column => {
+        const header = column.querySelector('h3');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Check if we're on mobile (you can adjust this breakpoint as needed)
+                if (window.innerWidth <= 768) {
+                    // Toggle active class
+                    column.classList.toggle('active');
+                    
+                    // Optional: Close other sections (accordion behavior)
+                    // footerColumns.forEach(otherColumn => {
+                    //     if (otherColumn !== column) {
+                    //         otherColumn.classList.remove('active');
+                    //     }
+                    // });
+                }
+            });
+        }
+    });
+    
+    // Handle window resize to reset accordion on larger screens
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            footerColumns.forEach(column => {
+                column.classList.remove('active');
+            });
+        }
+    });
+});
+
+// Existing functions
+function linkClick(item) {
+    console.log('Link clicked:', item);
+    // Add your analytics or tracking code here
+}
+
+function socialClick(platform) {
+    console.log('Social link clicked:', platform);
+    // Add your analytics or tracking code here
+}
+
+function submitNewsletter(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value;
+    console.log('Newsletter submitted with email:', email);
+    // Show success message
+    alert('Thank you for subscribing!');
+    event.target.reset();
+}
+    </script>
+         <script src="navbar.js"></script>
+                  <script src="script.js"></script>
+
+
+</body>
+</html>
