@@ -3147,11 +3147,13 @@ color:#0a2a1f;
     font-size: 3rem;
     color: #0a2f22;
     text-align:center;
+    text-transform:uppercase;
 }
 .zuhd-section-title3{
-    font-size: 2rem;
+    font-size: 3rem;
     color: #0a2f22;
-    padding: 0px 0px;
+    padding: 2px 0px;
+    text-transform:uppercase;
 }
 .zuhd-vision-text {
     font-size:22px;
@@ -3215,6 +3217,8 @@ color:#0a2a1f;
 .Founder{
     color:var(--deep-green);
     text-transform: uppercase;
+    font-size:2.2rem;
+    padding:0px 0px;
 }
 .zuhd-founder-description {
     font-size:22px;
@@ -3329,6 +3333,7 @@ color:#0a2a1f;
             text-align: center;
             font-size: 3rem;
             margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
         .dars-grid {
@@ -5269,21 +5274,25 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             
             letter-spacing: 0.15em;
             margin-bottom: 1rem;
+            text-align: center;
             /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
         }
 
         .sub-heading {
-            font-size:32px;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size:28px;
+             font-weight: 700; 
+             width: 600px;
+            letter-spacing: 0.1em;
+            text-align: center;
+            /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
             margin-bottom:20px;
         }
 .sub-heading2 {
-            font-size:30px;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size:28px;
+             font-weight: 700; 
+          width: 600px;
+            letter-spacing: 0.1em;
+            /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
         }
         .primary-btn {
             background-color: transparent;
@@ -6336,16 +6345,16 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             position: relative;
             padding-left: 20px; /* pl-5 */
             font-size: 17px;
-            text-align: start; /* text-base */
+            text-align:center; /* text-base */
         }
 
-        .consultation-doctor-credentials li:before {
+        /* .consultation-doctor-credentials li:before {
             content: "✓";
             position: absolute;
-            left: 0;
+            left: 102px;
             color: var(--gold);
             font-weight: bold;
-        }
+        } */
  /* Services Section */
         .consultation-services-section {
             padding: 80px 0;
@@ -6555,7 +6564,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .consultation-doctor-credentials ul {
             list-style: none;
-            color: #666;
+            color: #3f3e3e;
         }
 
         .consultation-doctor-credentials li {
@@ -6568,10 +6577,10 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         .consultation-doctor-credentials li:before {
             content: "✓";
             position: absolute;
-            left: 0;
-            color: var(--gold);
+            left:150px;
+            color: var(--deep-green);
             font-weight: bold;
-        }
+        } 
 
         .consultation-fade-in {
             opacity: 0;
@@ -10026,14 +10035,14 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           box-shadow: 0 15px 30px var(--shadow);
       }
       .calendar-download-title {
-          font-family: 'Amiri', serif;
+          /* font-family: 'Amiri', serif; */
           font-size: 1.8rem;
           font-weight: 700;
           color: var(--primary-green);
           margin-bottom: 20px;
       }
       .calendar-download-text {
-          font-size: 1.1rem;
+          font-size:20px;
           color: var(--text-light);
           margin-bottom: 30px;
       }
@@ -10048,6 +10057,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           font-size: 1.1rem;
           transition: all 0.3s ease;
           box-shadow: 0 10px 20px rgba(45, 90, 39, 0.3);
+          border: 1px solid var(--gold);
       }
       .button:hover {
           transform: translateY(-3px);
@@ -10069,9 +10079,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           padding-right: 20px;
       }
       .section-heading-center-white { /* Renamed from maktab-section-heading4 */
-          font-family: 'Amiri', serif;
-          font-size: 2.8rem;
-          font-weight: 700;
+          /* font-family: 'Amiri', serif; */
+          font-size: 3rem;
+          /* font-weight: 700; */
           color: var(--white);
           margin-bottom: 30px;
           position: relative;
@@ -10088,10 +10098,11 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           border-radius: 2px;
       }
       .rules-description {
-          font-size: 1.1rem;
+          font-size:22px;
           margin-bottom: 50px;
-          max-width: 600px;
+          max-width: 700px;
           margin-left: auto;
+          text-align: center;
           margin-right: auto;
           color: rgba(255, 255, 255, 0.9);
       }
@@ -10206,3 +10217,646 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
       .curriculum-item:nth-child(2) {
           animation-delay: 0.2s;
       }
+
+
+        .sacred-journey-container {
+            display: flex;
+            min-height: 70vh;
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+
+        }
+
+        .makkah-content-wrapper {
+            flex: 1;
+            padding: 0px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .holy-video-frame {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(15, 61, 46, 0.2);
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .holy-video-frame:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(15, 61, 46, 0.35);
+        }
+
+        .kaaba-video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--deep-green), #1a5940, #25704f);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sacred-kaaba-silhouette {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 100px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            opacity: 0.7;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .masjid-architecture-base {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            height: 60px;
+            background: rgba(15, 61, 46, 0.8);
+            border-radius: 5px 5px 20px 20px;
+        }
+
+        .minaret-tower {
+            position: absolute;
+            width: 8px;
+            background: var(--deep-green);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .minaret-tower:nth-child(1) { 
+            left: 10px; 
+            bottom: 60px; 
+            height: 80px;
+        }
+        .minaret-tower:nth-child(2) { 
+            left: 30px; 
+            bottom: 75px; 
+            height: 95px;
+        }
+        .minaret-tower:nth-child(3) { 
+            right: 30px; 
+            bottom: 75px; 
+            height: 95px;
+        }
+        .minaret-tower:nth-child(4) { 
+            right: 10px; 
+            bottom: 60px; 
+            height: 80px;
+        }
+
+        .islamic-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(247, 239, 229, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--gold);
+        }
+
+        .islamic-play-button:hover {
+            background: var(--off-white);
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(200, 184, 138, 0.4);
+        }
+
+        .play-triangle-icon {
+            width: 0;
+            height: 0;
+            border-left: 20px solid var(--deep-green);
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+
+        .makkah-experience-title {
+            font-size:2rem;
+            color: white;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealeTextUpward 1s ease forwards 0.5s;
+            position: relative;
+        }
+
+        .makkah-experience-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), #b5a373);
+            border-radius: 2px;
+            animation: goldLineExpansion 1.5s ease forwards 1.5s;
+        }
+
+        .spiritual-journey-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: white;
+            max-width: 450px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealeTextUpward 1s ease forwards 1s;
+            margin-bottom: 30px;
+        }
+
+        .sacred-explore-button {
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--gold), #b5a373);
+            color: var(--deep-green);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-width: 200px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealeTextUpward 1s ease forwards 1.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sacred-explore-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .sacred-explore-button:hover::before {
+            left: 100%;
+        }
+
+        .sacred-explore-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(200, 184, 138, 0.4);
+        }
+
+        .arabia-map-section {
+            width: 30%;
+            flex: 1;
+            position: relative;
+            background: linear-gradient(135deg, var(--sand-beige) 0%, var(--off-white) 100%);
+            overflow: hidden;
+        }
+
+        .saudi-arabia-map-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="mapGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23c8b88a" stroke-width="0.3" opacity="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23mapGrid)"/></svg>') center/cover;
+        }
+
+        .kingdom-saudi-outline {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 220px;
+            background: rgba(200, 184, 138, 0.1);
+            border: 3px solid var(--gold);
+            transition: all 0.3s ease;
+            clip-path: polygon(
+                15% 10%, 25% 5%, 40% 8%, 60% 12%, 75% 15%, 85% 20%, 
+                90% 30%, 92% 45%, 88% 60%, 85% 70%, 80% 80%, 70% 85%, 
+                50% 88%, 30% 85%, 15% 80%, 8% 70%, 5% 60%, 8% 45%, 
+                10% 30%, 12% 20%
+            );
+        }
+
+        .kingdom-saudi-outline:hover {
+            background: rgba(200, 184, 138, 0.2);
+            transform: translate(-50%, -50%) scale(1.05);
+            border-color: #b5a373;
+        }
+
+        .holy-city-location-pin {
+            position: absolute;
+            width: 35px;
+            height: 45px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .makkah-sacred-pin {
+            top: 58%;
+            left: 32%;
+            animation: holyBounceAnimation 2s infinite;
+        }
+
+        .medina-blessed-pin {
+            top: 42%;
+            left: 28%;
+            animation: holyBounceAnimation 2s infinite 0.5s;
+        }
+
+        .holy-city-location-pin:hover {
+            transform: scale(1.2);
+        }
+
+        .islamic-pin-marker {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--deep-green), #1a5940);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(15, 61, 46, 0.4);
+            border: 2px solid var(--gold);
+        }
+
+        .sacred-pin-center {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            background: var(--off-white);
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+
+        .holy-city-name-label {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--deep-green);
+            color: var(--off-white);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border: 1px solid var(--gold);
+        }
+
+        .holy-city-location-pin:hover .holy-city-name-label {
+            opacity: 1;
+        }
+
+        .kingdom-country-label {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            opacity: 0;
+            animation: fadeInGently 1s ease forwards 2s;
+            text-shadow: 2px 2px 4px rgba(200, 184, 138, 0.3);
+        }
+
+        .islamic-floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .crescent-star-float {
+            position: absolute;
+            color: var(--gold);
+            font-size: 1.8rem;
+            opacity: 0.6;
+            animation: celestialFloat 6s ease-in-out infinite;
+        }
+
+        .crescent1 { top: 18%; left: 12%; animation-delay: 0s; }
+        .crescent2 { top: 25%; left: 78%; animation-delay: 2s; }
+        .crescent3 { top: 75%; left: 15%; animation-delay: 4s; }
+        .crescent4 { top: 65%; left: 82%; animation-delay: 1s; }
+
+        .sacred-info-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 61, 46, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .sacred-info-modal.modal-active-state {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content-wrapper {
+            background: var(--off-white);
+            padding: 45px;
+            border-radius: 25px;
+            max-width: 550px;
+            text-align: center;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            border: 3px solid var(--gold);
+            box-shadow: 0 25px 50px rgba(15, 61, 46, 0.3);
+        }
+
+        .sacred-info-modal.modal-active-state .modal-content-wrapper {
+            transform: scale(1);
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2.2rem;
+            cursor: pointer;
+            color: var(--deep-green);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close-button:hover {
+            color: var(--gold);
+        }
+
+        .compass-rose-decoration {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+            opacity: 0.3;
+            color: var(--gold);
+            animation: slowRotation 20s linear infinite;
+        }
+
+        @keyframes revealeTextUpward {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes goldLineExpansion {
+            to {
+                width: 150px;
+            }
+        }
+
+        @keyframes fadeInGently {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes holyBounceAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-12px);
+            }
+            60% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes celestialFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(180deg);
+            }
+        }
+
+        @keyframes slowRotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sacred-journey-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .makkah-content-wrapper {
+                padding: 30px;
+                min-height: auto;
+            }
+
+            .makkah-experience-title {
+                font-size: 2.5rem;
+            }
+
+            .holy-video-frame {
+                max-width: 100%;
+                height: 250px;
+            }
+
+            .arabia-map-section {
+                min-height: 400px;
+                flex: none;
+                height: 400px;
+            }
+
+            .saudi-arabia-map-container {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .kingdom-saudi-outline {
+                width: 280px;
+                height: 180px;
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+
+            .makkah-sacred-pin {
+                top: 58%;
+                left: 32%;
+            }
+
+            .medina-blessed-pin {
+                top: 42%;
+                left: 28%;
+            }
+
+            .kingdom-country-label {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.4rem;
+            }
+
+            .compass-rose-decoration {
+                top: 20px;
+                right: 60%;
+                width: 40px;
+                height: 40px;
+            }
+
+            .holy-city-location-pin {
+                width: 30px;
+                height: 38px;
+            }
+
+            .sacred-pin-center {
+                width: 12px;
+                height: 12px;
+                top: 6px;
+            }
+
+            .holy-city-name-label {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+                top: -35px;
+            }
+
+            .crescent-star-float {
+                font-size: 1.4rem;
+            }
+
+            .modal-content-wrapper {
+                margin: 20px;
+                padding: 30px;
+                max-width: calc(100vw - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .makkah-content-wrapper {
+                padding: 20px;
+            }
+
+            .makkah-experience-title {
+                font-size: 2rem;
+            }
+
+            .spiritual-journey-description {
+                font-size: 1.1rem;
+            }
+
+            .arabia-map-section {
+                min-height: 350px;
+                height: 350px;
+            }
+
+            .kingdom-saudi-outline {
+                width: 240px;
+                height: 150px;
+            }
+
+            .kingdom-country-label {
+                font-size: 1.2rem;
+                right: 15px;
+            }
+
+            .holy-video-frame {
+                height: 200px;
+            }
+
+            .modal-content-wrapper {
+                padding: 25px;
+            }
+
+            .modal-content-wrapper div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+        }
+
+        .holy-video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 320px;
+  margin: 0 auto;
+  background-color: #000; /* fallback */
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.kaaba-video-placeholder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('/your-placeholder-image.jpg') center center / cover no-repeat;
+  z-index: 1;
+}
+
+.islamic-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.islamic-play-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-triangle-icon {
+  width: 0;
+  height: 0;
+  border-left: 16px solid #000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}

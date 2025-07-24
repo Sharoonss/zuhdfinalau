@@ -45,7 +45,66 @@
             </nav>
         </header>
 
-  
+   <div class="sacred-journey-container">
+        <div class="makkah-content-wrapper">
+          <div class="holy-video-frame">
+  <video width="100%" height="100%" controls autoplay muted loop>
+    <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+            <h1 class="makkah-experience-title">Experience Makkah</h1>
+            <p class="spiritual-journey-description">
+                A journey through the sacred city of Makkah capturing its spiritual atmosphere. 
+                Discover the holy sites, experience the devotion of millions, and feel the 
+                profound connection to Islamic heritage.
+            </p>
+            <button class="sacred-explore-button" onclick="displayExplorationModal()">
+                Explore Journey
+            </button>
+        </div>
+
+        <div class="arabia-map-section">
+            <div class="saudi-arabia-map-container">
+                <div class="kingdom-saudi-outline"></div>
+                
+                <div class="holy-city-location-pin makkah-sacred-pin" onclick="revealCityInformation('Makkah')">
+                    <div class="holy-city-name-label">Makkah Al-Mukarramah</div>
+                    <div class="islamic-pin-marker">
+                        <div class="sacred-pin-center"></div>
+                    </div>
+                </div>
+
+                <div class="holy-city-location-pin medina-blessed-pin" onclick="revealCityInformation('Medina')">
+                    <div class="holy-city-name-label">Medina Al-Munawwarah</div>
+                    <div class="islamic-pin-marker">
+                        <div class="sacred-pin-center"></div>
+                    </div>
+                </div>
+
+                <div class="kingdom-country-label">Kingdom of Saudi Arabia</div>
+                <div class="compass-rose-decoration">🧭</div>
+
+                <div class="islamic-floating-elements">
+                    <div class="crescent-star-float crescent1">☪</div>
+                    <div class="crescent-star-float crescent2">✦</div>
+                    <div class="crescent-star-float crescent3">☪</div>
+                    <div class="crescent-star-float crescent4">✧</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sacred-info-modal" id="sacredModalDisplay">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-button" onclick="dismissModal()">&times;</button>
+            <div id="dynamicModalContent">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
 
     <!-- One Million Subscribers Section -->
     <!-- <div class="main-banner">
@@ -155,196 +214,290 @@
         </div>
     </footer>
       <script>
-// Data for locations and sidebar cards
-const locationData = {
-  makkah: {
-    title: "Masjid al-Haram, Makkah",
-    description:
-      "The holiest mosque in Islam, surrounding the Kaaba. This is the direction of prayer for Muslims worldwide and the destination of the Hajj pilgrimage.",
-    embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.674920267067!2d39.82663!3d21.42251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c204b74c5d1b91%3A0x3e5d8b8a5c5e5b5e!2sMasjid%20al-Haram!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus",
-  },
-  medina: {
-    title: "Masjid an-Nabawi, Medina",
-    description:
-      "The Prophet's Mosque in Medina, the second holiest mosque in Islam. This is where Prophet Muhammad (PBUH) is buried and where he established the first Muslim community.",
-    embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3627.8544766967845!2d39.61191!3d24.46791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bd7b8c7b8c7b8c%3A0x7b8c7b8c7b8c7b8c!2sProphet's%20Mosque!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus",
-  },
-  overview: {
-    title: "Saudi Arabia - Sacred Land",
-    description:
-      "Overview of Saudi Arabia showing both holy cities of Makkah and Medina, the two most sacred places in Islam visited by millions of pilgrims annually.",
-    embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1897799.1234567890!2d42.0!3d23.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e7b33fe7c5d1b91%3A0x3e5d8b8a5c5e5b5e!2sSaudi%20Arabia!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus",
-  },
-}
+// Sacred cities data with Islamic context
+        const holyCitiesData = {
+            'Makkah': {
+                title: '🕋 Makkah Al-Mukarramah (The Honored)',
+                description: 'The holiest city in Islam and the birthplace of Prophet Muhammad (PBUH). Home to the Great Mosque of Mecca (Masjid al-Haram) and the sacred Kaaba, the Qibla for Muslims worldwide.',
+                facts: [
+                    'Contains the Holy Kaaba, built by Prophet Ibrahim (AS)',
+                    'Birthplace of the final Prophet Muhammad (PBUH)',
+                    'Over 2 million pilgrims perform Hajj annually',
+                    'The Grand Mosque accommodates over 2 million worshippers',
+                    'Location of the Well of Zamzam, blessed water source'
+                ]
+            },
+            'Medina': {
+                title: '🌙 Medina Al-Munawwarah (The Enlightened)',
+                description: 'The second holiest city in Islam, where Prophet Muhammad (PBUH) migrated and established the first Islamic community. Final resting place of the beloved Prophet.',
+                facts: [
+                    'First capital of the Islamic Ummah',
+                    'Home to Al-Masjid an-Nabawi (Prophet\'s Mosque)',
+                    'Burial place of Prophet Muhammad (PBUH)',
+                    'Known as "Madinat an-Nabi" (City of the Prophet)',
+                    'Site of the historic Hijra (Migration) in 622 CE'
+                ]
+            }
+        };
 
-const sidebarCardsData = [
-  {
-    category: "medina",
-    imageSrc: "/images/madina1.png",
-    altText: "Prophet's Mosque",
-    title: "Visiting the Prophet's (pbuh) Mosque",
-    description: "A visit to Masjid an-Nabawi in Medina, reflecting on its historical significance.",
-    iconClass: "fas fa-mosque",
-  },
-  {
-    category: "makkah",
-    imageSrc: "/images/umrahimg.png",
-    altText: "Performing Umrah",
-    title: "Performing Umrah",
-    description: "A step-by-step guide to performing the blessed pilgrimage in Makkah.",
-    iconClass: "fas fa-kaaba",
-  },
-  {
-    category: "medina",
-    imageSrc: "/images/madinabeauty.png",
-    altText: "Beauty of Medina",
-    title: "The Beauty of Medina",
-    description: "Exploring the serene and beautiful city of Medina, rich in history and culture.",
-    iconClass: "fas fa-city",
-  },
-  {
-    category: "medina",
-    imageSrc: "/images/madinavisit.png",
-    altText: "Medina Streets",
-    title: "Exploring the serene and beautiful city of Medina",
-    description: "Discover the peaceful streets and spiritual atmosphere of the Prophet's city.",
-    iconClass: "fas fa-walking",
-  },
-]
-
-document.addEventListener("DOMContentLoaded", () => {
-  // DOM Elements
-//   const videoOverlay = document.getElementById("video-overlay")
-//   const mainVideo = document.getElementById("ziyarat-video")
-//   const videoModal = document.getElementById("videoModal")
-  const modalCloseBtn = videoModal ? videoModal.querySelector(".ziyarat-close-btn") : null
-  const youtubeModalIframe = videoModal ? videoModal.querySelector("#youtube-modal-iframe") : null
-  const mapIframe = document.getElementById("google-map")
-  const locationInfo = document.getElementById("location-info")
-  const locationButtons = document.querySelectorAll(".ziyarat-location-btn")
-  const navButtons = document.querySelectorAll(".ziyarat-nav-btn")
-  const sidebar = document.querySelector(".ziyarat-sidebar")
-
-  // --- Video Playback Logic ---
-//   if (videoOverlay && mainVideo && videoModal && youtubeModalIframe) {
-//     videoOverlay.addEventListener("click", () => {
-//       // Pause the main HTML5 video and reset its time
-//       mainVideo.pause()
-//       mainVideo.currentTime = 0
-
-      // Set YouTube video source and open modal
-      const youtubeVideoId = "dQw4w9WgXcQ" // Placeholder YouTube video ID
-      youtubeModalIframe.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&controls=1&rel=0&modestbranding=1`
-      videoModal.classList.add("ziyarat-show")
-    })
-
-    if (modalCloseBtn) {
-      modalCloseBtn.addEventListener("click", () => {
-        videoModal.classList.remove("ziyarat-show")
-        // Stop YouTube video when modal closes by clearing its src
-        youtubeModalIframe.src = ""
-      })
-    }
-
-    // Close modal if clicked outside content
-    videoModal.addEventListener("click", (e) => {
-      if (e.target === videoModal) {
-        videoModal.classList.remove("ziyarat-show")
-        youtubeModalIframe.src = ""
-      }
-    })
-  }
-
-  // --- Map Location Logic ---
-  if (mapIframe && locationInfo) {
-    locationButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        // Remove active class from all buttons
-        locationButtons.forEach((btn) => btn.classList.remove("active"))
-        // Add active class to clicked button
-        this.classList.add("active")
-
-        const locationKey = this.dataset.location
-        const data = locationData[locationKey]
-
-        if (data) {
-          // Update map
-          mapIframe.style.opacity = "0.5" // Add loading state
-          mapIframe.src = data.embedUrl
-
-          // Update location info
-          locationInfo.innerHTML = `
-                        <h4>${data.title}</h4>
-                        <p>${data.description}</p>
-                    `
+        // Enhanced interactive functions
+        function initiateVideoExperience() {
+            const videoFrame = document.querySelector('.holy-video-frame');
+            const playButton = document.querySelector('.islamic-play-button');
+            
+            playButton.style.opacity = '0';
+            videoFrame.style.transform = 'scale(1.02)';
+            videoFrame.style.filter = 'brightness(1.1)';
+            
+            setTimeout(() => {
+                alert('🎬 Sacred Journey Experience Initiated!\n\n✨ In a full implementation, this would launch:\n• 360° Virtual Tour of Masjid al-Haram\n• Live streaming from the Holy Kaaba\n• Guided spiritual narration\n• Historical timeline of Islamic heritage');
+                playButton.style.opacity = '1';
+                videoFrame.style.transform = 'scale(1)';
+                videoFrame.style.filter = 'brightness(1)';
+            }, 800);
         }
-      })
-    })
 
-    // Handle iframe load events to remove loading state
-    mapIframe.addEventListener("load", function () {
-      this.style.opacity = "1"
-    })
-  }
-
-  // --- Sidebar Cards Rendering and Filtering ---
-  function renderSidebarCards(filterCategory) {
-    if (!sidebar) return
-
-    sidebar.innerHTML = "" // Clear existing cards
-
-    const filteredCards =
-      filterCategory === "all" ? sidebarCardsData : sidebarCardsData.filter((card) => card.category === filterCategory)
-
-    filteredCards.forEach((card, index) => {
-      const article = document.createElement("article")
-      article.className = "ziyarat-card"
-      article.style.animationDelay = `${1000 + index * 200}ms` // Apply animation delay
-
-      article.innerHTML = `
-                <div class="ziyarat-card-image-container">
-                    <img src="${card.imageSrc}" alt="${card.altText}" class="ziyarat-card-image">
-                    <div class="ziyarat-card-overlay">
-                        <i class="${card.iconClass}"></i>
-                    </div>
+        function revealCityInformation(cityName) {
+            const modal = document.getElementById('sacredModalDisplay');
+            const content = document.getElementById('dynamicModalContent');
+            const cityData = holyCitiesData[cityName];
+            
+            content.innerHTML = `
+                <h2 style="color: var(--deep-green); margin-bottom: 25px; font-size: 2.2rem; text-shadow: 1px 1px 2px rgba(200, 184, 138, 0.3);">${cityData.title}</h2>
+                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 30px; color: var(--deep-green); opacity: 0.9;">${cityData.description}</p>
+                <div style="text-align: left; background: var(--sand-beige); padding: 25px; border-radius: 15px; border: 2px solid var(--gold);">
+                    <h3 style="color: var(--deep-green); margin-bottom: 20px; font-size: 1.3rem;">🌟 Key Islamic Significance:</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        ${cityData.facts.map(fact => `
+                            <li style="margin-bottom: 12px; padding: 12px; background: var(--off-white); border-radius: 10px; border-left: 4px solid var(--gold); color: var(--deep-green); font-weight: 500;">
+                                ✓ ${fact}
+                            </li>
+                        `).join('')}
+                    </ul>
                 </div>
-                <div class="ziyarat-card-content">
-                    <h3 class="ziyarat-card-title">${card.title}</h3>
-                    <p class="ziyarat-card-description">${card.description}</p>
+                <div style="margin-top: 25px; padding: 15px; background: linear-gradient(135deg, var(--gold), #b5a373); border-radius: 10px;">
+                    <p style="color: var(--deep-green); font-weight: 600; margin: 0;">
+                        🤲 "And whoever enters it shall be safe" - Al-Quran
+                    </p>
                 </div>
-            `
-      sidebar.appendChild(article)
-    })
-  }
+            `;
+            
+            modal.classList.add('modal-active-state');
+        }
 
-  // --- Header Navigation Logic ---
-  navButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      navButtons.forEach((btn) => btn.classList.remove("ziyarat-active"))
-      this.classList.add("ziyarat-active")
-      const category = this.dataset.category
-      renderSidebarCards(category)
-    })
-  })
+        function displayExplorationModal() {
+            const modal = document.getElementById('sacredModalDisplay');
+            const content = document.getElementById('dynamicModalContent');
+            
+            content.innerHTML = `
+                <h2 style="color: var(--deep-green); margin-bottom: 25px; font-size: 2.2rem;">🌟 Begin Your Sacred Journey</h2>
+                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 30px; color: var(--deep-green);">
+                    Embark on a transformative spiritual experience through the blessed cities of Makkah and Medina. 
+                    Explore the profound history, divine significance, and architectural marvels of Islam's most sacred places.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 30px 0;">
+                    <button onclick="launchVirtualHajjTour()" style="padding: 18px; background: linear-gradient(135deg, var(--gold), #b5a373); color: var(--deep-green); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        🕋 Virtual Hajj Experience
+                    </button>
+                    <button onclick="openSacredGallery()" style="padding: 18px; background: linear-gradient(135deg, var(--deep-green), #1a5940); color: var(--off-white); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        📸 Sacred Architecture Gallery
+                    </button>
+                    <button onclick="exploreIslamicHistory()" style="padding: 18px; background: linear-gradient(135deg, #c8b88a, var(--gold)); color: var(--deep-green); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        📚 Islamic Heritage Timeline
+                    </button>
+                    <button onclick="accessPilgrimageGuide()" style="padding: 18px; background: linear-gradient(135deg, var(--deep-green), #25704f); color: var(--off-white); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        🧭 Complete Hajj & Umrah Guide
+                    </button>
+                </div>
+                <div style="margin-top: 25px; padding: 20px; background: var(--sand-beige); border-radius: 15px; border: 2px solid var(--gold);">
+                    <p style="color: var(--deep-green); font-weight: 600; margin: 0; font-style: italic;">
+                        "And it is upon Allah for the people to make Hajj to the House - for whoever is able to find thereto a way" - Quran 3:97
+                    </p>
+                </div>
+            `;
+            
+            modal.classList.add('modal-active-state');
+        }
 
-  // Initial render of sidebar cards on page load
-  renderSidebarCards("all")
-})
+        function launchVirtualHajjTour() {
+            dismissModal();
+            setTimeout(() => {
+                alert('🕋 Launching Virtual Hajj Experience!\n\n🌟 Features would include:\n• 360° Tawaf around the Kaaba\n• Virtual Sa\'i between Safa and Marwah\n• Mount Arafat spiritual experience\n• Guided prayers and supplications\n• Live connection with pilgrims worldwide');
+            }, 400);
+        }
 
-// --- Existing functions from original HTML (kept as is) ---
-function linkClick(item) {
-  console.log("Link clicked:", item)
-  // Add your analytics or tracking code here
-}
+        function openSacredGallery() {
+            dismissModal();
+            setTimeout(() => {
+                alert('📸 Opening Sacred Architecture Gallery!\n\n✨ Featuring:\n• High-resolution images of Masjid al-Haram\n• Historical photographs of expansion projects\n• Calligraphy and Islamic art collections\n• Architectural marvels through the centuries');
+            }, 400);
+        }
 
-function socialClick(platform) {
-  console.log("Social link clicked:", platform)
-  // Add your analytics or tracking code here
-}
+        function exploreIslamicHistory() {
+            dismissModal();
+            setTimeout(() => {
+                alert('📚 Loading Islamic Heritage Timeline!\n\n🕌 Discover:\n• Pre-Islamic Makkah and the Kaaba\n• Life of Prophet Muhammad (PBUH)\n• Golden Age of Islamic civilization\n• Modern development of the holy cities');
+            }, 400);
+        }
 
+        function accessPilgrimageGuide() {
+            dismissModal();
+            setTimeout(() => {
+                alert('🧭 Opening Complete Pilgrimage Guide!\n\n📖 Comprehensive information:\n• Step-by-step Hajj rituals\n• Umrah procedures and prayers\n• Practical travel information\n• Spiritual preparation guidance');
+            }, 400);
+        }
+
+        function dismissModal() {
+            document.getElementById('sacredModalDisplay').classList.remove('modal-active-state');
+        }
+
+        // Enhanced modal interactions
+        document.getElementById('sacredModalDisplay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                dismissModal();
+            }
+        });
+
+        // Dynamic Islamic greeting based on time
+        document.addEventListener('DOMContentLoaded', function() {
+            const saudiOutline = document.querySelector('.kingdom-saudi-outline');
+            saudiOutline.addEventListener('mouseenter', function() {
+                this.style.borderColor = 'var(--deep-green)';
+                this.style.background = 'rgba(15, 61, 46, 0.15)';
+                this.style.boxShadow = '0 0 30px rgba(200, 184, 138, 0.4)';
+            });
+            
+            saudiOutline.addEventListener('mouseleave', function() {
+                this.style.borderColor = 'var(--gold)';
+                this.style.background = 'rgba(200, 184, 138, 0.1)';
+                this.style.boxShadow = 'none';
+            });
+
+            // Islamic time-based greeting system
+            // const currentHour = new Date().getHours();
+            // let islamicGreeting = 'Experience';
+            
+            // if (currentHour >= 5 && currentHour < 12) {
+            //     islamicGreeting = 'As-Salamu Alaykum<br>Discover';
+            // } else if (currentHour >= 12 && currentHour < 18) {
+            //     islamicGreeting = 'Barakallahu feeki<br>Explore';
+            // } else if (currentHour >= 18 && currentHour < 22) {
+            //     islamicGreeting = 'Masa\'a al-Khayr<br>Experience';
+            // } else {
+            //     islamicGreeting = 'Subhan Allah<br>Journey to';
+            // }
+
+            // Update title with Islamic greeting after animation
+            setTimeout(() => {
+                const titleElement = document.querySelector('.makkah-experience-title');
+                titleElement.innerHTML = `${islamicGreeting}<br><span style="color: var(--gold);">Makkah</span>`;
+            }, 3000);
+
+            // Add Qibla direction indicator
+            const compassRose = document.querySelector('.compass-rose-decoration');
+            compassRose.addEventListener('click', function() {
+                alert('🧭 Qibla Direction Finder\n\nIn a full implementation, this would:\n• Use geolocation to find your position\n• Calculate precise Qibla direction\n• Display prayer times for your location\n• Provide compass orientation to Makkah');
+            });
+
+            // Enhanced interaction for holy city pins
+            const cityPins = document.querySelectorAll('.holy-city-location-pin');
+            cityPins.forEach(pin => {
+                pin.addEventListener('mouseenter', function() {
+                    this.style.filter = 'brightness(1.2) drop-shadow(0 0 15px rgba(200, 184, 138, 0.6))';
+                });
+                
+                pin.addEventListener('mouseleave', function() {
+                    this.style.filter = 'none';
+                });
+            });
+
+            // Add prayer time simulation
+            const prayerTimes = {
+                'Fajr': '05:15',
+                'Dhuhr': '12:30',
+                'Asr': '15:45',
+                'Maghrib': '18:20',
+                'Isha': '19:50'
+            };
+
+            // Simulate prayer time notifications
+            setTimeout(() => {
+                const currentTime = new Date().toLocaleTimeString('en-US', {
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                // Check if current time matches any prayer time (simulation)
+                Object.entries(prayerTimes).forEach(([prayer, time]) => {
+                    if (Math.abs(Date.now() % 100000) < 5000) { // Random simulation
+                        console.log(`🕌 ${prayer} prayer time in Makkah: ${time}`);
+                    }
+                });
+            }, 5000);
+        });
+
+        // Enhanced keyboard navigation with Islamic context
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                dismissModal();
+            } else if (e.key === 'Enter' && e.target === document.body) {
+                displayExplorationModal();
+            } else if (e.key === 'm' || e.key === 'M') {
+                revealCityInformation('Makkah');
+            } else if (e.key === 'd' || e.key === 'D') {
+                revealCityInformation('Medina');
+            }
+        });
+
+        // Add Islamic calendar integration simulation
+        function getIslamicDate() {
+            const islamicMonths = [
+                'Muharram', 'Safar', 'Rabi\' al-awwal', 'Rabi\' al-thani',
+                'Jumada al-awwal', 'Jumada al-thani', 'Rajab', 'Sha\'ban',
+                'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'
+            ];
+            
+            // Simplified Islamic date calculation (would need proper library in real implementation)
+            const currentDate = new Date();
+            const islamicYear = Math.floor((currentDate.getFullYear() - 622) * 1.030684) + 1;
+            const monthIndex = currentDate.getMonth();
+            
+            return {
+                year: islamicYear,
+                month: islamicMonths[monthIndex % 12],
+                day: Math.floor(Math.random() * 29) + 1
+            };
+        }
+
+        // Display Islamic date in console for developers
+        const islamicDate = getIslamicDate();
+        console.log(`🌙 Current Islamic Date (Approximate): ${islamicDate.day} ${islamicDate.month} ${islamicDate.year} AH`);
+
+        // Add smooth scroll effect for mobile
+        if (window.innerWidth <= 768) {
+            document.body.style.scrollBehavior = 'smooth';
+        }
+
+        // Accessibility enhancements
+        const focusableElements = document.querySelectorAll('button, [onclick], .holy-city-location-pin');
+        focusableElements.forEach(element => {
+            element.setAttribute('tabindex', '0');
+            element.addEventListener('focus', function() {
+                this.style.outline = '3px solid var(--gold)';
+                this.style.outlineOffset = '2px';
+            });
+            element.addEventListener('blur', function() {
+                this.style.outline = 'none';
+            });
+        });
+
+        // Add ARIA labels for accessibility
+        document.querySelector('.makkah-sacred-pin').setAttribute('aria-label', 'Learn about Makkah Al-Mukarramah, the holiest city in Islam');
+        document.querySelector('.medina-blessed-pin').setAttribute('aria-label', 'Learn about Medina Al-Munawwarah, the second holiest city in Islam');
+        document.querySelector('.sacred-explore-button').setAttribute('aria-label', 'Explore the sacred journey through Islamic holy sites');
+        document.querySelector('.islamic-play-button').setAttribute('aria-label', 'Play video experience of Makkah');
+ 
 
     </script>
              <script src="navbar.js"></script>
