@@ -32,7 +32,7 @@
      <!-- Hero Section -->
         <section class="consultation-hero-section">
             <div class="consultation-hero-content">
-                <h1>Islamic <br> Consultation</h1>
+                <h1>Islamic Consultation</h1>
                 <p>Seek guidance rooted in Islamic principles for you and your loved ones. Professional support guided by faith and wisdom.</p>
                 <button class="consultation-cta-button" onclick="scrollToIslamicBanner()">GET ISLAMIC GUIDANCE</button>
             </div>
@@ -426,6 +426,72 @@
             }
         `;
         document.head.appendChild(style);
+
+        
+ // Mobile Footer Accordion Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all footer columns (excluding logo and newsletter)
+    const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
+    
+    footerColumns.forEach(column => {
+        const header = column.querySelector('h3');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Check if we're on mobile (you can adjust this breakpoint as needed)
+                if (window.innerWidth <= 768) {
+                    // Toggle active class
+                    column.classList.toggle('active');
+                    
+                    // Optional: Close other sections (accordion behavior)
+                    // footerColumns.forEach(otherColumn => {
+                    //     if (otherColumn !== column) {
+                    //         otherColumn.classList.remove('active');
+                    //     }
+                    // });
+                }
+            });
+        }
+    });
+    
+    // Handle window resize to reset accordion on larger screens
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            footerColumns.forEach(column => {
+                column.classList.remove('active');
+            });
+        }
+    });
+});
+
+// Existing functions
+function linkClick(item) {
+    console.log('Link clicked:', item);
+    // Add your analytics or tracking code here
+}
+
+function socialClick(platform) {
+    console.log('Social link clicked:', platform);
+    // Add your analytics or tracking code here
+}
+
+function submitNewsletter(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value;
+    console.log('Newsletter submitted with email:', email);
+    
+    // Add your newsletter submission logic here
+    // Example:
+    // fetch('/api/newsletter', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ email: email })
+    // });
+    
+    // Show success message
+    alert('Thank you for subscribing!');
+    event.target.reset();
+}
     </script>
              <script src="navbar.js"></script>
 

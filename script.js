@@ -499,49 +499,49 @@ function initContentObserver() {
 /* =================================================================== */
 /*  VIDEO MODAL                                                         */
 /* =================================================================== */
-function initVideoModal() {
-  const modal = $id("videoModal")
-  if (!modal) {
-    console.warn("[videoModal] not found – skipping")
-    return
-  }
+// function initVideoModal() {
+//   const modal = $id("videoModal")
+//   if (!modal) {
+//     console.warn("[videoModal] not found – skipping")
+//     return
+//   }
 
-  const video = $(".ziyarat-video", modal)
+//   const video = $(".ziyarat-video", modal)
 
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeVideo()
-  })
+//   modal.addEventListener("click", (e) => {
+//     if (e.target === modal) closeVideo()
+//   })
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("ziyarat-show")) {
-      closeVideo()
-    }
-  })
+//   document.addEventListener("keydown", (e) => {
+//     if (e.key === "Escape" && modal.classList.contains("ziyarat-show")) {
+//       closeVideo()
+//     }
+//   })
 
-  function closeVideo() {
-    modal.classList.remove("ziyarat-show")
-    if (video) {
-      video.pause()
-      video.currentTime = 0
-      video.src = ""
-    }
-  }
+//   function closeVideo() {
+//     modal.classList.remove("ziyarat-show")
+//     if (video) {
+//       video.pause()
+//       video.currentTime = 0
+//       video.src = ""
+//     }
+//   }
 
-  // Global functions
-  window.playVideo = (videoId) => {
-    console.log(`Playing video: ${videoId || "default"}`)
-    modal.classList.add("ziyarat-show")
-    if (video) {
-      video.src = "/placeholder-video.mp4"
-      video.play().catch((error) => {
-        console.error("Video play failed:", error)
-        showNotification("Unable to play video", "error")
-      })
-    }
-  }
+//   // Global functions
+//   window.playVideo = (videoId) => {
+//     console.log(`Playing video: ${videoId || "default"}`)
+//     modal.classList.add("ziyarat-show")
+//     if (video) {
+//       video.src = "/placeholder-video.mp4"
+//       video.play().catch((error) => {
+//         console.error("Video play failed:", error)
+//         showNotification("Unable to play video", "error")
+//       })
+//     }
+//   }
 
-  window.closeVideo = closeVideo
-}
+//   window.closeVideo = closeVideo
+// }
 
 /* =================================================================== */
 /*  SEARCH FUNCTIONALITY                                                */
@@ -1781,6 +1781,74 @@ window.addEventListener("resize", handleResize)
 handleResize()
 
 console.log("Islamic website main script initialized successfully")
+}
+
+
+
+
+ // Mobile Footer Accordion Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all footer columns (excluding logo and newsletter)
+    const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
+    
+    footerColumns.forEach(column => {
+        const header = column.querySelector('h3');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                // Check if we're on mobile (you can adjust this breakpoint as needed)
+                if (window.innerWidth <= 768) {
+                    // Toggle active class
+                    column.classList.toggle('active');
+                    
+                    // Optional: Close other sections (accordion behavior)
+                    // footerColumns.forEach(otherColumn => {
+                    //     if (otherColumn !== column) {
+                    //         otherColumn.classList.remove('active');
+                    //     }
+                    // });
+                }
+            });
+        }
+    });
+    
+    // Handle window resize to reset accordion on larger screens
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            footerColumns.forEach(column => {
+                column.classList.remove('active');
+            });
+        }
+    });
+});
+
+// Existing functions
+function linkClick(item) {
+    console.log('Link clicked:', item);
+    // Add your analytics or tracking code here
+}
+
+function socialClick(platform) {
+    console.log('Social link clicked:', platform);
+    // Add your analytics or tracking code here
+}
+
+function submitNewsletter(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value;
+    console.log('Newsletter submitted with email:', email);
+    
+    // Add your newsletter submission logic here
+    // Example:
+    // fetch('/api/newsletter', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ email: email })
+    // });
+    
+    // Show success message
+    alert('Thank you for subscribing!');
+    event.target.reset();
 }
 
 /* =================================================================== */
