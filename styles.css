@@ -8922,22 +8922,31 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
       
 /* consulation page serivces css  */
 
-
+/* ===========================
+          SLIDER STYLES
+          =========================== */
+  
+        /* ===========================
+           SLIDER STYLES
+           =========================== */
         .offer-container {
             max-width: 1200px;
             width: 100%;
             text-align: center;
             margin: auto;
+            padding: 2rem 0;
+            background-color: var(--dark-green);
+            color: var(--off-white);
         }
 
         .main-heading1 {
-            margin-bottom:2rem;
+            margin-bottom: 2rem;
             color: var(--off-white);
             position: relative;
             font-size: 3rem;
         }
 
-        .main-heading::after {
+        .main-heading1::after {
             content: '';
             position: absolute;
             bottom: -1rem;
@@ -8949,14 +8958,35 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             border-radius: 2px;
         }
 
-        .offer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top:3rem;
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
         }
 
-           .offer-card {
+        .offer-slider-track {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 2rem;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide scrollbar for aesthetic purposes */
+        .offer-slider-track::-webkit-scrollbar {
+            display: none;
+        }
+        .offer-slider-track {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .offer-card {
+            flex: 0 0 auto;
+            width: calc((100% / 3) - (2rem * 2 / 3));
+            scroll-snap-align: start;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(200, 184, 138, 0.3);
             border-radius: 12px;
@@ -8965,6 +8995,12 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            color: var(--off-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
         }
 
         .offer-card::before {
@@ -8991,58 +9027,113 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .card-icon {
-            font-size: 2rem;
             margin-bottom: 1rem;
-            color: var(--gold);
             transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
+
+    .offer-card img{
+        width:140px;
+       }
 
         .offer-card:hover .card-icon {
             transform: scale(1.1);
-        } */
+        }
 
         .card-text {
-            font-size:22px;
-            /* font-weight: 400; */
+            font-size: 22px;
             color: var(--off-white);
             transition: color 0.3s ease;
+            text-align: center;
         }
 
         .offer-card:hover .card-text {
             color: var(--sand-beige);
         }
 
+        /* Slider Navigation Buttons */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            pointer-events: none;
+        }
+
+        .slider-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--off-white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            pointer-events: all;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        .slider-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .offer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-            
+        @media (max-width: 1024px) {
             .offer-card {
+                width: calc((100% / 2) - (2rem / 2));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-heading1 {
+                font-size: 2.5rem;
+            }
+            .offer-card {
+                width: 100%;
                 padding: 1.5rem;
             }
-            
             .card-text {
                 font-size: 19px;
+            }
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
             }
         }
 
         @media (max-width: 480px) {
-            /* body {
-                padding: 1rem;
-            } */
-            
             .main-heading1 {
                 font-size: 2rem;
-                margin-bottom:10px;
+                margin-bottom: 10px;
             }
-             
-              .offer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding:0px 20px;
-    }
-        
+            .offer-container {
+                padding: 1rem 0;
+            }
+            .offer-slider-track {
+                gap: 1rem;
+                padding: 0 20px 1rem;
+            }
             .offer-card {
                 padding: 1.2rem;
             }
@@ -9076,7 +9167,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         .offer-card:nth-child(10) { animation-delay: 1s; }
         .offer-card:nth-child(11) { animation-delay: 1.1s; }
         .offer-card:nth-child(12) { animation-delay: 1.2s; }
-
+        .offer-card:nth-child(13) { animation-delay: 1.3s; }
+        .offer-card:nth-child(14) { animation-delay: 1.4s; }
+        .offer-card:nth-child(15) { animation-delay: 1.5s; }
         /* usps line  */
 
            /* Scrolling Section */
@@ -10770,6 +10863,14 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         @media (max-width: 480px) {
+
+            .consultation-doctor-credentials li:before {
+    content: "✓";
+    position: absolute;
+    left: -2px;
+    color: var(--deep-green);
+    font-weight: bold;
+}
             .makkah-content-wrapper {
                 padding: 20px;
             }

@@ -15,7 +15,11 @@
   <!-- Your custom JS -->
   <script defer src="script.js"></script>
   <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
 </head>
 
 <body>
@@ -77,7 +81,7 @@
                            </span>
 
                         </h1>
-  <p class="tagline">Connect with fellow believers and grow together</p>
+                       <p class="tagline">Connect with fellow believers and grow together</p>
                         <button class="sacred-action-btn">Our Community</button>
                     </div>
                     <!-- <div class="scholar-visual">
@@ -494,14 +498,30 @@
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1" class="social-link" onclick="socialClick('TikTok')" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.linkdin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    </div>
+                   <!-- Make sure to include this in your <head> -->
+
+<!-- Social Links -->
+<div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+  <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+  <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
+    <i class="fa-brands fa-tiktok"></i>
+  </a>
+  <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+  <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+  <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+</div>
+
                 </div>
             </div>
             

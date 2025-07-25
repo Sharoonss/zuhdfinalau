@@ -1,1007 +1,906 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZUHD Academy – Responsive Navigation</title>
-    
-    <!-- External CDN Links -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ===========================
-           CSS VARIABLES
-        =========================== */
-        :root {
-            --gold: #c8b88a;
-            --off-white: #f8f6f0;
-            --dark-green: rgba(15, 61, 46, 0.95);
-        }
-
-        /* ===========================
-           RESET & BASE STYLES
-        =========================== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            line-height: 1.6;
-            padding-top: 80px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===========================
-           NAVBAR STYLES
-        =========================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--dark-green);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            background: rgba(15, 61, 46, 0.98);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* ===========================
-           LOGO STYLES
-        =========================== */
-        .logo-main {
-            font-weight: 700;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            color: var(--off-white);
-        }
-
-        .logo-main img {
-            height: 70px;
-            width: auto;
-        }
-
-        /* ===========================
-           NAVIGATION MENU
-        =========================== */
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-menu li {
-            position: relative;
-        }
-
-        .nav-menu a {
-            color: var(--off-white);
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: var(--gold);
-        }
-
-        .nav-menu a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        /* ===========================
-           DROPDOWN STYLES
-        =========================== */
-        .dropdown-toggle {
-            user-select: none;
-            cursor: pointer;
-        }
-
-        .dropdown-toggle .arrow {
-            transition: transform 0.3s;
-            margin-left: 0.5rem;
-        }
-
-        .dropdown.active .arrow {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            left: 50%;
-            top: 100%;
-            transform: translate(-50%, 10px);
-            background: var(--dark-green);
-            border: 1px solid var(--gold);
-            border-radius: 4px;
-            min-width: 180px;
-            opacity: 0;
-            visibility: hidden;
-            padding: 0.5rem 0;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-menu::before {
-            content: "";
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            width: 12px;
-            height: 12px;
-            background: var(--dark-green);
-            border-left: 1px solid var(--gold);
-            border-top: 1px solid var(--gold);
-        }
-
-        .dropdown-menu li {
-            width: 100%;
-        }
-
-        .dropdown-menu a {
-            padding: 0.75rem 1.5rem;
-            display: block;
-            text-align: center;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(200, 184, 138, 0.1);
-        }
-
-        .dropdown.active .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, 0);
-        }
-
-        /* ===========================
-           SEARCH BUTTON
-        =========================== */
-        .search-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--off-white);
-            font-size: 0.875rem;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .search-btn:hover {
-            color: var(--gold);
-        }
-
-        /* ===========================
-           MOBILE MENU BUTTON
-        =========================== */
-        .mobile-menu-btn {
-            display: none;
-            color: var(--off-white);
-            font-size: 1.5rem;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--gold);
-        }
-
-        .sidebar-header {
-            display: none;
-        }
-
-        /* ===========================
-           SEARCH OVERLAY
-        =========================== */
-        .search-overlay {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(15, 61, 46, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 2000;
-        }
-
-        .search-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .close-search {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .close-search:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: scale(1.1);
-        }
-
-        .search-container {
-            width: 100%;
-            max-width: 600px;
-            margin-top: 10vh;
-        }
-
-        .search-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            font-family: "Amiri", serif;
-            text-align: center;
-        }
-
-        .search-subtitle {
-            color: var(--off-white);
-            opacity: 0.8;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .search-input-container {
-            position: relative;
-            margin-bottom: 1rem;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1.25rem 3rem 1.25rem 1.25rem;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.07);
-            border: 2px solid var(--gold);
-            border-radius: 8px;
-            color: var(--off-white);
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .search-input:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 20px rgba(200, 184, 138, 0.25);
-        }
-
-        .search-icon-input {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gold);
-        }
-
-        /* ===========================
-           SEARCH RESULTS
-        =========================== */
-        .search-results {
-            max-height: 60vh;
-            overflow-y: auto;
-            margin-top: 1rem;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-        }
-
-        .search-results.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .search-category + .search-category {
-            margin-top: 1.5rem;
-        }
-
-        .category-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
-
-        .search-item {
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.4rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .search-item:hover {
-            background: rgba(200, 184, 138, 0.12);
-            border-left-color: var(--gold);
-            transform: translateX(4px);
-        }
-
-        .item-title {
-            font-weight: 600;
-            color: var(--off-white);
-        }
-
-        .item-description {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.4;
-        }
-
-        .item-type {
-            align-self: flex-start;
-            padding: 0.25rem 0.75rem;
-            background: var(--gold);
-            color: #0f3d2e;
-            font-size: 0.7rem;
-            font-weight: 600;
-            border-radius: 12px;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* ===========================
-           OVERLAY BACKDROP
-        =========================== */
-        .overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 900;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ===========================
-           DEMO CONTENT
-        =========================== */
-        .demo-content {
-            padding: 4rem 0;
-            min-height: 100vh;
-        }
-
-        .demo-section {
-            background: white;
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ===========================
-           MOBILE STYLES
-        =========================== */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: var(--dark-green);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.5rem;
-                gap: 1rem;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                overflow-y: auto;
-                z-index: 1001;
-            }
-
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-
-            .sidebar-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                padding-bottom: 1rem;
-                margin-bottom: 1rem;
-                border-bottom: 1px solid rgba(200, 184, 138, 0.25);
-            }
-
-            .sidebar-title {
-                color: var(--off-white);
-                font-weight: 600;
-                font-size: 1.1rem;
-            }
-
-            .close-sidebar {
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.1);
-                border: 2px solid rgba(255, 255, 255, 0.2);
-                color: white;
-                font-size: 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            .close-sidebar:hover {
-                background: rgba(255, 255, 255, 0.2);
-                border-color: rgba(255, 255, 255, 0.4);
-                transform: scale(1.1);
-            }
-
-            .nav-menu li {
-                width: 100%;
-            }
-
-            .nav-menu li + li {
-                border-top: 1px solid rgba(200, 184, 138, 0.25);
-                padding-top: 1rem;
-            }
-
-            .nav-menu a {
-                width: 100%;
-                padding: 0.5rem 0;
-                font-size: 1rem;
-            }
-
-            /* Mobile Dropdown Styles */
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                border: none;
-                background: transparent;
-                padding: 0;
-                box-shadow: none;
-                margin-top: 0.5rem;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-
-            .dropdown.active .dropdown-menu {
-                max-height: 300px;
-            }
-
-            .dropdown-menu::before {
-                display: none;
-            }
-
-            .dropdown-menu li {
-                width: 100%;
-                padding-left: 1rem;
-            }
-
-            .dropdown-menu li + li {
-                border-top: 1px solid rgba(200, 184, 138, 0.15);
-                margin-top: 0.5rem;
-                padding-top: 0.5rem;
-            }
-
-            .dropdown-menu a {
-                padding: 0.5rem 0;
-                font-size: 0.9rem;
-                margin-left: 30px;
-                color: rgba(248, 246, 240, 0.9);
-            }
-
-            .dropdown-menu a:hover {
-                color: var(--gold);
-                background: transparent;
-            }
-
-            .dropdown-toggle .arrow {
-                display: inline-block;
-                margin-left: auto;
-            }
-
-            .search-btn.desktop {
-                display: none;
-            }
-
-            .mobile-search {
-                display: block !important;
-            }
-
-            .close-search {
-                top: 1.5rem;
-                right: 1.5rem;
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-
-            .search-container {
-                margin-top: 8vh;
-                padding: 0 1rem;
-            }
-
-            .search-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* ===========================
-           SMALL MOBILE STYLES
-        =========================== */
-        @media (max-width: 480px) {
-            .close-search {
-                top: 1rem;
-                right: 1rem;
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-
-            .close-sidebar {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
-            }
-
-            .search-container {
-                margin-top: 6vh;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZUHD Academy – Responsive Navigation</title>
+  <!-- External CDN Links (Font Awesome is kept as per original) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      /* ===========================
+          CSS VARIABLES
+          =========================== */
+      :root {
+          --gold: #c8b88a;
+          --off-white: #f8f6f0;
+          --dark-green: #0f3d2e; /* Solid green as requested for scrolled state */
+      }
+      /* ===========================
+          RESET & BASE STYLES
+          =========================== */
+      *, *::before, *::after {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: "Serotiva-Bold";
+      }
+      html {
+          scroll-behavior: smooth;
+      }
+      body {
+          min-height: 200vh; /* Added to ensure enough scrollable content */
+      }
+      a {
+          text-decoration: none;
+          color: inherit;
+      }
+      button {
+          cursor: pointer;
+          border: none;
+          background: none;
+      }
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+      /* ===========================
+          NAVBAR STYLES
+          =========================== */
+      .navbar {
+           position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: transparent; /* Default background: transparent */
+          padding: 1rem 0;
+          z-index: 1000;
+          transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+      #navbar.scrolled {
+          background-color: var(--dark-green); /* Scrolled background: deep green */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .nav-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+      /* ===========================
+          LOGO STYLES
+          =========================== */
+      .logo-main {
+          font-weight: 700;
+          font-size: 1.05rem;
+          letter-spacing: 0.5px;
+          color: var(--off-white);
+      }
+      .logo-main img {
+          height: 70px;
+          width: auto;
+      }
+      /* ===========================
+          NAVIGATION MENU
+          =========================== */
+      .nav-menu {
+          list-style: none;
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+      }
+      .nav-menu li {
+          position: relative;
+      }
+      .nav-menu a {
+          color: var(--off-white);
+          font-weight: 400;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          transition: color 0.3s;
+          position: relative;
+      }
+      .nav-menu a:hover {
+          color: var(--gold);
+      }
+      .nav-menu a::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 0;
+          height: 2px;
+          background: var(--gold);
+          transition: width 0.3s;
+      }
+      .nav-menu a:hover::after {
+          width: 100%;
+      }
+      /* ===========================
+          DROPDOWN STYLES
+          =========================== */
+      .dropdown-toggle {
+          user-select: none;
+          cursor: pointer;
+      }
+      .dropdown-toggle .arrow {
+          transition: transform 0.3s;
+          margin-left: 0.5rem;
+      }
+      .dropdown.active .arrow {
+          transform: rotate(180deg);
+      }
+      .dropdown-menu {
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          transform: translate(-50%, 10px);
+          background: var(--dark-green);
+          border: 1px solid var(--gold);
+          border-radius: 4px;
+          min-width: 180px;
+          opacity: 0;
+          visibility: hidden;
+          padding: 0.5rem 0;
+          z-index: 1001;
+          transition: all 0.3s ease;
+      }
+      .dropdown-menu::before {
+          content: "";
+          position: absolute;
+          top: -6px;
+          left: 50%;
+          transform: translateX(-50%) rotate(45deg);
+          width: 12px;
+          height: 12px;
+          background: var(--dark-green);
+          border-left: 1px solid var(--gold);
+          border-top: 1px solid var(--gold);
+      }
+      .dropdown-menu li {
+          width: 100%;
+      }
+      .dropdown-menu a {
+          padding: 0.75rem 1.5rem;
+          display: block;
+          text-align: center;
+      }
+      .dropdown-menu a:hover {
+          background: rgba(200, 184, 138, 0.1);
+      }
+      .dropdown.active .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translate(-50%, 0);
+      }
+      /* ===========================
+          SEARCH BUTTON
+          =========================== */
+      .search-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          color: var(--off-white);
+          font-size: 0.875rem;
+          transition: color 0.3s;
+          cursor: pointer;
+      }
+      .search-btn:hover {
+          color: var(--gold);
+      }
+      /* ===========================
+          MOBILE MENU BUTTON
+          =========================== */
+      .mobile-menu-btn {
+          display: none;
+          color: var(--off-white);
+          font-size: 1.5rem;
+          padding: 0.5rem;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+      }
+      .mobile-menu-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: var(--gold);
+      }
+      .sidebar-header {
+          display: none;
+      }
+      /* ===========================
+          SEARCH OVERLAY
+          =========================== */
+      .search-overlay {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: rgba(15, 61, 46, 0.98);
+          backdrop-filter: blur(10px);
+          padding: 2rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 2000;
+      }
+      .search-overlay.active {
+          opacity: 1;
+          visibility: visible;
+      }
+      .close-search {
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          color: white;
+          font-size: 1.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+      }
+      .close-search:hover {
+          background: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.4);
+          transform: scale(1.1);
+      }
+      .search-container {
+          width: 100%;
+          max-width: 600px;
+          margin-top: 10vh;
+      }
+      .search-title {
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--gold);
+          margin-bottom: 0.5rem;
+          font-family: "Amiri", serif;
+          text-align: center;
+      }
+      .search-subtitle {
+          color: var(--off-white);
+          opacity: 0.8;
+          text-align: center;
+          margin-bottom: 2rem;
+      }
+      .search-input-container {
+          position: relative;
+          margin-bottom: 1rem;
+      }
+      .search-input {
+          width: 100%;
+          padding: 1.25rem 3rem 1.25rem 1.25rem;
+          font-size: 1rem;
+          background: rgba(255, 255, 255, 0.07);
+          border: 2px solid var(--gold);
+          border-radius: 8px;
+          color: var(--off-white);
+      }
+      .search-input::placeholder {
+          color: rgba(255, 255, 255, 0.6);
+      }
+      .search-input:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.12);
+          box-shadow: 0 0 20px rgba(200, 184, 138, 0.25);
+      }
+      .search-icon-input {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--gold);
+      }
+      /* ===========================
+          SEARCH RESULTS
+          =========================== */
+      .search-results {
+          max-height: 60vh;
+          overflow-y: auto;
+          margin-top: 1rem;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: all 0.3s ease;
+      }
+      .search-results.show {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .search-category + .search-category {
+          margin-top: 1.5rem;
+      }
+      .category-title {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: var(--gold);
+          margin-bottom: 0.75rem;
+          text-align: center;
+      }
+      .search-item {
+          padding: 0.75rem;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 6px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.4rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-left: 3px solid transparent;
+          margin-bottom: 0.5rem;
+      }
+      .search-item:hover {
+          background: rgba(200, 184, 138, 0.12);
+          border-left-color: var(--gold);
+          transform: translateX(4px);
+      }
+      .item-title {
+          font-weight: 600;
+          color: var(--off-white);
+      }
+      .item-description {
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.4;
+      }
+      .item-type {
+          align-self: flex-start;
+          padding: 0.25rem 0.75rem;
+          background: var(--gold);
+          color: #0f3d2e;
+          font-size: 0.7rem;
+          font-weight: 600;
+          border-radius: 12px;
+      }
+      .no-results {
+          text-align: center;
+          padding: 2rem;
+          color: rgba(255, 255, 255, 0.6);
+      }
+      /* ===========================
+          OVERLAY BACKDROP
+          =========================== */
+      .overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 900;
+      }
+      .overlay.active {
+          opacity: 1;
+          visibility: visible;
+      }
+      /* ===========================
+          DEMO CONTENT (for scrolling)
+          =========================== */
+      .demo-content {
+          padding: 4rem 0;
+          min-height: 100vh;
+      }
+      .demo-section {
+          background: white;
+          margin: 2rem 0;
+          padding: 3rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      /* ===========================
+          MOBILE STYLES
+          =========================== */
+      @media (max-width: 768px) {
+          .mobile-menu-btn {
+              display: block;
+          }
+          .nav-menu {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100vh;
+              background: var(--dark-green);
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 1.5rem;
+              gap: 1rem;
+              transform: translateX(-100%);
+              transition: transform 0.3s ease;
+              overflow-y: auto;
+              z-index: 1001;
+          }
+          .nav-menu.active {
+              transform: translateX(0);
+          }
+          .sidebar-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+              padding-bottom: 1rem;
+              margin-bottom: 1rem;
+              border-bottom: 1px solid rgba(200, 184, 138, 0.25);
+          }
+          .sidebar-title {
+              color: var(--off-white);
+              font-weight: 600;
+              font-size: 1.1rem;
+          }
+          .close-sidebar {
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 0.1);
+              border: 2px solid rgba(255, 255, 255, 0.2);
+              color: white;
+              font-size: 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+          }
+          .close-sidebar:hover {
+              background: rgba(255, 255, 255, 0.2);
+              border-color: rgba(255, 255, 255, 0.4);
+              transform: scale(1.1);
+          }
+          .nav-menu li {
+              width: 100%;
+          }
+          .nav-menu li + li {
+              border-top: 1px solid rgba(200, 184, 138, 0.25);
+              padding-top: 1rem;
+          }
+          .nav-menu a {
+              width: 100%;
+              padding: 0.5rem 0;
+              font-size: 1rem;
+          }
+          /* Mobile Dropdown Styles */
+          .dropdown-menu {
+              position: static;
+              transform: none;
+              opacity: 1;
+              visibility: visible;
+              border: none;
+              background: transparent;
+              padding: 0;
+              box-shadow: none;
+              margin-top: 0.5rem;
+              max-height: 0; /* Controlled by JS for smooth toggle */
+              overflow: hidden;
+              transition: max-height 0.3s ease;
+          }
+          .dropdown.active .dropdown-menu {
+              max-height: 300px; /* Max height for mobile dropdown */
+          }
+          .dropdown-menu::before {
+              display: none;
+          }
+          .dropdown-menu li {
+              width: 100%;
+          }
+          .dropdown-menu li + li {
+              border-top: 1px solid rgba(200, 184, 138, 0.15);
+              margin-top: 0.5rem;
+              padding-top: 0.5rem;
+          }
+          .dropdown-menu a {
+              padding: 0.5rem 0;
+              font-size: 0.9rem;
+              margin-left: 30px;
+              color: rgba(248, 246, 240, 0.9);
+          }
+          .dropdown-menu a:hover {
+              color: var(--gold);
+              background: transparent;
+          }
+          .dropdown-toggle .arrow {
+              display: inline-block;
+              margin-left: auto;
+          }
+          .search-btn.desktop {
+              display: none;
+          }
+          .mobile-search {
+              display: block !important;
+          }
+          .close-search {
+              top: 1.5rem;
+              right: 1.5rem;
+              width: 40px;
+              height: 40px;
+              font-size: 1.1rem;
+          }
+          .search-container {
+              margin-top: 8vh;
+              padding: 0 1rem;
+          }
+          .search-title {
+              font-size: 1.5rem;
+          }
+      }
+      /* ===========================
+          SMALL MOBILE STYLES
+          =========================== */
+      @media (max-width: 480px) {
+          .close-search {
+              top: 1rem;
+              right: 1rem;
+              width: 36px;
+              height: 36px;
+              font-size: 1rem;
+          }
+          .close-sidebar {
+              width: 32px;
+              height: 32px;
+              font-size: 0.9rem;
+          }
+          .search-container {
+              margin-top: 6vh;
+          }
+      }
+  </style>
 </head>
 <body>
-    <!-- ===========================
-         NAVIGATION BAR
-    =========================== -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-content">
-            <!-- Logo Section -->
-            <div class="logo">
-                <a href="/index.html">
-                    <div class="logo-main">
-                        <img src="/images/logo.png" alt="ZUHD Academy Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">ZUHD Academy</span>
-                    </div>
-                </a>
-            </div>
+  <!-- ===========================
+      NAVIGATION BAR
+  =========================== -->
+  <nav class="navbar" id="navbar">
+      <div class="container nav-content">
+          <!-- Logo Section -->
+          <div class="logo">
+              <a href="/index.html">
+                  <div class="logo-main">
+                      <img src="/images/logo.png" alt="ZUHD Academy Logo">
+                  </div>
+              </a>
+          </div>
+          <!-- Navigation Menu -->
+          <ul class="nav-menu" id="navMenu">
+              <!-- Mobile Sidebar Header -->
+              <div class="sidebar-header">
+                  <span class="sidebar-title">Menu</span>
+                  <button class="close-sidebar" id="closeSidebar">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              <!-- Navigation Links -->
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/consultation.html">Islamic Consultation</a></li>
+              <li><a href="/lecture.html">Lectures</a></li>
+              <li><a href="/maktab.html">Maktab</a></li>
+              <li><a href="/ziyarat.html">Ziyarat</a></li>
+              <!-- Support Dropdown -->
+              <li class="dropdown" id="supportDropdown">
+                  <a href="#" class="dropdown-toggle">
+                      Support
+                      <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/donate.html">Donate</a></li>
+                      <li><a href="/qna.html">FAQ</a></li>
+                      <li><a href="/contact.html">Contact us</a></li>
+                      <li><a href="/scholars-redesigned.html">Our Scholars</a></li>
+                      <li><a href="/calendar.html">Islamic Calendar</a></li>
+                  </ul>
+              </li>
+              <!-- Zuhd Store Link -->
+              <li>
+                  <a href="https://zuhd.store/" target="_blank" rel="noopener noreferrer">
+                      Zuhd Store <i class="fas fa-shopping-cart"></i>
+                  </a>
+              </li>
+              <!-- Mobile Search Button -->
+              <li class="mobile-search" style="display: none;">
+                  <button class="search-btn">
+                      <span>Search</span>
+                  </button>
+              </li>
+          </ul>
+          <!-- Desktop Search Button -->
+          <button class="search-btn desktop" id="desktopSearch">
+              <i class="fas fa-search"></i>
+              <span>Search</span>
+          </button>
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+              <i class="fas fa-bars"></i>
+          </button>
+      </div>
+  </nav>
+      <!-- ===========================
+      SEARCH OVERLAY
+  =========================== -->
+  <div class="search-overlay" id="searchOverlay">
+      <button class="close-search" id="closeSearch">
+          <i class="fas fa-times"></i>
+      </button>
+      <div class="search-container">
+          <h2 class="search-title">Search ZUHD Academy</h2>
+          <p class="search-subtitle">Find lectures, quotes, and resources</p>
+          <div class="search-input-container">
+              <input type="text" class="search-input" id="searchInput" placeholder="What are you looking for?" />
+              <i class="fas fa-search search-icon-input"></i>
+          </div>
+          <div class="search-results" id="searchResults"></div>
+      </div>
+  </div>
+      <!-- Mobile Menu Overlay -->
+  <div class="overlay" id="overlay"></div>
+  <!-- Demo Content for Scrolling -->
+  <!-- <div class="demo-content">
+      <div class="container">
+          <div class="demo-section">
+              <h1>Welcome to ZUHD Academy</h1>
+              <p>Scroll down to see the navigation bar change its background color.</p>
+              <p>This section is just for demonstration purposes to allow scrolling.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper massa eu quam. Proin dictum elementum velit. Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et eros eu felis.</p>
+          </div>
+          <div class="demo-section">
+              <h2>More Content</h2>
+              <p>This is another section to ensure there's enough scrollable content.</p>
+              <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus dictum. Fusce a quam. In eleifend arcu quis nibh. Sed ac libero. Aliquam et nisl at lectus convallis consectetur. Proin lectus ipsum, gravida et, ornare non, euismond ac, felis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac enim.</p>
+              <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>
+          </div>
+          <div class="demo-section">
+              <h2>Final Section</h2>
+              <p>Keep scrolling to see the effect.</p>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+          </div>
+      </div>
+  </div> -->
+  <script>
+      // ===========================
+      // NAVIGATION FUNCTIONALITY
+      // ===========================
+      // Get DOM elements
+      const navbar = document.getElementById('navbar');
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navMenu = document.getElementById('navMenu');
+      const closeSidebar = document.getElementById('closeSidebar');
+      const overlay = document.getElementById('overlay');
+      const supportDropdown = document.getElementById('supportDropdown');
+      const desktopSearch = document.getElementById('desktopSearch');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const closeSearch = document.getElementById('closeSearch');
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('searchResults');
 
-            <!-- Navigation Menu -->
-            <ul class="nav-menu" id="navMenu">
-                <!-- Mobile Sidebar Header -->
-                <div class="sidebar-header">
-                    <span class="sidebar-title">Menu</span>
-                    <button class="close-sidebar" id="closeSidebar">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+      // ===========================
+      // SCROLL DETECTION
+      // ===========================
+      // Throttle function for better performance
+      function throttle(func, limit) {
+          let inThrottle;
+          return function () {
+              const args = arguments;
+              const context = this;
+              if (!inThrottle) {
+                  func.apply(context, args);
+                  inThrottle = true;
+                  setTimeout(() => inThrottle = false, limit);
+              }
+          };
+      }
 
-                <!-- Navigation Links -->
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/consultation.html">Islamic Consultation</a></li>
-                <li><a href="/lecture.html">Lectures</a></li>
-                <li><a href="/maktab.html">Maktab</a></li>
-                <li><a href="/ziyarat.html">Ziyarat</a></li>
+      // Scroll handler to add/remove background class
+      function handleScroll() {
+          if (window.scrollY > 50) {
+              navbar.classList.add('scrolled');
+          } else {
+              navbar.classList.remove('scrolled');
+          }
+      }
 
-                <!-- Support Dropdown -->
-                <li class="dropdown" id="supportDropdown">
-                    <a href="#" class="dropdown-toggle">
-                        Support
-                        <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/donate.html">Donate</a></li>
-                        <li><a href="/qna.html">FAQ</a></li>
-                        <li><a href="/contact.html">Contact us</a></li>
-                        <li><a href="/scholars-redesigned.html">Our Scholars</a></li>
-                        <li><a href="/calendar.html">Islamic Calendar</a></li>
-                    </ul>
-                </li>
+      // Add throttled scroll event listener
+      window.addEventListener('scroll', throttle(handleScroll, 10));
 
-                <!-- Zuhd Store Link -->
-                <li>
-                    <a href="https://zuhd.store/">
-                        Zuhd Store <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </li>
+      // ===========================
+      // MOBILE MENU FUNCTIONALITY
+      // ===========================
+      function openMobileMenu() {
+          navMenu.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+      }
 
-                <!-- Mobile Search Button -->
-                <li class="mobile-search" style="display: none;">
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i>
-                        <span>Search</span>
-                    </button>
-                </li>
-            </ul>
+      function closeMobileMenu() {
+          navMenu.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+      }
 
-            <!-- Desktop Search Button -->
-            <button class="search-btn desktop" id="desktopSearch">
-                <i class="fas fa-search"></i>
-                <span>Search</span>
-            </button>
+      if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+      if (closeSidebar) closeSidebar.addEventListener('click', closeMobileMenu);
+      if (overlay) overlay.addEventListener('click', closeMobileMenu);
 
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+      // ===========================
+      // DROPDOWN FUNCTIONALITY
+      // ===========================
+      if (supportDropdown) {
+          const dropdownToggle = supportDropdown.querySelector('.dropdown-toggle');
+          if (dropdownToggle) {
+              dropdownToggle.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  supportDropdown.classList.toggle('active');
+              });
+          }
+      }
 
-    <!-- ===========================
-         SEARCH OVERLAY
-    =========================== -->
-    <div class="search-overlay" id="searchOverlay">
-        <button class="close-search" id="closeSearch">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="search-container">
-            <h2 class="search-title">Search ZUHD Academy</h2>
-            <p class="search-subtitle">Find lectures, quotes, and resources</p>
-            <div class="search-input-container">
-                <input type="text" class="search-input" id="searchInput" placeholder="What are you looking for?" />
-                <i class="fas fa-search search-icon-input"></i>
-            </div>
-            <div class="search-results" id="searchResults"></div>
-        </div>
-    </div>
+      document.addEventListener('click', function (e) {
+          if (supportDropdown && !supportDropdown.contains(e.target)) {
+              supportDropdown.classList.remove('active');
+          }
+      });
 
-    <!-- Mobile Menu Overlay -->
-    <div class="overlay" id="overlay"></div>
+      // ===========================
+      // SEARCH FUNCTIONALITY
+      // ===========================
+      const searchData = [
+          {
+              title: "Introduction to Islam",
+              description: "A comprehensive overview of Islamic beliefs and practices",
+              type: "Lecture",
+              category: "Educational"
+          },
+          {
+              title: "Prayer Guidelines",
+              description: "Step-by-step guide to performing daily prayers",
+              type: "Guide",
+              category: "Religious Practice"
+          },
+          {
+              title: "Quranic Verses",
+              description: "Collection of important Quranic verses with translations",
+              type: "Reference",
+              category: "Scripture"
+          },
+          {
+              title: "Islamic Calendar",
+              description: "Important dates and events in the Islamic calendar",
+              type: "Calendar",
+              category: "Reference"
+          },
+          {
+              title: "Scholars Directory",
+              description: "Learn about our renowned Islamic scholars",
+              type: "Directory",
+              category: "About"
+          }
+      ];
 
-    <!-- Demo Content -->
-    <!-- <div class="demo-content">
-        <div class="container">
-            <div class="demo-section">
-                <h1>Welcome to ZUHD Academy</h1>
-                <p>This is a demo page to test the responsive navigation. Try clicking the hamburger menu on mobile devices or resizing your browser window to see the responsive behavior.</p>
-                <p>The navigation includes dropdown menus, search functionality, and smooth animations.</p>
-            </div>
-            <div class="demo-section">
-                <h2>Features</h2>
-                <ul>
-                    <li>Responsive hamburger menu for mobile</li>
-                    <li>Dropdown navigation</li>
-                    <li>Search overlay with results</li>
-                    <li>Smooth animations and transitions</li>
-                    <li>Accessible keyboard navigation</li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
+      function openSearchOverlay() {
+          searchOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          setTimeout(() => {
+              if (searchInput) searchInput.focus();
+          }, 300);
+      }
 
-    <!-- ===========================
-         JAVASCRIPT
-    =========================== -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // ===========================
-            // ELEMENT REFERENCES
-            // ===========================
-            const navbar = document.getElementById("navbar");
-            const navMenu = document.getElementById("navMenu");
-            const overlay = document.getElementById("overlay");
-            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-            const closeSidebar = document.getElementById("closeSidebar");
-            const supportDropdown = document.getElementById("supportDropdown");
-            const dropdownToggle = supportDropdown?.querySelector(".dropdown-toggle");
-            const searchBtns = document.querySelectorAll(".search-btn");
-            const searchOverlay = document.getElementById("searchOverlay");
-            const closeSearch = document.getElementById("closeSearch");
-            const searchInput = document.getElementById("searchInput");
-            const searchResults = document.getElementById("searchResults");
+      function closeSearchOverlay() {
+          searchOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+          if (searchInput) searchInput.value = '';
+          if (searchResults) {
+              searchResults.innerHTML = '';
+              searchResults.classList.remove('show');
+          }
+      }
 
-            // ===========================
-            // SEARCH DATA
-            // ===========================
-            const searchData = [
-                { title: "Introduction to Islamic Philosophy", description: "Basic concepts and principles of Islamic philosophical thought", type: "Lecture", category: "Lectures" },
-                { title: "The importance of prayer in daily life", description: "Understanding the spiritual significance of Salah", type: "Lecture", category: "Lectures" },
-                { title: "Patience in trials", description: "Be patient, for your patience is with the help of Allah", type: "Quote", category: "Quotes" },
-                { title: "Knowledge and wisdom", description: "Seek knowledge from the cradle to the grave", type: "Quote", category: "Quotes" },
-                { title: "About ZUHD Academy", description: "Learn about our mission and educational approach", type: "Page", category: "About" },
-                { title: "Kaaba in Mecca", description: "Sacred site and center of Islamic pilgrimage", type: "Location", category: "Ziyarat" }
-            ];
+      function performSearch(query) {
+          if (!query.trim()) {
+              searchResults.innerHTML = '';
+              searchResults.classList.remove('show');
+              return;
+          }
+          const filteredResults = searchData.filter(item =>
+              item.title.toLowerCase().includes(query.toLowerCase()) ||
+              item.description.toLowerCase().includes(query.toLowerCase()) ||
+              item.type.toLowerCase().includes(query.toLowerCase())
+          );
 
-            // ===========================
-            // MOBILE MENU FUNCTIONS
-            // ===========================
-            function openMobileMenu() {
-                console.log("Opening mobile menu"); // Debug log
-                if (navMenu && overlay) {
-                    navMenu.classList.add("active");
-                    overlay.classList.add("active");
-                    document.body.style.overflow = "hidden";
-                }
-            }
+          if (filteredResults.length > 0) {
+              const resultsHTML = `
+                  <div class="search-category">
+                      <h3 class="category-title">Search Results</h3>
+                      ${filteredResults.map(item => `
+                          <div class="search-item">
+                              <div class="item-title">${item.title}</div>
+                              <div class="item-description">${item.description}</div>
+                              <div class="item-type">${item.type}</div>
+                          </div>
+                      `).join('')}
+                  </div>
+              `;
+              searchResults.innerHTML = resultsHTML;
+          } else {
+              searchResults.innerHTML = `
+                  <div class="no-results">
+                      <p>No results found for "${query}"</p>
+                  </div>
+              `;
+          }
+          searchResults.classList.add('show');
+      }
 
-            function closeMobileMenu() {
-                console.log("Closing mobile menu"); // Debug log
-                if (navMenu && overlay) {
-                    navMenu.classList.remove("active");
-                    overlay.classList.remove("active");
-                    document.body.style.overflow = "";
-                }
-            }
+      if (desktopSearch) desktopSearch.addEventListener('click', openSearchOverlay);
+      const mobileSearchBtn = document.querySelector('.mobile-search .search-btn');
+      if (mobileSearchBtn) {
+          mobileSearchBtn.addEventListener('click', function () {
+              closeMobileMenu();
+              setTimeout(openSearchOverlay, 300);
+          });
+      }
+      if (closeSearch) closeSearch.addEventListener('click', closeSearchOverlay);
 
-            // ===========================
-            // SEARCH FUNCTIONS
-            // ===========================
-            function openSearch() {
-                if (searchOverlay) {
-                    searchOverlay.classList.add("active");
-                    document.body.style.overflow = "hidden";
-                    setTimeout(() => {
-                        if (searchInput) searchInput.focus();
-                    }, 300);
-                }
-            }
+      if (searchInput) {
+          searchInput.addEventListener('input', function () {
+              performSearch(this.value);
+          });
+          searchInput.addEventListener('keypress', function (e) {
+              if (e.key === 'Enter') performSearch(this.value);
+          });
+      }
 
-            function closeSearchOverlay() {
-                if (searchOverlay && searchInput && searchResults) {
-                    searchOverlay.classList.remove("active");
-                    document.body.style.overflow = "";
-                    searchInput.value = "";
-                    searchResults.innerHTML = "";
-                    searchResults.classList.remove("show");
-                }
-            }
+      document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+              if (searchOverlay.classList.contains('active')) closeSearchOverlay();
+              if (navMenu.classList.contains('active')) closeMobileMenu();
+          }
+      });
 
-            function performSearch(query) {
-                if (!query.trim() || !searchResults) {
-                    if (searchResults) {
-                        searchResults.innerHTML = "";
-                        searchResults.classList.remove("show");
-                    }
-                    return;
-                }
+      // ===========================
+      // SMOOTH SCROLLING FOR ANCHOR LINKS
+      // ===========================
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                  target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+                  if (navMenu.classList.contains('active')) closeMobileMenu();
+              }
+          });
+      });
 
-                const filtered = searchData.filter(item =>
-                    [item.title, item.description, item.type].some(text =>
-                        text.toLowerCase().includes(query.toLowerCase())
-                    )
-                );
+      // ===========================
+      // WINDOW RESIZE HANDLER
+      // ===========================
+      window.addEventListener('resize', function () {
+          if (window.innerWidth > 768) {
+              closeMobileMenu();
+              supportDropdown.classList.remove('active');
+          }
+      });
 
-                renderSearchResults(filtered);
-            }
-
-            function renderSearchResults(results) {
-                if (!searchResults) return;
-
-                if (!results.length) {
-                    searchResults.innerHTML = '<div class="no-results">No results found. Try different keywords.</div>';
-                    searchResults.classList.add("show");
-                    return;
-                }
-
-                const grouped = results.reduce((acc, item) => {
-                    (acc[item.category] = acc[item.category] || []).push(item);
-                    return acc;
-                }, {});
-
-                searchResults.innerHTML = Object.entries(grouped).map(([category, items]) => `
-                    <div class="search-category">
-                        <h3 class="category-title">${category}</h3>
-                        ${items.map(item => `
-                            <div class="search-item" data-title="${item.title.replace(/"/g, '&quot;')}">
-                                <div class="item-title">${item.title}</div>
-                                <div class="item-description">${item.description}</div>
-                                <span class="item-type">${item.type}</span>
-                            </div>
-                        `).join("")}
-                    </div>
-                `).join("");
-
-                searchResults.classList.add("show");
-
-                // Attach click handlers to search items
-                searchResults.querySelectorAll(".search-item").forEach(el => {
-                    el.addEventListener("click", () => {
-                        const title = el.dataset.title;
-                        alert(`You selected: ${title}`);
-                        closeSearchOverlay();
-                    });
-                });
-            }
-
-            // ===========================
-            // EVENT LISTENERS
-            // ===========================
-            
-            // Mobile Menu Events
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    console.log("Mobile menu button clicked"); // Debug log
-                    openMobileMenu();
-                });
-            }
-
-            if (closeSidebar) {
-                closeSidebar.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeMobileMenu();
-                });
-            }
-
-            if (overlay) {
-                overlay.addEventListener("click", closeMobileMenu);
-            }
-
-            // Dropdown Events
-            if (dropdownToggle) {
-                dropdownToggle.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    if (supportDropdown) {
-                        supportDropdown.classList.toggle("active");
-                    }
-                });
-            }
-
-            // Close dropdown when clicking outside
-            document.addEventListener("click", (e) => {
-                if (supportDropdown && !supportDropdown.contains(e.target)) {
-                    supportDropdown.classList.remove("active");
-                }
-            });
-
-            // Search Events
-            searchBtns.forEach(btn => {
-                btn.addEventListener("click", openSearch);
-            });
-
-            if (closeSearch) {
-                closeSearch.addEventListener("click", closeSearchOverlay);
-            }
-
-            if (searchInput) {
-                searchInput.addEventListener("input", (e) => {
-                    performSearch(e.target.value);
-                });
-            }
-
-            // Keyboard Events
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape") {
-                    if (searchOverlay && searchOverlay.classList.contains("active")) {
-                        closeSearchOverlay();
-                    }
-                    closeMobileMenu();
-                    if (supportDropdown) {
-                        supportDropdown.classList.remove("active");
-                    }
-                }
-            });
-
-            // ===========================
-            // SCROLL EFFECTS
-            // ===========================
-            window.addEventListener("scroll", () => {
-                if (navbar) {
-                    if (window.scrollY > 60) {
-                        navbar.classList.add("scrolled");
-                    } else {
-                        navbar.classList.remove("scrolled");
-                    }
-                }
-            });
-
-            // ===========================
-            // MOBILE SEARCH VISIBILITY
-            // ===========================
-            const mobileSearch = document.querySelector('.mobile-search');
-            
-            function checkMobileView() {
-                if (window.innerWidth <= 768) {
-                    if (mobileSearch) mobileSearch.style.display = 'block';
-                } else {
-                    if (mobileSearch) mobileSearch.style.display = 'none';
-                }
-            }
-
-            checkMobileView();
-            window.addEventListener('resize', checkMobileView);
-
-            // Debug: Log when script is loaded
-            console.log("Navigation script loaded successfully");
-        });
-    </script>
+      // ===========================
+      // INITIALIZATION
+      // ===========================
+      document.addEventListener('DOMContentLoaded', function () {
+          handleScroll(); // Set initial navbar state
+      });
+  </script>
 </body>
 </html>

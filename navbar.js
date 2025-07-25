@@ -159,3 +159,4 @@ function initNavbarInteractions() {
         else navbar.classList.remove("scrolled");
     });
 }
+
