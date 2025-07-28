@@ -1438,3 +1438,211 @@ function submitNewsletter(event) {
   alert('Thank you for subscribing!');
   event.target.reset();
 }
+
+
+// qoute js 
+class IslamicQuoteApp {
+  constructor() {
+    this.quotes = []
+    this.currentQuote = null
+    this.init()
+  }
+
+  async init() {
+    await this.loadQuotes()
+    this.displayDailyQuote()
+    this.setupEventListeners()
+  }
+
+  async loadQuotes() {
+    try {
+      const response = await fetch("quotes.json")
+      this.quotes = await response.json()
+      console.log("Quotes loaded successfully:", this.quotes.length, "quotes found.")
+    } catch (error) {
+      console.error("Error loading quotes:", error)
+      this.quotes = [
+        {
+          text: "Indeed, Allah does not burden a soul beyond what it can bear.",
+          source: "Qur'an 2:286",
+        },
+      ]
+      console.log("Using fallback quote due to error.")
+    }
+  }
+
+  getDailyQuoteIndex() {
+    const today = new Date()
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
+    return dayOfYear % this.quotes.length
+  }
+
+  displayDailyQuote() {
+    if (this.quotes.length === 0) {
+      console.warn("No quotes available to display.")
+      return
+    }
+    const quoteIndex = this.getDailyQuoteIndex()
+    this.currentQuote = this.quotes[quoteIndex]
+
+    const quoteTextElement = document.getElementById("iq-quote-text")
+    const quoteSourceElement = document.getElementById("iq-quote-source")
+    const authorElement = document.getElementById("iq-author")
+
+    if (quoteTextElement) {
+      quoteTextElement.textContent = this.currentQuote.text
+    } else {
+      console.error("Element with ID 'iq-quote-text' not found.")
+    }
+
+    if (quoteSourceElement) {
+      quoteSourceElement.textContent = this.currentQuote.source
+    } else {
+      console.error("Element with ID 'iq-quote-source' not found.")
+    }
+
+    const author = this.extractAuthor(this.currentQuote.source)
+    if (authorElement) {
+      authorElement.textContent = author
+    } else {
+      console.error("Element with ID 'iq-author' not found.")
+    }
+    console.log("Displayed quote:", this.currentQuote.text)
+  }
+
+  extractAuthor(source) {
+    if (source.includes("Qur'an")) {
+      return "Al-Qur'an"
+    } else if (source.includes("Hadith")) {
+      return "Prophet Muhammad (PBUH)"
+    } else {
+      return "Islamic Wisdom"
+    }
+  }
+
+  setupEventListeners() {
+    document.getElementById("iq-copy-btn")?.addEventListener("click", () => {
+      this.copyQuoteToClipboard()
+    })
+
+    document.getElementById("iq-whatsapp-btn")?.addEventListener("click", () => {
+      this.shareToWhatsApp()
+    })
+
+    document.getElementById("iq-twitter-btn")?.addEventListener("click", () => {
+      this.shareToTwitter()
+    })
+
+    document.getElementById("iq-instagram-btn")?.addEventListener("click", () => {
+      this.shareToInstagram()
+    })
+
+    document.getElementById("iq-share-main-btn")?.addEventListener("click", () => {
+      this.shareMain()
+    })
+  }
+
+  async copyQuoteToClipboard() {
+    const quoteText = `"${this.currentQuote.text}"\n\n— ${this.currentQuote.source}`
+
+    try {
+      await navigator.clipboard.writeText(quoteText)
+      this.showToast("Quote copied to clipboard!")
+    } catch (error) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea")
+      textArea.value = quoteText
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand("copy")
+      document.body.removeChild(textArea)
+      this.showToast("Quote copied to clipboard!")
+    }
+  }
+
+  shareToWhatsApp() {
+    const quoteText = `"${this.currentQuote.text}"\n— ${this.currentQuote.source}`
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(quoteText + "\n\nCheck out more Islamic quotes: " + window.location.href)}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  shareToTwitter() {
+    const quoteText = `"${this.currentQuote.text}"`
+    const source = this.currentQuote.source
+    const hashtags = "IslamicQuotes,Islam,Quran,Hadith,DailyWisdom"
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quoteText)}&url=${encodeURIComponent(window.location.href)}&hashtags=${hashtags}&via=${encodeURIComponent(source)}`
+    window.open(twitterUrl, "_blank")
+  }
+
+  shareToInstagram() {
+    const quoteText = `"${this.currentQuote.text}"\n\n— ${this.currentQuote.source}\n\n#IslamicQuotes #Islam #Quran #Hadith #DailyWisdom #Faith`
+    // For Instagram, we'll copy the text and show instructions as direct web sharing is limited.
+    this.copyQuoteToClipboard()
+    this.showToast("Quote copied! Open Instagram and paste in your story or post.")
+  }
+
+  shareMain() {
+    const quoteText = `"${this.currentQuote.text}"\n\n— ${this.currentQuote.source}`
+    const url = window.location.href
+    const hashtags = "#IslamicQuotes #Islam #Quran #Hadith #DailyWisdom"
+
+    if (navigator.share) {
+      navigator.share({
+        title: "Islamic Quote of the Day",
+        text: `${quoteText}\n\n${hashtags}`,
+        url: url,
+      })
+    } else {
+      // Fallback to Facebook share if Web Share API is not available
+      const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quoteText + "\n\n" + hashtags)}`
+      window.open(shareUrl, "_blank", "width=600,height=400")
+    }
+  }
+
+  showToast(message) {
+    const toast = document.getElementById("iq-toast")
+    const toastMessage = document.getElementById("iq-toast-message")
+
+    if (toast && toastMessage) {
+      toastMessage.textContent = message
+      toast.classList.add("iq-show")
+
+      setTimeout(() => {
+        toast.classList.remove("iq-show")
+      }, 3000)
+    } else {
+      console.error("Toast elements not found.")
+    }
+  }
+}
+
+// Global instance to allow refreshQuote to access it
+let islamicQuoteAppInstance
+
+document.addEventListener("DOMContentLoaded", () => {
+  islamicQuoteAppInstance = new IslamicQuoteApp()
+})
+
+// Add some additional utility functions for enhanced functionality
+function refreshQuote() {
+  if (islamicQuoteAppInstance) {
+    islamicQuoteAppInstance.displayDailyQuote()
+    islamicQuoteAppInstance.showToast("Quote refreshed!")
+  } else {
+    console.error("IslamicQuoteApp not initialized.")
+  }
+}
+
+// Service Worker registration for offline functionality (optional)
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((registration) => {
+        console.log("SW registered: ", registration)
+      })
+      .catch((registrationError) => {
+        console.log("SW registration failed: ", registrationError)
+      })
+  })
+}

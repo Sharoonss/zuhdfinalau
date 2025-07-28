@@ -36,7 +36,7 @@
         <div class="container">
             <!-- Lectures Header -->
             <div class="lectures-header">
-                <h1 class="lectures-title">Lectures</h1>
+                <h1 class="lectures-title">ZUHD ISLAMIC LECTURES</h1>
             </div>
 
             <!-- Filter Section -->
@@ -113,6 +113,39 @@
 
     <div class="islamic-platform-wrapper">
         <!-- Main Hero Section -->
+
+ <div class="islamic-wisdom-hub">
+        <h1 class="sacred-knowledge-title">ISLAMIC LECTURES</h1>
+        <p class="enlightenment-tagline">Enlighten your soul with knowledge.</p>
+        
+        <div class="spiritual-media-frame">
+            <div class="video-display-area">
+                <div class="video-overlay" id="videoOverlay">
+                    <button class="divine-play-trigger" id="playBtn"></button>
+                </div>
+            </div>
+            
+            <div class="simple-controls">
+                <div class="left-controls">
+                    <button class="simple-play-btn" id="simplePlayBtn">▶</button>
+                    <span class="time-display" id="timeDisplay">0:00</span>
+                </div>
+                
+                <div class="right-controls">
+                    <button class="volume-btn" id="volumeBtn">🔊</button>
+                    <button class="speed-btn" id="speedBtn">1x</button>
+                    <button class="fullscreen-btn" id="fullscreenBtn">⛶</button>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="sacred-sermon-heading">The Importance of Prayer</h2>
+        <p class="spiritual-insight-summary">Learn about the significance of Salah in a Muslim's life</p>
+        
+        <button class="knowledge-gateway-btn" id="viewMoreBtn">VIEW MORE LECTURES</button>
+
+
+
         <div class="tarbiyyah-hero-banner">
             <div class="hero-main-content">
                <div class="elfsight-app-eb6ebd11-08cf-49ca-8c1a-69a026654577" data-elfsight-app-lazy></div>
@@ -490,8 +523,113 @@ function submitNewsletter(event) {
     alert('Thank you for subscribing!');
     event.target.reset();
 }
-</script>
+  let isPlaying = false;
+        let currentTime = 0;
+        let totalTime = 1800; // 30 minutes in seconds
+        let playTimer;
+        let volume = 1;
+        let speed = 1;
 
+        const playBtn = document.getElementById('playBtn');
+        const simplePlayBtn = document.getElementById('simplePlayBtn');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const speedBtn = document.getElementById('speedBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const viewMoreBtn = document.getElementById('viewMoreBtn');
+        const videoPlayer = document.querySelector('.spiritual-media-frame');
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateTimeDisplay() {
+            timeDisplay.textContent = formatTime(currentTime);
+        }
+
+        function pausePlayback() {
+            clearInterval(playTimer);
+            isPlaying = false;
+            playBtn.innerHTML = '';
+            playBtn.style.background = 'rgba(255, 255, 255, 0.9)';
+            simplePlayBtn.innerHTML = '▶';
+            videoOverlay.classList.remove('playing');
+            videoPlayer.classList.remove('wisdom-active');
+        }
+
+        function startPlayback() {
+            playTimer = setInterval(() => {
+                currentTime += speed;
+                if (currentTime >= totalTime) {
+                    currentTime = totalTime;
+                    pausePlayback();
+                }
+                updateTimeDisplay();
+            }, 1000);
+        }
+
+        // Event Listeners
+        playBtn.addEventListener('click', togglePlayback);
+        simplePlayBtn.addEventListener('click', togglePlayback);
+
+        function togglePlayback() {
+            if (!isPlaying) {
+                isPlaying = true;
+                playBtn.innerHTML = '⏸️';
+                playBtn.style.background = 'rgba(255, 255, 255, 0.8)';
+                simplePlayBtn.innerHTML = '⏸';
+                videoOverlay.classList.add('playing');
+                videoPlayer.classList.add('wisdom-active');
+                startPlayback();
+            } else {
+                pausePlayback();
+            }
+        }
+
+        volumeBtn.addEventListener('click', () => {
+            if (volume > 0) {
+                volume = 0;
+                volumeBtn.textContent = '🔇';
+            } else {
+                volume = 1;
+                volumeBtn.textContent = '🔊';
+            }
+        });
+
+        speedBtn.addEventListener('click', () => {
+            const speeds = [1, 1.25, 1.5, 2];
+            const currentIndex = speeds.indexOf(speed);
+            speed = speeds[(currentIndex + 1) % speeds.length];
+            speedBtn.textContent = `${speed}x`;
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            // Simulate fullscreen toggle
+            if (fullscreenBtn.style.opacity === '0.5') {
+                fullscreenBtn.style.opacity = '1';
+                alert('Exited fullscreen mode');
+            } else {
+                fullscreenBtn.style.opacity = '0.5';
+                alert('Entered fullscreen mode');
+            }
+        });
+
+        viewMoreBtn.addEventListener('click', () => {
+            // Add ripple effect
+            viewMoreBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                viewMoreBtn.style.transform = 'translateY(-2px)';
+                alert('More lectures coming soon! Stay tuned for enlightening content.');
+            }, 150);
+        });
+
+        // Initialize
+        updateTimeDisplay();
+        updateVolumeDisplay();
+        totalDurationDisplay.textContent = formatTime(totalTime);
     </script>
              <script src="navbar.js"></script>
 <script src="https://static.elfsight.com/platform/platform.js" async></script>

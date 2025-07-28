@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate/Support - Zuhd</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <nav>
+      <div id="navbar"></div>
+   </nav>
+    <div class="zuhd-donation-container">
+        <!-- Hero Section -->
+        <section class="zuhd-hero-section">
+            <div class="zuhd-hero-background">
+                <img src="/images/150ppi/07 Donate.png" alt="Open Quran" class="zuhd-hero-image">
+                <div class="zuhd-hero-overlay"></div>
+            </div>
+            <div class="zuhd-hero-content">
+                <p class="zuhd-hero-subtitle">Consider supporting our work</p>
+                <h1 class="zuhd-hero-title">DONATE/<br>SUPPORT</h1>
+                <button class="zuhd-support-btn" onclick="scrollToPayment()">
+                    <span>SUPPORT NOW</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section class="zuhd-payment-section">
+            <div class="zuhd-payment-card">
+                <div class="zuhd-payment-header">
+                    <h2 class="zuhd-payment-title">Payment Method</h2>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="zuhd-payment-methods">
+                    <div class="zuhd-payment-option" data-method="stripe">
+                        <div class="zuhd-payment-logo">
+                            <i class="fab fa-stripe"></i>
+                            <span>stripe</span>
+                        </div>
+                    </div>
+                    <div class="zuhd-payment-option" data-method="paypal">
+                        <div class="zuhd-payment-logo">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                    </div>
+                    <div class="zuhd-payment-option" data-method="gofundme">
+                        <div class="zuhd-payment-logo">
+                            <i class="fas fa-heart"></i>
+                            <span>GoFundMe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donation Causes -->
+                <div class="zuhd-donation-causes">
+                    <h3 class="zuhd-causes-title">Donate to</h3>
+                    
+                    <div class="zuhd-cause-item" data-cause="palestine">
+                        <div class="zuhd-cause-header">
+                            <h4 class="zuhd-cause-name">Palestine</h4>
+                            <div class="zuhd-cause-toggle">
+                                <input type="radio" name="cause" id="palestine" value="palestine" checked>
+                                <label for="palestine" class="zuhd-radio-label"></label>
+                            </div>
+                        </div>
+                        <p class="zuhd-cause-description">
+                            Support relief efforts in Gaza and the West Bank.
+                        </p>
+                    </div>
+
+                    <div class="zuhd-cause-item" data-cause="masjids">
+                        <div class="zuhd-cause-header">
+                            <h4 class="zuhd-cause-name">Help Masjids</h4>
+                            <div class="zuhd-cause-toggle">
+                                <input type="radio" name="cause" id="masjids" value="masjids">
+                                <label for="masjids" class="zuhd-radio-label"></label>
+                            </div>
+                        </div>
+                        <p class="zuhd-cause-description">
+                            Help maintain and expand our community mosques.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Donation Amount -->
+                <div class="zuhd-amount-section">
+                    <h3 class="zuhd-amount-title">Select Amount</h3>
+                    <div class="zuhd-amount-options">
+                        <button class="zuhd-amount-btn" data-amount="25">$25</button>
+                        <button class="zuhd-amount-btn" data-amount="50">$50</button>
+                        <button class="zuhd-amount-btn zuhd-amount-active" data-amount="100">$100</button>
+                        <button class="zuhd-amount-btn" data-amount="250">$250</button>
+                        <input type="number" class="zuhd-custom-amount" placeholder="Custom amount" min="1">
+                    </div>
+                </div>
+
+                <!-- Donate Button -->
+                <button class="zuhd-donate-btn" onclick="processDonation()">
+                    <span>DONATE NOW</span>
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Cause Cards Section -->
+        <section class="zuhd-causes-section">
+            <div class="zuhd-cause-card" data-cause="palestine">
+                <div class="zuhd-cause-image-container">
+                    <img src="/images/p.png" alt="Palestine Flag" class="zuhd-cause-image">
+                    <div class="zuhd-cause-overlay">
+                        <h3 class="zuhd-cause-card-title">PALESTINE</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="zuhd-cause-card" data-cause="masjids">
+                <div class="zuhd-cause-image-container">
+                    <img src="/images/mosque.png" alt="Mosque Interior" class="zuhd-cause-image">
+                    <div class="zuhd-cause-overlay">
+                        <h3 class="zuhd-cause-card-title">LOCAL MASJIDS</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Modal -->
+        <div class="zuhd-modal-overlay" id="successModal">
+            <div class="zuhd-modal">
+                <div class="zuhd-modal-content">
+                    <i class="fas fa-check-circle zuhd-success-icon"></i>
+                    <h3>Thank You!</h3>
+                    <p>Your donation has been processed successfully.</p>
+                    <button class="zuhd-modal-btn" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="main-banner">
+<div class="banner">
+        <div class="decorative-elements">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+        </div>
+        
+        <div class="banner-content">
+            <h2 class="channel-name">1 Million Subscribers</h2>
+            <p class="update-text">New Updates Coming</p>
+            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
+        </div>
+    </div>
+    </div>
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main">
+                        <img src="/logo-03.png" alt="ZUHD Logo">
+                    </div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>About Academy</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column newsletter">
+                    <h3>Sign Up and Save</h3>
+                    <p>Get exclusive offers and the latest updates.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1" class="social-link" onclick="socialClick('TikTok')" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.linkdin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+                     <script src="navbar.js"></script>
+
+</body>
+</html>

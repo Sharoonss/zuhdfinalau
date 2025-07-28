@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Zuhd Maktab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      
+       
+    </style>
+</head>
+<body>
+   <nav>
+      <div id="navbar"></div>
+   </nav>
+    <!-- Events Header -->
+    <div class="events-header">
+        <h1 class="events-title">EVENTS</h1>
+        <p class="events-subtitle">Upcoming classes, workshops and gatherings</p>
+        <div class="search-container">
+            <select class="category-select" id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="classes">Classes</option>
+                <option value="workshops">Workshops</option>
+                <option value="gatherings">Gatherings</option>
+                <option value="lectures">Lectures</option>
+            </select>
+            <button class="filter-btn" onclick="filterEvents()">FILTER</button>
+        </div>
+    </div>
+
+    <!-- Events Content -->
+    <div class="events-content">
+        <div class="events-container">
+            <h2 class="upcoming-title">Upcoming Events</h2>
+            <div class="events-grid" id="eventsGrid">
+                <div class="event-card" data-category="classes">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yLwM3k78KIW8DCHWO1yf1j8Jtub2tI.png" alt="Learn to Read Quran" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <h3>Learn to Read Quran</h3>
+                            <div class="event-date">📅 June 15, 2024 • 2:00 PM - 5:00 PM</div>
+                            <div class="event-location">📍 Zuhd Islamic Centre, Calgary</div>
+                        </div>
+                        <button class="view-details-btn" onclick="viewEventDetails('Learn to Read Quran')">VIEW DETAILS</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="lectures">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Madinah & Ash-Sham: The Virtues" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <h3>Madinah & Ash-Sham: The Virtues</h3>
+                            <div class="event-date">📅 June 22, 2024 • 6:00 PM - 8:00 PM</div>
+                            <div class="event-location">📍 Community Masjid</div>
+                        </div>
+                        <button class="view-details-btn" onclick="viewEventDetails('Madinah & Ash-Sham: The Virtues')">VIEW DETAILS</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="gatherings">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Sisters Ramadan Night" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <h3>Sisters Ramadan Night</h3>
+                            <div class="event-date">📅 June 3, 2024 • 7:30 PM - 9:30 PM</div>
+                            <div class="event-location">📍 Zuhd Islamic Centre, Calgary</div>
+                        </div>
+                        <button class="view-details-btn" onclick="viewEventDetails('Sisters Ramadan Night')">VIEW DETAILS</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="workshops">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Arabic Calligraphy Workshop" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <h3>Arabic Calligraphy Workshop</h3>
+                            <div class="event-date">📅 June 29, 2024 • 10:00 AM - 2:00 PM</div>
+                            <div class="event-location">📍 Zuhd Islamic Centre, Calgary</div>
+                        </div>
+                        <button class="view-details-btn" onclick="viewEventDetails('Arabic Calligraphy Workshop')">VIEW DETAILS</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="lectures">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Youth Islamic Leadership" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <h3>Youth Islamic Leadership</h3>
+                            <div class="event-date">📅 July 5, 2024 • 4:00 PM - 6:00 PM</div>
+                            <div class="event-location">📍 Community Masjid</div>
+                        </div>
+                        <button class="view-details-btn" onclick="viewEventDetails('Youth Islamic Leadership')">VIEW DETAILS</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="classes">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Tajweed Intensive Course" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <h3>Tajweed Intensive Course</h3>
+                            <div class="event-date">📅 July 12, 2024 • 9:00 AM - 12:00 PM</div>
+                            <div class="event-location">📍 Zuhd Islamic Centre, Calgary</div>
+                        </div>
+                        <button class="view-details-btn" onclick="viewEventDetails('Tajweed Intensive Course')">VIEW DETAILS</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-events" id="noEventsMessage" style="display: none;">
+                <p>No events found for the selected category.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Host Event Section -->
+    <div class="host-event-section">
+        <h2 class="host-title">Host an Event</h2>
+        <p class="host-description">Interested in organizing an Islamic event? Contact us below.</p>
+        <button class="contact-btn" onclick="contactForHosting()">CONTACT US</button>
+    </div>
+<div class="banner">
+        <div class="decorative-elements">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+        </div>
+        
+        <div class="banner-content">
+            <h2 class="channel-name">1 Million Subscribers</h2>
+            <p class="update-text">New Updates Coming</p>
+            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
+        </div>
+    </div>
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
+
+</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>ABOUT ACADEMY</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Just the Matcha')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('The Trial Kit')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('Wholesale & Bulk')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Teaware')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('Matcha Recipes')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Caffeine Content')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Health Benefits')">Ziyarat</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('Affiliate')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column newsletter">
+                    <h3>Let's Stay Connected</h3>
+                    <p>Enter your email</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('Pinterest')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+<a  href="https://www.linkdin.com/zuhd.au"
+    class="social-link"
+    title="Share on LinkedIn"
+    onclick="socialClick('LinkedIn')"
+    target="_blank"
+    rel="noopener">
+  <i class="fa-brands fa-linkedin"></i>
+</a>
+<a  href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1"
+    class="social-link"
+    title="Follow on TikTok"
+    onclick="socialClick('TikTok')"
+    target="_blank"
+    rel="noopener">
+  <i class="fa-brands fa-tiktok"></i>
+</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Filter events functionality
+        function filterEvents() {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const selectedCategory = categoryFilter.value;
+            const eventCards = document.querySelectorAll('.event-card');
+            const noEventsMessage = document.getElementById('noEventsMessage');
+            let visibleEvents = 0;
+
+            eventCards.forEach(card => {
+                if (selectedCategory === 'all' || card.dataset.category === selectedCategory) {
+                    card.style.display = 'flex';
+                    visibleEvents++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no events message
+            if (visibleEvents === 0) {
+                noEventsMessage.style.display = 'block';
+            } else {
+                noEventsMessage.style.display = 'none';
+            }
+        }
+
+        // View event details
+        function viewEventDetails(eventName) {
+            const eventDetails = {
+                'Learn to Read Quran': {
+                    description: 'Join us for an intensive Quran reading class designed for beginners and intermediate learners.',
+                    instructor: 'Ustadh Ahmed Al-Mansouri',
+                    requirements: 'Basic Arabic alphabet knowledge preferred',
+                    fee: '$25 per person'
+                },
+                'Madinah & Ash-Sham: The Virtues': {
+                    description: 'A scholarly lecture exploring the spiritual significance and virtues of the blessed cities of Madinah and Damascus.',
+                    instructor: 'Dr. Fatima Al-Zahra',
+                    requirements: 'Open to all ages',
+                    fee: 'Free admission'
+                },
+                'Sisters Ramadan Night': {
+                    description: 'A special gathering for sisters featuring Quran recitation, Islamic discussions, and community bonding.',
+                    instructor: 'Sister Aisha Rahman',
+                    requirements: 'Sisters only',
+                    fee: '$15 per person (includes dinner)'
+                },
+                'Arabic Calligraphy Workshop': {
+                    description: 'Learn the beautiful art of Arabic calligraphy with traditional techniques and modern applications.',
+                    instructor: 'Master Calligrapher Yusuf Al-Khattat',
+                    requirements: 'All materials provided',
+                    fee: '$40 per person'
+                },
+                'Youth Islamic Leadership': {
+                    description: 'Empowering young Muslims with leadership skills rooted in Islamic principles and values.',
+                    instructor: 'Imam Abdullah Hassan',
+                    requirements: 'Ages 16-25',
+                    fee: '$20 per person'
+                },
+                'Tajweed Intensive Course': {
+                    description: 'Master the rules of Tajweed for beautiful and correct Quranic recitation.',
+                    instructor: 'Qari Muhammad Al-Tajweed',
+                    requirements: 'Ability to read Arabic',
+                    fee: '$35 per person'
+                }
+            };
+
+            const event = eventDetails[eventName];
+            if (event) {
+                const message = `${eventName}\n\n${event.description}\n\nInstructor: ${event.instructor}\nRequirements: ${event.requirements}\nFee: ${event.fee}\n\nTo register:\n• Call: (555) 123-4567\n• Email: events@zuhdmaktab.com\n• Visit: 123 Islamic Center Way, Calgary\n\nJazakAllahu Khair!`;
+                alert(message);
+            } else {
+                alert(`Event Details for: ${eventName}\n\nFor more information and registration, please:\n\n• Call us at (555) 123-4567\n• Email us at events@zuhdmaktab.com\n• Visit our center\n\nJazakAllahu Khair!`);
+            }
+        }
+
+        // Contact for hosting
+        function contactForHosting() {
+            alert("Host an Event at Zuhd Maktab\n\nInterested in organizing an Islamic event at our center?\n\nContact us:\n• Phone: (555) 123-4567\n• Email: events@zuhdmaktab.com\n• Visit: 123 Islamic Center Way, Calgary\n\nWe provide:\n• Event space rental\n• Audio/visual equipment\n• Event coordination support\n• Catering arrangements\n• Marketing assistance\n\nEvent Types We Host:\n• Islamic lectures and seminars\n• Educational workshops\n• Community gatherings\n• Religious celebrations\n• Youth programs\n\nJazakAllahu Khair!");
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Initialize filter
+            filterEvents();
+            
+            // Add event listeners for better UX
+            const categoryFilter = document.getElementById('categoryFilter');
+            categoryFilter.addEventListener('change', filterEvents);
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.target.classList.contains('view-details-btn')) {
+                    e.target.click();
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Search functionality (future enhancement)
+        function searchEvents(searchTerm) {
+            const eventCards = document.querySelectorAll('.event-card');
+            const searchLower = searchTerm.toLowerCase();
+
+            eventCards.forEach(card => {
+                const eventName = card.querySelector('h3').textContent.toLowerCase();
+                const eventLocation = card.querySelector('.event-location').textContent.toLowerCase();
+
+                if (eventName.includes(searchLower) || eventLocation.includes(searchLower)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+             <script src="navbar.js"></script>
+
+</body>
+</html>

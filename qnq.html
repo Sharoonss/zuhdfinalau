@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Q&A - Get Answers to Your Questions</title>
+      <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+      
+        
+    </style>
+</head>
+<body>
+       <nav>
+      <div id="navbar"></div>
+   </nav>
+     <!-- Header Section -->
+        <div class="qna-header qna-fade-in">
+            <h1 class="qna-title">Q&A</h1>
+            <p class="qna-subtitle">Get answers to your Islamic questions</p>
+            <button class="qna-ask-button" onclick="askQuestion()">ASK A QUESTION</button>
+        </div>
+
+    <div class="qna-container">
+      
+        <!-- Search Section -->
+        <div class="qna-search-section qna-fade-in">
+            <input type="text" class="qna-search-input" placeholder="Search..." id="searchInput">
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="qna-category-tabs qna-fade-in">
+            <button class="qna-tab active" onclick="switchCategory('aqidah')">Aqidah</button>
+            <button class="qna-tab" onclick="switchCategory('fiqh')">Fiqh</button>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="qna-loading" id="loadingSection">
+            <div class="qna-spinner"></div>
+            <p>Loading questions...</p>
+        </div>
+
+        <!-- Questions List -->
+        <div class="qna-questions-list qna-fade-in" id="questionsList">
+            <div class="qna-question-item" onclick="toggleAnswer(this)">
+                <div class="qna-question-text">Do we attribute a place to Allah?</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-text">
+                        In Islamic theology, Allah is not confined to any place or direction. Allah exists without being in a place, as He existed before creating space and place. The concept of place applies to created beings, not to the Creator. Allah is above His creation in status and rank, not in physical location.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qna-question-item" onclick="toggleAnswer(this)">
+                <div class="qna-question-text">Is it permissible to name our child 'Abrar'?</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-text">
+                        Yes, 'Abrar' is a beautiful and permissible name in Islam. It means "the righteous ones" or "the pious ones" and is mentioned in the Quran. It's a plural form of 'Barr' meaning righteous, and choosing such names with good meanings is encouraged in Islam.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qna-question-item" onclick="toggleAnswer(this)">
+                <div class="qna-question-text">What is the blood expiation when in Ihram?</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-text">
+                        When in the state of Ihram, if a person violates certain prohibitions, they may need to offer Dam (blood expiation). This typically involves sacrificing a sheep or goat, or alternatively, fasting for three days during Hajj and seven days upon returning home, or feeding six poor people. The specific expiation depends on the nature of the violation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qna-question-item" onclick="toggleAnswer(this)">
+                <div class="qna-question-text">Can I combine prayers while travelling?</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-text">
+                        Yes, Islam allows combining prayers (Jam' bayn as-Salatayn) while traveling. You can combine Dhuhr with Asr, and Maghrib with Isha. This can be done either by praying both at the time of the earlier prayer (Jam' Taqdeem) or at the time of the later prayer (Jam' Ta'kheer). This concession is given to ease the hardship of travel.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qna-question-item" onclick="toggleAnswer(this)">
+                <div class="qna-question-text">Is reciting Fatihah sufficient in prayer?</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-text">
+                        Reciting Al-Fatihah is obligatory in every unit (rak'ah) of prayer. However, it's recommended (sunnah) to recite additional verses from the Quran after Al-Fatihah, especially in the first two rak'ahs of Fajr, Maghrib, and Isha prayers, and in all rak'ahs of Dhuhr and Asr according to some scholars. The Prophet (peace be upon him) regularly recited additional verses after Al-Fatihah.
+                    </div>
+                </div>
+            </div>
+
+            <div class="qna-question-item" onclick="toggleAnswer(this)">
+                <div class="qna-question-text">When is making hijrah obligatory?</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-text">
+                        Hijrah (migration) becomes obligatory when a Muslim cannot practice their religion freely and safely in their current location due to persecution or oppression. If staying would compromise one's faith, safety, or ability to fulfill religious obligations, and there's a safe place to migrate to, then hijrah may become a religious duty. However, each situation requires careful consideration of individual circumstances.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="banner">
+        <div class="decorative-elements">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+            <div class="floating-dot"></div>
+        </div>
+        
+        <div class="banner-content">
+            <h2 class="channel-name">1 Million Subscribers</h2>
+            <p class="update-text">New Updates Coming</p>
+            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
+        </div>
+    </div>
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
+
+</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>ABOUT ACADEMY</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Just the Matcha')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('The Trial Kit')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('Wholesale & Bulk')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Teaware')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('Matcha Recipes')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Caffeine Content')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Health Benefits')">Ziyarat</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('Affiliate')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column newsletter">
+                    <h3>Let's Stay Connected</h3>
+                    <p>Enter your email</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('Pinterest')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+<a  href="https://www.linkdin.com/zuhd.au"
+    class="social-link"
+    title="Share on LinkedIn"
+    onclick="socialClick('LinkedIn')"
+    target="_blank"
+    rel="noopener">
+  <i class="fa-brands fa-linkedin"></i>
+</a>
+<a  href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1"
+    class="social-link"
+    title="Follow on TikTok"
+    onclick="socialClick('TikTok')"
+    target="_blank"
+    rel="noopener">
+  <i class="fa-brands fa-tiktok"></i>
+</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Ask question function
+        function askQuestion() {
+            const question = prompt("Please enter your Islamic question:");
+            if (question && question.trim()) {
+                alert("Thank you for your question! Our scholars will review it and provide an answer soon. You can check back later or contact us directly for urgent matters.");
+            }
+        }
+
+        // Switch category function
+        function switchCategory(category) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.qna-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Show loading
+            showLoading();
+            
+            // Simulate loading new questions
+            setTimeout(() => {
+                hideLoading();
+                loadQuestions(category);
+            }, 1000);
+        }
+
+        // Toggle answer visibility
+        function toggleAnswer(questionItem) {
+            const answer = questionItem.querySelector('.qna-answer');
+            const isVisible = answer.classList.contains('show');
+            
+            // Close all other answers
+            document.querySelectorAll('.qna-answer').forEach(ans => {
+                ans.classList.remove('show');
+            });
+            
+            // Toggle current answer
+            if (!isVisible) {
+                answer.classList.add('show');
+            }
+        }
+
+        // Show loading animation
+        function showLoading() {
+            document.getElementById('loadingSection').classList.add('show');
+            document.getElementById('questionsList').style.display = 'none';
+        }
+
+        // Hide loading animation
+        function hideLoading() {
+            document.getElementById('loadingSection').classList.remove('show');
+            document.getElementById('questionsList').style.display = 'block';
+        }
+
+        // Load questions based on category
+        function loadQuestions(category) {
+            // This would typically fetch questions from a server
+            // For now, we'll just show the existing questions
+            console.log(`Loading ${category} questions...`);
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const questions = document.querySelectorAll('.qna-question-item');
+            
+            questions.forEach(question => {
+                const questionText = question.querySelector('.qna-question-text').textContent.toLowerCase();
+                if (questionText.includes(searchTerm)) {
+                    question.style.display = 'block';
+                } else {
+                    question.style.display = 'none';
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        function handleScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.qna-fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('scroll', handleScrollAnimations);
+        document.addEventListener('DOMContentLoaded', handleScrollAnimations);
+
+        // Add hover effects to question items
+        document.querySelectorAll('.qna-question-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+                 <script src="navbar.js"></script>
+
+</body>
+</html>
