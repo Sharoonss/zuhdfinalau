@@ -1337,7 +1337,7 @@ color:#0a2a1f;
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
-    margin-bottom:320px;
+    margin-bottom:0px;
   }
   .story-slider-container{
     width:100%;
@@ -1377,25 +1377,27 @@ color:#0a2a1f;
 
   /* Mobile background images */
   .hearts-slide {
-    background: url("/ZUHD\ AU\ New\ Banner-11.png") no-repeat center center;
+    width:100%;
+    height:auto;
+    background: url("/ZUHD\ AU\ New\ Banner-16.png") no-repeat center center;
     background-size: cover;
     background-position: center;
   }
 
   .wisdom-slide {
-    background: url("/ZUHD\ AU\ New\ Banner-12.png") no-repeat center center;
+    background: url("/ZUHD\ AU\ New\ Banner-17.png") no-repeat center center;
     background-size: cover;
     background-position: center;
   }
 
   .community-slide {
-    background: url("/ZUHD\ AU\ New\ Banner-13.png") no-repeat center center;
+    background: url("/ZUHD\ AU\ New\ Banner-18.png") no-repeat center center;
     background-size: cover;
     background-position: center;
   }
 
   .guidance-slide {
-    background: url("/ZUHD\ AU\ New\ Banner-14.png") no-repeat center center;
+    background: url("/ZUHD\ AU\ New\ Banner-19.png") no-repeat center center;
     background-size: cover;
     background-position: center;
   }
@@ -1420,6 +1422,42 @@ color:#0a2a1f;
     flex-wrap: wrap;
     gap: 10px;
   }
+.hearts-slide {
+  width: 100%;
+  height:auto;
+  background: url("/ZUHD AU New Banner-16.png") no-repeat center center;
+  background-size: cover;
+    background-position:center;
+
+  
+}
+
+.wisdom-slide {
+  background: url("/ZUHD AU New Banner-17.png") no-repeat center center;
+  background-size: cover;
+   width: 100%;
+  height:auto;
+    background-position:center;
+
+}
+
+.community-slide {
+  background: url("/ZUHD AU New Banner-18.png") no-repeat center center;
+  background-size: cover;
+    width: 100%;
+  height:auto;
+    background-position:center;
+
+}
+
+.guidance-slide {
+  background: url("/ZUHD AU New Banner-19.png") no-repeat center center;
+  background-size: cover;
+   width: 100%;
+  height:auto;
+  background-position:center;
+}
+
 }
 
 /* Utility Classes */
@@ -3577,6 +3615,11 @@ color:#0a2a1f;
 }
 
 @media (max-width: 480px) {
+    .nourish-hero-carousel {
+  min-height:70vh;
+  position: relative;
+  overflow: hidden;
+}
     .zuhd-about-container {
         padding: 20px 10px;
     }
