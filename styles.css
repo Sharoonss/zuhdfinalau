@@ -1915,9 +1915,9 @@ color:#0a2a1f;
         transform: translateX(-50%);
     }
     
-    .footer-column {
-        text-align: center;
-    }
+ .footer-column {
+        text-align:start;
+    } 
     
     .footer-column ul li a:hover {
         transform: none; /* Remove slide effect on mobile */
@@ -9488,7 +9488,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
   animation: fadeInUp 0.6s ease forwards;
   padding: 20px 0; /* Padding for mobile */
   border-bottom: 1px solid rgba(200, 184, 138, 0.2); /* Border for mobile */
-  text-align: center; /* Center for mobile */
+  /* text-align: center; Center for mobile */
 }
 
 @media (min-width: 769px) {
