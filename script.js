@@ -1445,6 +1445,7 @@ class IslamicQuoteApp {
   constructor() {
     this.quotes = []
     this.currentQuote = null
+    this.dailyQuoteInterval = null // To store the interval ID for automatic updates
     this.init()
   }
 
@@ -1452,6 +1453,13 @@ class IslamicQuoteApp {
     await this.loadQuotes()
     this.displayDailyQuote()
     this.setupEventListeners()
+
+    // Set up automatic daily quote change every 24 hours
+    const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000
+    this.dailyQuoteInterval = setInterval(() => {
+      this.displayDailyQuote()
+      this.showToast("Quote refreshed automatically!") // Optional: notify user
+    }, ONE_DAY_IN_MS)
   }
 
   async loadQuotes() {
@@ -1484,7 +1492,6 @@ class IslamicQuoteApp {
     }
     const quoteIndex = this.getDailyQuoteIndex()
     this.currentQuote = this.quotes[quoteIndex]
-
     const quoteTextElement = document.getElementById("iq-quote-text")
     const quoteSourceElement = document.getElementById("iq-quote-source")
     const authorElement = document.getElementById("iq-author")
@@ -1494,13 +1501,11 @@ class IslamicQuoteApp {
     } else {
       console.error("Element with ID 'iq-quote-text' not found.")
     }
-
     if (quoteSourceElement) {
       quoteSourceElement.textContent = this.currentQuote.source
     } else {
       console.error("Element with ID 'iq-quote-source' not found.")
     }
-
     const author = this.extractAuthor(this.currentQuote.source)
     if (authorElement) {
       authorElement.textContent = author
@@ -1521,30 +1526,36 @@ class IslamicQuoteApp {
   }
 
   setupEventListeners() {
+    // Share buttons
     document.getElementById("iq-copy-btn")?.addEventListener("click", () => {
       this.copyQuoteToClipboard()
     })
-
-    document.getElementById("iq-whatsapp-btn")?.addEventListener("click", () => {
-      this.shareToWhatsApp()
+    document.getElementById("iq-link-btn")?.addEventListener("click", () => {
+      this.shareMain() // This button also triggers the main share functionality
     })
 
-    document.getElementById("iq-twitter-btn")?.addEventListener("click", () => {
-      this.shareToTwitter()
+    // Blog Highlights buttons (currently decorative as per original code, no specific JS functionality)
+    document.querySelectorAll(".iq-highlight-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        this.showToast("Blog highlight button clicked (decorative)!") // Example feedback
+      })
     })
 
+    // Social Share buttons
     document.getElementById("iq-instagram-btn")?.addEventListener("click", () => {
       this.shareToInstagram()
     })
-
+    document.getElementById("iq-share-more-btn")?.addEventListener("click", () => {
+      this.shareMain() // This button also triggers the main share functionality
+    })
     document.getElementById("iq-share-main-btn")?.addEventListener("click", () => {
       this.shareMain()
     })
   }
 
   async copyQuoteToClipboard() {
+    if (!this.currentQuote) return
     const quoteText = `"${this.currentQuote.text}"\n\n— ${this.currentQuote.source}`
-
     try {
       await navigator.clipboard.writeText(quoteText)
       this.showToast("Quote copied to clipboard!")
@@ -1561,12 +1572,14 @@ class IslamicQuoteApp {
   }
 
   shareToWhatsApp() {
+    if (!this.currentQuote) return
     const quoteText = `"${this.currentQuote.text}"\n— ${this.currentQuote.source}`
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(quoteText + "\n\nCheck out more Islamic quotes: " + window.location.href)}`
     window.open(whatsappUrl, "_blank")
   }
 
   shareToTwitter() {
+    if (!this.currentQuote) return
     const quoteText = `"${this.currentQuote.text}"`
     const source = this.currentQuote.source
     const hashtags = "IslamicQuotes,Islam,Quran,Hadith,DailyWisdom"
@@ -1575,17 +1588,17 @@ class IslamicQuoteApp {
   }
 
   shareToInstagram() {
-    const quoteText = `"${this.currentQuote.text}"\n\n— ${this.currentQuote.source}\n\n#IslamicQuotes #Islam #Quran #Hadith #DailyWisdom #Faith`
+    if (!this.currentQuote) return
     // For Instagram, we'll copy the text and show instructions as direct web sharing is limited.
     this.copyQuoteToClipboard()
     this.showToast("Quote copied! Open Instagram and paste in your story or post.")
   }
 
   shareMain() {
+    if (!this.currentQuote) return
     const quoteText = `"${this.currentQuote.text}"\n\n— ${this.currentQuote.source}`
     const url = window.location.href
     const hashtags = "#IslamicQuotes #Islam #Quran #Hadith #DailyWisdom"
-
     if (navigator.share) {
       navigator.share({
         title: "Islamic Quote of the Day",
@@ -1602,11 +1615,9 @@ class IslamicQuoteApp {
   showToast(message) {
     const toast = document.getElementById("iq-toast")
     const toastMessage = document.getElementById("iq-toast-message")
-
     if (toast && toastMessage) {
       toastMessage.textContent = message
       toast.classList.add("iq-show")
-
       setTimeout(() => {
         toast.classList.remove("iq-show")
       }, 3000)
@@ -1614,11 +1625,17 @@ class IslamicQuoteApp {
       console.error("Toast elements not found.")
     }
   }
+
+  // Cleanup method if the app instance were ever to be removed
+  destroy() {
+    if (this.dailyQuoteInterval) {
+      clearInterval(this.dailyQuoteInterval)
+    }
+  }
 }
 
 // Global instance to allow refreshQuote to access it
 let islamicQuoteAppInstance
-
 document.addEventListener("DOMContentLoaded", () => {
   islamicQuoteAppInstance = new IslamicQuoteApp()
 })
