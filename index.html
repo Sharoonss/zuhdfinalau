@@ -8,10 +8,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="/lecture.html">
   <!-- GSAP core + ScrollTrigger CDN -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  
   <!-- Your custom JS -->
   <script defer src="script.js"></script>
   <!-- Fonts & Icons -->
@@ -277,38 +273,57 @@
  <div class="khutbah-wrapper">
         <div class="khutbah-container">
             <div class="khutbah-info">
-                <h1> The Zuhd Series
-</h1>
-                <p class="khutbah-description">Islamic Knowledge. Real Conversations</p>
+                <h1>The Zuhd Series</h1>
+                <p class="khutbah-description">Islamic Knowledge. Real Conversations</p>
                 
                 <div class="topic-buttons">
                     <button class="topic-btn selected" data-filter="seerah">Seerah Series</button>
                     <button class="topic-btn" data-filter="palestine">Palestine Series</button>
                     <button class="topic-btn" data-filter="parenting">Parenting & Tarbiyah</button>
-                     <button class="topic-btn" data-filter="series1">Umar (RA ) Seerah Series</button>
-                     <button class="topic-btn" data-filter="series2">Taraweeh Reminder Series</button>
-                      <button class="topic-btn" data-filter="series3">Madina Attractions Series</button>
-
-
-
+                    <button class="topic-btn" data-filter="series1">Umar (RA) Seerah Series</button>
+                    <button class="topic-btn" data-filter="series2">Taraweeh Reminder Series</button>
+                    <button class="topic-btn" data-filter="series3">Madina Attractions Series</button>
                 </div>
+
+                <!-- Mobile Navigation Arrows
+                <div class="mobile-nav-controls">
+                    <button class="nav-arrow nav-prev" id="prevVideo">‹</button>
+                    <span class="video-counter">
+                        <span id="currentVideoIndex">1</span> / <span id="totalVideos">6</span>
+                    </span>
+                    <button class="nav-arrow nav-next" id="nextVideo">›</button>
+                </div> -->
             </div>
             
             <div class="video-player-wrapper">
-                <div class="video-frame-container">
-                    <iframe 
+                <div class="video-frame-container" id="videoContainer">
+                    <div class="video-loading-overlay" id="loadingOverlay">
+                        <div class="loading-spinner"></div>
+                    </div>
+                    
+                    <!-- Navigation Arrows ON VIDEO -->
+                    <button class="video-nav-arrow left" id="videoNavPrev">‹</button>
+                    <button class="video-nav-arrow right" id="videoNavNext">›</button>
+                    
+                    <iframe
                         id="khutbah-video-player"
-                        src="https://www.youtube.com/embed/OHFKeG1eStw" 
-                        title="Journey to Taif & First Pledge of the Sahabah" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
+                        src="https://www.youtube.com/embed/OHFKeG1eStw"
+                        title="Journey to Taif & First Pledge of the Sahabah"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
                     </iframe>
+                </div>
+                
+                <!-- Video Title Display -->
+                <div class="current-video-title" id="currentVideoTitle">
+                    From Mistake to Mercy: Lessons from Prophet Adam (A.S)
                 </div>
             </div>
         </div>
     </div>
+
   <div class="partners-section">
         <h1 class="section-title2">OUR PARTNERS</h1>
         <p class="section-subtitle">Built on Islamic principles, trusted by leading organizations</p>
@@ -587,12 +602,12 @@
                         <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
                             <img src="/youtube.png" alt="YouTube">
                         </a>
-                        <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn">
+                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn">
                             <img src="/linkedin.png" alt="LinkedIn">
-                        </a>
-                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter">
+                        </a> -->
+                        <!-- <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter">
                             <img src="/twitter-alt-square.png" alt="Twitter">
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
@@ -938,114 +953,293 @@ function socialClick(platform) {
     console.log('Social link clicked:', platform);
 }
 
- const videoLibrary = {
+   const videoLibrary = {
             seerah: {
                 id: "0YSpZsDr678",
                 title: "From Mistake to Mercy: Lessons from Prophet Adam (A.S)",
-                url: "https://www.youtube.com/embed/OHFKeG1eStw"
+                url: "https://www.youtube.com/embed/OHFKeG1eStw",
             },
             palestine: {
                 id: "dQw4w9WgXcQ",
-                title: "Palestine Series",
-                url: "https://www.youtube.com/embed/cRuWvVsNozo"
+                title: "Palestine Series - Understanding the Struggle",
+                url: "https://www.youtube.com/embed/cRuWvVsNozo",
             },
             parenting: {
                 id: "jNQXAC9IVRw",
                 title: "Parenting & Tarbiyah - Raising Righteous Children",
-                url: "https://www.youtube.com/embed/yOa1Lh0_xWk?list=PLA-ylo0o2Z5lbYF2mfsUstvcYU_3sBmCD"
+                url: "https://www.youtube.com/embed/yOa1Lh0_xWk?list=PLA-ylo0o2Z5lbYF2mfsUstvcYU_3sBmCD",
             },
-            spiritual: {
-                id: "y6120QOlsfU",
-                title: "Taraweeh Reminder Series",
-                url: "https://www.youtube.com/embed/ncUqIMQQB60?list=PLA-ylo0o2Z5mse-S-f7xfpuiUnp75IuBL"
-            } ,
             series1: {
                 id: "y6120QOlsfU1",
                 title: "The Rise of Umar RA: From Fearless Fighter to Guided Flame",
-                url: "https://www.youtube.com/embed/aaj1aclhfAc"
+                url: "https://www.youtube.com/embed/aaj1aclhfAc",
             },
-             series2: {
-                id: "y6120QOlsfU1",
+            series2: {
+                id: "y6120QOlsfU2",
                 title: "Ramadan Reflections: Day 1 - Awakening the Heart with Dr. Sami Al-Hashmi",
-                url: "https://www.youtube.com/embed/ncUqIMQQB60?list=PLA-ylo0o2Z5mse-S-f7xfpuiUnp75IuBL"
+                url: "https://www.youtube.com/embed/ncUqIMQQB60?list=PLA-ylo0o2Z5mse-S-f7xfpuiUnp75IuBL",
             },
-             series3: {
-                id: "y6120QOlsfU1",
-                title: "Walking the Path of the Prophet (ﷺ): Madina&#39;s Sacred Sites",
-                url: "https://www.youtube.com/embed/fzgrTls3hwQ?list=PLA-ylo0o2Z5kzo9QcShJ-cmzStW7Ma6YC"
-            }
-
-        };
-
-        function changeVideo(category) {
-            const videoPlayer = document.getElementById('khutbah-video-player');
-            const selectedVideo = videoLibrary[category];
-            
-            if (selectedVideo && videoPlayer) {
-                videoPlayer.src = selectedVideo.url;
-                videoPlayer.title = selectedVideo.title;
-                
-                videoPlayer.style.opacity = '0';
-                setTimeout(() => {
-                    videoPlayer.style.opacity = '1';
-                }, 300);
-            }
+            series3: {
+                id: "y6120QOlsfU3",
+                title: "Walking the Path of the Prophet (ﷺ): Madina's Sacred Sites",
+                url: "https://www.youtube.com/embed/fzgrTls3hwQ?list=PLA-ylo0o2Z5kzo9QcShJ-cmzStW7Ma6YC",
+            },
         }
 
-        function updateSelectedButton(clickedButton) {
-            const allButtons = document.querySelectorAll('.topic-btn');
-            allButtons.forEach(btn => btn.classList.remove('selected'));
-            clickedButton.classList.add('selected');
+        // Video categories array for navigation
+        const videoCategories = ["seerah", "palestine", "parenting", "series1", "series2", "series3"]
+        let currentVideoIndex = 0
+
+        // Initialize the application
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeVideoPlayer()
+            setupScrollObserver()
+            setupVideoNavigation()
+            setupNavigationControls()
+            updateVideoCounter()
+        })
+
+        // Initialize video player functionality
+        function initializeVideoPlayer() {
+            const topicButtons = document.querySelectorAll(".topic-btn")
+
+            topicButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    const category = this.getAttribute("data-filter")
+                    currentVideoIndex = index
+                    updateSelectedButton(this)
+                    changeVideoEnhanced(category)
+                    updateVideoCounter()
+                })
+            })
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const topicButtons = document.querySelectorAll('.topic-btn');
-            
-            topicButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.getAttribute('data-filter');
-                    updateSelectedButton(this);
-                    changeVideo(category);
-                    
-                    const videoPlayer = document.getElementById('khutbah-video-player');
-                    if (videoPlayer) {
-                        videoPlayer.style.transition = 'opacity 0.3s ease';
+        // Setup Intersection Observer for scroll-triggered animations
+        function setupScrollObserver() {
+            const khutbahWrapper = document.querySelector(".khutbah-wrapper")
+
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px",
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible")
                     }
-                });
-            });
-        });
+                })
+            }, observerOptions)
 
-        function changeVideoEnhanced(category) {
-            const videoPlayer = document.getElementById('khutbah-video-player');
-            const videoContainer = document.querySelector('.video-frame-container');
-            const selectedVideo = videoLibrary[category];
-            
-            if (!selectedVideo || !videoPlayer) {
-                console.error('Video data or player not found for category:', category);
-                return;
+            if (khutbahWrapper) {
+                observer.observe(khutbahWrapper)
             }
-            
-            videoContainer.style.opacity = '0.7';
-            videoContainer.style.pointerEvents = 'none';
-            
-            const newIframe = document.createElement('iframe');
-            newIframe.id = 'khutbah-video-player';
-            newIframe.src = selectedVideo.url;
-            newIframe.title = selectedVideo.title;
-            newIframe.frameBorder = '0';
-            newIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-            newIframe.referrerPolicy = 'strict-origin-when-cross-origin';
-            newIframe.allowFullscreen = true;
-            
-            videoPlayer.parentNode.replaceChild(newIframe, videoPlayer);
-            
-            setTimeout(() => {
-                videoContainer.style.opacity = '1';
-                videoContainer.style.pointerEvents = 'auto';
-            }, 500);
-        }  
-        
-        
+        }
+
+        // Setup video navigation arrows
+        function setupVideoNavigation() {
+            const videoNavPrev = document.getElementById("videoNavPrev")
+            const videoNavNext = document.getElementById("videoNavNext")
+
+            if (videoNavPrev) {
+                videoNavPrev.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    navigateVideo("prev")
+                })
+            }
+
+            if (videoNavNext) {
+                videoNavNext.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    navigateVideo("next")
+                })
+            }
+        }
+
+        // Setup navigation controls (mobile)
+        function setupNavigationControls() {
+            const prevButton = document.getElementById("prevVideo")
+            const nextButton = document.getElementById("nextVideo")
+
+            if (prevButton) {
+                prevButton.addEventListener("click", () => navigateVideo("prev"))
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener("click", () => navigateVideo("next"))
+            }
+        }
+
+        // Navigate between videos
+        function navigateVideo(direction) {
+            const totalVideos = videoCategories.length
+
+            if (direction === "next") {
+                currentVideoIndex = (currentVideoIndex + 1) % totalVideos
+            } else {
+                currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos
+            }
+
+            const category = videoCategories[currentVideoIndex]
+            const button = document.querySelector(`[data-filter="${category}"]`)
+
+            if (button) {
+                updateSelectedButton(button)
+                changeVideoEnhanced(category)
+                updateVideoCounter()
+            }
+        }
+
+        // Update video counter
+        function updateVideoCounter() {
+            const currentIndexElement = document.getElementById("currentVideoIndex")
+            const totalVideosElement = document.getElementById("totalVideos")
+
+            if (currentIndexElement) {
+                currentIndexElement.textContent = currentVideoIndex + 1
+            }
+
+            if (totalVideosElement) {
+                totalVideosElement.textContent = videoCategories.length
+            }
+
+            // Update navigation button states
+            updateNavigationButtons()
+        }
+
+        // Update navigation button states
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById("prevVideo")
+            const nextButton = document.getElementById("nextVideo")
+            const videoNavPrev = document.getElementById("videoNavPrev")
+            const videoNavNext = document.getElementById("videoNavNext")
+
+            const isFirst = currentVideoIndex === 0
+            const isLast = currentVideoIndex === videoCategories.length - 1
+
+            if (prevButton) {
+                prevButton.disabled = isFirst
+            }
+
+            if (nextButton) {
+                nextButton.disabled = isLast
+            }
+
+            if (videoNavPrev) {
+                videoNavPrev.disabled = isFirst
+            }
+
+            if (videoNavNext) {
+                videoNavNext.disabled = isLast
+            }
+        }
+
+        // Enhanced video change function
+        function changeVideoEnhanced(category) {
+            const videoPlayer = document.getElementById("khutbah-video-player")
+            const videoContainer = document.querySelector(".video-frame-container")
+            const loadingOverlay = document.getElementById("loadingOverlay")
+            const videoTitle = document.getElementById("currentVideoTitle")
+            const selectedVideo = videoLibrary[category]
+
+            if (!selectedVideo || !videoPlayer) {
+                console.error("Video data or player not found for category:", category)
+                return
+            }
+
+            // Show loading state
+            if (loadingOverlay) {
+                loadingOverlay.classList.add("active")
+            }
+
+            videoContainer.classList.add("loading")
+
+            // Create new iframe
+            const newIframe = document.createElement("iframe")
+            newIframe.id = "khutbah-video-player"
+            newIframe.src = selectedVideo.url
+            newIframe.title = selectedVideo.title
+            newIframe.frameBorder = "0"
+            newIframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            newIframe.referrerPolicy = "strict-origin-when-cross-origin"
+            newIframe.allowFullscreen = true
+
+            // Handle iframe load
+            newIframe.onload = () => {
+                setTimeout(() => {
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.remove("active")
+                    }
+                    videoContainer.classList.remove("loading")
+                    videoContainer.classList.add("animate")
+
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        videoContainer.classList.remove("animate")
+                    }, 500)
+                }, 300)
+            }
+
+            // Replace iframe
+            videoPlayer.parentNode.replaceChild(newIframe, videoPlayer)
+
+            // Update video title
+            if (videoTitle) {
+                videoTitle.textContent = selectedVideo.title
+            }
+
+            // Add haptic feedback on mobile (if supported)
+            if (navigator.vibrate) {
+                navigator.vibrate(50)
+            }
+        }
+
+        // Update selected button
+        function updateSelectedButton(clickedButton) {
+            const allButtons = document.querySelectorAll(".topic-btn")
+            allButtons.forEach((btn) => btn.classList.remove("selected"))
+            clickedButton.classList.add("selected")
+        }
+
+        // Legacy function for backward compatibility
+        function changeVideo(category) {
+            changeVideoEnhanced(category)
+        }
+
+        // Keyboard navigation support
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+                navigateVideo("prev")
+            } else if (e.key === "ArrowRight") {
+                navigateVideo("next")
+            }
+        })
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            // Recalculate any responsive elements if needed
+            updateNavigationButtons()
+        })
+
+        // Preload next video for better performance
+        function preloadNextVideo() {
+            const nextIndex = (currentVideoIndex + 1) % videoCategories.length
+            const nextCategory = videoCategories[nextIndex]
+            const nextVideo = videoLibrary[nextCategory]
+
+            if (nextVideo) {
+                const link = document.createElement("link")
+                link.rel = "prefetch"
+                link.href = nextVideo.url
+                document.head.appendChild(link)
+            }
+        }
+
+        // Call preload function when video changes
+        document.addEventListener("videoChanged", preloadNextVideo)
 
         // shorts js 
 document.addEventListener("DOMContentLoaded", () => {

@@ -232,9 +232,35 @@
       <div id="navbar"></div>
    </nav>
     <!-- Header Section -->
-        <header class="zuhd-header-section">
-            <h1 class="zuhd-main-title"> <span>ISLAMIC GUIDANCE</span> <br> ABOUT US</h1>
-        </header>
+      <div class="zuhd-header-section">
+        <!-- Video Background -->
+        <video 
+            class="video-background" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            poster="">
+            <source src="/Zuhd au Video Banner.mp4" type="video/mp4">
+            <source src="/Zuhd au Video Banner - Portrait.mp4" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Fallback Background Image -->
+        <div class="video-fallback"></div>
+
+        <!-- Header Content -->
+        <div class="header-content">
+            <h1>ABOUT ZUHD GUIDANCE</h1>
+            <p>Islamic Knowledge. Real Conversations</p>
+        </div>
+    </div>
+
+    <!-- <div class="about-main-section">
+        <h2>About Our Content</h2>
+        <p>Your main content goes here...</p>
+    </div> -->
+
     <div class="zuhd-about-container">     
 <div class="about-main-section">
         <!-- Vision & History Section -->
@@ -249,7 +275,7 @@
         <section class="zuhd-founders-section">
             <div class="zuhd-founder-card">
                 <div class="zuhd-founder-image-container">
-                    <img src="/images/mufti4.png" alt="Dr. Sami Al-Hashmi" class="zuhd-founder-image">
+                    <img src="/Photo 18-07-2025, 15 39 30.jpg" alt="Dr. Sami Al-Hashmi" class="zuhd-founder-image">
                 </div>
                 <div class="zuhd-founder-info">
                   <h2 class="zuhd-section-title3">Founders</h2>
@@ -412,7 +438,7 @@ Bridges science and faith through a compassionate, holistic approach.
     </section>
     </div>
     </div>
- <div class="main-banner">
+ <!-- <div class="main-banner">
 <div class="banner">             
         <div class="banner-content">
             <h2 class="channel-name">1 Million Subscriber</h2>
@@ -420,7 +446,7 @@ Bridges science and faith through a compassionate, holistic approach.
             <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
         </div>
     </div>
-    </div>
+    </div> -->
   <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
@@ -482,12 +508,12 @@ Bridges science and faith through a compassionate, holistic approach.
   <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
     <img src="/youtube.png" alt="">
   </a>
-  <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
+  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
     <img src="/linkedin.png" alt="">
   </a>
   <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
     <img src="/twitter-alt-square.png" alt="">
-  </a>
+  </a> -->
 </div>
                 </div>
             </div>
@@ -586,6 +612,15 @@ function submitNewsletter(event) {
     alert('Thank you for subscribing!');
     event.target.reset();
 }
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-background');
+            
+            // Ensure video plays (handle autoplay restrictions)
+            video.play().catch(function(error) {
+                console.log('Autoplay prevented:', error);
+            });
+        });
     </script>
          <script src="navbar.js"></script>
                   <script src="script.js"></script>
