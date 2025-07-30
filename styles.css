@@ -110,7 +110,11 @@ body {
 .faith-slide.slide-previous {
   transform: translateX(-100%);
 }
-
+.guidance-slide1 {
+  background: url("/ZUHD\ AU\ New\ Banner-26.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
 /* Slide Backgrounds */
 .hearts-slide {
   background: url("/ZUHD\ AU\ New\ Banner-01.jpg") no-repeat center center;
@@ -328,6 +332,7 @@ body {
 
 /* Extra small screens - still 2 columns but smaller */
 @media (max-width: 480px) {
+
     .spiritual-headline{
         font-size: 2rem;
         line-height: 35px;
@@ -1665,7 +1670,11 @@ color:#0a2a1f;
   .qotd-featured-card {
     min-width: auto;
   }
-
+    .guidance-slide1 {
+  background: url("/ZUHD\ AU\ New\ Banner-27.png") no-repeat center center;
+  background-size: cover;
+  /* background-position:; */
+}
   /* Mobile background images */
  .hearts-slide {
   background: url("/ZUHD\ AU\ New\ Banner-01.jpg") no-repeat center center;
