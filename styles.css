@@ -3966,7 +3966,7 @@ color:#0a2a1f;
     width: 100%;
     height: 100vh;
     text-align: center; /* Center horizontally */
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
     opacity: 0;
     animation: zuhdFadeInDown 1s ease-out forwards;
     animation-delay: 0.2s;
@@ -4049,9 +4049,9 @@ color:#0a2a1f;
         padding: 60px 10px;
     }
 
-    .zuhd-header-section {
+    /* .zuhd-header-section {
         margin-bottom: 40px;
-    }
+    } */
 
     .zuhd-vision-section,
     .zuhd-founders-section {
