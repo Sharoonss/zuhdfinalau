@@ -1672,32 +1672,27 @@ color:#0a2a1f;
   }
     .guidance-slide1 {
   background: url("/ZUHD\ AU\ New\ Banner-28.png") no-repeat center center;
-  background-size: cover;
-   background-position:center; 
+
 }
   /* Mobile background images */
  .hearts-slide {
   background: url("/ZUHD\ AU\ New\ Banner-29.jpg") no-repeat center center;
-  background-size: cover;
-  background-position: center;
+ 
 }
 
 .wisdom-slide {
   background: url("/ZUHD\ AU\ New\ Banner-30.png") no-repeat center center;
-  background-size: cover;
-  background-position: center;
+ 
 }
 
 .community-slide {
   background: url("/ZUHD\ AU\ New\ Banner-31.png") no-repeat center center;
-  background-size: cover;
-  background-position: center;
+  
 }
 
 .guidance-slide {
   background: url("/ZUHD\ AU\ New\ Banner-32.png") no-repeat center center;
-  background-size: cover;
-  background-position: center;
+ 
 }
 }
 
@@ -1740,22 +1735,25 @@ color:#0a2a1f;
     background-repeat: no-repeat;
   }
 
-  .hearts-slide {
-    background-image: url("/ZUHD AU New Banner-01.jpg");
-    width:400px;
-  }
+ .hearts-slide {
+  background: url("/ZUHD\ AU\ New\ Banner-29.jpg") no-repeat center center;
+ 
+}
 
-  .wisdom-slide {
-    background-image: url("/ZUHD AU New Banner-02.jpg");
-  }
+.wisdom-slide {
+  background: url("/ZUHD\ AU\ New\ Banner-30.png") no-repeat center center;
+ 
+}
 
-  .community-slide {
-    background-image: url("/ZUHD AU New Banner-03.jpg");
-  }
+.community-slide {
+  background: url("/ZUHD\ AU\ New\ Banner-31.png") no-repeat center center;
+  
+}
 
-  .guidance-slide {
-    background-image: url("/ZUHD AU New Banner-04.jpg");
-  }
+.guidance-slide {
+  background: url("/ZUHD\ AU\ New\ Banner-32.png") no-repeat center center;
+ 
+}
 
 
 
