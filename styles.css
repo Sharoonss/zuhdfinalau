@@ -1671,31 +1671,31 @@ color:#0a2a1f;
     min-width: auto;
   }
     .guidance-slide1 {
-  background: url("/ZUHD\ AU\ New\ Banner-27.png") no-repeat center center;
+  background: url("/ZUHD\ AU\ New\ Banner-28.png") no-repeat center center;
   background-size: cover;
-  /* background-position:; */
+   background-position:center; 
 }
   /* Mobile background images */
  .hearts-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-01.jpg") no-repeat center center;
+  background: url("/ZUHD\ AU\ New\ Banner-29.jpg") no-repeat center center;
   background-size: cover;
   background-position: center;
 }
 
 .wisdom-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-02.jpg") no-repeat center center;
+  background: url("/ZUHD\ AU\ New\ Banner-30.png") no-repeat center center;
   background-size: cover;
   background-position: center;
 }
 
 .community-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-03.jpg") no-repeat center center;
+  background: url("/ZUHD\ AU\ New\ Banner-31.png") no-repeat center center;
   background-size: cover;
   background-position: center;
 }
 
 .guidance-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-04.jpg") no-repeat center center;
+  background: url("/ZUHD\ AU\ New\ Banner-32.png") no-repeat center center;
   background-size: cover;
   background-position: center;
 }
