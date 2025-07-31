@@ -6802,7 +6802,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         .consultation-service-card p {
             color: #555557;
             line-height:30px;
-             font-size:22px; */
+             font-size:22px; 
         }
 
         .consultation-service-content {
@@ -9754,9 +9754,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
      margin-bottom: 48px;
     padding:0px 0px !important;
   }
-  .content-slider {
-    /* justify-content: flex-start; md:justify-start */
-  }
+
   .media-card {
     flex: 0 0 313px; /* md:w-[313px] */
     height: 400px; /* md:h-[400px] */

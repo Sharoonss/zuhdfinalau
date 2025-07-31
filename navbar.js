@@ -167,3 +167,24 @@ function initNavbarInteractions() {
       navbar.classList.remove("scrolled");
     }
   });
+
+
+
+   document.addEventListener('DOMContentLoaded', function () {
+        const dropdown = document.getElementById('dropdownAboutZuhd');
+        const button = dropdown.querySelector('.dropdown-toggle');
+
+        button.addEventListener('click', function () {
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    });
+
+
+    
+
