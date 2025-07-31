@@ -201,23 +201,44 @@ Per School Term</span></h4>
           </div>
       </section>
       <!-- Rules & Regulations Section -->
-      <section class="rules-regulations-section">
-          <h2 class="section-heading-center-white">Rules and Regulations</h2>
-          <p class="section-paragraph rules-description">
-              To ensure a safe, respectful, and productive learning environment for all students, please review our rules
-              and regulations.
-          </p>
-          <div class="main-images-rules">
-          <div class="rules-image-wrapper">
-              <img src="/rule1_page-0001.jpg" alt="Maktab Rules and Regulations" class="rules-image">
-          </div>
-           <div class="rules-image-wrapper">
-              <img src="/rule2_page-0001.jpg" alt="Maktab Rules and Regulations" class="rules-image">
-          </div>
-          </div>
-      </section>
+     <section class="rules-regulations-section">
+        <h2 class="section-heading-center-white">Rules and Regulations</h2>
+        <p class="section-paragraph rules-description">
+            To ensure a safe, respectful, and productive learning environment for all students, please review our rules
+            and regulations.
+        </p>
+        
+        <div class="main-images-rules">
+            <div class="rules-image-wrapper">
+                <img src="/rule1_page-0001.jpg" alt="Maktab Rules and Regulations Page 1" class="rules-image">
+                <div class="image-label">Rules & Guidelines - Page 1</div>
+            </div>
+            <div class="rules-image-wrapper">
+                <img src="/rule2_page-0001.jpg" alt="Maktab Rules and Regulations Page 2" class="rules-image">
+                <div class="image-label">Rules & Guidelines - Page 2</div>
+            </div>
+        </div>
 
-       <div class="banner">
+        <!-- PDF Download Button -->
+        <div class="pdf-download-container">
+            <a href="/rule1.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
+                <svg class="pdf-icon" viewBox="0 0 24 24">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
+                </svg>
+                Download Full Rules PDF
+            </a>
+            <a href="/rule2.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
+                <svg class="pdf-icon" viewBox="0 0 24 24">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
+                </svg>
+                Download Full Rules PDF
+            </a>
+        </div>
+    </section>
+
+       <!-- <div class="banner">
         <div class="decorative-elements">
             <div class="circle"></div>
             <div class="circle"></div>
@@ -232,7 +253,7 @@ Per School Term</span></h4>
             <p class="update-text">New Updates Coming</p>
             <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
         </div>
-    </div>
+    </div> -->
  <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
@@ -383,6 +404,28 @@ function submitNewsletter(event) {
     alert('Thank you for subscribing!');
     event.target.reset();
 }
+
+
+// Add loading effect when images load
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.rules-image');
+            
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.parentElement.style.setProperty('--loaded', '1');
+                });
+            });
+        });
+
+        // Smooth scroll animation for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 </script>
 
              <script src="navbar.js"></script>
