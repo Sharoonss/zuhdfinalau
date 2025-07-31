@@ -232,7 +232,7 @@
       <div id="navbar"></div>
    </nav>
     <!-- Header Section -->
-      <div class="zuhd-header-section">
+     <div class="zuhd-header-section">
         <!-- Video Background -->
         <video 
             class="video-background" 
@@ -240,9 +240,10 @@
             muted 
             loop 
             playsinline
-            poster="">
-            <source src="/Zuhd au Video Banner.mp4" type="video/mp4">
-            <source src="/Zuhd au Video Banner - Portrait.mp4" type="video/webm">
+            poster=""
+            id="headerVideo">
+            <source src="/Zuhd au Video Banner.mp4" type="video/mp4" media="(min-width: 769px)" id="desktopSource">
+            <source src="/Zuhd au Video Banner - Portrait.mp4" type="video/mp4" media="(max-width: 768px)" id="mobileSource">
             Your browser does not support the video tag.
         </video>
 
@@ -255,6 +256,11 @@
             <p>Islamic Knowledge. Real Conversations</p>
         </div>
     </div>
+
+    <!-- <div class="about-main-section">
+        <h2>Welcome to Zuhd Guidance</h2>
+        <p>This is the main content section. The video header above will automatically switch between landscape and portrait versions based on the device screen size.</p>
+    </div> -->
 
     <!-- <div class="about-main-section">
         <h2>About Our Content</h2>
@@ -613,14 +619,127 @@ function submitNewsletter(event) {
     event.target.reset();
 }
 
-  document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.video-background');
-            
-            // Ensure video plays (handle autoplay restrictions)
-            video.play().catch(function(error) {
-                console.log('Autoplay prevented:', error);
-            });
+class ResponsiveVideoHandler {
+            constructor() {
+                this.video = document.getElementById('headerVideo');
+                this.desktopVideoSrc = '/Zuhd au Video Banner.mp4';
+                this.mobileVideoSrc = '/Zuhd au Video Banner - Portrait.mp4';
+                this.currentSrc = '';
+                this.init();
+            }
+
+            init() {
+                // Set initial video source
+                this.updateVideoSource();
+                
+                // Listen for window resize
+                window.addEventListener('resize', this.debounce(() => {
+                    this.updateVideoSource();
+                }, 250));
+
+                // Listen for orientation change
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.updateVideoSource();
+                    }, 100);
+                });
+
+                // Handle video load errors
+                this.video.addEventListener('error', this.handleVideoError.bind(this));
+                this.video.addEventListener('loadstart', this.handleVideoLoadStart.bind(this));
+            }
+
+            updateVideoSource() {
+                const isMobile = window.innerWidth <= 768;
+                const newSrc = isMobile ? this.mobileVideoSrc : this.desktopVideoSrc;
+                
+                // Only update if source actually changed
+                if (this.currentSrc !== newSrc) {
+                    this.currentSrc = newSrc;
+                    this.switchVideoSource(newSrc);
+                }
+            }
+
+            switchVideoSource(newSrc) {
+                const currentTime = this.video.currentTime || 0;
+                const wasPlaying = !this.video.paused;
+                
+                // Remove error class if it exists
+                this.video.classList.remove('error');
+                
+                // Update source
+                this.video.src = newSrc;
+                
+                // Reload and continue playback
+                this.video.load();
+                
+                this.video.addEventListener('loadeddata', () => {
+                    this.video.currentTime = currentTime;
+                    if (wasPlaying) {
+                        this.video.play().catch(e => {
+                            console.log('Autoplay prevented:', e);
+                        });
+                    }
+                }, { once: true });
+            }
+
+            handleVideoError(e) {
+                console.error('Video failed to load:', e);
+                this.video.classList.add('error');
+                
+                // Try alternative source if current one fails
+                const isMobile = window.innerWidth <= 768;
+                const fallbackSrc = isMobile ? this.desktopVideoSrc : this.mobileVideoSrc;
+                
+                if (this.currentSrc !== fallbackSrc) {
+                    console.log('Trying fallback video source...');
+                    this.currentSrc = fallbackSrc;
+                    this.video.src = fallbackSrc;
+                    this.video.load();
+                }
+            }
+
+            handleVideoLoadStart() {
+                this.video.classList.remove('error');
+            }
+
+            // Debounce function to limit resize event frequency
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ResponsiveVideoHandler();
         });
+
+        // Additional mobile-specific optimizations
+        if ('serviceWorker' in navigator) {
+            // Preload video sources for better performance
+            const preloadVideo = (src) => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'video';
+                link.href = src;
+                document.head.appendChild(link);
+            };
+
+            // Preload appropriate video based on screen size
+            if (window.innerWidth <= 768) {
+                preloadVideo('/Zuhd au Video Banner - Portrait.mp4');
+            } else {
+                preloadVideo('/Zuhd au Video Banner.mp4');
+            }
+        }
     </script>
          <script src="navbar.js"></script>
                   <script src="script.js"></script>
