@@ -1670,32 +1670,32 @@ color:#0a2a1f;
   .qotd-featured-card {
     min-width: auto;
   }
-    .guidance-slide1 {
-  background: url("/ZUHD\ AU\ New\ Banner-28.png") no-repeat center center;
-
+  .guidance-slide1 {
+  background: url("/ZUHD AU New Banner-28.png") no-repeat center center;
+  background-size: cover;
 }
-  /* Mobile background images */
- .hearts-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-29.jpg") no-repeat center center;
- 
+
+.hearts-slide {
+  background: url("/ZUHD AU New Banner-29.jpg") no-repeat center center;
+  background-size: cover;
 }
 
 .wisdom-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-30.png") no-repeat center center;
- 
+  background: url("/ZUHD AU New Banner-30.png") no-repeat center center;
+  background-size: cover;
 }
 
 .community-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-31.png") no-repeat center center;
-  
+  background: url("/ZUHD AU New Banner-31.png") no-repeat center center;
+  background-size: cover;
 }
 
 .guidance-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-32.png") no-repeat center center;
- 
-}
+  background: url("/ZUHD AU New Banner-32.png") no-repeat center center;
+  background-size: cover;
 }
 
+/* Mobile adjustments */
 @media (max-width: 480px) {
   .category-filters {
     gap: 0.4rem;
@@ -1715,12 +1715,13 @@ color:#0a2a1f;
     flex-wrap: wrap;
     gap: 10px;
   }
+
   /* If using <img> inside slides */
   .slide-img {
     width: 100%;
-    height: auto;         /* Maintain aspect ratio */
-    max-height: 60vh;     /* Limit height for mobile */
-    object-fit: cover;    /* Cover the container */
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
   }
 
   /* If using background images on divs */
@@ -1728,40 +1729,20 @@ color:#0a2a1f;
   .wisdom-slide,
   .community-slide,
   .guidance-slide {
-    width:100%;
-    height:70vh;
-    /* background-size: cover; */
-    background-position:right;
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
   }
-
- .hearts-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-29.jpg") no-repeat center center;
- 
 }
-
-.wisdom-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-30.png") no-repeat center center;
- 
-}
-
-.community-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-31.png") no-repeat center center;
-  
-}
-
-.guidance-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-32.png") no-repeat center center;
- 
-}
-
 
 
 /* Utility Classes */
 .text-center-mobile {
   text-align: left;
 }
-}
+
 
 @media (max-width: 768px) {
   .text-center-mobile {
