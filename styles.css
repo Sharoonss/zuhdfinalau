@@ -1694,7 +1694,7 @@ color:#0a2a1f;
   background: url("/ZUHD AU New Banner-32.png") no-repeat center center;
   background-size: cover;
 }
-
+}
 /* Mobile adjustments */
 @media (max-width: 480px) {
   .category-filters {
@@ -9440,6 +9440,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             color: var(--off-white);
             transition: color 0.3s ease;
             text-align: center;
+             font-family: "Serotiva-Bold";
         }
 
         .offer-card:hover .card-text {
@@ -9932,7 +9933,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
   font-size: 18px;
   color: #f7efe5;
   opacity: 0.8;
-  line-height: 1.5;
+  line-height:30px;
+    font-family: "Serotiva-Regular";
 }
 
 .footer-column {
@@ -9983,7 +9985,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
   font-size: 16px; /* Smaller for mobile */
   margin-bottom: 0; /* No margin for mobile */
   position: relative;
-  font-family: "Serotiva-Bold", sans-serif; /* Ensure a fallback font */
+  font-family: "Serotiva-Bold"; /* Ensure a fallback font */
   text-transform: uppercase; /* Uppercase for mobile */
   letter-spacing: 1px; /* Letter spacing for mobile */
   display: flex; /* Flex for mobile to position arrow */
@@ -10077,6 +10079,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
   transition: all 0.3s ease;
   opacity: 0.8;
   display: block;
+  font-family:"Serotiva-Regular"; 
   padding: 0.2rem 0;
 }
 
