@@ -10682,6 +10682,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             box-shadow: 0 8px 25px rgba(200, 184, 138, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 30px;
+            margin-top:20px;
         }
 
         .pdf-download-btn:hover {
@@ -10775,7 +10777,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         /* Additional Enhancement - Image Labels */
         .image-label {
             position: absolute;
-            bottom: 15px;
+            bottom:96px;
             left: 15px;
             right: 15px;
             background: rgba(0, 0, 0, 0.7);
@@ -10823,7 +10825,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           }
           .curriculum-grid {
               grid-template-columns: 1fr;
-              gap: 40px;
+              gap:0px;
           }
           .curriculum-item {
               padding: 30px;
@@ -10834,6 +10836,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           /* font-weight: 700; */
           color: var(--primary-green);
           margin-bottom: 20px;
+          text-align: center;
       }
           .section-heading,
           .section-heading-white,
@@ -10841,6 +10844,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           .section-heading-center-green-alt,
           .section-heading-center-white {
               font-size: 2rem;
+              padding: 20px 20px;
           }
           .curriculum-heading {
               font-size: 2rem;
@@ -10864,6 +10868,14 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
       }
       }
       @media (max-width: 480px) {
+        .section-heading,
+          .section-heading-white,
+          .section-heading-center-green,
+          .section-heading-center-green-alt,
+          .section-heading-center-white {
+              font-size: 2rem;
+              padding: 20px 20px;
+          }
        .main-images-rules {
     flex-direction:column;
     justify-content: space-between;
