@@ -16,9 +16,9 @@
   <script defer src="script.js"></script>
 
   <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -38,74 +38,73 @@
    <!-- Header Section -->
         <header class="ziyarat-header">
             <h1 class="ziyarat-title">Ziyarat</h1>
-            <nav class="ziyarat-nav">
+             <nav class="ziyarat-nav">
                 <button class="ziyarat-nav-btn ziyarat-active" data-category="all">All</button>
                 <button class="ziyarat-nav-btn" data-category="makkah">Makkah</button>
                 <button class="ziyarat-nav-btn" data-category="medina">Medina</button>
             </nav>
         </header>
+  <div class="ziyarat-main-wrapper">
+        <div class="ziyarat-header-section">
+            <h1 class="ziyarat-main-title">Zuhd Madina Vlog</h1>
+            <!-- <nav class="ziyarat-navigation-menu">
+                <a href="#" class="ziyarat-nav-link ziyarat-nav-link--active">All</a>
+                <a href="#" class="ziyarat-nav-link">Makkah</a>
+                <a href="#" class="ziyarat-nav-link">Medina</a>
+            </nav> -->
+        </div>
+        
+        <div class="ziyarat-content-wrapper">
+            <div class="ziyarat-left-content">
+              <div class="ziyarat-video-showcase">
+    <div class="ziyarat-thumbnail-display">
+        <!-- Video background or main video content -->
+        <video class="ziyarat-video-element" autoplay muted loop playsinline>
+            <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
 
-   <div class="sacred-journey-container">
-        <div class="makkah-content-wrapper">
-          <div class="holy-video-frame">
-  <video width="100%" height="100%" controls autoplay muted loop>
-    <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+        <!-- Decorative Elements -->
+        <!-- <div class="ziyarat-kaaba-illustration">
+            <div class="ziyarat-minaret-tower"></div>
+        </div>
+        <div class="ziyarat-arch-decoration"></div>
+        <div class="ziyarat-play-control"></div> -->
+    </div>
 </div>
-
-            <h1 class="makkah-experience-title">Experience Makkah</h1>
-            <p class="spiritual-journey-description">
-                A journey through the sacred city of Makkah capturing its spiritual atmosphere. 
-                Discover the holy sites, experience the devotion of millions, and feel the 
-                profound connection to Islamic heritage.
-            </p>
-            <button class="sacred-explore-button" onclick="displayExplorationModal()">
-                Explore Journey
-            </button>
-        </div>
-
-        <div class="arabia-map-section">
-            <div class="saudi-arabia-map-container">
-                <div class="kingdom-saudi-outline"></div>
                 
-                <div class="holy-city-location-pin makkah-sacred-pin" onclick="revealCityInformation('Makkah')">
-                    <div class="holy-city-name-label">Makkah Al-Mukarramah</div>
-                    <div class="islamic-pin-marker">
-                        <div class="sacred-pin-center"></div>
+                <h2 class="ziyarat-experience-title">Experience Makkah</h2>
+                <p class="ziyarat-experience-description">
+                    A journey through the sacred city of Makkah capturing, its spiritual atmosphere.
+                </p>
+            </div>
+            
+            <div class="ziyarat-right-content">
+                <div class="ziyarat-map-interface">
+                    <div class="ziyarat-map-overlay">
+                        <div class="ziyarat-map-title">Holy Cities</div>
+                        <div class="ziyarat-map-subtitle">Makkah & Medina</div>
                     </div>
+                    
+                    <iframe 
+                        class="ziyarat-google-embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.478284745844!2d39.82648!3d21.42251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c204b74c16d72b%3A0x80f5f6c9df828af5!2sGreat%20Mosque%20of%20Mecca!5e0!3m2!1sen!2s!4v1703851234567!5m2!1sen!2s"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
 
-                <div class="holy-city-location-pin medina-blessed-pin" onclick="revealCityInformation('Medina')">
-                    <div class="holy-city-name-label">Medina Al-Munawwarah</div>
-                    <div class="islamic-pin-marker">
-                        <div class="sacred-pin-center"></div>
+                <!-- <div class="ziyarat-ad-banner">
+                    <div class="ziyarat-ad-title">🕋 Hajj & Umrah Packages</div>
+                    <div class="ziyarat-ad-text">
+                        Experience the spiritual journey of a lifetime with our comprehensive pilgrimage packages.
                     </div>
-                </div>
-
-                <div class="kingdom-country-label">Kingdom of Saudi Arabia</div>
-                <div class="compass-rose-decoration">🧭</div>
-
-                <div class="islamic-floating-elements">
-                    <div class="crescent-star-float crescent1">☪</div>
-                    <div class="crescent-star-float crescent2">✦</div>
-                    <div class="crescent-star-float crescent3">☪</div>
-                    <div class="crescent-star-float crescent4">✧</div>
-                </div>
+                    <button class="ziyarat-ad-button">Learn More</button>
+                </div> -->
             </div>
         </div>
     </div>
-
-    <div class="sacred-info-modal" id="sacredModalDisplay">
-        <div class="modal-content-wrapper">
-            <button class="modal-close-button" onclick="dismissModal()">&times;</button>
-            <div id="dynamicModalContent">
-                <!-- Dynamic content will be inserted here -->
-            </div>
-        </div>
-    </div>
-
-
     <!-- One Million Subscribers Section -->
     <!-- <div class="main-banner">
         <div class="banner">
@@ -124,7 +123,7 @@
             </div>
         </div>
     </div> -->
- <div class="main-banner">
+ <!-- <div class="main-banner">
 <div class="banner">
         <div class="decorative-elements">
             <div class="circle"></div>
@@ -141,13 +140,13 @@
             <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
         </div>
     </div>
-    </div>
+    </div> -->
  <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
                     <div class="logo-main">
-                        <img src="/logo-03.png" alt="ZUHD Logo">
+                        <img src="/images/logo.png" alt="ZUHD Logo">
                     </div>
                     <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                 </div>
@@ -203,12 +202,12 @@
   <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
     <img src="/youtube.png" alt="">
   </a>
-  <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
+  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
     <img src="/linkedin.png" alt="">
   </a>
   <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
     <img src="/twitter-alt-square.png" alt="">
-  </a>
+  </a> -->
 </div>
                 </div>
             </div>
@@ -510,7 +509,112 @@
         document.querySelector('.medina-blessed-pin').setAttribute('aria-label', 'Learn about Medina Al-Munawwarah, the second holiest city in Islam');
         document.querySelector('.sacred-explore-button').setAttribute('aria-label', 'Explore the sacred journey through Islamic holy sites');
         document.querySelector('.islamic-play-button').setAttribute('aria-label', 'Play video experience of Makkah');
- 
+  // Enhanced interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation menu functionality with unique class names
+            const ziyaratNavLinks = document.querySelectorAll('.ziyarat-nav-link');
+            
+            ziyaratNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all items
+                    ziyaratNavLinks.forEach(nav => nav.classList.remove('ziyarat-nav-link--active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('ziyarat-nav-link--active');
+                    
+                    // Update content based on selection
+                    updateContentForNav(this.textContent.trim());
+                });
+            });
+
+            // Play button functionality
+            const ziyaratPlayBtn = document.querySelector('.ziyarat-play-control');
+            
+            ziyaratPlayBtn.addEventListener('click', function() {
+                // Add click animation
+                this.style.transform = 'translate(-50%, -50%) scale(0.95)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'translate(-50%, -50%) scale(1)';
+                }, 150);
+                
+                console.log('Playing Makkah experience video...');
+            });
+
+            // Ad button functionality
+            const ziyaratAdBtn = document.querySelector('.ziyarat-ad-button');
+            
+            ziyaratAdBtn.addEventListener('click', function() {
+                alert('Redirecting to Hajj & Umrah packages...');
+            });
+
+            // Map error handling
+            const ziyaratGoogleMap = document.querySelector('.ziyarat-google-embed');
+            
+            ziyaratGoogleMap.addEventListener('error', function() {
+                const mapContainer = document.querySelector('.ziyarat-map-interface');
+                mapContainer.innerHTML = `
+                    <div class="ziyarat-loading-placeholder">
+                        Map temporarily unavailable. Please refresh the page.
+                    </div>
+                `;
+            });
+
+            // Smooth entrance animation
+            const ziyaratMainContainer = document.querySelector('.ziyarat-main-wrapper');
+            ziyaratMainContainer.style.opacity = '0';
+            ziyaratMainContainer.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                ziyaratMainContainer.style.transition = 'all 0.8s ease';
+                ziyaratMainContainer.style.opacity = '1';
+                ziyaratMainContainer.style.transform = 'translateY(0)';
+            }, 100);
+
+            // Function to update content based on navigation
+            function updateContentForNav(navText) {
+                const titleElement = document.querySelector('.ziyarat-experience-title');
+                const descElement = document.querySelector('.ziyarat-experience-description');
+                
+                switch(navText) {
+                    case 'Makkah':
+                        titleElement.textContent = 'Experience Makkah';
+                        descElement.textContent = 'A journey through the sacred city of Makkah capturing, its spiritual atmosphere.';
+                        break;
+                    case 'Medina':
+                        titleElement.textContent = 'Discover Medina';
+                        descElement.textContent = 'Explore the Prophet\'s city and witness the serenity of Al-Masjid an-Nabawi.';
+                        break;
+                    default:
+                        titleElement.textContent = 'Experience Makkah';
+                        descElement.textContent = 'A journey through the sacred city of Makkah capturing, its spiritual atmosphere.';
+                }
+            }
+
+            // Add subtle animations for map overlay
+            const ziyaratMapOverlay = document.querySelector('.ziyarat-map-overlay');
+            setTimeout(() => {
+                ziyaratMapOverlay.style.animation = 'fadeInDown 0.6s ease forwards';
+            }, 1000);
+        });
+
+        // Add CSS animation keyframes
+        const ziyaratAnimationStyles = document.createElement('style');
+        ziyaratAnimationStyles.textContent = `
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(ziyaratAnimationStyles);
 
     </script>
              <script src="navbar.js"></script>
