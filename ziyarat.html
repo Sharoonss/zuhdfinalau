@@ -22,12 +22,72 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
- .ziyarat-html5-video {
+/* ---------- Base (Desktop & Default) ---------- */
+.ziyarat-thumbnail-display {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.ziyarat-video-element,
+.ziyarat-html5-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     display: block;
+    z-index: 1;
+    filter: brightness(0.7); /* Optional for readability */
 }
+
+.ziyarat-kaaba-illustration,
+.ziyarat-arch-decoration,
+.ziyarat-minaret-tower,
+.ziyarat-play-control {
+    position: absolute;
+    z-index: 2; /* Above video */
+    /* Add individual positioning below if needed */
+}
+
+/* ---------- Tablet (max 768px) ---------- */
+@media (max-width: 768px) {
+    .ziyarat-thumbnail-display {
+        padding-top: 60%; /* Slightly taller on tablet */
+    }
+
+    .ziyarat-play-control {
+        width: 60px;
+        height: 60px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ---------- Mobile (max 480px) ---------- */
+@media (max-width: 480px) {
+    .ziyarat-thumbnail-display {
+        padding-top: 65%; /* Slightly more height on smaller phones */
+        border-radius: 8px;
+    }
+
+    .ziyarat-play-control {
+        width: 40px;
+        height: 40px;
+    }
+
+    .ziyarat-kaaba-illustration,
+    .ziyarat-arch-decoration,
+    .ziyarat-minaret-tower {
+        /* Optional: scale down or reposition these if needed */
+        transform: scale(0.8);
+    }
+}
+
 
 </style>
 </head>
@@ -141,6 +201,104 @@
         </div>
     </div>
     </div> -->
+   <div class="ziayarat-gallery-container">
+        <div class="ziayarat-main-wrapper">
+            <div class="ziayarat-header-section">
+                <h1 class="ziayarat-main-title">Ziayarat Vlog Videos</h1>
+                <div class="ziayarat-divider-line"></div>
+                <p class="ziayarat-subtitle">Sacred Journeys & Spiritual Experiences</p>
+            </div>
+
+    <div class="ziayarat-slider-container">
+                <div class="ziayarat-video-track" id="ziayaratVideoTrack">
+<!-- 
+                    <div class="ziayarat-video-slide">
+                       <iframe class="ziayarat-video-iframe" 
+    src="https://www.youtube.com/embed/Lp840BhV9PI?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
+    title="The Masjid With Two Qiblahs – A Turning Point in Islam"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
+                    </div> -->
+
+                    <div class="ziayarat-video-slide">
+                        <iframe class="ziayarat-video-iframe" 
+                            src="https://www.youtube.com/embed/cA19-eBKVR4?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
+                            title="Secrets Beneath the Soil: Salman Al-Farsi's Garden &amp; the Legacy of Sincerity"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                        <!-- <div class="ziayarat-video-title">Salman Al-Farsi's Garden</div>
+                        <div class="ziayarat-video-description">The Legacy of Sincerity</div>
+                        <div class="ziayarat-video-duration">12:45</div> -->
+                    </div>
+
+                    <div class="ziayarat-video-slide">
+                        <iframe class="ziayarat-video-iframe" 
+                            src="https://www.youtube.com/embed/uy0LBR1QjUg?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
+                            title="Unveiling Medina's Secrets: Masjid Banu Unaif with Ustadh Saad &amp; Sheikh Yusuf | Zuhd Guidance"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                        <!-- <div class="ziayarat-video-title">Masjid Banu Unaif</div>
+                        <div class="ziayarat-video-description">Unveiling Medina's Secrets</div>
+                        <div class="ziayarat-video-duration">18:20</div> -->
+                    </div>
+
+                    <div class="ziayarat-video-slide">
+                        <iframe class="ziayarat-video-iframe" 
+                            src="https://www.youtube.com/embed/0gFhXno7tlo?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
+                            title="🌿 'Bir Ghars: The Forgotten Well of the Prophet ﷺ – A Hidden Treasure in Medina!' 🌿"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                        <!-- <div class="ziayarat-video-title">Bir Ghars: The Forgotten Well</div>
+                        <div class="ziayarat-video-description">A Hidden Treasure in Medina</div>
+                        <div class="ziayarat-video-duration">14:10</div> -->
+                    </div>
+
+                    <div class="ziayarat-video-slide">
+                        <iframe class="ziayarat-video-iframe" 
+                            src="https://www.youtube.com/embed/mG5A1IUK2Aw?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
+                            title="🌿 'Bir Ghars: The Well of the Prophet ﷺ – A Forgotten Treasure of Medina' 🌿"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                        <!-- <div class="ziayarat-video-title">Bir Ghars: The Well of the Prophet</div>
+                        <div class="ziayarat-video-description">A Forgotten Treasure of Medina</div>
+                        <div class="ziayarat-video-duration">16:35</div> -->
+                    </div>
+
+                    <div class="ziayarat-video-slide">
+                        <iframe class="ziayarat-video-iframe" 
+                            src="https://www.youtube.com/embed/N9FOObs8h_I?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
+                            title="Walking Through Medina's Hidden Gems: Masjid Al-Usbah &amp; The Blessed Date Farms"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                        <!-- <div class="ziayarat-video-title">Masjid Al-Usbah</div>
+                        <div class="ziayarat-video-description">Walking Through Medina's Hidden Gems</div>
+                        <div class="ziayarat-video-duration">20:15</div> -->
+                    </div>
+
+                </div>
+
+                <button class="ziayarat-nav-button ziayarat-nav-prev" id="ziayaratPrevBtn">‹</button>
+                <button class="ziayarat-nav-button ziayarat-nav-next" id="ziayaratNextBtn">›</button>
+            </div>
+
+            <div class="ziayarat-progress-indicators" id="ziayaratProgressDots"></div>
+        </div>
+    </div>
+
+    </div>
+
  <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
@@ -225,7 +383,10 @@
             </div>
         </div>
     </footer>
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
       <script>
+
+        
 // Sacred cities data with Islamic context
         const holyCitiesData = {
             'Makkah': {
@@ -614,7 +775,9 @@
                 }
             }
         `;
-        document.head.appendChild(ziyaratAnimationStyles);
+     
+
+
 
     </script>
              <script src="navbar.js"></script>

@@ -1663,3 +1663,104 @@ if ("serviceWorker" in navigator) {
       })
   })
 }
+
+
+class ZiayaratVideoSlider {
+            constructor() {
+                this.currentSlideIndex = 0;
+                this.slidesPerView = this.calculateSlidesPerView();
+                this.videoTrack = document.getElementById('ziayaratVideoTrack');
+                this.slides = document.querySelectorAll('.ziayarat-video-slide');
+                this.totalSlides = this.slides.length;
+                this.maxSlideIndex = Math.max(0, this.totalSlides - this.slidesPerView);
+                
+                this.initializeSlider();
+                this.setupEventListeners();
+                this.createProgressDots();
+                this.updateSliderPosition();
+            }
+
+            calculateSlidesPerView() {
+                const windowWidth = window.innerWidth;
+                if (windowWidth <= 768) return 1;
+                if (windowWidth <= 1024) return 2;
+                return 3;
+            }
+
+            initializeSlider() {
+                this.prevButton = document.getElementById('ziayaratPrevBtn');
+                this.nextButton = document.getElementById('ziayaratNextBtn');
+                this.progressContainer = document.getElementById('ziayaratProgressDots');
+            }
+
+            setupEventListeners() {
+                this.prevButton.addEventListener('click', () => this.navigateSlide('prev'));
+                this.nextButton.addEventListener('click', () => this.navigateSlide('next'));
+                
+                window.addEventListener('resize', () => {
+                    this.slidesPerView = this.calculateSlidesPerView();
+                    this.maxSlideIndex = Math.max(0, this.totalSlides - this.slidesPerView);
+                    this.currentSlideIndex = Math.min(this.currentSlideIndex, this.maxSlideIndex);
+                    this.updateSliderPosition();
+                    this.updateProgressDots();
+                });
+            }
+
+            createProgressDots() {
+                this.progressContainer.innerHTML = '';
+                const numberOfDots = this.maxSlideIndex + 1;
+                
+                for (let i = 0; i < numberOfDots; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'ziayarat-progress-dot';
+                    if (i === 0) dot.classList.add('zv-active');
+                    
+                    dot.addEventListener('click', () => {
+                        this.currentSlideIndex = i;
+                        this.updateSliderPosition();
+                        this.updateProgressDots();
+                    });
+                    
+                    this.progressContainer.appendChild(dot);
+                }
+            }
+
+            navigateSlide(direction) {
+                if (direction === 'next' && this.currentSlideIndex < this.maxSlideIndex) {
+                    this.currentSlideIndex++;
+                } else if (direction === 'prev' && this.currentSlideIndex > 0) {
+                    this.currentSlideIndex--;
+                }
+                
+                this.updateSliderPosition();
+                this.updateProgressDots();
+            }
+
+            updateSliderPosition() {
+                const slideWidth = 100 / this.slidesPerView;
+                const translateX = -(this.currentSlideIndex * slideWidth);
+                this.videoTrack.style.transform = `translateX(${translateX}%)`;
+                
+                this.updateNavigationButtons();
+            }
+
+            updateNavigationButtons() {
+                this.prevButton.style.opacity = this.currentSlideIndex === 0 ? '0.5' : '1';
+                this.nextButton.style.opacity = this.currentSlideIndex === this.maxSlideIndex ? '0.5' : '1';
+            }
+
+            updateProgressDots() {
+                const dots = document.querySelectorAll('.ziayarat-progress-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('zv-active', index === this.currentSlideIndex);
+                });
+            }
+        }
+
+        // Initialize the slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ZiayaratVideoSlider();
+        });
+
+        // Add smooth scroll behavior for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';

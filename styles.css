@@ -5007,7 +5007,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .ziyarat-header-section {
             text-align: center;
-            padding: 40px 20px 30px;
+            padding: 40px 0px   0px;
             /* background: linear-gradient(135deg, #f8f6f0 0%, #f0ede2 100%); */
         }
 
@@ -12101,30 +12101,216 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
 
 
-.ziyarat-thumbnail-display {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 400px; /* Adjust as needed */
-    border-radius: 12px;
-}
 
-.ziyarat-video-element {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    filter: brightness(0.7); /* Optional: to darken background for overlay readability */
-}
+/* youtube ziayat  */
+ .ziayarat-gallery-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-.ziyarat-kaaba-illustration,
-.ziyarat-arch-decoration,
-.ziyarat-minaret-tower,
-.ziyarat-play-control {
-    position: absolute;
-    z-index: 2; /* Ensures it shows above the video */
-    /* Add custom positioning and styling for each as you need */
-}
+        .ziayarat-main-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .ziayarat-header-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ziayarat-main-title {
+            font-size:48px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .ziayarat-subtitle {
+            font-size: 1.2rem;
+            color: #b8d4c2;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .ziayarat-divider-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .ziayarat-slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .ziayarat-video-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .ziayarat-video-slide {
+            min-width: calc(33.333% - 20px);
+            margin: 0 10px;
+            border-radius: 15px;
+            padding: 25px 10px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ziayarat-video-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .ziayarat-video-slide:hover::before {
+            opacity: 1;
+        }
+
+        .ziayarat-video-slide:hover {
+            transform: translateY(-10px);
+        }
+
+        .ziayarat-video-iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ziayarat-video-iframe:hover {
+            transform: scale(1.02);
+        }
+
+        .ziayarat-video-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .ziayarat-video-description {
+            font-size: 0.95rem;
+            color: #b8d4c2;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .ziayarat-video-duration {
+            display: inline-block;
+            background: rgba(212,175,55,0.2);
+            color: #f4d03f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .ziayarat-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .ziayarat-nav-button:hover {
+            background: rgba(212,175,55,0.3);
+            border-color: rgba(212,175,55,0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .ziayarat-nav-prev {
+            left: 20px;
+        }
+
+        .ziayarat-nav-next {
+            right: 20px;
+        }
+
+        .ziayarat-progress-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 12px;
+        }
+
+        .ziayarat-progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ziayarat-progress-dot.zv-active {
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .ziayarat-main-title {
+                font-size: 2.5rem;
+            }
+
+            .ziayarat-video-slide {
+                min-width: calc(100% - 20px);
+            }
+
+            .ziayarat-nav-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .ziayarat-nav-prev {
+                left: 10px;
+            }
+
+            .ziayarat-nav-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .ziayarat-video-slide {
+                min-width: calc(50% - 20px);
+            }
+        }
