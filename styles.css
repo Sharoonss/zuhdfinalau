@@ -5305,6 +5305,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         @media (max-width: 768px) {
+            .ziyarat-header-section{
+                padding:0px;
+            }
             .ziyarat-content-wrapper {
                 flex-direction: column;
                 padding: 20px;
@@ -5326,6 +5329,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
             .ziyarat-map-interface {
                 height: 300px;
+                padding: 0px 20px;
+                 margin-bottom: 0px;
             }
         }
 
