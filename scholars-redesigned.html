@@ -7,7 +7,7 @@
     <title>Our Scholars</title>
    <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="/lecture.html">
+  <li'nk rel="stylesheet" href="/lecture.html">
 
   <!-- GSAP core + ScrollTrigger CDN -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -24,8 +24,614 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
        
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-     
+        :root {
+            --deep-green: #0f3d2e;
+            --sand-beige: #f7efe5;
+            --off-white: #fefefe;
+            --gold: #c8b88a;
+        }
+
+        /* body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--sand-beige) 0%, #f0e8db 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        } */
+
+     .page-main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .scholars-section__intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .scholars-section__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color:white;
+            padding: 40px 0px;
+        }
+
+        .scholars-section__description {
+            font-size:22px;
+            color:white;
+            opacity: 0.8;
+            max-width: 800px;
+            margin:auto;
+            line-height: 1.6;
+        }
+
+        .scholars-section__instruction {
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .scholars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .scholar-card {
+            background: var(--off-white);
+            border-radius: 20px;
+            padding: 30px 25px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(15, 61, 46, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--sand-beige);
+        }
+
+        .scholar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(15, 61, 46, 0.15);
+        }
+
+        .scholar-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L120 40 L160 40 L130 65 L140 105 L100 85 L60 105 L70 65 L40 40 L80 40 Z' fill='%23c8b88a' opacity='0.1'/%3E%3C/svg%3E") no-repeat center;
+            background-size: 100px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+       .scholar-image-frame {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .scholar-card__image {
+            width: 250px;
+            height: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(15, 61, 46, 0.2);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .scholar-card__title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .scholar-card__designation {
+            background: linear-gradient(45deg, var(--deep-green), #0a2e22);
+            color: var(--off-white);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .scholar-card__description {
+            color: var(--deep-green);
+            opacity: 0.7;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            height: 60px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .learn-more-btn {
+            background: linear-gradient(45deg, var(--gold), #b8a882);
+            color: var(--deep-green);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(200, 184, 138, 0.3);
+        }
+
+        .learn-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 184, 138, 0.4);
+            background: linear-gradient(45deg, #b8a882, var(--gold));
+        }
+
+        .learn-more-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--off-white);
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 25px 50px rgba(15, 61, 46, 0.3);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--gold), #b8a882);
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--off-white);
+            margin-bottom: 15px;
+        }
+
+        .modal-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            margin-bottom: 5px;
+        }
+
+        .modal-designation {
+            background: rgba(15, 61, 46, 0.2);
+            color: var(--deep-green);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--deep-green);
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(15, 61, 46, 0.2);
+            border: none;
+            color: var(--deep-green);
+            font-size: 20px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal-btn {
+            background: linear-gradient(45deg, var(--deep-green), #0a2e22);
+            color: var(--off-white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(15, 61, 46, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tablet responsiveness - 768px */
+        @media (max-width: 768px) {
+            .page-main {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .scholars-section__intro {
+                margin-bottom: 40px;
+            }
+
+            .scholars-section__title {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .scholars-section__description {
+                font-size: 1rem;
+                max-width: 100%;
+                margin: 0 auto 15px;
+                padding: 0 10px;
+            }
+
+            .scholars-section__instruction {
+                font-size: 0.9rem;
+            }
+
+            .scholars-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+                margin-top: 30px;
+            }
+
+            .scholar-card {
+                padding: 25px 20px 20px;
+                border-radius: 15px;
+            }
+
+            .scholar-card::before {
+                background-size: 80px;
+            }
+
+            .scholar-card__image {
+                width: 100px;
+                height: 100px;
+                border: 2px solid var(--gold);
+            }
+
+            .scholar-card__title {
+                font-size: 1.2rem;
+                margin-bottom: 6px;
+            }
+
+            .scholar-card__designation {
+                font-size: 0.75rem;
+                padding: 3px 10px;
+                margin-bottom: 12px;
+            }
+
+            .scholar-card__description {
+                font-size: 0.9rem;
+                height: 54px;
+                margin-bottom: 20px;
+            }
+
+            .learn-more-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            /* Modal adjustments for tablet */
+            .modal-content {
+                max-width: 450px;
+                width: 85%;
+                border-radius: 15px;
+            }
+
+            .modal-header {
+                padding: 25px;
+                border-radius: 15px 15px 0 0;
+            }
+
+            .modal-image {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 12px;
+            }
+
+            .modal-name {
+                font-size: 1.3rem;
+            }
+
+            .modal-designation {
+                font-size: 0.75rem;
+                padding: 4px 12px;
+            }
+
+            .modal-body {
+                padding: 25px;
+            }
+
+            .modal-description {
+                font-size: 0.95rem;
+            }
+
+            .close-btn {
+                top: 12px;
+                right: 15px;
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+            }
+
+            .close-modal-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+                margin-top: 15px;
+            }
+        }
+
+        /* Mobile responsiveness - 480px */
+        @media (max-width: 480px) {
+            .page-main {
+                padding: 0 15px;
+            }
+
+            .scholars-section__intro {
+                margin-bottom: 30px;
+            }
+
+            .scholars-section__title {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+                line-height: 1.2;
+            }
+
+            .scholars-section__description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: 0 auto 12px;
+                padding: 0;
+            }
+
+            .scholars-section__instruction {
+                font-size: 0.85rem;
+            }
+
+            .scholars-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 25px;
+            }
+
+            .scholar-card {
+                padding: 20px 15px 18px;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(15, 61, 46, 0.08);
+            }
+
+            .scholar-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 35px rgba(15, 61, 46, 0.12);
+            }
+
+            .scholar-card::before {
+                background-size: 60px;
+                opacity: 0.03;
+            }
+
+            .scholar-image-frame {
+                margin-bottom: 15px;
+            }
+
+            .scholar-card__image {
+                width: 85px;
+                height: 85px;
+                border: 2px solid var(--gold);
+                border-radius: 6px;
+            }
+
+            .scholar-card__title {
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+                line-height: 1.2;
+            }
+
+            .scholar-card__designation {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                margin-bottom: 10px;
+                border-radius: 12px;
+                letter-spacing: 0.3px;
+            }
+
+            .scholar-card__description {
+                font-size: 0.85rem;
+                height: auto;
+                min-height: 45px;
+                margin-bottom: 18px;
+                -webkit-line-clamp: 2;
+                line-height: 1.4;
+            }
+
+            .learn-more-btn {
+                padding: 8px 18px;
+                font-size: 0.75rem;
+                border-radius: 20px;
+                letter-spacing: 0.3px;
+            }
+
+            .learn-more-btn:hover {
+                transform: translateY(-1px);
+            }
+
+            /* Modal adjustments for mobile */
+            .modal-content {
+                max-width: 340px;
+                width: 95%;
+                max-height: 85vh;
+                border-radius: 12px;
+            }
+
+            .modal-header {
+                padding: 20px 15px;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .modal-image {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+                border: 2px solid var(--off-white);
+            }
+
+            .modal-name {
+                font-size: 1.1rem;
+                margin-bottom: 3px;
+                line-height: 1.2;
+            }
+
+            .modal-designation {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+                border-radius: 12px;
+            }
+
+            .modal-body {
+                padding: 20px 15px;
+            }
+
+            .modal-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .close-btn {
+                top: 10px;
+                right: 12px;
+                width: 26px;
+                height: 26px;
+                font-size: 16px;
+            }
+
+            .close-modal-btn {
+                padding: 7px 14px;
+                font-size: 0.85rem;
+                margin-top: 12px;
+                border-radius: 18px;
+            }
+        }
+
+        /* Extra small devices - 320px */
+        @media (max-width: 320px) {
+            .page-main {
+                padding: 0 10px;
+            }
+
+            .scholars-section__title {
+                font-size: 1.4rem;
+            }
+
+            .scholars-section__description {
+                font-size: 0.85rem;
+            }
+
+            .scholar-card {
+                padding: 18px 12px 16px;
+            }
+
+            .scholar-card__image {
+                width: 75px;
+                height: 75px;
+            }
+
+            .scholar-card__title {
+                font-size: 1rem;
+            }
+
+            .learn-more-btn {
+                padding: 7px 16px;
+                font-size: 0.7rem;
+            }
+
+            .modal-content {
+                max-width: 300px;
+                width: 98%;
+            }
+
+            .modal-header {
+                padding: 18px 12px;
+            }
+
+            .modal-body {
+                padding: 18px 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -33,143 +639,114 @@
       <div id="navbar"></div>
    </nav>
     <!-- Header Section -->
-    <header class="page-header">
-        <div class="page-container">
-            <div class="page-header__content">
-                <h1 class="page-header__title">Islamic Scholars</h1>
-                <p class="page-header__subtitle">Guiding our community with profound wisdom, extensive knowledge, and unwavering spiritual insight</p>
+    <section class="consultation-hero-section">
+            <div class="consultation-hero-content">
+                <h1>OUR ISLAMIC SCHOLARS</h1>
+                <p>Seek guidance rooted in Islamic principles for you and your loved ones. Professional support guided by faith and wisdom.</p>
+                <button class="consultation-cta-button" onclick="scrollToIslamicBanner()">GET ISLAMIC GUIDANCE</button>
             </div>
-        </div>
-    </header>
+        </section>
 
     <!-- Main Content -->
-    <main class="page-main">
-        <div class="page-container">
-            <!-- Section Introduction -->
-            <div class="scholars-section__intro">
-                <h2 class="scholars-section__title">Meet Our Senior Scholars</h2>
-                <p class="scholars-section__description">
-                    Our distinguished scholars bring decades of experience in Islamic studies, theology, and community leadership, 
-                    each contributing their unique expertise to serve and guide our community with dedication and wisdom.
+     <main class="page-main">
+        <!-- Section Introduction -->
+        <div class="scholars-section__intro">
+            <h2 class="scholars-section__title">Meet Our Senior Scholars</h2>
+            <p class="scholars-section__description">
+                Our distinguished scholars bring decades of experience in Islamic studies, theology, and community leadership, 
+                each contributing their unique expertise to serve and guide our community with dedication and wisdom.
+            </p>
+            <p class="scholars-section__instruction">✨ Click "Learn More" to discover their story</p>
+        </div>
+
+        <!-- Scholars Grid -->
+        <div class="scholars-grid">
+            <!-- Scholar 1 -->
+            <div class="scholar-card">
+                <div class="scholar-image-frame">
+                    <div class="islamic-frame">
+                        <img src="/scolor img/mufti2.png" 
+                             alt="Shaykh Hasan Ali" 
+                             class="scholar-card__image">
+                    </div>
+                </div>
+                <h3 class="scholar-card__title">Shaykh Hasan Ali</h3>
+                <p class="scholar-card__designation">Senior Scholar</p>
+                <p class="scholar-card__description">
+                    Graduated as an Islamic scholar in 1997 and earned a Master's in Educational Psychology from the University of London. Currently serves as Imam at LICS Mosque.
                 </p>
-                <p class="scholars-section__instruction">✨ Click on any scholar's image to discover their story</p>
+                <button class="learn-more-btn" onclick="openModal(1)">Learn More</button>
             </div>
 
-            <!-- Scholars Grid -->
-            <div class="scholars-grid">
-                <!-- Scholar 1 -->
-                <div class="scholar-card" data-scholar="1" tabindex="0" role="button" aria-label="Click to learn about Dr. Ahmad Hassan">
-                    <div class="scholar-card__image-wrapper">
-                        <img src="/images/mufti2.png" 
-                             alt="Dr. Ahmad Hassan" 
+            <!-- Scholar 2 -->
+            <div class="scholar-card">
+                <div class="scholar-image-frame">
+                    <div class="islamic-frame">
+                        <img src="/scolor img/mufti3.png" 
+                             alt="Maulana Sulaiman Khatani" 
                              class="scholar-card__image">
-                        <div class="scholar-card__overlay"></div>
-                        <div class="scholar-card__hint">👆 Click to learn more</div>
-                    </div>
-                    <div class="scholar-card__info">
-                        <h3 class="scholar-card__name">Shaykh Hasan Ali
-</h3>
-                        <p class="scholar-card__designation">SENIOR SCHOLARS</p>
-                        <p class="scholar-card__description">
-                          Shaykh Hasan Ali graduated as an Islamic scholar in 1997 and later earned a Master’s in Educational Psychology from the University of London. He currently serves as Imam at LICS Mosque in North London.
-                        </p>
-                        <div class="scholar-card__actions">
-                            <button class="btn btn--contact">Contact</button>
-                            <button class="btn btn--close">Close</button>
-                        </div>
                     </div>
                 </div>
+                <h3 class="scholar-card__title">Maulana Sulaiman Khatani</h3>
+                <p class="scholar-card__designation">Senior Scholar</p>
+                <p class="scholar-card__description">
+                    Born in Durban, South Africa, completed his Hifz early and graduated as an Aalim from Madrasah Azaadville in 1993. Expert in Hadith and Fiqh.
+                </p>
+                <button class="learn-more-btn" onclick="openModal(2)">Learn More</button>
+            </div>
 
-                <!-- Scholar 2 -->
-                <div class="scholar-card" data-scholar="2" tabindex="0" role="button" aria-label="Click to learn about Sheikh Muhammad Ali">
-                    <div class="scholar-card__image-wrapper">
-                        <img src="/images/mufti3.png" 
-                             alt="Sheikh Muhammad Ali" 
+            <!-- Scholar 3 -->
+            <div class="scholar-card">
+                <div class="scholar-image-frame">
+                    <div class="islamic-frame">
+                        <img src="/scolor img/mufti4.png" 
+                             alt="Dr. Maulana Sami Al-Hashmi" 
                              class="scholar-card__image">
-                        <div class="scholar-card__overlay"></div>
-                        <div class="scholar-card__hint">👆 Click to learn more</div>
-                    </div>
-                    <div class="scholar-card__info">
-                        <h3 class="scholar-card__name">Maulana Sulaiman Khatani Bin Yusuf
-</h3>
-                        <p class="scholar-card__designation">Senior Scholar</p>
-                        <p class="scholar-card__description">
-                           Maulana Ahmed Suleman Khatani, born in Durban, South Africa, completed his Hifz early and graduated as an Aalim from Madrasah Azaadville in 1993. He studied under leading scholars of Hadith and Fiqh.
-                        </p>
-                        <div class="scholar-card__actions">
-                            <button class="btn btn--contact">Contact</button>
-                            <button class="btn btn--close">Close</button>
-                        </div>
                     </div>
                 </div>
+                <h3 class="scholar-card__title">Dr. Maulana Sami Al-Hashmi</h3>
+                <p class="scholar-card__designation">Scholar</p>
+                <p class="scholar-card__description">
+                    Born in Vienna, Austria, earned a Master's in Dental Surgery from University of Otago, New Zealand. Completed Islamic Studies from WISE University, Jordan.
+                </p>
+                <button class="learn-more-btn" onclick="openModal(3)">Learn More</button>
+            </div>
 
-                <!-- Scholar 3 -->
-                <div class="scholar-card" data-scholar="3" tabindex="0" role="button" aria-label="Click to learn about Dr. Fatima Zahra">
-                    <div class="scholar-card__image-wrapper">
-                        <img src="/images/mufti4.png" 
-                             alt="Dr. Fatima Zahra" 
+            <!-- Scholar 4 -->
+            <div class="scholar-card">
+                <div class="scholar-image-frame">
+                    <div class="islamic-frame">
+                        <img src="/scolor img/maufti1.png" 
+                             alt="Dr. Mufti Abdur Rahman Mangera" 
                              class="scholar-card__image">
-                        <div class="scholar-card__overlay"></div>
-                        <div class="scholar-card__hint">👆 Click to learn more</div>
-                    </div>
-                    <div class="scholar-card__info">
-                        <h3 class="scholar-card__name">Dr. Maulana Sami Al-Hashmi
-</h3>
-                        <p class="scholar-card__designation"> Scholar</p>
-                        <p class="scholar-card__description">
-                         Born in Vienna, Austria, he earned a Master’s in Dental Surgery from the University of Otago, New Zealand, on a full scholarship. While practicing dentistry, he completed a degree in Islamic Studies from WISE University in Jordan.
-
-
-
-
-
-
-
-
-
-
-                        </p>
-                        <div class="scholar-card__actions">
-                            <button class="btn btn--contact">Contact</button>
-                            <button class="btn btn--close">Close</button>
-                        </div>
                     </div>
                 </div>
-
-                <!-- Scholar 4 -->
-                <div class="scholar-card" data-scholar="4" tabindex="0" role="button" aria-label="Click to learn about Imam Yusuf Rahman">
-                    <div class="scholar-card__image-wrapper">
-                        <img src="/images/maufti1.png" 
-                             alt="Imam Yusuf Rahman" 
-                             class="scholar-card__image">
-                        <div class="scholar-card__overlay"></div>
-                        <div class="scholar-card__hint">👆 learn more</div>
-                    </div>
-                    <div class="scholar-card__info">
-                        <h3 class="scholar-card__name">Dr.Mufti Abdur Rahman Mangera</h3>
-                        <p class="scholar-card__designation">SENIOR SCHOLARS</p>
-                        <p class="scholar-card__description">
-                       Dr. Mufti Abdur Rahman Ibn Yusuf Mangera is a British scholar of Islamic and Western traditions. He memorized the Qur’an, graduated from Darul Uloom Bury (UK), and holds a fatwa license from Mazahir ‘Ulum Saharanpur.
-
-
-
-
-
-
-
-
-
-                        </p>
-                        <div class="scholar-card__actions">
-                            <button class="btn btn--contact">Contact</button>
-                            <button class="btn btn--close">Close</button>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="scholar-card__title">Dr. Mufti Abdur Rahman Mangera</h3>
+                <p class="scholar-card__designation">Senior Scholar</p>
+                <p class="scholar-card__description">
+                    A British scholar of Islamic and Western traditions. Memorized the Qur'an, graduated from Darul Uloom Bury and holds fatwa license from Mazahir 'Ulum.
+                </p>
+                <button class="learn-more-btn" onclick="openModal(4)">Learn More</button>
             </div>
         </div>
     </main>
-   <div class="main-banner">
+
+    <!-- Simple Modal -->
+    <div id="scholarModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <h3 id="modalName" class="modal-name"></h3>
+                <p id="modalDesignation" class="modal-designation"></p>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription" class="modal-description"></p>
+                <button class="close-modal-btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+   <!-- <div class="main-banner">
 <div class="banner">
         <div class="decorative-elements">
             <div class="circle"></div>
@@ -186,66 +763,79 @@
             <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
         </div>
     </div>
+    </div> -->
     </div>
-    </div>
-  <footer class="footer">
+   <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
-                    <div class="logo-main">
-                        <img src="/logo-03.png" alt="ZUHD Logo">
-                    </div>
-                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                    <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
+
+</p>
                 </div>
-                
+
                 <div class="footer-column">
-                    <h3>About Academy</h3>
+                    <h3>ABOUT ACADEMY</h3>
                     <ul>
-                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
-                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
-                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
-                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                        <li><a href="/about.html" onclick="linkClick('Just the Matcha')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('The Trial Kit')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('Wholesale & Bulk')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Teaware')">Terms and conditions</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>QUICK LINKS</h3>
                     <ul>
-                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
-                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
-                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('Matcha Recipes')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Caffeine Content')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Health Benefits')">Ziyarat</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
                         <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
                         <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
-                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="about.html" onclick="linkClick('Affiliate')">About Us</a></li>
                         <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
                         <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column newsletter">
-                    <h3>Sign Up and Save</h3>
-                    <p>Get exclusive offers and the latest updates.</p>
+                    <h3>Let's Stay Connected</h3>
+                    <p>Enter your email</p>
                     <form class="newsletter-form" onsubmit="submitNewsletter(event)">
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/zuhd_au/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="social-link" onclick="socialClick('Instagram')" title="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@zuhd.store?_t=ZS-8w1A4y4ZWO9&_r=1" class="social-link" onclick="socialClick('TikTok')" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.linkdin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    </div>
+                   <!-- Social Links -->
+<div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+  <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
+    <img src="/facebook.png" alt="">
+  </a>
+  <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
+ <img src="/instagram.png" alt="instagram">
+  </a>
+  <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
+   <img src="/tik-tok.png" alt="">
+  </a>
+  <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
+    <img src="/youtube.png" alt="">
+  </a>
+  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
+    <img src="/linkedin.png" alt="">
+  </a>
+  <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
+    <img src="/twitter-alt-square.png" alt="">
+  </a> -->
+</div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="copyright">
                     © 2024 Zuhd Guidance All rights reserved.
@@ -260,93 +850,62 @@
         </div>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeAnimations();
-            initializeCardInteractions();
+        // Simple scholar data
+        const scholarsData = {
+            1: {
+                name: "Shaykh Hasan Ali",
+                designation: "Senior Scholar",
+                description: "Shaykh Hasan Ali graduated as an Islamic scholar in 1997 and later earned a Master's in Educational Psychology from the University of London. He currently serves as Imam at LICS Mosque in North London, combining traditional Islamic scholarship with modern educational methodologies to guide and educate the community with wisdom and dedication."
+            },
+            2: {
+                name: "Maulana Sulaiman Khatani",
+                designation: "Senior Scholar", 
+                description: "Maulana Ahmed Suleman Khatani was born in Durban, South Africa, where he completed his Hifz early and graduated as an Aalim from Madrasah Azaadville in 1993. He studied under leading scholars of Hadith and Fiqh, gaining profound knowledge in Islamic jurisprudence and prophetic traditions that he now shares with the community."
+            },
+            3: {
+                name: "Dr. Maulana Sami Al-Hashmi",
+                designation: "Scholar",
+                description: "Dr. Maulana Sami Al-Hashmi was born in Vienna, Austria, and represents a unique blend of medical and Islamic scholarship. He earned a Master's in Dental Surgery from the University of Otago, New Zealand, on a full scholarship. While practicing dentistry, he completed a degree in Islamic Studies from WISE University in Jordan."
+            },
+            4: {
+                name: "Dr. Mufti Abdur Rahman Mangera", 
+                designation: "Senior Scholar",
+                description: "Dr. Mufti Abdur Rahman Ibn Yusuf Mangera is a distinguished British scholar who has mastered both Islamic and Western traditions. He memorized the Holy Quran, graduated from Darul Uloom Bury (UK), and holds a fatwa license from Mazahir 'Ulum Saharanpur, making him an invaluable resource for the Muslim community."
+            }
+        };
+
+        function openModal(scholarId) {
+            const scholar = scholarsData[scholarId];
+            const modal = document.getElementById('scholarModal');
+            
+            document.getElementById('modalImage').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ecf0f1'/%3E%3Ctext x='40' y='45' text-anchor='middle' font-size='8' fill='%237f8c8d'%3EScholar%3C/text%3E%3C/svg%3E";
+            document.getElementById('modalName').textContent = scholar.name;
+            document.getElementById('modalDesignation').textContent = scholar.designation;
+            document.getElementById('modalDescription').textContent = scholar.description;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('scholarModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('scholarModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
-        function initializeAnimations() {
-            const cards = document.querySelectorAll('.scholar-card');
-            
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    if (index % 2 === 0) {
-                        card.classList.add('animation--slide-left');
-                    } else {
-                        card.classList.add('animation--slide-right');
-                    }
-                }, index * 150);
-            });
-        }
-
-        function initializeCardInteractions() {
-            const cards = document.querySelectorAll('.scholar-card');
-            
-            cards.forEach(card => {
-                const closeButton = card.querySelector('.btn--close');
-                const contactButton = card.querySelector('.btn--contact');
-                
-                // Card click to reveal info
-                card.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('btn--contact') || 
-                        e.target.classList.contains('btn--close')) {
-                        return;
-                    }
-                    
-                    // Close other active cards
-                    cards.forEach(otherCard => {
-                        if (otherCard !== card) {
-                            otherCard.classList.remove('scholar-card--active');
-                        }
-                    });
-                    
-                    // Toggle current card
-                    card.classList.toggle('scholar-card--active');
-                });
-                
-                // Close button
-                closeButton.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    card.classList.remove('scholar-card--active');
-                });
-                
-                // Contact button
-                contactButton.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const scholarName = card.querySelector('.scholar-card__name').textContent;
-                    
-                    // Add visual feedback
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                    
-                    alert(`Contacting ${scholarName}...`);
-                    console.log(`Contact ${scholarName}`);
-                });
-                
-                // Keyboard support
-                card.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        card.click();
-                    }
-                    if (e.key === 'Escape') {
-                        card.classList.remove('scholar-card--active');
-                    }
-                });
-            });
-            
-            // Close cards when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.scholar-card')) {
-                    cards.forEach(card => {
-                        card.classList.remove('scholar-card--active');
-                    });
-                }
-            });
-        }
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
                  <script src="navbar.js"></script>
 
