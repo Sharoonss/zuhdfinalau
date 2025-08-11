@@ -60,6 +60,13 @@
             border-radius: 2px;
             /* box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); */
         }
+        .about-main-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 40px;
+    background: #ffffff;
+    min-height: 50vh;
+}
 
         .zuhd-timeline-item {
             position: relative;
@@ -190,11 +197,14 @@
         }
 
         @keyframes zuhdPulse {
-            0%, 100% {
+            0% {
                 box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
             }
             50% {
                 box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
             }
         }
 
@@ -224,6 +234,15 @@
                 width: 20px;
                 height: 20px;
             }
+        }
+
+        .zuhd-founder-card, .zuhd-founder-image-container, .zuhd-founder-image {
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .zuhd-founder-image:active {
+            transform: rotate(0deg) !important;
         }
     </style>
 </head>

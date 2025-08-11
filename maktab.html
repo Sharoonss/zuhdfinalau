@@ -5,44 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zuhd Maktab - After-school Islamic Classes</title>
     <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="/lecture.html">
-
-  <!-- GSAP core + ScrollTrigger CDN -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-
-  
-
-  <!-- Your custom JS -->
-  <script defer src="script.js"></script>
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Remove invalid stylesheet link to /lecture.html -->
+    <!-- GSAP core + ScrollTrigger CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <!-- Your custom JS -->
+    <script defer src="script.js"></script>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: "Serotiva-Black";
+            src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+        }
+        @font-face {
+            font-family: "Serotiva-Bold";
+            src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+        }
+        @font-face {
+            font-family: "Serotiva-Light";
+            src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+        }
+        @font-face {
+            font-family: "Serotiva-Regular";
+            src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Responsive Typography */
+        h1 {
+            font-family: "Serotiva-Black";
+            font-weight: 900;
+            font-size: 3rem;
+            letter-spacing: clamp(1px, 0.5vw, 2px);
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        h2,
+        h3 {
+            font-family: "Serotiva-Bold";
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+        p {
+            font-family: "Serotiva-Regular";
+            font-size: 22px;
+            line-height: 30px;
+        }
+        :root {
+            --deep-green: #0f3d2e;
+            --sand-beige: #f7efe5;
+            --off-white: #fefefe;
+            --gold: #c8b88a;
+        }
+        body {
+            font-family: "Serotiva-Light";
+        }
+        /* Ensure all text elements inherit or use the specified fonts */
+        .main-heading, .sub-heading, .sub-heading2, .content-title1, .content-description1, .service-name, .service-info,
+        .section-heading, .section-paragraph, .curriculum-heading, .curriculum-subtitle, .section-heading-white,
+        .section-paragraph-white, .section-heading-center-green-alt, .calendar-description, .section-paragraph-white,
+        .calendar-download-title, .calendar-download-text, .section-heading-center-white, .rules-description,
+        .image-label, .logo-text, h3, ul li a, .copyright, .footer-links a {
+            font-family: inherit; /* Inherit from parent, which uses Serotiva variants */
+        }
+    </style>
 </head>
 <body>
-<nav>
-      <div id="navbar"></div>
-   </nav>
-       <!-- Banner Section -->
+    <nav>
+        <div id="navbar"></div>
+    </nav>
+    <!-- Banner Section -->
     <section class="banner-wrapper">
         <div class="banner-overlay"></div>
         <div class="banner-text">
             <h1 class="main-heading">ZUHD MAKTAB</h1>
             <h3 class="sub-heading">After School Classes for Boys & Girls  </h3>
-              <h4 class="sub-heading2"> <span>MON - THR
+            <h4 class="sub-heading2"> <span>MON - THR
 | 6:45 PM - 8:15 PM
 200$
 Per School Term</span></h4>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSd28zYx4yYo1FRDzKutAoKG8c49nIL6sVuGy6oLAedu_IwwHA/viewform">  <button class="primary-btn" onclick="scrollToAction()">ENROLL NOW</button></a>
-          
         </div>
     </section>
-
     <!-- Content Section -->
     <section class="content-wrapper">
         <div class="content-container">
@@ -52,7 +106,6 @@ Per School Term</span></h4>
                 children in a supportive and nurturing environment. We focus on building strong foundations in Quranic recitation, Islamic studies, and 
                 ethics.
             </p>
-
             <!-- Services Grid -->
             <div class="services-layout">
                 <div class="service-box">
@@ -65,7 +118,6 @@ Per School Term</span></h4>
                     <h3 class="service-name">QURAN READING</h3>
                     <p class="service-info">Learn to read and memorize the Quran with proper tajweed</p>
                 </div>
-
                 <div class="service-box">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -77,7 +129,6 @@ Per School Term</span></h4>
                     <h3 class="service-name">ISLAMIC STUDIES</h3>
                     <p class="service-info">Explore the core teachings and practices of Islam</p>
                 </div>
-
                 <div class="service-box">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -88,171 +139,151 @@ Per School Term</span></h4>
                     <p class="service-info">Develop good character and moral values</p>
                 </div>
             </div>
-
-            <!-- Action Button -->
-            
         </div>   
-        </section>
- <!-- About Maktab Section -->
-           <!-- About Section -->
-      <section class="about-section">
-          <div class="about-content">
-              <h2 class="section-heading">What is Maktab?</h2>
-              <p class="section-paragraph">
-                  Islamic after-school classes, commonly known as Maktab, are supplementary educational programs designed to
-                  provide children and teenagers in Muslim communities with a deeper understanding of Islam. These classes
-                  typically take place outside of regular school hours, offering a dedicated space for spiritual and
-                  intellectual growth.
-              </p>
-              <p class="section-paragraph">
-                  Our program focuses on foundational Islamic principles, including the Quran, Hadith, Islamic history, Fiqh
-                  (jurisprudence), and Aqidah (creed). We aim to equip students with the knowledge and skills necessary to
-                  navigate modern life while staying true to their faith.
-              </p>
-          </div>
-          <div class="about-image-wrapper">
-              <img src="/70e159c7-5700-4b3f-85f2-4c6195fdc984.png" alt="Children studying Quran" class="about-image">
-          </div>
-      </section>
-      <!-- Curriculum Section -->
-      <section class="curriculum-section">
-          <h2 class="section-heading curriculum-heading">Our Engaging Curriculum</h2>
-          <div class="curriculum-grid">
-              <div class="curriculum-item">
-                  <h3 class="curriculum-subtitle">Unique & Standards-Based Books</h3>
-                  <p class="section-paragraph">
-                      Our curriculum utilizes new, unique books developed specifically for our program. These resources are
-                      crafted on the basis of high educational standards and the core focus of our program, ensuring a
-                      comprehensive and relevant learning experience.
-                  </p>
-                  <p class="section-paragraph">
-                      The curriculum is designed to be engaging, challenging, and enriched, focusing on vital topics like
-                      Islamic ethics, jurisprudence, and spirituality. We strive to make learning enjoyable and impactful.
-                  </p>
-              </div>
-              <div class="curriculum-item">
-                  <h3 class="curriculum-subtitle">Holistic Development & National Exams</h3>
-                  <p class="section-paragraph">
-                      In some areas, our classes are designed to meet the requirements for national exams, covering major and
-                      minor subjects such as Math, Science, and English, alongside Islamic studies. This holistic approach
-                      supports students' overall academic success.
-                  </p>
-                  <p class="section-paragraph">
-                      We believe in nurturing well-rounded individuals who excel not only in their religious knowledge but
-                      also in their secular education, preparing them for future challenges.
-                  </p>
-              </div>
-          </div>
-      </section>
-      <!-- Teachers & Venues Section -->
-      <section class="teachers-venues-section">
-          <div class="teachers-image-wrapper">
-              <img src="/islamic.png" alt="Volunteer teacher" class="teachers-image">
-          </div>
-          <div class="teachers-content">
-              <h2 class="section-heading-white">Dedicated Teachers</h2>
-              <p class="section-paragraph-white">
-                  Our Islamic after-school classes are often taught by passionate volunteer teachers. These dedicated
-                  individuals are highly knowledgeable in Islamic studies and are committed to sharing their wisdom with the
-                  next generation. Their enthusiasm creates an inspiring learning environment.
-              </p>
-              <p class="section-paragraph-white">
-                  Classes are held in various accessible locations, including local mosques, vibrant community centers, or
-                  other dedicated educational spaces. We ensure a comfortable and conducive environment for all our students.
-              </p>
-          </div>
-      </section>
-      <!-- Community Building Section -->
-      <!-- <section class="community-section">
-          <h2 class="section-heading-center-green">Fostering a Strong Community</h2>
-          <p class="section-paragraph community-description">
-              Beyond academic learning, our classes play a crucial role in fostering a strong sense of community among
-              Muslim families. By attending Maktab, children and teenagers connect with their peers, building lasting
-              friendships and a supportive network. They also develop meaningful relationships with older community members
-              who serve as invaluable mentors and role models, guiding them on their spiritual journey.
-          </p>
-      </section> -->
-      <!-- Calendar & Downloads Section -->
-      <section class="calendar-downloads-section">
-          <h2 class="section-heading-center-green-alt">Academic Calendar</h2>
-          <p class="section-paragraph calendar-description">
-              Stay updated with our academic schedule and important dates. Download our annual calendar and other essential
-              documents here.
-          </p>
-          <div class="calendar-content">
-
-              <div class="calendar-image-wrapper">
-                  <img src="/calender.jpg" alt="Maktab Academic Calendar" class="calendar-image">
-              </div>
-              <div class="calendar-download-area">
-            <h2 class="section-heading-center-green-alt">Maktab Academic Calendar</h2>
+    </section>
+    <!-- About Maktab Section -->
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2 class="section-heading">What is Maktab?</h2>
+            <p class="section-paragraph">
+                Islamic after-school classes, commonly known as Maktab, are supplementary educational programs designed to
+                provide children and teenagers in Muslim communities with a deeper understanding of Islam. These classes
+                typically take place outside of regular school hours, offering a dedicated space for spiritual and
+                intellectual growth.
+            </p>
+            <p class="section-paragraph">
+                Our program focuses on foundational Islamic principles, including the Quran, Hadith, Islamic history, Fiqh
+                (jurisprudence), and Aqidah (creed). We aim to equip students with the knowledge and skills necessary to
+                navigate modern life while staying true to their faith.
+            </p>
+        </div>
+        <div class="about-image-wrapper">
+            <img src="/70e159c7-5700-4b3f-85f2-4c6195fdc984.png" alt="Children studying Quran" class="about-image">
+        </div>
+    </section>
+    <!-- Curriculum Section -->
+    <section class="curriculum-section">
+        <h2 class="section-heading curriculum-heading">Our Engaging Curriculum</h2>
+        <div class="curriculum-grid">
+            <div class="curriculum-item">
+                <h3 class="curriculum-subtitle">Unique & Standards-Based Books</h3>
+                <p class="section-paragraph">
+                    Our curriculum utilizes new, unique books developed specifically for our program. These resources are
+                    crafted on the basis of high educational standards and the core focus of our program, ensuring a
+                    comprehensive and relevant learning experience.
+                </p>
+                <p class="section-paragraph">
+                    The curriculum is designed to be engaging, challenging, and enriched, focusing on vital topics like
+                    Islamic ethics, jurisprudence, and spirituality. We strive to make learning enjoyable and impactful.
+                </p>
+            </div>
+            <div class="curriculum-item">
+                <h3 class="curriculum-subtitle">Holistic Development & National Exams</h3>
+                <p class="section-paragraph">
+                    In some areas, our classes are designed to meet the requirements for national exams, covering major and
+                    minor subjects such as Math, Science, and English, alongside Islamic studies. This holistic approach
+                    supports students' overall academic success.
+                </p>
+                <p class="section-paragraph">
+                    We believe in nurturing well-rounded individuals who excel not only in their religious knowledge but
+                    also in their secular education, preparing them for future challenges.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Teachers & Venues Section -->
+    <section class="teachers-venues-section">
+        <div class="teachers-image-wrapper">
+            <img src="/islamic.png" alt="Volunteer teacher" class="teachers-image">
+        </div>
+        <div class="teachers-content">
+            <h2 class="section-heading-white">Dedicated Teachers</h2>
+            <p class="section-paragraph-white">
+                Our Islamic after-school classes are often taught by passionate volunteer teachers. These dedicated
+                individuals are highly knowledgeable in Islamic studies and are committed to sharing their wisdom with the
+                next generation. Their enthusiasm creates an inspiring learning environment.
+            </p>
+            <p class="section-paragraph-white">
+                Classes are held in various accessible locations, including local mosques, vibrant community centers, or
+                other dedicated educational spaces. We ensure a comfortable and conducive environment for all our students.
+            </p>
+        </div>
+    </section>
+    <!-- Community Building Section -->
+    <!-- <section class="community-section">
+        <h2 class="section-heading-center-green">Fostering a Strong Community</h2>
+        <p class="section-paragraph community-description">
+            Beyond academic learning, our classes play a crucial role in fostering a strong sense of community among
+            Muslim families. By attending Maktab, children and teenagers connect with their peers, building lasting
+            friendships and a supportive network. They also develop meaningful relationships with older community members
+            who serve as invaluable mentors and role models, guiding them on their spiritual journey.
+        </p>
+    </section> -->
+    <!-- Calendar & Downloads Section -->
+    <section class="calendar-downloads-section">
+        <h2 class="section-heading-center-green-alt">Academic Calendar</h2>
+        <p class="section-paragraph calendar-description">
+            Stay updated with our academic schedule and important dates. Download our annual calendar and other essential
+            documents here.
+        </p>
+        <div class="calendar-content">
+            <div class="calendar-image-wrapper">
+                <img src="/calender.jpg" alt="Maktab Academic Calendar" class="calendar-image">
+            </div>
+            <div class="calendar-download-area">
+                <h2 class="section-heading-center-green-alt">Maktab Academic Calendar</h2>
                 <p class="section-paragraph-white">
-                  In addition to providing students with a deeper understanding of Islam, these classes can also help to foster a sense of community among Muslim families. By attending these classes, children and teenagers can connect with their peers and develop relationships with older members of the community who can serve as mentors and role models.
-              </p>
-              <p class="section-paragraph-white">
-                 Overall, Islamic after-school classes play an important role in the education and spiritual development of young Muslims, providing them with the knowledge and skills they need to navigate the challenges of modern life while remaining true to their faith.
-              </p>
-                  <h3 class="calendar-download-title">Download Our Calendar</h3>
-                  <p class="calendar-download-text">Get the full academic year schedule in PDF format.</p>
-                  <a href="/calender.pdf" download="Maktab_Academic_Calendar.pdf" class="button download-button">
-                      Download Calendar PDF
-                  </a>
-              </div>
-          </div>
-      </section>
-      <!-- Rules & Regulations Section -->
-     <section class="rules-regulations-section">
+                    In addition to providing students with a deeper understanding of Islam, these classes can also help to foster a sense of community among Muslim families. By attending these classes, children and teenagers can connect with their peers and develop relationships with older members of the community who can serve as mentors and role models.
+                </p>
+                <p class="section-paragraph-white">
+                    Overall, Islamic after-school classes play an important role in the education and spiritual development of young Muslims, providing them with the knowledge and skills they need to navigate the challenges of modern life while remaining true to their faith.
+                </p>
+                <h3 class="calendar-download-title">Download Our Calendar</h3>
+                <p class="calendar-download-text">Get the full academic year schedule in PDF format.</p>
+                <a href="/calender.pdf" download="Maktab_Academic_Calendar.pdf" class="button download-button">
+                    Download Calendar PDF
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Rules & Regulations Section -->
+    <section class="rules-regulations-section">
         <h2 class="section-heading-center-white">Rules and Regulations</h2>
         <p class="section-paragraph rules-description">
             To ensure a safe, respectful, and productive learning environment for all students, please review our rules
             and regulations.
         </p>
-        
         <div class="main-images-rules">
             <div class="rules-image-wrapper">
                 <img src="/rule1_page-0001.jpg" alt="Maktab Rules and Regulations Page 1" class="rules-image">
                 <div class="image-label">Rules & Guidelines - Page 1</div>
-                  <div class="pdf-download-container">
-            <a href="/rule1.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
-                <svg class="pdf-icon" viewBox="0 0 24 24">
-                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                    <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
-                </svg>
-                Download Full Rule 1 PDF
-            </a>
-          
-        </div>
+                <div class="pdf-download-container">
+                    <a href="/rule1.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
+                        <svg class="pdf-icon" viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
+                        </svg>
+                        Download Full Rule 1 PDF
+                    </a>
+                </div>
             </div>
-           
             <div class="rules-image-wrapper">
                 <img src="/rule2_page-0001.jpg" alt="Maktab Rules and Regulations Page 2" class="rules-image">
                 <div class="image-label">Rules & Guidelines - Page 2</div>
-                 <!-- PDF Download Button -->
-        <div class="pdf-download-container">
-            <a href="/rule2.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
-                <svg class="pdf-icon" viewBox="0 0 24 24">
-                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                    <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
-                </svg>
-                Download Full Rule 2 PDF
-            </a>
-        </div>
+                <div class="pdf-download-container">
+                    <a href="/rule2.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
+                        <svg class="pdf-icon" viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
+                        </svg>
+                        Download Full Rule 2 PDF
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- PDF Download Button -->
-        <!-- <div class="pdf-download-container">
-            <a href="/rule2.pdf" class="pdf-download-btn" download="Maktab_Rules_Regulations.pdf">
-                <svg class="pdf-icon" viewBox="0 0 24 24">
-                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                    <path d="M12,17L17,12H14V7H10V12H7L12,17Z"/>
-                </svg>
-                Download Full Rule 2 PDF
-            </a>
-        </div> -->
     </section>
-
-       <!-- <div class="banner">
+    <!-- <div class="banner">
         <div class="decorative-elements">
             <div class="circle"></div>
             <div class="circle"></div>
@@ -268,16 +299,16 @@ Per School Term</span></h4>
             <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
         </div>
     </div> -->
- <footer class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
                     <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
                     <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
 
+
 </p>
                 </div>
-
                 <div class="footer-column">
                     <h3>ABOUT ACADEMY</h3>
                     <ul>
@@ -287,7 +318,6 @@ Per School Term</span></h4>
                         <li><a href="/" onclick="linkClick('Teaware')">Terms and conditions</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-column">
                     <h3>QUICK LINKS</h3>
                     <ul>
@@ -296,7 +326,6 @@ Per School Term</span></h4>
                         <li><a href="/Ziyarat.html" onclick="linkClick('Health Benefits')">Ziyarat</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
@@ -307,7 +336,6 @@ Per School Term</span></h4>
                         <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-column newsletter">
                     <h3>Let's Stay Connected</h3>
                     <p>Enter your email</p>
@@ -315,30 +343,29 @@ Per School Term</span></h4>
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                  <!-- Social Links -->
-<div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
-  <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
-    <img src="/facebook.png" alt="">
-  </a>
-  <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
- <img src="/instagram.png" alt="instagram">
-  </a>
-  <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
-   <img src="/tik-tok.png" alt="">
-  </a>
-  <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
-    <img src="/youtube.png" alt="">
-  </a>
-  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
-    <img src="/linkedin.png" alt="">
-  </a>
-  <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
-    <img src="/twitter-alt-square.png" alt="">
-  </a> -->
-</div>
+                    <!-- Social Links -->
+                    <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
+                            <img src="/facebook.png" alt="">
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
+                            <img src="/instagram.png" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
+                            <img src="/tik-tok.png" alt="">
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
+                            <img src="/youtube.png" alt="">
+                        </a>
+                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
+                            <img src="/linkedin.png" alt="">
+                        </a>
+                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
+                            <img src="/twitter-alt-square.png" alt="">
+                        </a> -->
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <div class="copyright">
                     © 2024 Zuhd Guidance All rights reserved.
@@ -352,75 +379,69 @@ Per School Term</span></h4>
             </div>
         </div>
     </footer>
-<script>
-    
- // Mobile Footer Accordion Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all footer columns (excluding logo and newsletter)
-    const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
-    
-    footerColumns.forEach(column => {
-        const header = column.querySelector('h3');
-        
-        if (header) {
-            header.addEventListener('click', function() {
-                // Check if we're on mobile (you can adjust this breakpoint as needed)
-                if (window.innerWidth <= 768) {
-                    // Toggle active class
-                    column.classList.toggle('active');
-                    
-                    // Optional: Close other sections (accordion behavior)
-                    // footerColumns.forEach(otherColumn => {
-                    //     if (otherColumn !== column) {
-                    //         otherColumn.classList.remove('active');
-                    //     }
-                    // });
+    <script>
+        // Mobile Footer Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all footer columns (excluding logo and newsletter)
+            const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
+            
+            footerColumns.forEach(column => {
+                const header = column.querySelector('h3');
+                
+                if (header) {
+                    header.addEventListener('click', function() {
+                        // Check if we're on mobile (you can adjust this breakpoint as needed)
+                        if (window.innerWidth <= 768) {
+                            // Toggle active class
+                            column.classList.toggle('active');
+                            
+                            // Optional: Close other sections (accordion behavior)
+                            // footerColumns.forEach(otherColumn => {
+                            //     if (otherColumn !== column) {
+                            //         otherColumn.classList.remove('active');
+                            //     }
+                            // });
+                        }
+                    });
                 }
             });
-        }
-    });
-    
-    // Handle window resize to reset accordion on larger screens
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            footerColumns.forEach(column => {
-                column.classList.remove('active');
+            
+            // Handle window resize to reset accordion on larger screens
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    footerColumns.forEach(column => {
+                        column.classList.remove('active');
+                    });
+                }
             });
+        });
+        // Existing functions
+        function linkClick(item) {
+            console.log('Link clicked:', item);
+            // Add your analytics or tracking code here
         }
-    });
-});
-
-// Existing functions
-function linkClick(item) {
-    console.log('Link clicked:', item);
-    // Add your analytics or tracking code here
-}
-
-function socialClick(platform) {
-    console.log('Social link clicked:', platform);
-    // Add your analytics or tracking code here
-}
-
-function submitNewsletter(event) {
-    event.preventDefault();
-    const email = event.target.querySelector('input[type="email"]').value;
-    console.log('Newsletter submitted with email:', email);
-    
-    // Add your newsletter submission logic here
-    // Example:
-    // fetch('/api/newsletter', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ email: email })
-    // });
-    
-    // Show success message
-    alert('Thank you for subscribing!');
-    event.target.reset();
-}
-
-
-// Add loading effect when images load
+        function socialClick(platform) {
+            console.log('Social link clicked:', platform);
+            // Add your analytics or tracking code here
+        }
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            console.log('Newsletter submitted with email:', email);
+            
+            // Add your newsletter submission logic here
+            // Example:
+            // fetch('/api/newsletter', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email: email })
+            // });
+            
+            // Show success message
+            alert('Thank you for subscribing!');
+            event.target.reset();
+        }
+        // Add loading effect when images load
         document.addEventListener('DOMContentLoaded', function() {
             const images = document.querySelectorAll('.rules-image');
             
@@ -430,7 +451,6 @@ function submitNewsletter(event) {
                 });
             });
         });
-
         // Smooth scroll animation for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -440,83 +460,69 @@ function submitNewsletter(event) {
                 });
             });
         });
-
-
-
         // footer 
-
         // Mobile Footer Accordion Functionality
-document.addEventListener("DOMContentLoaded", () => {
-  // Get all footer columns (excluding logo and newsletter)
-  const footerColumns = document.querySelectorAll(".footer-column:not(.footer-logo):not(.newsletter)")
-
-  footerColumns.forEach((column) => {
-    const header = column.querySelector("h3")
-    const ul = column.querySelector("ul")
-
-    if (header && ul) {
-      header.addEventListener("click", () => {
-        // Check if we're on mobile (you can adjust this breakpoint as needed)
-        if (window.innerWidth <= 768) {
-          // Toggle active class on the column
-          column.classList.toggle("active")
-
-          // Set max-height for smooth transition
-          if (column.classList.contains("active")) {
-            ul.style.maxHeight = ul.scrollHeight + "px"
-          } else {
-            ul.style.maxHeight = "0"
-          }
+        document.addEventListener("DOMContentLoaded", () => {
+            // Get all footer columns (excluding logo and newsletter)
+            const footerColumns = document.querySelectorAll(".footer-column:not(.footer-logo):not(.newsletter)")
+            footerColumns.forEach((column) => {
+                const header = column.querySelector("h3")
+                const ul = column.querySelector("ul")
+                if (header && ul) {
+                    header.addEventListener("click", () => {
+                        // Check if we're on mobile (you can adjust this breakpoint as needed)
+                        if (window.innerWidth <= 768) {
+                            // Toggle active class on the column
+                            column.classList.toggle("active")
+                            // Set max-height for smooth transition
+                            if (column.classList.contains("active")) {
+                                ul.style.maxHeight = ul.scrollHeight + "px"
+                            } else {
+                                ul.style.maxHeight = "0"
+                            }
+                        }
+                    })
+                }
+            })
+            // Handle window resize to reset accordion on larger screens
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 768) {
+                    footerColumns.forEach((column) => {
+                        column.classList.remove("active")
+                        const ul = column.querySelector("ul")
+                        if (ul) {
+                            ul.style.maxHeight = null // Remove inline style to let CSS take over
+                        }
+                    })
+                }
+            })
+        })
+        // Existing functions
+        function linkClick(item) {
+            console.log("Link clicked:", item)
+            // Add your analytics or tracking code here
         }
-      })
-    }
-  })
-
-  // Handle window resize to reset accordion on larger screens
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      footerColumns.forEach((column) => {
-        column.classList.remove("active")
-        const ul = column.querySelector("ul")
-        if (ul) {
-          ul.style.maxHeight = null // Remove inline style to let CSS take over
+        function socialClick(platform) {
+            console.log("Social link clicked:", platform)
+            // Add your analytics or tracking code here
         }
-      })
-    }
-  })
-})
-
-// Existing functions
-function linkClick(item) {
-  console.log("Link clicked:", item)
-  // Add your analytics or tracking code here
-}
-
-function socialClick(platform) {
-  console.log("Social link clicked:", platform)
-  // Add your analytics or tracking code here
-}
-
-function submitNewsletter(event) {
-  event.preventDefault()
-  const email = event.target.querySelector('input[type="email"]').value
-  console.log("Newsletter submitted with email:", email)
-
-  // Add your newsletter submission logic here
-  // Example:
-  // fetch('/api/newsletter', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ email: email })
-  // });
-
-  // Show success message
-  alert("Thank you for subscribing!")
-  event.target.reset()
-}
-</script>
-
-             <script src="navbar.js"></script>
+        function submitNewsletter(event) {
+            event.preventDefault()
+            const email = event.target.querySelector('input[type="email"]').value
+            console.log("Newsletter submitted with email:", email)
+            // Add your newsletter submission logic here
+            // Example:
+            // fetch('/api/newsletter', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email: email })
+            // });
+            // Show success message
+            alert("Thank you for subscribing!")
+            event.target.reset()
+        }
+    </script>
+    <script src="navbar.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
