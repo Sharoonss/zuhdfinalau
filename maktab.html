@@ -19,65 +19,374 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
-        @font-face {
-            font-family: "Serotiva-Black";
-            src: url(./font/OpenType-TT/Serotiva-Black.ttf);
-        }
-        @font-face {
-            font-family: "Serotiva-Bold";
-            src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
-        }
-        @font-face {
-            font-family: "Serotiva-Light";
-            src: url(./font/OpenType-TT/Serotiva-Light.ttf);
-        }
-        @font-face {
-            font-family: "Serotiva-Regular";
-            src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        /* Responsive Typography */
-        h1 {
-            font-family: "Serotiva-Black";
-            font-weight: 900;
-            font-size: 3rem;
-            letter-spacing: clamp(1px, 0.5vw, 2px);
-            line-height: 1.2;
-            text-transform: uppercase;
-        }
-        h2,
-        h3 {
-            font-family: "Serotiva-Bold";
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            line-height: 1.3;
-            text-transform: uppercase;
-        }
-        p {
-            font-family: "Serotiva-Regular";
-            font-size: 22px;
-            line-height: 30px;
-        }
-        :root {
-            --deep-green: #0f3d2e;
-            --sand-beige: #f7efe5;
-            --off-white: #fefefe;
-            --gold: #c8b88a;
-        }
         body {
             font-family: "Serotiva-Light";
+            background-color: white;
+            /* color: black; */
         }
-        /* Ensure all text elements inherit or use the specified fonts */
-        .main-heading, .sub-heading, .sub-heading2, .content-title1, .content-description1, .service-name, .service-info,
-        .section-heading, .section-paragraph, .curriculum-heading, .curriculum-subtitle, .section-heading-white,
-        .section-paragraph-white, .section-heading-center-green-alt, .calendar-description, .section-paragraph-white,
-        .calendar-download-title, .calendar-download-text, .section-heading-center-white, .rules-description,
-        .image-label, .logo-text, h3, ul li a, .copyright, .footer-links a {
-            font-family: inherit; /* Inherit from parent, which uses Serotiva variants */
-        }
+
+        .banner-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin-top: 60px;
+    border-radius: 15px;
+}
+.curriculum-heading {
+    color: var(--deep-green);
+}
+
+.curriculum-item {
+    background: #ffffff; 
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.08); 
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05); 
+    margin-bottom: 100px;
+}
+
+.curriculum-item .curriculum-subtitle {
+    font-size: 25px;
+    font-weight: 900;
+    color: var(--deep-green); 
+    margin-bottom: 12px;
+}
+
+.curriculum-item p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: black;
+}
+
+.curriculum-item:hover {
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+}
+
+.calendar-downloads-section {
+    padding: 60px 20px;
+}
+
+.calendar-downloads-section .section-heading-center-green-alt {
+    color: var(--deep-green);
+    font-size: 2rem;
+    text-align: center;
+        margin-top: 80px;
+    margin-bottom: 15px;
+}
+
+.calendar-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.calendar-content {
+    display: flex;
+    gap: 40px20px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.calendar-image-wrapper {
+    flex: 1 1 350px;
+    text-align: center;
+}
+
+.calendar-image {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.calendar-image:hover {
+    transform: scale(1.03);
+}
+
+.calendar-download-area {
+    flex: 1 1 350px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+}
+
+.calendar-download-area p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.calendar-download-title {
+    font-size: 1.3rem;
+    color: var(--deep-green);
+}
+
+.calendar-download-text {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--deep-green);
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: var(--gold);
+    color: var(--deep-green);
+}
+
+
+.content-wrapper {
+    padding: 80px 20px;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-title1 {
+    font-size: 2.5rem;
+    color: var(--deep-green);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.content-description1 {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.services-layout {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+    flex: 1 1 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    color: var(--deep-green);
+    margin-bottom: 15px;
+}
+
+.service-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 10px;
+}
+
+.service-info {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 40px 20px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content .section-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--deep-green);
+    margin-bottom: 20px;
+}
+
+.about-content .section-paragraph {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.about-image-wrapper {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+}
+.about-image {
+    transform: none !important;
+    transition: none !important;
+}
+.about-image:hover {
+    transform: none !important;
+}
+
+.teachers-content .section-heading-white {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--deep-green);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.teachers-content .section-paragraph-white {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.section-heading-center-white {
+    text-align: center;
+    color: var(--deep-green); 
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border-radius: 6px;
+}
+.rules-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444; 
+    max-width: 800px;
+    margin: 0 auto 25px; 
+    text-align: center;
+    padding: 0 15px;
+    font-weight: 400;
+}
+
+.primary-btn,
+.download-button,
+.pdf-download-btn,
+.newsletter-form button {
+    background-color: var(--deep-green);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover,
+.download-button:hover,
+.pdf-download-btn:hover,
+.newsletter-form button:hover {
+    background-color: var(--deep-green); 
+    color: white; 
+    background-color: #0c3024;
+    opacity: 1.5;
+    box-shadow: 0px 0px 15px rgba(0, 128, 0, 0.4); 
+    filter: brightness(1.1); 
+    transform: translateY(-2px); 
+}
+
+/* Responsive button adjustments */
+@media (max-width: 768px) {
+    .primary-btn,
+    .download-button,
+    .pdf-download-btn,
+    .newsletter-form button {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+       .section-heading-center-white {
+        font-size: 1.6rem;
+        padding: 8px 0;
+    }
+    .rules-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+        .teachers-content {
+        padding: 20px;
+        text-align: center;
+        max-width: 100%;
+    }
+    .teachers-content .section-heading-white {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .teachers-content .section-paragraph-white {
+        font-size: 1rem;
+    }
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-content {
+        order: 2;
+    }
+    .about-image-wrapper {
+        order: 1;
+    }
+    .content-title1 {
+        font-size: 2rem;
+    }
+    .content-description1 {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+       .curriculum-item {
+        padding: 18px;
+    }
+    .curriculum-item .curriculum-subtitle {
+        font-size: 18px;
+    }
+    .calendar-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .calendar-download-area {
+        text-align: center;
+    }
+}
     </style>
 </head>
 <body>
