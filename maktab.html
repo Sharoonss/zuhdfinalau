@@ -21,7 +21,7 @@
     <style>
         body {
             font-family: "Serotiva-Light";
-            background-color: white;
+            /* background-color: white; */
             /* color: black; */
         }
 
@@ -34,8 +34,14 @@
     margin-top: 60px;
     border-radius: 15px;
 }
+
+/* .curriculum-section{
+    background-color: var(--deep-green);
+    width: 100%;
+} */
+
 .curriculum-heading {
-    color: var(--deep-green);
+    color: var(--gold);
 }
 
 .curriculum-item {
@@ -58,7 +64,7 @@
 .curriculum-item p {
     font-size: 20px;
     line-height: 1.6;
-    color: black;
+    color: #444;
 }
 
 .curriculum-item:hover {
@@ -70,18 +76,32 @@
     padding: 60px 20px;
 }
 
-.calendar-downloads-section .section-heading-center-green-alt {
-    color: var(--deep-green);
+.calendar-downloads-section {
+    color: var(--gold);
     font-size: 2rem;
     text-align: center;
         margin-top: 80px;
+    margin-bottom: 15px;
+}
+ .section-heading-center-green-alt {
+    color: var(--gold);
+    font-size: 2rem;
+    text-align: center;
+        margin-top: 80px;
+    margin-bottom: 15px;
+}
+.section-heading-center-green-alt1{
+     color: var(--deep-green);
+    font-size: 2rem;
+    text-align: center;
+        margin-top: 60px;
     margin-bottom: 15px;
 }
 
 .calendar-description {
     text-align: center;
     font-size: 1.2rem;
-    color: #555;
+    color: #ebe8e8;
     max-width: 700px;
     line-height: 1.6;
 }
@@ -153,7 +173,14 @@
 
 
 .content-wrapper {
-    padding: 80px 20px;
+    /* padding: 80px 20px; */
+    padding-bottom: 80px;
+    padding-top: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+      width: 100%;
+      margin-top: -120px;
+    background-color: #ffffff;
 }
 
 .content-container {
@@ -208,6 +235,7 @@
 .service-name {
     font-size: 1.4rem;
     font-weight: 700;
+    letter-spacing: 0;
     color: var(--deep-green);
     margin-bottom: 10px;
 }
@@ -218,15 +246,26 @@
     line-height: 1.6;
 }
 
+/* .about-section {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 40px 20px;
+} */
 .about-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1200px;
-    padding: 40px 20px;
+    background-color: #ffffff; /* Yellow */
+    padding: 40px 100px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
 }
 
-.about-content {
+.about-content { 
     flex: 1;
 }
 
@@ -250,7 +289,7 @@
 }
 
 .about-image {
-    max-width: 100%;
+ width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
@@ -266,7 +305,7 @@
 .teachers-content .section-heading-white {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--deep-green);
+    color: var(--gold);
     margin-bottom: 20px;
     text-align: left;
 }
@@ -274,13 +313,13 @@
 .teachers-content .section-paragraph-white {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #444;
+    color: #ececec;
     margin-bottom: 15px;
 }
 
 .section-heading-center-white {
     text-align: center;
-    color: var(--deep-green); 
+    color: var(--gold); 
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 20px;
@@ -292,7 +331,7 @@
 .rules-description {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #444; 
+    color: #ececec; 
     max-width: 800px;
     margin: 0 auto 25px; 
     text-align: center;
@@ -304,8 +343,8 @@
 .download-button,
 .pdf-download-btn,
 .newsletter-form button {
-    background-color: var(--deep-green);
-    color: white;
+    background-color: var(--gold);
+    color: var(--deep-green);
     font-weight: 600;
     border: none;
     border-radius: 6px;
@@ -318,12 +357,7 @@
 .pdf-download-btn:hover,
 .newsletter-form button:hover {
     background-color: var(--deep-green); 
-    color: white; 
-    background-color: #0c3024;
-    opacity: 1.5;
-    box-shadow: 0px 0px 15px rgba(0, 128, 0, 0.4); 
-    filter: brightness(1.1); 
-    transform: translateY(-2px); 
+    color: var(--gold); 
 }
 
 /* Responsive button adjustments */
@@ -541,7 +575,7 @@ Per School Term</span></h4>
                 <img src="/calender.jpg" alt="Maktab Academic Calendar" class="calendar-image">
             </div>
             <div class="calendar-download-area">
-                <h2 class="section-heading-center-green-alt">Maktab Academic Calendar</h2>
+                <h2 class="section-heading-center-green-alt1">Maktab Academic Calendar</h2>
                 <p class="section-paragraph-white">
                     In addition to providing students with a deeper understanding of Islam, these classes can also help to foster a sense of community among Muslim families. By attending these classes, children and teenagers can connect with their peers and develop relationships with older members of the community who can serve as mentors and role models.
                 </p>
