@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +17,37 @@
         }
 
 
-        .events-header {
-            background-color: var(--deep-green); /* dark green */
-            color: white;
-            /* padding: 100px 20px 20px; */
-            padding: 10rem 0 3rem;
-            text-align: center;
+       .events-header {
+    background-color: var(--deep-green); /* fallback color */
+    color: white;
+    padding: 10rem 3rem;
+    text-align: center;
+
+    /* Background image */
+    background-image: url('/Banner/02\ Events.png');
+    background-size: cover;      /* Makes it responsive */
+    background-position: center; /* Keeps image centered */
+    background-repeat: no-repeat;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .events-header {
+        padding: 6rem 1rem 2rem; /* Less padding for mobile */
+        background-position: top; /* Show top of image on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .events-header {
+        padding: 6rem 0rem 1.5rem;
+        /* background-size: contain; Contain image for very small screens */
+        background-position: center top;
+    }
+    .events-title {
+            font-size: 2em;
         }
+}
 
         .events-title {
             font-size: 3em;
@@ -130,7 +155,7 @@
         }
 
         .event-image {
-            width: 250px;
+            width: 287px;
             height: 180px;
             object-fit: cover;
             transition: opacity 0.3s ease;
@@ -203,17 +228,114 @@
             cursor: pointer;
         }
 
-        .footer {
-            background: #f5f2e9;
-            padding: 20px;
-            text-align: center;
-            color: #666;
+        /* Added modal styles for event banner display */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        .footer a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 10px;
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #c89b3c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn:hover {
+            background: #a77f2e;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Mobile responsive adjustments for modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95%;
+                max-height: 85%;
+                margin: 20px;
+            }
+            
+            .close-btn {
+                top: -10px;
+                right: -10px;
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .modal-image {
+                max-height: 70vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                max-width: 98%;
+                margin: 10px;
+            }
+            
+            .modal-image {
+                max-height: 60vh;
+            }
         }
 
         .no-events {
@@ -257,7 +379,7 @@
                             <div class="event-date">📅 May 12, 2024 9:00 AM - 11:00 AM</div>
                             <div class="event-location">📍 Zuhd Islamic Centre</div>
                         </div>
-                        <button class="view-details-btn" onclick="viewEventDetails('Learn to Read Qur\'an')">VIEW DETAILS</button>
+                        <button class="view-details-btn" onclick="viewEventDetails('Learn to Read Qur\'an', 'ZUHD AU New Banner-03.jpg')">VIEW DETAILS</button>
                     </div>
                 </div>
 
@@ -269,7 +391,7 @@
                             <div class="event-date">📅 May 18, 2024 6:00 PM - 8:00 PM</div>
                             <div class="event-location">📍 Community Masjid</div>
                         </div>
-                        <button class="view-details-btn" onclick="viewEventDetails('Madinah & Ash-Sham: The Virtues')">VIEW DETAILS</button>
+                        <button class="view-details-btn" onclick="viewEventDetails('Madinah & Ash-Sham: The Virtues', 'ZUHD AU New Banner-03.jpg')">VIEW DETAILS</button>
                     </div>
                 </div>
 
@@ -281,7 +403,7 @@
                             <div class="event-date">📅 June 3, 2024 7:30 PM - 9:30 PM</div>
                             <div class="event-location">📍 Zuhd Islamic Centre</div>
                         </div>
-                        <button class="view-details-btn" onclick="viewEventDetails('Sisters Ramadan Night')">VIEW DETAILS</button>
+                        <button class="view-details-btn" onclick="viewEventDetails('Sisters Ramadan Night', 'ZUHD AU New Banner-03.jpg')">VIEW DETAILS</button>
                     </div>
                 </div>
             </div>
@@ -292,17 +414,97 @@
         </div>
     </div>
 
-    <!-- Host Event Section -->
-    <div class="host-event-section">
-        <h2 class="host-title">HOST AN EVENT</h2>
-        <p class="host-description">Interested in organizing an Islamic event? Contact us below.</p>
+    <!-- Added modal for displaying event banners -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="/placeholder.svg" alt="Event Banner">
+        </div>
     </div>
 
-    <footer class="footer">
-        <a href="#">Home</a>
-        <a href="#">Lectures</a>
-        <a href="#">About</a>
-        <a href="#">Privacy Policy</a>
+    <!-- Host Event Section -->
+    <!-- <div class="host-event-section">
+        <h2 class="host-title">HOST AN EVENT</h2>
+        <p class="host-description">Interested in organizing an Islamic event? Contact us below.</p>
+    </div> -->
+
+   <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
+
+</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>ABOUT ACADEMY</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Just the Matcha')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('The Trial Kit')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('Wholesale & Bulk')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Teaware')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('Matcha Recipes')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Caffeine Content')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Health Benefits')">Ziyarat</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('Affiliate')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column newsletter">
+                    <h3>Let's Stay Connected</h3>
+                    <p>Enter your email</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                   <!-- Social Links -->
+<div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+  <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
+    <img src="/facebook.png" alt="">
+  </a>
+  <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
+ <img src="/instagram.png" alt="instagram">
+  </a>
+  <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
+   <img src="/tik-tok.png" alt="">
+  </a>
+  <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
+    <img src="/youtube.png" alt="">
+  </a>
+</div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
     </footer>
     <script>
         // Filter events functionality
@@ -329,37 +531,43 @@
             }
         }
 
-        // View event details
-        function viewEventDetails(eventName) {
-            const eventDetails = {
-                'Learn to Read Qur\'an': {
-                    description: 'Join us for an intensive Quran reading class designed for beginners and intermediate learners.',
-                    instructor: 'Ustadh Ahmed Al-Mansouri',
-                    requirements: 'Basic Arabic alphabet knowledge preferred',
-                    fee: '$25 per person'
-                },
-                'Madinah & Ash-Sham: The Virtues': {
-                    description: 'A scholarly lecture exploring the spiritual significance and virtues of the blessed cities of Madinah and Damascus.',
-                    instructor: 'Dr. Fatima Al-Zahra',
-                    requirements: 'Open to all ages',
-                    fee: 'Free admission'
-                },
-                'Sisters Ramadan Night': {
-                    description: 'A special gathering for sisters featuring Quran recitation, Islamic discussions, and community bonding.',
-                    instructor: 'Sister Aisha Rahman',
-                    requirements: 'Sisters only',
-                    fee: '$15 per person (includes dinner)'
-                }
-            };
-
-            const event = eventDetails[eventName];
-            if (event) {
-                const message = `${eventName}\n\n${event.description}\n\nInstructor: ${event.instructor}\nRequirements: ${event.requirements}\nFee: ${event.fee}\n\nTo register:\n• Call: (555) 123-4567\n• Email: events@zuhdmaktab.com\n• Visit: 123 Islamic Center Way, Calgary\n\nJazakAllahu Khair!`;
-                alert(message);
-            } else {
-                alert(`Event Details for: ${eventName}\n\nFor more information and registration, please:\n\n• Call us at (555) 123-4567\n• Email us at events@zuhdmaktab.com\n• Visit our center\n\nJazakAllahu Khair!`);
-            }
+        function viewEventDetails(eventName, imageSrc) {
+            const modal = document.getElementById('eventModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = eventName + ' Banner';
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
         }
+
+        function closeModal() {
+            const modal = document.getElementById('eventModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('eventModal');
+            
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
 
         // Contact for hosting
         function contactForHosting() {
