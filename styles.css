@@ -4221,7 +4221,7 @@ color:#0a2a1f;
 }
 
 .zuhd-hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
+    /* font-size: clamp(3rem, 8vw, 6rem); */
     font-weight: 300;
     color: var(--off-white);
     margin-bottom: 40px;

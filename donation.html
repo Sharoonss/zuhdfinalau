@@ -61,84 +61,85 @@
         </section>
 
         <!-- Payment Section -->
-        <section class="zuhd-payment-section">
-            <div class="zuhd-payment-card">
-                <div class="zuhd-payment-header">
-                    <h2 class="zuhd-payment-title">Payment Method</h2>
+    <section class="zuhd-payment-section">
+    <div class="zuhd-payment-card">
+        <div class="zuhd-payment-header">
+            <h2 class="zuhd-payment-title">Payment Method</h2>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="zuhd-payment-methods">
+            <div class="zuhd-payment-option" data-method="stripe">
+                <div class="zuhd-payment-logo">
+                    <i class="fab fa-stripe"></i>
+                    <span>Stripe</span>
                 </div>
-
-                <!-- Payment Methods -->
-                <div class="zuhd-payment-methods">
-                    <div class="zuhd-payment-option" data-method="stripe">
-                        <div class="zuhd-payment-logo">
-                            <i class="fab fa-stripe"></i>
-                            <span>stripe</span>
-                        </div>
-                    </div>
-                    <div class="zuhd-payment-option" data-method="paypal">
-                        <div class="zuhd-payment-logo">
-                            <i class="fab fa-paypal"></i>
-                            <span>PayPal</span>
-                        </div>
-                    </div>
-                    <div class="zuhd-payment-option" data-method="gofundme">
-                        <div class="zuhd-payment-logo">
-                            <i class="fas fa-heart"></i>
-                            <span>GoFundMe</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Donation Causes -->
-                <div class="zuhd-donation-causes">
-                    <h3 class="zuhd-causes-title">Donate to</h3>
-                    
-                    <div class="zuhd-cause-item" data-cause="palestine">
-                        <div class="zuhd-cause-header">
-                            <h4 class="zuhd-cause-name">Palestine</h4>
-                            <div class="zuhd-cause-toggle">
-                                <input type="radio" name="cause" id="palestine" value="palestine" checked>
-                                <label for="palestine" class="zuhd-radio-label"></label>
-                            </div>
-                        </div>
-                        <p class="zuhd-cause-description">
-                            Support relief efforts in Gaza and the West Bank.
-                        </p>
-                    </div>
-
-                    <div class="zuhd-cause-item" data-cause="masjids">
-                        <div class="zuhd-cause-header">
-                            <h4 class="zuhd-cause-name">Help Masjids</h4>
-                            <div class="zuhd-cause-toggle">
-                                <input type="radio" name="cause" id="masjids" value="masjids">
-                                <label for="masjids" class="zuhd-radio-label"></label>
-                            </div>
-                        </div>
-                        <p class="zuhd-cause-description">
-                            Help maintain and expand our community mosques.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Donation Amount -->
-                <div class="zuhd-amount-section">
-                    <h3 class="zuhd-amount-title">Select Amount</h3>
-                    <div class="zuhd-amount-options">
-                        <button class="zuhd-amount-btn" data-amount="25">$25</button>
-                        <button class="zuhd-amount-btn" data-amount="50">$50</button>
-                        <button class="zuhd-amount-btn zuhd-amount-active" data-amount="100">$100</button>
-                        <button class="zuhd-amount-btn" data-amount="250">$250</button>
-                        <input type="number" class="zuhd-custom-amount" placeholder="Custom amount" min="1">
-                    </div>
-                </div>
-
-                <!-- Donate Button -->
-                <button class="zuhd-donate-btn" onclick="processDonation()">
-                    <span>DONATE NOW</span>
-                    <i class="fas fa-heart"></i>
-                </button>
             </div>
-        </section>
+            <div class="zuhd-payment-option" data-method="paypal">
+                <div class="zuhd-payment-logo">
+                    <i class="fab fa-paypal"></i>
+                    <span>PayPal</span>
+                </div>
+            </div>
+            <div class="zuhd-payment-option" data-method="gofundme">
+                <div class="zuhd-payment-logo">
+                    <i class="fas fa-heart"></i>
+                    <span>GoFundMe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation Causes -->
+        <div class="zuhd-donation-causes">
+            <h3 class="zuhd-causes-title">Donate to</h3>
+            <div class="zuhd-cause-item" data-cause="palestine">
+                <div class="zuhd-cause-header">
+                    <h4 class="zuhd-cause-name">Palestine</h4>
+                    <div class="zuhd-cause-toggle">
+                        <input type="radio" name="cause" id="palestine" value="palestine" checked>
+                        <label for="palestine" class="zuhd-radio-label"></label>
+                    </div>
+                </div>
+                <p class="zuhd-cause-description">
+                    Support relief efforts in Gaza and the West Bank.
+                </p>
+            </div>
+
+            <div class="zuhd-cause-item" data-cause="masjids">
+                <div class="zuhd-cause-header">
+                    <h4 class="zuhd-cause-name">Help Masjids</h4>
+                    <div class="zuhd-cause-toggle">
+                        <input type="radio" name="cause" id="masjids" value="masjids">
+                        <label for="masjids" class="zuhd-radio-label"></label>
+                    </div>
+                </div>
+                <p class="zuhd-cause-description">
+                    Help maintain and expand our community mosques.
+                </p>
+            </div>
+        </div>
+
+        <!-- Donation Amount -->
+        <div class="zuhd-amount-section">
+            <h3 class="zuhd-amount-title">Select Amount</h3>
+            <div class="zuhd-amount-options">
+                <button class="zuhd-amount-btn" data-amount="25">$25</button>
+                <button class="zuhd-amount-btn" data-amount="50">$50</button>
+                <button class="zuhd-amount-btn zuhd-amount-active" data-amount="100">$100</button>
+                <button class="zuhd-amount-btn" data-amount="250">$250</button>
+                <input type="number" class="zuhd-custom-amount" placeholder="Custom amount" min="1">
+            </div>
+        </div>
+
+        <!-- Pay Now Button -->
+        <button class="zuhd-donate-btn" onclick="processDonation()">
+            <span>DONATE NOW</span>
+            <i class="fas fa-heart"></i>
+            
+        </button>
+    </div>
+</section>
+
 
         <!-- Cause Cards Section -->
         <section class="zuhd-causes-section">
@@ -174,7 +175,7 @@
         </div>
     </div>
 
-  <div class="main-banner">
+  <!-- <div class="main-banner">
 <div class="banner">
         <div class="decorative-elements">
             <div class="circle"></div>
@@ -191,13 +192,13 @@
             <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
         </div>
     </div>
-    </div>
+    </div> -->
  <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
                     <div class="logo-main">
-                        <img src="/logo-03.png" alt="ZUHD Logo">
+                        <img src="/images/logo.png" alt="ZUHD Logo">
                     </div>
                     <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                 </div>
@@ -239,7 +240,7 @@
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                  <!-- Social Links -->
+                 <!-- Social Links -->
 <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
   <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
     <img src="/facebook.png" alt="">
@@ -253,12 +254,12 @@
   <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
     <img src="/youtube.png" alt="">
   </a>
-  <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
+  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
     <img src="/linkedin.png" alt="">
   </a>
   <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
     <img src="/twitter-alt-square.png" alt="">
-  </a>
+  </a> -->
 </div>
                 </div>
             </div>
@@ -276,7 +277,68 @@
             </div>
         </div>
     </footer>
-                     <script src="navbar.js"></script>
+    <script>
+function processDonation() {
+    // 1️⃣ Get selected amount
+    let selectedAmount = document.querySelector(".zuhd-amount-btn.zuhd-amount-active")?.dataset.amount;
+    const customAmount = document.querySelector(".zuhd-custom-amount").value;
+    if (customAmount && Number(customAmount) > 0) {
+        selectedAmount = customAmount;
+    }
+
+    if (!selectedAmount) {
+        alert("Please select or enter an amount.");
+        return;
+    }
+
+    // 2️⃣ Get selected payment method
+    const selectedMethod = document.querySelector(".zuhd-payment-option.selected")?.dataset.method;
+    if (!selectedMethod) {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    // 3️⃣ Create payment request
+    fetch("https://pay.techrealm.pk/create-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            amount: Number(selectedAmount),
+            method: selectedMethod
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.payment_url) {
+            window.location.href = data.payment_url;
+        } else {
+            alert("Payment URL not found in response.");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred while processing the payment.");
+    });
+}
+
+// Highlight selected payment method
+document.querySelectorAll(".zuhd-payment-option").forEach(option => {
+    option.addEventListener("click", function () {
+        document.querySelectorAll(".zuhd-payment-option").forEach(opt => opt.classList.remove("selected"));
+        this.classList.add("selected");
+    });
+});
+
+// Highlight selected amount
+document.querySelectorAll(".zuhd-amount-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        document.querySelectorAll(".zuhd-amount-btn").forEach(b => b.classList.remove("zuhd-amount-active"));
+        this.classList.add("zuhd-amount-active");
+    });
+});
+
+    </script>            
+    <script src="navbar.js"></script>
 
 </body>
 </html>
