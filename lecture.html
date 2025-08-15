@@ -26,116 +26,381 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
    <style>
-    .islamic-wisdom-hub {
-    text-align: center;
-    padding: 60px 20px;
-    /* background: #fdfcf9; */
-    /* font-family: 'Segoe UI', sans-serif; */
-}
+   body {
+            /* font-family: 'Inter', sans-serif; */
+            background-color: var(--deep-green);
+                font-family: "Serotiva-Light";
+        }
+        a {
+            font-family: "Serotiva-Light";
+        }
+        
+        /* Header Styles */
+        .lectures-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lectures-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Q50,80 0,100" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .lectures-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .lectures-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            /* margin-top: 140px; */
+            position: relative;
+        }
+        
+        .section-header h1 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .section-header p {
+            color: #fcfcfc;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        /* Video Grid Styles */
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .video-card {
+background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .thumbnail-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+        
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold);
+            font-size: 4rem;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-card:hover .play-icon {
+            opacity: 1;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fcfcfc;
+            height: 3.3em;
+            overflow: hidden;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #cccaca;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Featured Video Styles */
+        .featured-video-container {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            /* background: rgb(226, 221, 221);w */
+background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .featured-video {
+            position: relative;/* 16:9 Aspect Ratio */
+            padding-top: 50%; 
+            background: #000;
+        }
+        
+        .featured-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .featured-info {
+            padding: 25px;
+        }
+        
+        .featured-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .featured-description {
+            color: #fcfbfb;
+            line-height: 1.7;
+        }
+        
+        /* Filter and Search */
+        .controls-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .search-box {
+            /* flex: 0 1 300px; */
+            /* min-width: 250px; */
+            width: 50%;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 16px 16px 16px 45px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: transparent;
+            outline: none;
+            color: #fcfcfc;
+        }
 
-.sacred-knowledge-title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
+        .search-box input::placeholder {
+            color: #cccaca;
+        }
 
-.enlightenment-tagline {
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 30px;
-}
+        .search-box input:focus {
+            border-color: var(--gold);
+        }
+        
+        .search-box i {
+position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+        
+        .sorting {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .sort-btn {
+            padding: 15px 25px;
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            color: var(--deep-green);
+            font-size: 1.1rem; 
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .sort-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* View All Button */
+/* View All Button */
+        .view-all-container {
+            text-align: center;
+            margin: 40px 0;
+        }
 
-.spiritual-media-frame {
-    max-width: 900px;
-    margin: 0 auto 40px auto;
-    position: relative;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-}
+        .view-all-btn {
+              display: block;
+      width: max-content;
+      margin: 40px auto 0; /* More top margin */
+      padding: 14px 35px; /* Larger padding */
+      background: var(--secondary);
+      color: var(--gold);
+      border: none;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem; 
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2); /* Added shadow */
+        }
 
-.video-display-area video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.simple-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    max-width: 900px;
-    margin-inline: auto;
-    padding: 0 20px;
-}
-
-.simple-controls button {
-    background: #2c3e50;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.simple-controls button:hover {
-    background: #ffffff;
-}
-
-.time-display {
-    font-size: 14px;
-    color: #ffffff;
-}
-
-.sacred-sermon-heading {
-    font-size: 32px;
-    margin-top: 50px;
-    color: #f5f5f5;
-}
-
-.spiritual-insight-summary {
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 30px;
-}
-
-.knowledge-gateway-btn {
-    padding: 12px 28px;
-    font-size: 16px;
-    background: #14441e;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.knowledge-gateway-btn:hover {
-    /* background: #e6ebd7; */
-    border:1px solid rgb(247, 253, 190);
-}
-
-/* Custom CSS for Elfsight YouTube Widget Titles */
-.elfsight-app-4f6ac8b0-62e6-4ed6-8afe-72b4d95a6848 * {
-    font-family: 'Inter', sans-serif !important;
-}
-.yottie-widget-video-info-title {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 600 !important; /* Adjust weight to match page titles if needed */
-}
-
-   </style>
+        .view-all-btn:hover {
+             background: var(--gold);
+      color: var(--deep-green);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35); /* Stronger hover shadow */
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lectures-title {
+                font-size: 2.5rem;
+            }
+            
+            .videos-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .controls-container {
+                flex-direction: column;
+            }
+            
+            .sorting {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lectures-title {
+                font-size: 2rem;
+            }
+            
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading Animation */
+        .loader {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .loader-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        /* Decorative Elements */
+        /* .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232e7d32' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        } */
+    </style>
 </head>
 <body>
     <nav>
       <div id="navbar"></div>
    </nav>
-     <!-- Lectures Main Section -->
     <main class="lectures-main">
         <div class="container">
             <!-- Lectures Header -->
@@ -144,174 +409,58 @@
             </div>  
         </div>
     </main>
-
-    <!-- <div class="islamic-platform-wrapper"> -->
-        <!-- Main Hero Section -->
-
- <div class="islamic-wisdom-hub">
-    <h1 class="sacred-knowledge-title">ISLAMIC LECTURES</h1>
-    <p class="enlightenment-tagline">Enlighten your soul with knowledge.</p>
-
-    <div class="spiritual-media-frame">
-        <div class="video-display-area">
-            <div class="video-overlay" id="videoOverlay">
-                <video id="lectureVideo" controls poster="/images/video-cover.jpg">
-                    <source src="/Meet the Best Islamic Scholars at Zuhd Guidance (1).mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+<div class="main-content">
+        <!-- Featured Video -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h1>ISLAMIC LECTURES</h1>
+                <p>Enlighten your soul with knowledge</p>
             </div>
+            
+            <div class="featured-video-container">
+                <div class="featured-video">
+                    <iframe id="featuredVideo" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="featured-info">
+                    <h3 class="featureFeatured Lectured-title" id="featuredTitle">Loading featured lecture...</h3>
+                    <p class="featured-description" id="featuredDescription">The featured lecture will appear here once loaded.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Gallery -->
+        <section class="video-gallery">
+            <div class="section-header">
+                <h1>The Importance of Prayer</h1>
+                <p>Learn about the significance of Salah in a Muslim's life</p>
+            </div>
+            
+            <div class="controls-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search lectures...">
+                </div>
+                <div class="sorting">
+                    <button class="sort-btn active" data-sort="date">Newest</button>
+                    <button class="sort-btn" data-sort="popular">Most Popular</button>
+                </div>
+            </div>
+            
+            <div class="loader" id="loader">
+                <div class="loader-spinner"></div>
+                <p class="loading-text">Loading lectures from YouTube channel...</p>
+            </div>
+            
+            <div class="videos-container" id="videosContainer">
+                <!-- Videos will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- View All Button -->
+       <div class="view-all-container">
+            <a href="https://www.youtube.com/@zuhdau/videos" target="_blank" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
         </div>
-
-        <!-- <div class="simple-controls">
-            <div class="left-controls">
-                <button class="simple-play-btn" id="simplePlayBtn">▶</button>
-                <span class="time-display" id="timeDisplay">0:00</span>
-            </div>
-            <div class="right-controls">
-                <button class="volume-btn" id="volumeBtn">🔊</button>
-                <button class="speed-btn" id="speedBtn">1x</button>
-                <button class="fullscreen-btn" id="fullscreenBtn">⛶</button>
-            </div>
-        </div> -->
     </div>
-
-    <h2 class="sacred-sermon-heading">The Importance of Prayer</h2>
-    <p class="spiritual-insight-summary">Learn about the significance of Salah in a Muslim's life</p>
-
-    <!-- <button class="knowledge-gateway-btn" id="viewMoreBtn">VIEW MORE LECTURES</button> -->
-
-    <!-- Elfsight Widgets -->
-    <div class="tarbiyyah-hero-banner">
-        <div class="hero-main-content">
-        </div>
-<div class="elfsight-app-4f6ac8b0-62e6-4ed6-8afe-72b4d95a6848" data-elfsight-app-lazy></div>
-
-    </div>
-<a href="https://www.youtube.com/@zuhdau" class="knowledge-gateway-btn" id="viewMoreBtn">VIEW MORE LECTURES</a>
-
-</div>
-
-
-   <!--  <div class="quotes-container">
-        <!-- Filter Section -->
-        <!-- <div class="filter-section">
-            <div class="filter-controls">
-                <select class="filter-dropdown1" id="scholarFilter">
-                    <option value="">Scholar</option>
-                    <option value="ibn-qayyim">Dr.Mufti Abdur Rahman Mangera</option>
-                    <option value="abu-huraira">Shaykh Hasan Ali</option>
-                    <option value="hassan-al-basri">Maulana Sulaiman Khatani Bin Yusuf</option>
-                    <option value="abu-bakr-as-siddiq">Dr. Maulana Sami Al-Hashmi</option>
-                    <option value="umar-al-khattab">Sheikh Yasir Al-Hanafi</option>
-                    <option value="prophet-muhammad">Qari Saad Nomani </option>
-                 <option value="prophet-muhammad">Qari Hammadullah Sajid</option>
-
-                </select>
-                
-                <select class="filter-dropdown1" id="categoryFilter">
-                    <option value="">Category</option>
-                    <option value="knowledge">Knowledge</option>
-                    <option value="patience">Patience</option>
-                    <option value="justice">Justice</option>
-                    <option value="character">Character</option>
-                    <option value="worship">Worship</option>
-                </select>
-                
-                <button class="filter-btn" onclick="applyFilters()">Filter</button>
-            </div>
-        </div> -->
-
-        <!-- Quotes Grid -->
-        <!-- <div class="quotes-grid" id="quotesGrid">
-            <div class="quote-card" data-scholar="ibn-qayyim" data-category="character">
-                <p class="quote-text">The most beloved of people to Allah are those who are most beneficial to people.</p>
-                <div class="quote-footer">
-                    <span class="author">— Ibn Qayyim</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="abu-huraira" data-category="worship">
-                <p class="quote-text">Riches are not from an abundance of worldly goods, but from a contented mind.</p>
-                <div class="quote-footer">
-                    <span class="author">— Abu Huraira</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="hassan-al-basri" data-category="worship">
-                <p class="quote-text">Call yourself to account before you are taken to account.</p>
-                <div class="quote-footer">
-                    <span class="author">— Hassan Al-Basri</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="prophet-muhammad" data-category="justice">
-                <p class="quote-text">Beware of injustice, for injustice will be darkness on the Day of Resurrection.</p>
-                <div class="quote-footer">
-                    <span class="author">— Prophet Muhammad ﷺ</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="abu-bakr-as-siddiq" data-category="patience">
-                <p class="quote-text">Allah does not burden a soul beyond that it can bear.</p>
-                <div class="quote-footer">
-                    <span class="author">— Abu Bakr As-Siddiq</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="umar-al-khattab" data-category="knowledge">
-                <p class="quote-text">Acquire knowledge, and through it acquire calmness and dignity.</p>
-                <div class="quote-footer">
-                    <span class="author">— Umar Al-Khattab</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="ibn-qayyim" data-category="knowledge">
-                <p class="quote-text">Acquire knowledge, and through it acquire calmness and dignity.</p>
-                <div class="quote-footer">
-                    <span class="author">— Ibn Qayyim</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-card" data-scholar="prophet-muhammad" data-category="character">
-                <p class="quote-text">The best of those among you are those who have the best character.</p>
-                <div class="quote-footer">
-                    <span class="author">— Prophet Muhammad ﷺ</span>
-                    <div class="social-icons">
-                        <i class="fab fa-twitter" onclick="shareQuote('twitter', this)"></i>
-                        <i class="fab fa-facebook-f" onclick="shareQuote('facebook', this)"></i>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-     <!-- </div>  -->
 
  <footer class="footer">
         <div class="footer-content">
@@ -398,86 +547,175 @@
         </div>
     </footer>
     <script>
-document.addEventListener('DOMContentLoaded', () => {
-  /* ---------- 1. GENERIC DROPDOWNS (LECTURES SECTION) ---------- */
-  const dropdowns = document.querySelectorAll('.filter-dropdown');
-
-  dropdowns.forEach(dropdown => {
-    const btn     = dropdown.querySelector('.filter-button');
-    const options = dropdown.querySelector('.filter-options');
-    const label   = btn.querySelector('span');           // text to update
-
-    // Toggle dropdown
-    btn.addEventListener('click', e => {
-      e.stopPropagation();                               // keep click from bubbling to body
-      dropdowns.forEach(d => d.classList.remove('active'));
-      dropdown.classList.toggle('active');
-    });
-
-    // Choose option
-    options.addEventListener('click', e => {
-      if (!e.target.classList.contains('filter-option')) return;
-      label.textContent          = e.target.textContent;
-      btn.dataset.value          = e.target.dataset.value;  // store choice
-      dropdown.classList.remove('active');
-      applyLectureFilters();                                // re-filter grid
-    });
-  });
-
-  // Close any open dropdown if you click elsewhere
-  document.addEventListener('click', () =>
-    dropdowns.forEach(d => d.classList.remove('active'))
-  );
-
-  /* ---------- 2. TOPIC TAGS ---------- */
-  const topicTags = document.querySelectorAll('.topic-tag');
-  topicTags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      topicTags.forEach(t => t.classList.remove('active'));
-      tag.classList.add('active');
-      applyLectureFilters();
-    });
-  });
-
-  /* ---------- 3. FILTER LECTURE VIDEO CARDS ---------- */
-  function applyLectureFilters() {
-    const scholar = document.querySelector('#lecturesScholarFilter .filter-button')?.dataset.value || 'all';
-    const topic   = document.querySelector('#lecturesTopicFilter   .filter-button')?.dataset.value || 'all';
-    const series  = document.querySelector('#lecturesSeriesFilter  .filter-button')?.dataset.value || 'all';
-    const tag     = document.querySelector('.topic-tag.active')?.dataset.topic     || 'all';
-
-    document.querySelectorAll('.islamic-video-card').forEach(card => {
-      const cScholar = card.dataset.scholar || 'all';
-      const cTopic   = card.dataset.topic   || (card.querySelector('.islamic-category-tag')?.textContent.trim().toLowerCase().replace(/\s+/g,'-')) || 'all';
-      const cSeries  = card.dataset.series  || 'all';
-
-      const visible =
-        (scholar === 'all' || cScholar === scholar) &&
-        (topic   === 'all' || cTopic   === topic  ) &&
-        (series  === 'all' || cSeries  === series ) &&
-        (tag     === 'all' || cTopic   === tag    );
-
-      card.style.display = visible ? '' : 'none';
-    });
-  }
-
-  /* ---------- 4. QUOTES SECTION FILTERS ---------- */
-  const quoteScholarSel  = document.getElementById('quoteScholarFilter');
-  const quoteCategorySel = document.getElementById('quoteCategoryFilter');
-  document.querySelector('.filter-btn').addEventListener('click', applyQuoteFilters);
-
-  function applyQuoteFilters() {
-    const sVal = quoteScholarSel.value;
-    const cVal = quoteCategorySel.value;
-
-    document.querySelectorAll('#quotesGrid .quote-card').forEach(card => {
-      const scholarOK  = !sVal || card.dataset.scholar  === sVal;
-      const categoryOK = !cVal || card.dataset.category === cVal;
-      card.style.display = (scholarOK && categoryOK) ? '' : 'none';
-    });
-  }
-});
-
+ // YouTube API configuration
+        const API_KEY = "AIzaSyDH2HM_h4PsMZ270QUVQ5OvOPk9BsPrgbg";
+        const CHANNEL_ID = "UCV3HG9Ph_XQ1gIK-gEyScmQ";
+        const MAX_RESULTS = 50;
+        
+        // DOM elements
+        const videosContainer = document.getElementById('videosContainer');
+        const loader = document.getElementById('loader');
+        const featuredVideo = document.getElementById('featuredVideo');
+        const featuredTitle = document.getElementById('featuredTitle');
+        const featuredDescription = document.getElementById('featuredDescription');
+        const searchInput = document.getElementById('searchInput');
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        
+        // Store videos data
+        let videos = [];
+        let filteredVideos = [];
+        
+        // Fetch videos from YouTube channel
+        async function fetchVideos() {
+            try {
+                // Get the uploads playlist ID
+                const channelResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?key=${API_KEY}&id=${CHANNEL_ID}&part=contentDetails`);
+                const channelData = await channelResponse.json();
+                
+                const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+                
+                // Get videos from the uploads playlist
+                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet&maxResults=${MAX_RESULTS}`);
+                const playlistData = await playlistResponse.json();
+                
+                // Extract video IDs
+                const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
+                
+                // Get video details
+                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=${MAX_RESULTS}`);
+                const videosData = await videosResponse.json();
+                
+                videos = videosData.items.map(video => {
+                    return {
+                        id: video.id,
+                        title: video.snippet.title,
+                        description: video.snippet.description,
+                        thumbnail: video.snippet.thumbnails.medium.url,
+                        date: video.snippet.publishedAt,
+                        views: parseInt(video.statistics.viewCount)
+                    };
+                });
+                
+                // Set featured video to the first one
+                if (videos.length > 0) {
+                    setFeaturedVideo(videos[0]);
+                }
+                
+                // Display all videos initially
+                filteredVideos = [...videos];
+                displayVideos(filteredVideos);
+                
+                // Hide loader
+                loader.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                loader.innerHTML = '<p class="loading-text">Failed to load lectures. Please try again later.</p>';
+            }
+        }
+        
+        // Set featured video
+        function setFeaturedVideo(video) {
+            featuredVideo.src = `https://www.youtube.com/embed/${video.id}`;
+            featuredTitle.textContent = video.title;
+            featuredDescription.textContent = video.description.substring(0, 200) + '...';
+        }
+        
+        // Display videos in the grid
+        function displayVideos(videosToDisplay) {
+            videosContainer.innerHTML = '';
+            
+            videosToDisplay.forEach(video => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.innerHTML = `
+                    <div class="thumbnail-container">
+                        <img src="${video.thumbnail}" alt="${video.title}" class="video-thumbnail">
+                        <div class="play-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">${video.title}</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-eye"></i> ${formatViews(video.views)}</span>
+                            <span><i class="far fa-calendar"></i> ${formatDate(video.date)}</span>
+                        </div>
+                    </div>
+                `;
+                
+                videoCard.addEventListener('click', () => {
+                    setFeaturedVideo(video);
+                    // Scroll to featured video
+                    document.querySelector('.featured-section').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                });
+                
+                videosContainer.appendChild(videoCard);
+            });
+        }
+        
+        // Format views number
+        function formatViews(views) {
+            if (views >= 1000000) {
+                return (views / 1000000).toFixed(1) + 'M';
+            } else if (views >= 1000) {
+                return (views / 1000).toFixed(1) + 'K';
+            }
+            return views;
+        }
+        
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+        
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                filteredVideos = [...videos];
+                displayVideos(filteredVideos);
+                return;
+            }
+            
+            filteredVideos = videos.filter(video => 
+                video.title.toLowerCase().includes(searchTerm) || 
+                video.description.toLowerCase().includes(searchTerm)
+            );
+            
+            displayVideos(filteredVideos);
+        });
+        
+        // Sorting functionality
+        sortButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                sortButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Sort videos
+                const sortBy = button.getAttribute('data-sort');
+                
+                if (sortBy === 'date') {
+                    filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
+                } else if (sortBy === 'popular') {
+                    filteredVideos.sort((a, b) => b.views - a.views);
+                }
+                
+                displayVideos(filteredVideos);
+            });
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', fetchVideos);
 
  // Mobile Footer Accordion Functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -531,129 +769,11 @@ function submitNewsletter(event) {
     const email = event.target.querySelector('input[type="email"]').value;
     console.log('Newsletter submitted with email:', email);
     
-    // Add your newsletter submission logic here
-    // Example:
-    // fetch('/api/newsletter', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ email: email })
-    // });
-    
-    // Show success message
     alert('Thank you for subscribing!');
     event.target.reset();
 }
-  let isPlaying = false;
-        let currentTime = 0;
-        let totalTime = 1800; // 30 minutes in seconds
-        let playTimer;
-        let volume = 1;
-        let speed = 1;
-
-        const playBtn = document.getElementById('playBtn');
-        const simplePlayBtn = document.getElementById('simplePlayBtn');
-        const videoOverlay = document.getElementById('videoOverlay');
-        const timeDisplay = document.getElementById('timeDisplay');
-        const volumeBtn = document.getElementById('volumeBtn');
-        const speedBtn = document.getElementById('speedBtn');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const viewMoreBtn = document.getElementById('viewMoreBtn');
-        const videoPlayer = document.querySelector('.spiritual-media-frame');
-
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
-        }
-
-        function updateTimeDisplay() {
-            timeDisplay.textContent = formatTime(currentTime);
-        }
-
-        function pausePlayback() {
-            clearInterval(playTimer);
-            isPlaying = false;
-            playBtn.innerHTML = '';
-            playBtn.style.background = 'rgba(255, 255, 255, 0.9)';
-            simplePlayBtn.innerHTML = '▶';
-            videoOverlay.classList.remove('playing');
-            videoPlayer.classList.remove('wisdom-active');
-        }
-
-        function startPlayback() {
-            playTimer = setInterval(() => {
-                currentTime += speed;
-                if (currentTime >= totalTime) {
-                    currentTime = totalTime;
-                    pausePlayback();
-                }
-                updateTimeDisplay();
-            }, 1000);
-        }
-
-        // Event Listeners
-        playBtn.addEventListener('click', togglePlayback);
-        simplePlayBtn.addEventListener('click', togglePlayback);
-
-        function togglePlayback() {
-            if (!isPlaying) {
-                isPlaying = true;
-                playBtn.innerHTML = '⏸️';
-                playBtn.style.background = 'rgba(255, 255, 255, 0.8)';
-                simplePlayBtn.innerHTML = '⏸';
-                videoOverlay.classList.add('playing');
-                videoPlayer.classList.add('wisdom-active');
-                startPlayback();
-            } else {
-                pausePlayback();
-            }
-        }
-
-        volumeBtn.addEventListener('click', () => {
-            if (volume > 0) {
-                volume = 0;
-                volumeBtn.textContent = '🔇';
-            } else {
-                volume = 1;
-                volumeBtn.textContent = '🔊';
-            }
-        });
-
-        speedBtn.addEventListener('click', () => {
-            const speeds = [1, 1.25, 1.5, 2];
-            const currentIndex = speeds.indexOf(speed);
-            speed = speeds[(currentIndex + 1) % speeds.length];
-            speedBtn.textContent = `${speed}x`;
-        });
-
-        fullscreenBtn.addEventListener('click', () => {
-            // Simulate fullscreen toggle
-            if (fullscreenBtn.style.opacity === '0.5') {
-                fullscreenBtn.style.opacity = '1';
-                alert('Exited fullscreen mode');
-            } else {
-                fullscreenBtn.style.opacity = '0.5';
-                alert('Entered fullscreen mode');
-            }
-        });
-
-        viewMoreBtn.addEventListener('click', () => {
-            // Add ripple effect
-            viewMoreBtn.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                viewMoreBtn.style.transform = 'translateY(-2px)';
-                alert('More lectures coming soon! Stay tuned for enlightening content.');
-            }, 150);
-        });
-
-        // Initialize
-        updateTimeDisplay();
-        updateVolumeDisplay();
-        totalDurationDisplay.textContent = formatTime(totalTime);
-    </script>
+      </script>
              <script src="navbar.js"></script>
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
 
 
 </body>

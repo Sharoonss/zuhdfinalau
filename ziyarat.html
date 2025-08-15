@@ -5,301 +5,504 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyarat - Sacred Journey</title>
     <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="/lecture.html">
+    <link rel="stylesheet" href="styles.css" />
+    <!-- GSAP core + ScrollTrigger CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Your custom JS -->
+    <script defer src="script.js"></script>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+           body {
+            /* font-family: 'Inter', sans-serif; */
+            /* background-color: var(--deep-green); */
+                font-family: "Serotiva-Light";
+        }
+        /* ---------- Base (Desktop & Default) ---------- */
+        .ziyarat-thumbnail-display {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background-color: #000;
+        }
 
-  <!-- GSAP core + ScrollTrigger CDN -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        .ziyarat-video-element,
+        .ziyarat-html5-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+            filter: brightness(0.7); /* Optional for readability */
+        }
 
-  <!-- Your custom JS -->
-  <script defer src="script.js"></script>
+        .ziyarat-kaaba-illustration,
+        .ziyarat-arch-decoration,
+        .ziyarat-minaret-tower,
+        .ziyarat-play-control {
+            position: absolute;
+            z-index: 2; /* Above video */
+        }
 
-  <!-- Fonts & Icons -->
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <style>
-/* ---------- Base (Desktop & Default) ---------- */
-.ziyarat-thumbnail-display {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-    border-radius: 12px;
-    overflow: hidden;
-}
+        /* Enhanced Styling for ziyarat-main-wrapper */
+        .ziyarat-main-wrapper {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            /* padding: 40px 20px; */
+ background: rgba(255, 255, 255, 0.05);
+             border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
 
-.ziyarat-video-element,
-.ziyarat-html5-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-    display: block;
-    z-index: 1;
-    filter: brightness(0.7); /* Optional for readability */
-}
+        .ziyarat-header-section {
+            text-align: center;
+        }
 
-.ziyarat-kaaba-illustration,
-.ziyarat-arch-decoration,
-.ziyarat-minaret-tower,
-.ziyarat-play-control {
-    position: absolute;
-    z-index: 2; /* Above video */
-    /* Add individual positioning below if needed */
-}
+        .ziyarat-main-title {
+  font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-top: 50px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .ziyarat-main-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
 
-/* ---------- Tablet (max 768px) ---------- */
-@media (max-width: 768px) {
-    .ziyarat-thumbnail-display {
-        padding-top: 60%; /* Slightly taller on tablet */
-    }
+        .ziyarat-left-content {
+            flex: 1;
+            /* padding-right: 20px; */
+        }
 
-    .ziyarat-play-control {
-        width: 60px;
-        height: 60px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
+        .ziyarat-video-showcase {
+            margin-bottom: 20px;
+        }
 
-/* ---------- Mobile (max 480px) ---------- */
-@media (max-width: 480px) {
-    .ziyarat-thumbnail-display {
-        padding-top: 65%; /* Slightly more height on smaller phones */
-        border-radius: 8px;
-    }
+        .ziyarat-experience-title {
+            font-size: 1.8rem;
+            color: #fcfcfc;
+            margin-bottom: 10px;
+        }
 
-    .ziyarat-play-control {
-        width: 40px;
-        height: 40px;
-    }
+        /* .ziyarat-experience-description {
+            font-size: 1.1rem;
+            color: #cccaca;
+            line-height: 1.6;
+        } */
 
-    .ziyarat-kaaba-illustration,
-    .ziyarat-arch-decoration,
-    .ziyarat-minaret-tower {
-        /* Optional: scale down or reposition these if needed */
-        transform: scale(0.8);
-    }
-}
+        /* Map Styling - Moved to before footer */
+        .ziyarat-map-interface {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 40px auto;
+            max-width: 1200px;
+        }
 
+        .ziyarat-map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 25px;
+            border-radius: 10px;
+            z-index: 2;
+            color: #fff;
+        }
 
-</style>
+        .ziyarat-map-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .ziyarat-map-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .ziyarat-google-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ---------- Tablet (max 768px) ---------- */
+        @media (max-width: 768px) {
+            .ziyarat-thumbnail-display {
+                padding-top: 60%; /* Slightly taller on tablet */
+            }
+
+            .ziyarat-play-control {
+                width: 60px;
+                height: 60px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .ziyarat-main-wrapper {
+                padding: 20px;
+            }
+
+            .ziyarat-content-wrapper {
+                padding: 20px;
+            }
+        }
+
+        /* ---------- Mobile (max 480px) ---------- */
+        @media (max-width: 480px) {
+            .ziyarat-thumbnail-display {
+                padding-top: 65%; /* Slightly more height on smaller phones */
+                border-radius: 8px;
+            }
+
+            .ziyarat-play-control {
+                width: 40px;
+                height: 40px;
+            }
+
+            .ziyarat-kaaba-illustration,
+            .ziyarat-arch-decoration,
+            .ziyarat-minaret-tower {
+                transform: scale(0.8);
+            }
+
+            .ziyarat-main-wrapper {
+                padding: 10px;
+            }
+        }
+
+        /* Video Gallery Styles */
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .thumbnail-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold);
+            font-size: 4rem;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-icon {
+            opacity: 1;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fcfcfc;
+            height: 3.3em;
+            overflow: hidden;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #cccaca;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Controls Container */
+        .controls-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .search-box {
+            width: 50%;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 16px 16px 45px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: transparent;
+            outline: none;
+            color: #fcfcfc;
+        }
+
+        .search-box input::placeholder {
+            color: #cccaca;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .sorting {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sort-btn {
+            padding: 15px 25px;
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            color: var(--deep-green);
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sort-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* View All Button */
+        .view-all-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .view-all-btn {
+            display: block;
+            width: max-content;
+            margin: 40px auto 0;
+            padding: 14px 35px;
+            background: var(--secondary);
+            color: var(--gold);
+            border: none;
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2);
+        }
+
+        .view-all-btn:hover {
+            background: var(--gold);
+            color: var(--deep-green);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .videos-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .controls-container {
+                flex-direction: column;
+            }
+
+            .sorting {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loader Styles */
+        .loader {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .loader-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Player Container for Dynamic Content */
+        .ziyarat-player-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <nav>
-      <div id="navbar"></div>
-   </nav>
-   <!-- Header Section -->
-        <header class="ziyarat-header">
-            <h1 class="ziyarat-title">Ziyarat</h1>
-             <nav class="ziyarat-nav">
-                <button class="ziyarat-nav-btn ziyarat-active" data-category="all">All</button>
-                <button class="ziyarat-nav-btn" data-category="makkah">Makkah</button>
-                <button class="ziyarat-nav-btn" data-category="medina">Medina</button>
-            </nav>
-        </header>
-  <div class="ziyarat-main-wrapper">
+        <div id="navbar"></div>
+    </nav>
+    <!-- Header Section -->
+    <header class="ziyarat-header">
+        <h1 class="ziyarat-title">Ziyarat</h1>
+        <nav class="ziyarat-nav">
+            <button class="ziyarat-nav-btn ziyarat-active" data-category="all">All</button>
+            <button class="ziyarat-nav-btn" data-category="makkah">Makkah</button>
+            <button class="ziyarat-nav-btn" data-category="medina">Medina</button>
+        </nav>
+    </header>
+    <div class="ziyarat-main-wrapper">
         <div class="ziyarat-header-section">
-            <h1 class="ziyarat-main-title">Zuhd Madina Vlog</h1>
-            <!-- <nav class="ziyarat-navigation-menu">
-                <a href="#" class="ziyarat-nav-link ziyarat-nav-link--active">All</a>
-                <a href="#" class="ziyarat-nav-link">Makkah</a>
-                <a href="#" class="ziyarat-nav-link">Medina</a>
-            </nav> -->
+            <h1 class="ziyarat-main-title">ZUHD VLOG</h1>
         </div>
         
         <div class="ziyarat-content-wrapper">
             <div class="ziyarat-left-content">
-              <div class="ziyarat-video-showcase">
-    <div class="ziyarat-thumbnail-display">
-        <!-- Video background or main video content -->
-        <video class="ziyarat-video-element" autoplay muted loop playsinline>
-            <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-
-        <!-- Decorative Elements -->
-        <!-- <div class="ziyarat-kaaba-illustration">
-            <div class="ziyarat-minaret-tower"></div>
-        </div>
-        <div class="ziyarat-arch-decoration"></div>
-        <div class="ziyarat-play-control"></div> -->
-    </div>
-</div>
-                
-                <h2 class="ziyarat-experience-title">Experience Makkah</h2>
-                <p class="ziyarat-experience-description">
-                    A journey through the sacred city of Makkah capturing, its spiritual atmosphere.
-                </p>
-            </div>
-            
-            <div class="ziyarat-right-content">
-                <div class="ziyarat-map-interface">
-                    <div class="ziyarat-map-overlay">
-                        <div class="ziyarat-map-title">Holy Cities</div>
-                        <div class="ziyarat-map-subtitle">Makkah & Medina</div>
+                <div class="ziyarat-video-showcase">
+                    <div class="ziyarat-thumbnail-display">
+                        <div class="ziyarat-player-container" id="mainPlayer">
+                            <video class="ziyarat-video-element" autoplay loop playsinline controls>
+                                <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
-                    
-                    <iframe 
-                        class="ziyarat-google-embed"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.478284745844!2d39.82648!3d21.42251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c204b74c16d72b%3A0x80f5f6c9df828af5!2sGreat%20Mosque%20of%20Mecca!5e0!3m2!1sen!2s!4v1703851234567!5m2!1sen!2s"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
                 </div>
-
-                <!-- <div class="ziyarat-ad-banner">
-                    <div class="ziyarat-ad-title">🕋 Hajj & Umrah Packages</div>
-                    <div class="ziyarat-ad-text">
-                        Experience the spiritual journey of a lifetime with our comprehensive pilgrimage packages.
-                    </div>
-                    <button class="ziyarat-ad-button">Learn More</button>
-                </div> -->
+                <h2 class="ziyarat-experience-title" id="experienceTitle">Experience Makkah</h2>
+                <!-- <p class="ziyarat-experience-description" id="experienceDescription">
+                    A journey through the sacred city of Makkah capturing, its spiritual atmosphere.
+                </p> -->
             </div>
         </div>
     </div>
-    <!-- One Million Subscribers Section -->
-    <!-- <div class="main-banner">
-        <div class="banner">
-            <div class="decorative-elements">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="floating-dot"></div>
-                <div class="floating-dot"></div>
-                <div class="floating-dot"></div>
-            </div>
-            <div class="banner-content">
-                <h2 class="channel-name">1 Million Subscribers</h2>
-                <p class="update-text">New Updates Coming</p>
-                <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn" target="_blank" rel="noopener noreferrer">Subscribe Our YouTube Channel</a>
-            </div>
-        </div>
-    </div> -->
- <!-- <div class="main-banner">
-<div class="banner">
-        <div class="decorative-elements">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-        </div>
-        
-        <div class="banner-content">
-            <h2 class="channel-name">1 Million Subscribers</h2>
-            <p class="update-text">New Updates Coming</p>
-            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
-        </div>
-    </div>
-    </div> -->
-   <div class="ziayarat-gallery-container">
+    <div class="ziayarat-gallery-container">
         <div class="ziayarat-main-wrapper">
             <div class="ziayarat-header-section">
-                <h1 class="ziayarat-main-title">Ziayarat Vlog Videos</h1>
+                <h1 class="ziayarat-main-title">Ziyarat Vlog Videos</h1>
                 <div class="ziayarat-divider-line"></div>
                 <p class="ziayarat-subtitle">Sacred Journeys & Spiritual Experiences</p>
             </div>
-
-    <div class="ziayarat-slider-container">
-                <div class="ziayarat-video-track" id="ziayaratVideoTrack">
-<!-- 
-                    <div class="ziayarat-video-slide">
-                       <iframe class="ziayarat-video-iframe" 
-    src="https://www.youtube.com/embed/Lp840BhV9PI?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
-    title="The Masjid With Two Qiblahs – A Turning Point in Islam"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen></iframe>
-                    </div> -->
-
-                    <div class="ziayarat-video-slide">
-                        <iframe class="ziayarat-video-iframe" 
-                            src="https://www.youtube.com/embed/cA19-eBKVR4?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
-                            title="Secrets Beneath the Soil: Salman Al-Farsi's Garden &amp; the Legacy of Sincerity"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
-                        <!-- <div class="ziayarat-video-title">Salman Al-Farsi's Garden</div>
-                        <div class="ziayarat-video-description">The Legacy of Sincerity</div>
-                        <div class="ziayarat-video-duration">12:45</div> -->
+            <section class="video-gallery">
+                <div class="controls-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search lectures...">
                     </div>
-
-                    <div class="ziayarat-video-slide">
-                        <iframe class="ziayarat-video-iframe" 
-                            src="https://www.youtube.com/embed/uy0LBR1QjUg?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
-                            title="Unveiling Medina's Secrets: Masjid Banu Unaif with Ustadh Saad &amp; Sheikh Yusuf | Zuhd Guidance"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
-                        <!-- <div class="ziayarat-video-title">Masjid Banu Unaif</div>
-                        <div class="ziayarat-video-description">Unveiling Medina's Secrets</div>
-                        <div class="ziayarat-video-duration">18:20</div> -->
+                    <div class="sorting">
+                        <button class="sort-btn active" data-sort="date">Newest</button>
+                        <button class="sort-btn" data-sort="popular">Most Popular</button>
                     </div>
-
-                    <div class="ziayarat-video-slide">
-                        <iframe class="ziayarat-video-iframe" 
-                            src="https://www.youtube.com/embed/0gFhXno7tlo?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
-                            title="🌿 'Bir Ghars: The Forgotten Well of the Prophet ﷺ – A Hidden Treasure in Medina!' 🌿"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
-                        <!-- <div class="ziayarat-video-title">Bir Ghars: The Forgotten Well</div>
-                        <div class="ziayarat-video-description">A Hidden Treasure in Medina</div>
-                        <div class="ziayarat-video-duration">14:10</div> -->
-                    </div>
-
-                    <div class="ziayarat-video-slide">
-                        <iframe class="ziayarat-video-iframe" 
-                            src="https://www.youtube.com/embed/mG5A1IUK2Aw?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
-                            title="🌿 'Bir Ghars: The Well of the Prophet ﷺ – A Forgotten Treasure of Medina' 🌿"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
-                        <!-- <div class="ziayarat-video-title">Bir Ghars: The Well of the Prophet</div>
-                        <div class="ziayarat-video-description">A Forgotten Treasure of Medina</div>
-                        <div class="ziayarat-video-duration">16:35</div> -->
-                    </div>
-
-                    <div class="ziayarat-video-slide">
-                        <iframe class="ziayarat-video-iframe" 
-                            src="https://www.youtube.com/embed/N9FOObs8h_I?list=PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U"
-                            title="Walking Through Medina's Hidden Gems: Masjid Al-Usbah &amp; The Blessed Date Farms"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
-                        <!-- <div class="ziayarat-video-title">Masjid Al-Usbah</div>
-                        <div class="ziayarat-video-description">Walking Through Medina's Hidden Gems</div>
-                        <div class="ziayarat-video-duration">20:15</div> -->
-                    </div>
-
                 </div>
-
-                <button class="ziayarat-nav-button ziayarat-nav-prev" id="ziayaratPrevBtn">‹</button>
-                <button class="ziayarat-nav-button ziayarat-nav-next" id="ziayaratNextBtn">›</button>
-            </div>
-
-            <div class="ziayarat-progress-indicators" id="ziayaratProgressDots"></div>
+                <div class="loader" id="loader">
+                    <div class="loader-spinner"></div>
+                    <p class="loading-text">Loading lectures from YouTube channel...</p>
+                </div>
+                <div class="videos-container" id="videosContainer">
+                    <!-- Videos will be inserted here by JavaScript -->
+                </div>
+                <div class="view-all-container">
+                    <a href="https://www.youtube.com/@zuhdau/videos" target="_blank" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </section>
         </div>
     </div>
-
+    <!-- Moved Map Here, Just Before Footer -->
+    <div class="ziyarat-map-interface">
+        <div class="ziyarat-map-overlay">
+            <div class="ziyarat-map-title">Holy Cities</div>
+            <div class="ziyarat-map-subtitle">Makkah & Medina</div>
+        </div>
+        <iframe 
+            class="ziyarat-google-embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.478284745844!2d39.82648!3d21.42251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c204b74c16d72b%3A0x80f5f6c9df828af5!2sGreat%20Mosque%20of%20Mecca!5e0!3m2!1sen!2s!4v1703851234567!5m2!1sen!2s"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
-
- <footer class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
@@ -308,7 +511,6 @@
                     </div>
                     <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                 </div>
-                
                 <div class="footer-column">
                     <h3>About Academy</h3>
                     <ul>
@@ -318,7 +520,6 @@
                         <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
@@ -327,7 +528,6 @@
                         <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
@@ -338,7 +538,6 @@
                         <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column newsletter">
                     <h3>Sign Up and Save</h3>
                     <p>Get exclusive offers and the latest updates.</p>
@@ -346,30 +545,22 @@
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                  <!-- Social Links -->
-<div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
-  <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
-    <img src="/facebook.png" alt="">
-  </a>
-  <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
- <img src="/instagram.png" alt="instagram">
-  </a>
-  <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
-   <img src="/tik-tok.png" alt="">
-  </a>
-  <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
-    <img src="/youtube.png" alt="">
-  </a>
-  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
-    <img src="/linkedin.png" alt="">
-  </a>
-  <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
-    <img src="/twitter-alt-square.png" alt="">
-  </a> -->
-</div>
+                    <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
+                            <img src="/facebook.png" alt="">
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
+                            <img src="/instagram.png" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
+                            <img src="/tik-tok.png" alt="">
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
+                            <img src="/youtube.png" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <div class="copyright">
                     © 2024 Zuhd Guidance All rights reserved.
@@ -384,403 +575,246 @@
         </div>
     </footer>
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
-      <script>
+    <script>
+        // YouTube API configuration
+        const API_KEY = "AIzaSyDH2HM_h4PsMZ270QUVQ5OvOPk9BsPrgbg";
+        const CHANNEL_ID = "UCV3HG9Ph_XQ1gIK-gEyScmQ";
+        const MAX_RESULTS = 50;
 
-        
-// Sacred cities data with Islamic context
-        const holyCitiesData = {
-            'Makkah': {
-                title: '🕋 Makkah Al-Mukarramah (The Honored)',
-                description: 'The holiest city in Islam and the birthplace of Prophet Muhammad (PBUH). Home to the Great Mosque of Mecca (Masjid al-Haram) and the sacred Kaaba, the Qibla for Muslims worldwide.',
-                facts: [
-                    'Contains the Holy Kaaba, built by Prophet Ibrahim (AS)',
-                    'Birthplace of the final Prophet Muhammad (PBUH)',
-                    'Over 2 million pilgrims perform Hajj annually',
-                    'The Grand Mosque accommodates over 2 million worshippers',
-                    'Location of the Well of Zamzam, blessed water source'
-                ]
-            },
-            'Medina': {
-                title: '🌙 Medina Al-Munawwarah (The Enlightened)',
-                description: 'The second holiest city in Islam, where Prophet Muhammad (PBUH) migrated and established the first Islamic community. Final resting place of the beloved Prophet.',
-                facts: [
-                    'First capital of the Islamic Ummah',
-                    'Home to Al-Masjid an-Nabawi (Prophet\'s Mosque)',
-                    'Burial place of Prophet Muhammad (PBUH)',
-                    'Known as "Madinat an-Nabi" (City of the Prophet)',
-                    'Site of the historic Hijra (Migration) in 622 CE'
-                ]
+        // DOM elements
+        const videosContainer = document.getElementById('videosContainer');
+        const loader = document.getElementById('loader');
+        const searchInput = document.getElementById('searchInput');
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        const navButtons = document.querySelectorAll('.ziyarat-nav-btn');
+        const mainPlayer = document.getElementById('mainPlayer');
+        const experienceTitle = document.getElementById('experienceTitle');
+        const experienceDescription = document.getElementById('experienceDescription');
+
+        // Store videos data
+        let videos = [];
+        let filteredVideos = [];
+
+        // Fetch videos from YouTube channel
+        async function fetchVideos() {
+            try {
+                // Get the uploads playlist ID
+                const channelResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?key=${API_KEY}&id=${CHANNEL_ID}&part=contentDetails`);
+                const channelData = await channelResponse.json();
+                
+                const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+                
+                // Get videos from the uploads playlist
+                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet&maxResults=${MAX_RESULTS}`);
+                const playlistData = await playlistResponse.json();
+                
+                // Extract video IDs
+                const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
+                
+                // Get video details
+                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics,contentDetails`);
+                const videosData = await videosResponse.json();
+                
+                // Filter long videos (duration > 60 seconds)
+                videos = videosData.items
+                    .filter(video => {
+                        const duration = video.contentDetails.duration;
+                        const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+                        const hours = parseInt(match[1]) || 0;
+                        const minutes = parseInt(match[2]) || 0;
+                        const seconds = parseInt(match[3]) || 0;
+                        return (hours * 3600 + minutes * 60 + seconds) > 60;
+                    })
+                    .map(video => ({
+                        id: video.id,
+                        title: video.snippet.title,
+                        description: video.snippet.description,
+                        thumbnail: video.snippet.thumbnails.medium.url,
+                        date: video.snippet.publishedAt,
+                        views: parseInt(video.statistics.viewCount)
+                    }));
+
+                // Initial display
+                filteredVideos = [...videos];
+                displayVideos(filteredVideos);
+                
+                // Hide loader
+                loader.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                loader.innerHTML = '<p class="loading-text">Failed to load lectures. Please try again later.</p>';
             }
-        };
-
-        // Enhanced interactive functions
-        function initiateVideoExperience() {
-            const videoFrame = document.querySelector('.holy-video-frame');
-            const playButton = document.querySelector('.islamic-play-button');
-            
-            playButton.style.opacity = '0';
-            videoFrame.style.transform = 'scale(1.02)';
-            videoFrame.style.filter = 'brightness(1.1)';
-            
-            setTimeout(() => {
-                alert('🎬 Sacred Journey Experience Initiated!\n\n✨ In a full implementation, this would launch:\n• 360° Virtual Tour of Masjid al-Haram\n• Live streaming from the Holy Kaaba\n• Guided spiritual narration\n• Historical timeline of Islamic heritage');
-                playButton.style.opacity = '1';
-                videoFrame.style.transform = 'scale(1)';
-                videoFrame.style.filter = 'brightness(1)';
-            }, 800);
         }
 
-        function revealCityInformation(cityName) {
-            const modal = document.getElementById('sacredModalDisplay');
-            const content = document.getElementById('dynamicModalContent');
-            const cityData = holyCitiesData[cityName];
+        // Display videos in the grid
+        function displayVideos(videosToDisplay) {
+            videosContainer.innerHTML = '';
             
-            content.innerHTML = `
-                <h2 style="color: var(--deep-green); margin-bottom: 25px; font-size: 2.2rem; text-shadow: 1px 1px 2px rgba(200, 184, 138, 0.3);">${cityData.title}</h2>
-                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 30px; color: var(--deep-green); opacity: 0.9;">${cityData.description}</p>
-                <div style="text-align: left; background: var(--sand-beige); padding: 25px; border-radius: 15px; border: 2px solid var(--gold);">
-                    <h3 style="color: var(--deep-green); margin-bottom: 20px; font-size: 1.3rem;">🌟 Key Islamic Significance:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        ${cityData.facts.map(fact => `
-                            <li style="margin-bottom: 12px; padding: 12px; background: var(--off-white); border-radius: 10px; border-left: 4px solid var(--gold); color: var(--deep-green); font-weight: 500;">
-                                ✓ ${fact}
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-                <div style="margin-top: 25px; padding: 15px; background: linear-gradient(135deg, var(--gold), #b5a373); border-radius: 10px;">
-                    <p style="color: var(--deep-green); font-weight: 600; margin: 0;">
-                        🤲 "And whoever enters it shall be safe" - Al-Quran
-                    </p>
-                </div>
-            `;
-            
-            modal.classList.add('modal-active-state');
-        }
-
-        function displayExplorationModal() {
-            const modal = document.getElementById('sacredModalDisplay');
-            const content = document.getElementById('dynamicModalContent');
-            
-            content.innerHTML = `
-                <h2 style="color: var(--deep-green); margin-bottom: 25px; font-size: 2.2rem;">🌟 Begin Your Sacred Journey</h2>
-                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 30px; color: var(--deep-green);">
-                    Embark on a transformative spiritual experience through the blessed cities of Makkah and Medina. 
-                    Explore the profound history, divine significance, and architectural marvels of Islam's most sacred places.
-                </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 30px 0;">
-                    <button onclick="launchVirtualHajjTour()" style="padding: 18px; background: linear-gradient(135deg, var(--gold), #b5a373); color: var(--deep-green); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        🕋 Virtual Hajj Experience
-                    </button>
-                    <button onclick="openSacredGallery()" style="padding: 18px; background: linear-gradient(135deg, var(--deep-green), #1a5940); color: var(--off-white); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        📸 Sacred Architecture Gallery
-                    </button>
-                    <button onclick="exploreIslamicHistory()" style="padding: 18px; background: linear-gradient(135deg, #c8b88a, var(--gold)); color: var(--deep-green); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        📚 Islamic Heritage Timeline
-                    </button>
-                    <button onclick="accessPilgrimageGuide()" style="padding: 18px; background: linear-gradient(135deg, var(--deep-green), #25704f); color: var(--off-white); border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        🧭 Complete Hajj & Umrah Guide
-                    </button>
-                </div>
-                <div style="margin-top: 25px; padding: 20px; background: var(--sand-beige); border-radius: 15px; border: 2px solid var(--gold);">
-                    <p style="color: var(--deep-green); font-weight: 600; margin: 0; font-style: italic;">
-                        "And it is upon Allah for the people to make Hajj to the House - for whoever is able to find thereto a way" - Quran 3:97
-                    </p>
-                </div>
-            `;
-            
-            modal.classList.add('modal-active-state');
-        }
-
-        function launchVirtualHajjTour() {
-            dismissModal();
-            setTimeout(() => {
-                alert('🕋 Launching Virtual Hajj Experience!\n\n🌟 Features would include:\n• 360° Tawaf around the Kaaba\n• Virtual Sa\'i between Safa and Marwah\n• Mount Arafat spiritual experience\n• Guided prayers and supplications\n• Live connection with pilgrims worldwide');
-            }, 400);
-        }
-
-        function openSacredGallery() {
-            dismissModal();
-            setTimeout(() => {
-                alert('📸 Opening Sacred Architecture Gallery!\n\n✨ Featuring:\n• High-resolution images of Masjid al-Haram\n• Historical photographs of expansion projects\n• Calligraphy and Islamic art collections\n• Architectural marvels through the centuries');
-            }, 400);
-        }
-
-        function exploreIslamicHistory() {
-            dismissModal();
-            setTimeout(() => {
-                alert('📚 Loading Islamic Heritage Timeline!\n\n🕌 Discover:\n• Pre-Islamic Makkah and the Kaaba\n• Life of Prophet Muhammad (PBUH)\n• Golden Age of Islamic civilization\n• Modern development of the holy cities');
-            }, 400);
-        }
-
-        function accessPilgrimageGuide() {
-            dismissModal();
-            setTimeout(() => {
-                alert('🧭 Opening Complete Pilgrimage Guide!\n\n📖 Comprehensive information:\n• Step-by-step Hajj rituals\n• Umrah procedures and prayers\n• Practical travel information\n• Spiritual preparation guidance');
-            }, 400);
-        }
-
-        function dismissModal() {
-            document.getElementById('sacredModalDisplay').classList.remove('modal-active-state');
-        }
-
-        // Enhanced modal interactions
-        document.getElementById('sacredModalDisplay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                dismissModal();
-            }
-        });
-
-        // Dynamic Islamic greeting based on time
-        document.addEventListener('DOMContentLoaded', function() {
-            const saudiOutline = document.querySelector('.kingdom-saudi-outline');
-            saudiOutline.addEventListener('mouseenter', function() {
-                this.style.borderColor = 'var(--deep-green)';
-                this.style.background = 'rgba(15, 61, 46, 0.15)';
-                this.style.boxShadow = '0 0 30px rgba(200, 184, 138, 0.4)';
-            });
-            
-            saudiOutline.addEventListener('mouseleave', function() {
-                this.style.borderColor = 'var(--gold)';
-                this.style.background = 'rgba(200, 184, 138, 0.1)';
-                this.style.boxShadow = 'none';
-            });
-
-            // Islamic time-based greeting system
-            // const currentHour = new Date().getHours();
-            // let islamicGreeting = 'Experience';
-            
-            // if (currentHour >= 5 && currentHour < 12) {
-            //     islamicGreeting = 'As-Salamu Alaykum<br>Discover';
-            // } else if (currentHour >= 12 && currentHour < 18) {
-            //     islamicGreeting = 'Barakallahu feeki<br>Explore';
-            // } else if (currentHour >= 18 && currentHour < 22) {
-            //     islamicGreeting = 'Masa\'a al-Khayr<br>Experience';
-            // } else {
-            //     islamicGreeting = 'Subhan Allah<br>Journey to';
-            // }
-
-            // Update title with Islamic greeting after animation
-            setTimeout(() => {
-                const titleElement = document.querySelector('.makkah-experience-title');
-                titleElement.innerHTML = `${islamicGreeting}<br><span style="color: var(--gold);">Makkah</span>`;
-            }, 3000);
-
-            // Add Qibla direction indicator
-            const compassRose = document.querySelector('.compass-rose-decoration');
-            compassRose.addEventListener('click', function() {
-                alert('🧭 Qibla Direction Finder\n\nIn a full implementation, this would:\n• Use geolocation to find your position\n• Calculate precise Qibla direction\n• Display prayer times for your location\n• Provide compass orientation to Makkah');
-            });
-
-            // Enhanced interaction for holy city pins
-            const cityPins = document.querySelectorAll('.holy-city-location-pin');
-            cityPins.forEach(pin => {
-                pin.addEventListener('mouseenter', function() {
-                    this.style.filter = 'brightness(1.2) drop-shadow(0 0 15px rgba(200, 184, 138, 0.6))';
-                });
-                
-                pin.addEventListener('mouseleave', function() {
-                    this.style.filter = 'none';
-                });
-            });
-
-            // Add prayer time simulation
-            const prayerTimes = {
-                'Fajr': '05:15',
-                'Dhuhr': '12:30',
-                'Asr': '15:45',
-                'Maghrib': '18:20',
-                'Isha': '19:50'
-            };
-
-            // Simulate prayer time notifications
-            setTimeout(() => {
-                const currentTime = new Date().toLocaleTimeString('en-US', {
-                    hour12: false,
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                
-                // Check if current time matches any prayer time (simulation)
-                Object.entries(prayerTimes).forEach(([prayer, time]) => {
-                    if (Math.abs(Date.now() % 100000) < 5000) { // Random simulation
-                        console.log(`🕌 ${prayer} prayer time in Makkah: ${time}`);
-                    }
-                });
-            }, 5000);
-        });
-
-        // Enhanced keyboard navigation with Islamic context
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                dismissModal();
-            } else if (e.key === 'Enter' && e.target === document.body) {
-                displayExplorationModal();
-            } else if (e.key === 'm' || e.key === 'M') {
-                revealCityInformation('Makkah');
-            } else if (e.key === 'd' || e.key === 'D') {
-                revealCityInformation('Medina');
-            }
-        });
-
-        // Add Islamic calendar integration simulation
-        function getIslamicDate() {
-            const islamicMonths = [
-                'Muharram', 'Safar', 'Rabi\' al-awwal', 'Rabi\' al-thani',
-                'Jumada al-awwal', 'Jumada al-thani', 'Rajab', 'Sha\'ban',
-                'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'
-            ];
-            
-            // Simplified Islamic date calculation (would need proper library in real implementation)
-            const currentDate = new Date();
-            const islamicYear = Math.floor((currentDate.getFullYear() - 622) * 1.030684) + 1;
-            const monthIndex = currentDate.getMonth();
-            
-            return {
-                year: islamicYear,
-                month: islamicMonths[monthIndex % 12],
-                day: Math.floor(Math.random() * 29) + 1
-            };
-        }
-
-        // Display Islamic date in console for developers
-        const islamicDate = getIslamicDate();
-        console.log(`🌙 Current Islamic Date (Approximate): ${islamicDate.day} ${islamicDate.month} ${islamicDate.year} AH`);
-
-        // Add smooth scroll effect for mobile
-        if (window.innerWidth <= 768) {
-            document.body.style.scrollBehavior = 'smooth';
-        }
-
-        // Accessibility enhancements
-        const focusableElements = document.querySelectorAll('button, [onclick], .holy-city-location-pin');
-        focusableElements.forEach(element => {
-            element.setAttribute('tabindex', '0');
-            element.addEventListener('focus', function() {
-                this.style.outline = '3px solid var(--gold)';
-                this.style.outlineOffset = '2px';
-            });
-            element.addEventListener('blur', function() {
-                this.style.outline = 'none';
-            });
-        });
-
-        // Add ARIA labels for accessibility
-        document.querySelector('.makkah-sacred-pin').setAttribute('aria-label', 'Learn about Makkah Al-Mukarramah, the holiest city in Islam');
-        document.querySelector('.medina-blessed-pin').setAttribute('aria-label', 'Learn about Medina Al-Munawwarah, the second holiest city in Islam');
-        document.querySelector('.sacred-explore-button').setAttribute('aria-label', 'Explore the sacred journey through Islamic holy sites');
-        document.querySelector('.islamic-play-button').setAttribute('aria-label', 'Play video experience of Makkah');
-  // Enhanced interactive functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navigation menu functionality with unique class names
-            const ziyaratNavLinks = document.querySelectorAll('.ziyarat-nav-link');
-            
-            ziyaratNavLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remove active class from all items
-                    ziyaratNavLinks.forEach(nav => nav.classList.remove('ziyarat-nav-link--active'));
-                    
-                    // Add active class to clicked item
-                    this.classList.add('ziyarat-nav-link--active');
-                    
-                    // Update content based on selection
-                    updateContentForNav(this.textContent.trim());
-                });
-            });
-
-            // Play button functionality
-            const ziyaratPlayBtn = document.querySelector('.ziyarat-play-control');
-            
-            ziyaratPlayBtn.addEventListener('click', function() {
-                // Add click animation
-                this.style.transform = 'translate(-50%, -50%) scale(0.95)';
-                
-                setTimeout(() => {
-                    this.style.transform = 'translate(-50%, -50%) scale(1)';
-                }, 150);
-                
-                console.log('Playing Makkah experience video...');
-            });
-
-            // Ad button functionality
-            const ziyaratAdBtn = document.querySelector('.ziyarat-ad-button');
-            
-            ziyaratAdBtn.addEventListener('click', function() {
-                alert('Redirecting to Hajj & Umrah packages...');
-            });
-
-            // Map error handling
-            const ziyaratGoogleMap = document.querySelector('.ziyarat-google-embed');
-            
-            ziyaratGoogleMap.addEventListener('error', function() {
-                const mapContainer = document.querySelector('.ziyarat-map-interface');
-                mapContainer.innerHTML = `
-                    <div class="ziyarat-loading-placeholder">
-                        Map temporarily unavailable. Please refresh the page.
+            videosToDisplay.forEach(video => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.innerHTML = `
+                    <div class="thumbnail-container">
+                        <img src="${video.thumbnail}" alt="${video.title}" class="video-thumbnail">
+                        <div class="play-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">${video.title}</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-eye"></i> ${formatViews(video.views)}</span>
+                            <span><i class="far fa-calendar"></i> ${formatDate(video.date)}</span>
+                        </div>
                     </div>
                 `;
-            });
-
-            // Smooth entrance animation
-            const ziyaratMainContainer = document.querySelector('.ziyarat-main-wrapper');
-            ziyaratMainContainer.style.opacity = '0';
-            ziyaratMainContainer.style.transform = 'translateY(30px)';
-            
-            setTimeout(() => {
-                ziyaratMainContainer.style.transition = 'all 0.8s ease';
-                ziyaratMainContainer.style.opacity = '1';
-                ziyaratMainContainer.style.transform = 'translateY(0)';
-            }, 100);
-
-            // Function to update content based on navigation
-            function updateContentForNav(navText) {
-                const titleElement = document.querySelector('.ziyarat-experience-title');
-                const descElement = document.querySelector('.ziyarat-experience-description');
                 
-                switch(navText) {
-                    case 'Makkah':
-                        titleElement.textContent = 'Experience Makkah';
-                        descElement.textContent = 'A journey through the sacred city of Makkah capturing, its spiritual atmosphere.';
-                        break;
-                    case 'Medina':
-                        titleElement.textContent = 'Discover Medina';
-                        descElement.textContent = 'Explore the Prophet\'s city and witness the serenity of Al-Masjid an-Nabawi.';
-                        break;
-                    default:
-                        titleElement.textContent = 'Experience Makkah';
-                        descElement.textContent = 'A journey through the sacred city of Makkah capturing, its spiritual atmosphere.';
-                }
-            }
+                videoCard.addEventListener('click', () => {
+                    // Update main player with YouTube embed
+                    mainPlayer.innerHTML = `
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${video.id}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    `;
+                    // Update title and description
+                    experienceTitle.textContent = video.title;
+                    experienceDescription.textContent = video.description;
+                });
+                
+                videosContainer.appendChild(videoCard);
+            });
+        }
 
-            // Add subtle animations for map overlay
-            const ziyaratMapOverlay = document.querySelector('.ziyarat-map-overlay');
-            setTimeout(() => {
-                ziyaratMapOverlay.style.animation = 'fadeInDown 0.6s ease forwards';
-            }, 1000);
+        // Format views number
+        function formatViews(views) {
+            if (views >= 1000000) {
+                return (views / 1000000).toFixed(1) + 'M';
+            } else if (views >= 1000) {
+                return (views / 1000).toFixed(1) + 'K';
+            }
+            return views;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                filteredVideos = [...videos];
+                applyCategoryFilter(document.querySelector('.ziyarat-nav-btn.ziyarat-active').getAttribute('data-category'));
+                return;
+            }
+            
+            filteredVideos = videos.filter(video => 
+                video.title.toLowerCase().includes(searchTerm) || 
+                video.description.toLowerCase().includes(searchTerm)
+            );
+            
+            applyCategoryFilter(document.querySelector('.ziyarat-nav-btn.ziyarat-active').getAttribute('data-category'));
         });
 
-        // Add CSS animation keyframes
-        const ziyaratAnimationStyles = document.createElement('style');
-        ziyaratAnimationStyles.textContent = `
-            @keyframes fadeInDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
+        // Sorting functionality
+        sortButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sortButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const sortBy = button.getAttribute('data-sort');
+                
+                if (sortBy === 'date') {
+                    filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
+                } else if (sortBy === 'popular') {
+                    filteredVideos.sort((a, b) => b.views - a.views);
                 }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+                
+                displayVideos(filteredVideos);
+            });
+        });
+
+        // Category filter functionality
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                navButtons.forEach(btn => btn.classList.remove('ziyarat-active'));
+                button.classList.add('ziyarat-active');
+                
+                applyCategoryFilter(button.getAttribute('data-category'));
+            });
+        });
+
+        function applyCategoryFilter(category) {
+            let tempVideos = [...filteredVideos];
+            
+            if (category === 'makkah') {
+                tempVideos = tempVideos.filter(video => 
+                    video.title.toLowerCase().includes('makkah') || 
+                    video.description.toLowerCase().includes('makkah') ||
+                    video.title.toLowerCase().includes('mecca') || 
+                    video.description.toLowerCase().includes('mecca')
+                );
+            } else if (category === 'medina') {
+                tempVideos = tempVideos.filter(video => 
+                    video.title.toLowerCase().includes('medina') || 
+                    video.description.toLowerCase().includes('medina')
+                );
             }
-        `;
-     
+            
+            displayVideos(tempVideos);
+        }
 
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', fetchVideos);
 
+        // Footer accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
+            
+            footerColumns.forEach(column => {
+                const header = column.querySelector('h3');
+                
+                if (header) {
+                    header.addEventListener('click', function() {
+                       if (window.innerWidth <= 768) {
+                            column.classList.toggle('active');
+                        }
+                    });
+                }
+            });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    footerColumns.forEach(column => {
+                        column.classList.remove('active');
+                    });
+                }
+            });
+        });
 
+        // Footer interaction functions
+        function linkClick(item) {
+            console.log('Link clicked:', item);
+        }
+
+        function socialClick(platform) {
+            console.log('Social link clicked:', platform);
+        }
+
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            console.log('Newsletter submitted with email:', email);
+            alert('Thank you for subscribing!');
+            event.target.reset();
+        }
     </script>
-             <script src="navbar.js"></script>
-
+    <script src="navbar.js"></script>
 </body>
 </html>

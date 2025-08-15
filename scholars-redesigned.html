@@ -1,30 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Scholars</title>
-   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <li'nk rel="stylesheet" href="/lecture.html">
-
-  <!-- GSAP core + ScrollTrigger CDN -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-  <!-- Your custom JS -->
-  <script defer src="script.js"></script>
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<style>
-       
-  * {
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- GSAP core + ScrollTrigger CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Your custom JS -->
+    <script defer src="script.js"></script>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -35,161 +28,219 @@
             --sand-beige: #f7efe5;
             --off-white: #fefefe;
             --gold: #c8b88a;
+            --shadow-dark: rgba(15, 61, 46, 0.15);
+            --shadow-light: rgba(200, 184, 138, 0.3);
         }
 
-        /* body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, var(--sand-beige) 0%, #f0e8db 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        } */
+        body {
+            font-family: "Serotiva-Light";
+            /* background: linear-gradient(135deg, var(--sand-beige) 0%, #f0e8db 100%); */
+            /* min-height: 100vh;
+            padding: 40px 20px; */
+        }
 
-     .page-main {
+        .page-main {
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .scholars-section__intro {
             text-align: center;
-            margin-bottom: 60px;
+            margin-top: 100px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            position: relative;
+            overflow: hidden;
         }
 
         .scholars-section__title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color:white;
-            padding: 40px 0px;
+            color: var(--gold);
+            padding: 20px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .scholars-section__title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
         }
 
         .scholars-section__description {
-            font-size:22px;
-            color:white;
-            opacity: 0.8;
+            font-size: 1.2rem;
+            color: var(--sand-beige);
             max-width: 800px;
-            margin:auto;
-            line-height: 1.6;
+            margin: 50px auto;
+            line-height: 1.7;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .scholars-section__instruction {
             font-size: 1rem;
             color: var(--gold);
             font-weight: 500;
+            margin-top: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .scholars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 100px 10px;
         }
 
         .scholar-card {
             background: var(--off-white);
             border-radius: 20px;
-            padding: 30px 25px 25px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(15, 61, 46, 0.1);
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--sand-beige);
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 35px var(--shadow-dark);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .scholar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(15, 61, 46, 0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px var(--shadow-light);
         }
 
         .scholar-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L120 40 L160 40 L130 65 L140 105 L100 85 L60 105 L70 65 L40 40 L80 40 Z' fill='%23c8b88a' opacity='0.1'/%3E%3C/svg%3E") no-repeat center;
-            background-size: 100px;
-            opacity: 0.05;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L120 40 L160 40 L130 65 L140 105 L100 85 L60 105 L70 65 L40 40 L80 40 Z' fill='%23c8b88a' opacity='0.1'/%3E%3C/svg%3E") repeat;
+            background-size: 80px;
+            opacity: 0.1;
             pointer-events: none;
+            z-index: 0;
         }
 
-       .scholar-image-frame {
+        .scholar-image-frame {
             position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
         }
 
         .scholar-card__image {
-            width: 250px;
-            height: 250px;
-            border-radius: 8px;
+            width: 100%;
+            max-width: 250px; /* Increased to fit wider card */
+            height: 250px; /* Adjusted height for consistency */
+            border-radius: 13px; /* Changed from 50% to 12px for square shape */
             object-fit: cover;
-            border: 3px solid var(--gold);
-            box-shadow: 0 4px 15px rgba(15, 61, 46, 0.2);
-            display: block;
-            margin: 0 auto;
+            border: 4px solid var(--gold);
+            box-shadow: 0 8px 20px var(--shadow-dark);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scholar-card:hover .scholar-card__image {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px var(--shadow-light);
         }
 
         .scholar-card__title {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--deep-green);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             line-height: 1.3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            z-index: 1;
         }
 
         .scholar-card__designation {
             background: linear-gradient(45deg, var(--deep-green), #0a2e22);
             color: var(--off-white);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            padding: 6px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             margin-bottom: 15px;
             display: inline-block;
+            box-shadow: 0 2px 8px var(--shadow-dark);
+            z-index: 1;
         }
 
         .scholar-card__description {
-            color: var(--deep-green);
-            opacity: 0.7;
-            line-height: 1.5;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            height: 60px;
+            color: #444;
+            opacity: 0.85;
+            line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            height: 72px;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+            font-weight: 400;
+            flex-grow: 1;
+            z-index: 1;
         }
 
         .learn-more-btn {
             background: linear-gradient(45deg, var(--gold), #b8a882);
             color: var(--deep-green);
             border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.85rem;
-            box-shadow: 0 4px 15px rgba(200, 184, 138, 0.3);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            position: relative;
+            z-index: 1;
         }
 
         .learn-more-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 184, 138, 0.4);
-            background: linear-gradient(45deg, #b8a882, var(--gold));
+            background: var(--deep-green);
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-light);
         }
 
         .learn-more-btn:active {
             transform: translateY(0);
+            box-shadow: 0 4px 15px var(--shadow-light);
         }
 
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -198,106 +249,151 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal.show {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.4s ease;
         }
 
         .modal-content {
             background: var(--off-white);
             border-radius: 20px;
-            max-width: 500px;
             width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow: hidden;
             position: relative;
-            animation: slideUp 0.4s ease;
-            box-shadow: 0 25px 50px rgba(15, 61, 46, 0.3);
+            animation: slideUp 0.5s ease;
+            box-shadow: 0 30px 60px var(--shadow-dark);
+            border: 3px solid var(--gold);
+            display: flex;
+            flex-direction: column;
         }
 
         .modal-header {
-            background: linear-gradient(135deg, var(--gold), #b8a882);
-            padding: 30px;
+            background: linear-gradient(135deg, var(--deep-green) 0%, #1a5940 100%);
+            padding: 40px 30px;
             text-align: center;
-            border-radius: 20px 20px 0 0;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L120 40 L160 40 L130 65 L140 105 L100 85 L60 105 L70 65 L40 40 L80 40 Z' fill='%23c8b88a' opacity='0.1'/%3E%3C/svg%3E") repeat;
+            background-size: 80px;
+            opacity: 0.1;
+            z-index: 0;
         }
 
         .modal-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            border-radius: 12px; /* Changed from 50% to 12px for square shape */
             object-fit: cover;
-            border: 3px solid var(--off-white);
-            margin-bottom: 15px;
+            border: 4px solid var(--gold);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px var(--shadow-dark);
+            position: relative;
+            z-index: 1;
         }
 
         .modal-name {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--deep-green);
-            margin-bottom: 5px;
+            color: var(--off-white);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .modal-designation {
-            background: rgba(15, 61, 46, 0.2);
+            background: linear-gradient(45deg, var(--gold), #b8a882);
             color: var(--deep-green);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: inline-block;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            z-index: 1;
         }
 
         .modal-body {
             padding: 30px;
+            background: linear-gradient(180deg, var(--off-white), #f7f7f7);
+            flex: 1;
+            overflow-y: auto;
+            position: relative;
+            z-index: 1;
         }
 
         .modal-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--deep-green);
-            opacity: 0.8;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
             text-align: center;
+            font-weight: 400;
+            margin: 0 auto;
         }
 
         .close-btn {
             position: absolute;
-            top: 15px;
+            top: 20px;
             right: 20px;
-            background: rgba(15, 61, 46, 0.2);
+            background: var(--gold);
             border: none;
             color: var(--deep-green);
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .close-modal-btn {
-            background: linear-gradient(45deg, var(--deep-green), #0a2e22);
-            color: var(--off-white);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
+        .close-btn:hover {
+            background: #b8a882;
+            transform: rotate(90deg);
         }
 
-        .close-modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(15, 61, 46, 0.3);
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #b8a882;
         }
 
         @keyframes fadeIn {
@@ -316,7 +412,6 @@
             }
         }
 
-        /* Tablet responsiveness - 768px */
         @media (max-width: 768px) {
             .page-main {
                 max-width: 100%;
@@ -325,18 +420,17 @@
 
             .scholars-section__intro {
                 margin-bottom: 40px;
+                padding: 15px;
             }
 
             .scholars-section__title {
-                font-size: 2rem;
-                margin-bottom: 15px;
+                font-size: 2.2rem;
             }
 
             .scholars-section__description {
-                font-size: 1rem;
+                font-size: 1.1rem;
                 max-width: 100%;
-                margin: 0 auto 15px;
-                padding: 0 10px;
+                margin: 30px auto;
             }
 
             .scholars-section__instruction {
@@ -344,99 +438,82 @@
             }
 
             .scholars-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 25px;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
                 margin-top: 30px;
             }
 
             .scholar-card {
-                padding: 25px 20px 20px;
+                padding: 25px;
                 border-radius: 15px;
             }
 
-            .scholar-card::before {
-                background-size: 80px;
-            }
-
             .scholar-card__image {
-                width: 100px;
-                height: 100px;
-                border: 2px solid var(--gold);
+                width: 180px;
+                height: 180px;
             }
 
             .scholar-card__title {
-                font-size: 1.2rem;
-                margin-bottom: 6px;
+                font-size: 1.4rem;
             }
 
             .scholar-card__designation {
-                font-size: 0.75rem;
-                padding: 3px 10px;
-                margin-bottom: 12px;
+                font-size: 0.8rem;
+                padding: 5px 12px;
             }
 
             .scholar-card__description {
-                font-size: 0.9rem;
-                height: 54px;
-                margin-bottom: 20px;
+                font-size: 0.95rem;
+                height: 66px;
             }
 
             .learn-more-btn {
-                padding: 10px 20px;
-                font-size: 0.8rem;
+                padding: 10px 25px;
+                font-size: 0.85rem;
             }
 
-            /* Modal adjustments for tablet */
             .modal-content {
-                max-width: 450px;
+                max-width: 500px;
                 width: 85%;
                 border-radius: 15px;
             }
 
             .modal-header {
-                padding: 25px;
+                padding: 30px 20px;
                 border-radius: 15px 15px 0 0;
             }
 
             .modal-image {
-                width: 70px;
-                height: 70px;
-                margin-bottom: 12px;
+                width: 100px;
+                height: 100px;
             }
 
             .modal-name {
-                font-size: 1.3rem;
+                font-size: 1.6rem;
             }
 
             .modal-designation {
-                font-size: 0.75rem;
-                padding: 4px 12px;
+                font-size: 0.9rem;
+                padding: 6px 15px;
             }
 
             .modal-body {
-                padding: 25px;
+                padding: 25px 20px;
             }
 
             .modal-description {
-                font-size: 0.95rem;
+                font-size: 1.05rem;
             }
 
             .close-btn {
-                top: 12px;
+                top: 15px;
                 right: 15px;
-                width: 28px;
-                height: 28px;
-                font-size: 18px;
-            }
-
-            .close-modal-btn {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-                margin-top: 15px;
+                width: 36px;
+                height: 36px;
+                font-size: 24px;
             }
         }
 
-        /* Mobile responsiveness - 480px */
         @media (max-width: 480px) {
             .page-main {
                 padding: 0 15px;
@@ -444,19 +521,17 @@
 
             .scholars-section__intro {
                 margin-bottom: 30px;
+                padding: 10px;
             }
 
             .scholars-section__title {
-                font-size: 1.6rem;
-                margin-bottom: 12px;
-                line-height: 1.2;
+                font-size: 1.8rem;
             }
 
             .scholars-section__description {
-                font-size: 0.9rem;
-                line-height: 1.5;
-                margin: 0 auto 12px;
-                padding: 0;
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 20px auto;
             }
 
             .scholars-section__instruction {
@@ -465,190 +540,145 @@
 
             .scholars-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
                 margin-top: 25px;
             }
 
             .scholar-card {
-                padding: 20px 15px 18px;
+                padding: 20px;
                 border-radius: 12px;
-                box-shadow: 0 8px 25px rgba(15, 61, 46, 0.08);
-            }
-
-            .scholar-card:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 15px 35px rgba(15, 61, 46, 0.12);
-            }
-
-            .scholar-card::before {
-                background-size: 60px;
-                opacity: 0.03;
-            }
-
-            .scholar-image-frame {
-                margin-bottom: 15px;
             }
 
             .scholar-card__image {
-                width: 85px;
-                height: 85px;
-                border: 2px solid var(--gold);
-                border-radius: 6px;
+                width: 160px;
+                height: 160px;
             }
 
             .scholar-card__title {
-                font-size: 1.1rem;
-                margin-bottom: 5px;
-                line-height: 1.2;
+                font-size: 1.3rem;
             }
 
             .scholar-card__designation {
-                font-size: 0.7rem;
-                padding: 3px 8px;
-                margin-bottom: 10px;
-                border-radius: 12px;
-                letter-spacing: 0.3px;
+                font-size: 0.75rem;
+                padding: 4px 10px;
             }
 
             .scholar-card__description {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 height: auto;
-                min-height: 45px;
-                margin-bottom: 18px;
-                -webkit-line-clamp: 2;
-                line-height: 1.4;
+                min-height: 60px;
+                -webkit-line-clamp: 3;
             }
 
             .learn-more-btn {
-                padding: 8px 18px;
-                font-size: 0.75rem;
-                border-radius: 20px;
-                letter-spacing: 0.3px;
-            }
-
-            .learn-more-btn:hover {
-                transform: translateY(-1px);
-            }
-
-            /* Modal adjustments for mobile */
-            .modal-content {
-                max-width: 340px;
-                width: 95%;
-                max-height: 85vh;
-                border-radius: 12px;
+                padding: 10px 20px;
+                font-size: 0.8rem;
             }
 
             .modal-header {
-                padding: 20px 15px;
-                border-radius: 12px 12px 0 0;
+                padding: 30px 20px;
             }
 
             .modal-image {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 10px;
-                border: 2px solid var(--off-white);
+                width: 120px;
+                height: 120px;
             }
 
             .modal-name {
-                font-size: 1.1rem;
-                margin-bottom: 3px;
-                line-height: 1.2;
+                font-size: 1.6rem;
             }
 
             .modal-designation {
-                font-size: 0.7rem;
-                padding: 3px 10px;
-                border-radius: 12px;
+                font-size: 0.9rem;
+                padding: 6px 15px;
             }
 
             .modal-body {
-                padding: 20px 15px;
+                padding: 25px 20px;
             }
 
             .modal-description {
-                font-size: 0.9rem;
-                line-height: 1.5;
+                font-size: 1.05rem;
             }
 
             .close-btn {
-                top: 10px;
-                right: 12px;
-                width: 26px;
-                height: 26px;
-                font-size: 16px;
-            }
-
-            .close-modal-btn {
-                padding: 7px 14px;
-                font-size: 0.85rem;
-                margin-top: 12px;
-                border-radius: 18px;
+                top: 15px;
+                right: 15px;
+                width: 36px;
+                height: 36px;
+                font-size: 22px;
             }
         }
 
-        /* Extra small devices - 320px */
         @media (max-width: 320px) {
             .page-main {
                 padding: 0 10px;
             }
 
             .scholars-section__title {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
 
             .scholars-section__description {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
 
             .scholar-card {
-                padding: 18px 12px 16px;
+                padding: 15px;
             }
 
             .scholar-card__image {
-                width: 75px;
-                height: 75px;
+                width: 140px;
+                height: 140px;
             }
 
             .scholar-card__title {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .learn-more-btn {
-                padding: 7px 16px;
-                font-size: 0.7rem;
-            }
-
-            .modal-content {
-                max-width: 300px;
-                width: 98%;
+                padding: 8px 16px;
+                font-size: 0.75rem;
             }
 
             .modal-header {
-                padding: 18px 12px;
+                padding: 15px 10px;
             }
 
             .modal-body {
-                padding: 18px 12px;
+                padding: 15px 10px;
+            }
+
+            .modal-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .modal-name {
+                font-size: 1.2rem;
+            }
+
+            .modal-designation {
+                font-size: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-       <nav>
-      <div id="navbar"></div>
-   </nav>
+    <nav>
+        <div id="navbar"></div>
+    </nav>
     <!-- Header Section -->
     <section class="consultation-hero-section">
-            <div class="consultation-hero-content">
-                <h1>OUR ISLAMIC SCHOLARS</h1>
-                <p>Seek guidance rooted in Islamic principles for you and your loved ones. Professional support guided by faith and wisdom.</p>
-                <button class="consultation-cta-button" onclick="scrollToIslamicBanner()">GET ISLAMIC GUIDANCE</button>
-            </div>
-        </section>
+        <div class="consultation-hero-content">
+            <h1>OUR ISLAMIC SCHOLARS</h1>
+            <p>Seek guidance rooted in Islamic principles for you and your loved ones. Professional support guided by faith and wisdom.</p>
+            <button class="consultation-cta-button" onclick="scrollToIslamicBanner()">GET ISLAMIC GUIDANCE</button>
+        </div>
+    </section>
 
     <!-- Main Content -->
-     <main class="page-main">
+    <main class="page-main">
         <!-- Section Introduction -->
         <div class="scholars-section__intro">
             <h2 class="scholars-section__title">Meet Our Senior Scholars</h2>
@@ -664,11 +694,9 @@
             <!-- Scholar 1 -->
             <div class="scholar-card">
                 <div class="scholar-image-frame">
-                    <div class="islamic-frame">
-                        <img src="/scolor img/mufti2.png" 
-                             alt="Shaykh Hasan Ali" 
-                             class="scholar-card__image">
-                    </div>
+                    <img src="/scolor img/mufti2.png" 
+                         alt="Shaykh Hasan Ali" 
+                         class="scholar-card__image">
                 </div>
                 <h3 class="scholar-card__title">Shaykh Hasan Ali</h3>
                 <p class="scholar-card__designation">Senior Scholar</p>
@@ -681,28 +709,24 @@
             <!-- Scholar 2 -->
             <div class="scholar-card">
                 <div class="scholar-image-frame">
-                    <div class="islamic-frame">
-                        <img src="/scolor img/mufti3.png" 
-                             alt="Maulana Sulaiman Khatani" 
-                             class="scholar-card__image">
-                    </div>
+                    <img src="/scolor img/maufti1.png" 
+                         alt="Dr. Mufti Abdur Rahman Mangera" 
+                         class="scholar-card__image">
                 </div>
-                <h3 class="scholar-card__title">Maulana Sulaiman Khatani</h3>
+                <h3 class="scholar-card__title">Dr. Mufti Abdur Rahman Mangera</h3>
                 <p class="scholar-card__designation">Senior Scholar</p>
                 <p class="scholar-card__description">
-                    Born in Durban, South Africa, completed his Hifz early and graduated as an Aalim from Madrasah Azaadville in 1993. Expert in Hadith and Fiqh.
+                    A British scholar of Islamic and Western traditions. Memorized the Qur'an, graduated from Darul Uloom Bury and holds fatwa license from Mazahir 'Ulum.
                 </p>
-                <button class="learn-more-btn" onclick="openModal(2)">Learn More</button>
+                <button class="learn-more-btn" onclick="openModal(4)">Learn More</button>
             </div>
 
             <!-- Scholar 3 -->
             <div class="scholar-card">
                 <div class="scholar-image-frame">
-                    <div class="islamic-frame">
-                        <img src="/scolor img/mufti4.png" 
-                             alt="Dr. Maulana Sami Al-Hashmi" 
-                             class="scholar-card__image">
-                    </div>
+                    <img src="/scolor img/mufti4.png" 
+                         alt="Dr. Maulana Sami Al-Hashmi" 
+                         class="scholar-card__image">
                 </div>
                 <h3 class="scholar-card__title">Dr. Maulana Sami Al-Hashmi</h3>
                 <p class="scholar-card__designation">Scholar</p>
@@ -713,25 +737,24 @@
             </div>
 
             <!-- Scholar 4 -->
+            
             <div class="scholar-card">
                 <div class="scholar-image-frame">
-                    <div class="islamic-frame">
-                        <img src="/scolor img/maufti1.png" 
-                             alt="Dr. Mufti Abdur Rahman Mangera" 
-                             class="scholar-card__image">
-                    </div>
+                    <img src="/scolor img/mufti3.png" 
+                         alt="Maulana Sulaiman Khatani" 
+                         class="scholar-card__image">
                 </div>
-                <h3 class="scholar-card__title">Dr. Mufti Abdur Rahman Mangera</h3>
+                <h3 class="scholar-card__title">Maulana Sulaiman Khatani</h3>
                 <p class="scholar-card__designation">Senior Scholar</p>
                 <p class="scholar-card__description">
-                    A British scholar of Islamic and Western traditions. Memorized the Qur'an, graduated from Darul Uloom Bury and holds fatwa license from Mazahir 'Ulum.
+                    Born in Durban, South Africa, completed his Hifz early and graduated as an Aalim from Madrasah Azaadville in 1993. Expert in Hadith and Fiqh.
                 </p>
-                <button class="learn-more-btn" onclick="openModal(4)">Learn More</button>
+                <button class="learn-more-btn" onclick="openModal(2)">Learn More</button>
             </div>
         </div>
     </main>
 
-    <!-- Simple Modal -->
+    <!-- Modal -->
     <div id="scholarModal" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal()">&times;</button>
@@ -742,55 +765,34 @@
             </div>
             <div class="modal-body">
                 <p id="modalDescription" class="modal-description"></p>
-                <button class="close-modal-btn" onclick="closeModal()">Close</button>
             </div>
         </div>
     </div>
-   <!-- <div class="main-banner">
-<div class="banner">
-        <div class="decorative-elements">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-        </div>
-        
-        <div class="banner-content">
-            <h2 class="channel-name">1 Million Subscribers</h2>
-            <p class="update-text">New Updates Coming</p>
-            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
-        </div>
-    </div>
-    </div> -->
-    </div>
-   <footer class="footer">
+
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
                     <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
-                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
-
-</p>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                 </div>
 
                 <div class="footer-column">
                     <h3>ABOUT ACADEMY</h3>
                     <ul>
-                        <li><a href="/about.html" onclick="linkClick('Just the Matcha')">About ZUHD</a></li>
-                        <li><a href="/lecture.html" onclick="linkClick('The Trial Kit')">ZUHD Lectures</a></li>
-                        <li><a href="/maktab.html" onclick="linkClick('Wholesale & Bulk')">After School Classes</a></li>
-                        <li><a href="/" onclick="linkClick('Teaware')">Terms and conditions</a></li>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h3>QUICK LINKS</h3>
                     <ul>
-                        <li><a href="https://zuhd.store/" onclick="linkClick('Matcha Recipes')">zuhd Store</a></li>
-                        <li><a href="/donate.html" onclick="linkClick('Caffeine Content')">Donate Now</a></li>
-                        <li><a href="/Ziyarat.html" onclick="linkClick('Health Benefits')">Ziyarat</a></li>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
                     </ul>
                 </div>
 
@@ -799,7 +801,7 @@
                     <ul>
                         <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
                         <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
-                        <li><a href="about.html" onclick="linkClick('Affiliate')">About Us</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
                         <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
                         <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
@@ -812,27 +814,20 @@
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                   <!-- Social Links -->
-<div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
-  <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
-    <img src="/facebook.png" alt="">
-  </a>
-  <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
- <img src="/instagram.png" alt="instagram">
-  </a>
-  <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
-   <img src="/tik-tok.png" alt="">
-  </a>
-  <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
-    <img src="/youtube.png" alt="">
-  </a>
-  <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
-    <img src="/linkedin.png" alt="">
-  </a>
-  <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
-    <img src="/twitter-alt-square.png" alt="">
-  </a> -->
-</div>
+                    <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
+                            <img src="/facebook.png" alt="">
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
+                            <img src="/instagram.png" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
+                            <img src="/tik-tok.png" alt="">
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
+                            <img src="/youtube.png" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -850,7 +845,7 @@
         </div>
     </footer>
     <script>
-        // Simple scholar data
+        // Scholar data
         const scholarsData = {
             1: {
                 name: "Shaykh Hasan Ali",
@@ -878,7 +873,7 @@
             const scholar = scholarsData[scholarId];
             const modal = document.getElementById('scholarModal');
             
-            document.getElementById('modalImage').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ecf0f1'/%3E%3Ctext x='40' y='45' text-anchor='middle' font-size='8' fill='%237f8c8d'%3EScholar%3C/text%3E%3C/svg%3E";
+            document.getElementById('modalImage').src = document.querySelector(`.scholar-card:nth-child(${scholarId}) .scholar-card__image`).src;
             document.getElementById('modalName').textContent = scholar.name;
             document.getElementById('modalDesignation').textContent = scholar.designation;
             document.getElementById('modalDescription').textContent = scholar.description;
@@ -906,8 +901,95 @@
                 closeModal();
             }
         });
-    </script>
-                 <script src="navbar.js"></script>
 
+        // GSAP animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animation for scholars-section__intro
+            gsap.from('.scholars-section__title', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.scholars-section__intro',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            gsap.to('.scholars-section__description', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: 0.3,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.scholars-section__intro',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            gsap.to('.scholars-section__instruction', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: 0.6,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.scholars-section__intro',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            // Card animations
+            gsap.from('.scholar-card', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.scholars-grid',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            // Modal animation
+            gsap.from('.modal-content', {
+                opacity: 0,
+                y: 100,
+                duration: 0.5,
+                ease: 'power2.out',
+                when: 'modal.show'
+            });
+        });
+
+        // Footer interaction functions
+        function linkClick(item) {
+            console.log('Link clicked:', item);
+        }
+
+        function socialClick(platform) {
+            console.log('Social link clicked:', platform);
+        }
+
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            console.log('Newsletter submitted with email:', email);
+            alert('Thank you for subscribing!');
+            event.target.reset();
+        }
+
+        function scrollToIslamicBanner() {
+            document.querySelector('.scholars-section__intro').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+    <script src="navbar.js"></script>
 </body>
 </html>
