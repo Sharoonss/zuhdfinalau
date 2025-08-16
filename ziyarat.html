@@ -14,98 +14,194 @@
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
-           body {
+         body {
             /* font-family: 'Inter', sans-serif; */
             /* background-color: var(--deep-green); */
                 font-family: "Serotiva-Light";
         }
-        /* ---------- Base (Desktop & Default) ---------- */
-        .ziyarat-thumbnail-display {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 aspect ratio */
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background-color: #000;
-        }
 
-        .ziyarat-video-element,
-        .ziyarat-html5-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            z-index: 1;
-            filter: brightness(0.7); /* Optional for readability */
-        }
-
-        .ziyarat-kaaba-illustration,
-        .ziyarat-arch-decoration,
-        .ziyarat-minaret-tower,
-        .ziyarat-play-control {
-            position: absolute;
-            z-index: 2; /* Above video */
-        }
-
-        /* Enhanced Styling for ziyarat-main-wrapper */
-        .ziyarat-main-wrapper {
-            /* max-width: 1200px; */
-            margin: 0 auto;
-            /* padding: 40px 20px; */
- background: rgba(255, 255, 255, 0.05);
-             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .ziyarat-header-section {
+        /* Heading and Tagline */
+        .vlogs-header {
             text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        .ziyarat-main-title {
-  font-size: 2.5rem;
+        .vlogs-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
             display: inline-block;
-            margin-top: 50px;
-            color: var(--gold);
-            font-weight: 600;
         }
-        .ziyarat-main-title::after {
+
+        .vlogs-title::after {
             content: "";
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 70px;
             height: 3px;
             background: var(--gold);
-            border-radius: 3px;
         }
 
-        .ziyarat-left-content {
-            flex: 1;
-            /* padding-right: 20px; */
-        }
-
-        .ziyarat-video-showcase {
-            margin-bottom: 20px;
-        }
-
-        .ziyarat-experience-title {
-            font-size: 1.8rem;
-            color: #fcfcfc;
-            margin-bottom: 10px;
-        }
-
-        /* .ziyarat-experience-description {
+        .vlogs-tagline {
             font-size: 1.1rem;
-            color: #cccaca;
-            line-height: 1.6;
-        } */
+            color: #fcfcfc;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-        /* Map Styling - Moved to before footer */
+        /* Video Grid */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 videos per row */
+            gap: 20px;
+            max-width: 1400px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .thumbnail-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-icon {
+            opacity: 1;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-green);
+            height: 3em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Loading Animation */
+        .loader {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .loader-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-green);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--primary-green);
+            font-weight: 500;
+        }
+
+        /* View All Button */
+        .view-all-btn {
+            display: block;
+      width: max-content;
+      margin: 40px auto 0; /* More top margin */
+      padding: 14px 35px; /* Larger padding */
+      background: var(--secondary);
+      color: var(--gold);
+      border: none;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem; 
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2); /* Added shadow */
+        }
+
+        .view-all-btn:hover {
+            background: var(--gold);
+      color: var(--deep-green);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35); /* Stronger hover shadow */
+        }
+
+        .view-all-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Map Styling */
         .ziyarat-map-interface {
             position: relative;
             width: 100%;
@@ -113,7 +209,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            margin: 40px auto;
+            margin: 80px auto;
             max-width: 1200px;
         }
 
@@ -143,280 +239,93 @@
             border: none;
         }
 
-        /* ---------- Tablet (max 768px) ---------- */
-        @media (max-width: 768px) {
-            .ziyarat-thumbnail-display {
-                padding-top: 60%; /* Slightly taller on tablet */
-            }
-
-            .ziyarat-play-control {
-                width: 60px;
-                height: 60px;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .ziyarat-main-wrapper {
-                padding: 20px;
-            }
-
-            .ziyarat-content-wrapper {
-                padding: 20px;
-            }
-        }
-
-        /* ---------- Mobile (max 480px) ---------- */
-        @media (max-width: 480px) {
-            .ziyarat-thumbnail-display {
-                padding-top: 65%; /* Slightly more height on smaller phones */
-                border-radius: 8px;
-            }
-
-            .ziyarat-play-control {
-                width: 40px;
-                height: 40px;
-            }
-
-            .ziyarat-kaaba-illustration,
-            .ziyarat-arch-decoration,
-            .ziyarat-minaret-tower {
-                transform: scale(0.8);
-            }
-
-            .ziyarat-main-wrapper {
-                padding: 10px;
-            }
-        }
-
-        /* Video Gallery Styles */
-        .videos-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .video-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .video-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .thumbnail-container {
-            position: relative;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            background-color: #000;
-        }
-
-        .video-thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
-        }
-
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gold);
-            font-size: 4rem;
-            opacity: 0.8;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
-            transition: opacity 0.3s ease;
-        }
-
-        .video-card:hover .play-icon {
-            opacity: 1;
-        }
-
-        .video-info {
-            padding: 20px;
-        }
-
-        .video-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #fcfcfc;
-            height: 3.3em;
-            overflow: hidden;
-        }
-
-        .video-meta {
-            display: flex;
-            justify-content: space-between;
-            color: #cccaca;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-        }
-
-        /* Controls Container */
-        .controls-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .search-box {
-            width: 50%;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 16px 16px 16px 45px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            background-color: transparent;
-            outline: none;
-            color: #fcfcfc;
-        }
-
-        .search-box input::placeholder {
-            color: #cccaca;
-        }
-
-        .search-box input:focus {
-            border-color: var(--gold);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ffffff;
-            font-size: 1.2rem;
-        }
-
-        .sorting {
-            display: flex;
-            gap: 15px;
-        }
-
-        .sort-btn {
-            padding: 15px 25px;
-            background: var(--gold);
-            border: 1px solid var(--gold);
-            color: var(--deep-green);
-            font-size: 1.1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .sort-btn.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* View All Button */
-        .view-all-container {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .view-all-btn {
-            display: block;
-            width: max-content;
-            margin: 40px auto 0;
-            padding: 14px 35px;
-            background: var(--secondary);
-            color: var(--gold);
-            border: none;
-            border: 1px solid var(--gold);
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2);
-        }
-
-        .view-all-btn:hover {
-            background: var(--gold);
-            color: var(--deep-green);
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35);
-        }
-
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .videos-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 videos per row */
+            }
+            .vlogs-title {
+                font-size: 2.2rem;
+            }
+            .vlogs-title::after {
+                width: 60px;
+            }
+            .ziyarat-map-interface {
+                height: 350px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .videos-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .videos-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
             }
-
-            .controls-container {
-                flex-direction: column;
+            .vlogs-title {
+                font-size: 2rem;
             }
-
-            .sorting {
-                width: 100%;
-                justify-content: center;
+            .vlogs-title::after {
+                width: 50px;
+            }
+            .vlogs-tagline {
+                font-size: 1rem;
+            }
+            .video-title {
+                font-size: 0.95rem;
+                height: 2.8em;
+            }
+            .video-meta {
+                font-size: 0.8rem;
+            }
+            .play-icon {
+                font-size: 2.5rem;
+            }
+            .view-all-btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+                max-width: 180px;
+            }
+            .ziyarat-map-interface {
+                height: 300px;
             }
         }
 
         @media (max-width: 480px) {
-            .videos-container {
-                grid-template-columns: 1fr;
+            .videos-grid {
+                grid-template-columns: 1fr; /* 1 video per row */
             }
-        }
-
-        /* Loader Styles */
-        .loader {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        .loader-spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        /* Player Container for Dynamic Content */
-        .ziyarat-player-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            .vlogs-title {
+                font-size: 1.8rem;
+            }
+            .vlogs-title::after {
+                width: 40px;
+                height: 2px;
+            }
+            .vlogs-tagline {
+                font-size: 0.9rem;
+            }
+            .video-title {
+                font-size: 0.9rem;
+                height: 2.6em;
+            }
+            .video-meta {
+                font-size: 0.75rem;
+            }
+            .play-icon {
+                font-size: 2rem;
+            }
+            .view-all-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+                max-width: 160px;
+            }
+            .ziyarat-map-interface {
+                height: 250px;
+            }
+            .ziyarat-map-title {
+                font-size: 1.2rem;
+            }
+            .ziyarat-map-subtitle {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -433,62 +342,21 @@
             <button class="ziyarat-nav-btn" data-category="medina">Medina</button>
         </nav>
     </header>
-    <div class="ziyarat-main-wrapper">
-        <div class="ziyarat-header-section">
-            <h1 class="ziyarat-main-title">ZUHD VLOG</h1>
-        </div>
-        
-        <div class="ziyarat-content-wrapper">
-            <div class="ziyarat-left-content">
-                <div class="ziyarat-video-showcase">
-                    <div class="ziyarat-thumbnail-display">
-                        <div class="ziyarat-player-container" id="mainPlayer">
-                            <video class="ziyarat-video-element" autoplay loop playsinline controls>
-                                <source src="/Madina Vlog Teaser_2.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <h2 class="ziyarat-experience-title" id="experienceTitle">Experience Makkah</h2>
-                <!-- <p class="ziyarat-experience-description" id="experienceDescription">
-                    A journey through the sacred city of Makkah capturing, its spiritual atmosphere.
-                </p> -->
-            </div>
-        </div>
+    <!-- Main Title Section -->
+    <div class="vlogs-header">
+        <h1 class="vlogs-title">VLOGS</h1>
+        <p class="vlogs-tagline">Sacred Journeys Through Makkah & Medina</p>
     </div>
-    <div class="ziayarat-gallery-container">
-        <div class="ziayarat-main-wrapper">
-            <div class="ziayarat-header-section">
-                <h1 class="ziayarat-main-title">Ziyarat Vlog Videos</h1>
-                <div class="ziayarat-divider-line"></div>
-                <p class="ziayarat-subtitle">Sacred Journeys & Spiritual Experiences</p>
-            </div>
-            <section class="video-gallery">
-                <div class="controls-container">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Search lectures...">
-                    </div>
-                    <div class="sorting">
-                        <button class="sort-btn active" data-sort="date">Newest</button>
-                        <button class="sort-btn" data-sort="popular">Most Popular</button>
-                    </div>
-                </div>
-                <div class="loader" id="loader">
-                    <div class="loader-spinner"></div>
-                    <p class="loading-text">Loading lectures from YouTube channel...</p>
-                </div>
-                <div class="videos-container" id="videosContainer">
-                    <!-- Videos will be inserted here by JavaScript -->
-                </div>
-                <div class="view-all-container">
-                    <a href="https://www.youtube.com/@zuhdau/videos" target="_blank" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </section>
-        </div>
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <p class="loading-text">Loading Ziyarat vlogs from YouTube...</p>
     </div>
-    <!-- Moved Map Here, Just Before Footer -->
+    <div class="videos-grid" id="videosGrid">
+        <!-- Videos will be loaded here dynamically -->
+    </div>
+    <!-- View All Button -->
+    <button class="view-all-btn" onclick="viewAllClick()">View All</button>
+    <!-- Map Section -->
     <div class="ziyarat-map-interface">
         <div class="ziyarat-map-overlay">
             <div class="ziyarat-map-title">Holy Cities</div>
@@ -578,52 +446,66 @@
     <script>
         // YouTube API configuration
         const API_KEY = "AIzaSyDH2HM_h4PsMZ270QUVQ5OvOPk9BsPrgbg";
-        const CHANNEL_ID = "UCV3HG9Ph_XQ1gIK-gEyScmQ";
-        const MAX_RESULTS = 50;
+        const PLAYLIST_ID = "PLA-ylo0o2Z5lSpeLmxcIAAbexfNobXD5U";
+        const MAX_RESULTS = 50; // Increased to ensure all videos are fetched
 
         // DOM elements
-        const videosContainer = document.getElementById('videosContainer');
+        const videosGrid = document.getElementById('videosGrid');
         const loader = document.getElementById('loader');
-        const searchInput = document.getElementById('searchInput');
-        const sortButtons = document.querySelectorAll('.sort-btn');
-        const navButtons = document.querySelectorAll('.ziyarat-nav-btn');
-        const mainPlayer = document.getElementById('mainPlayer');
-        const experienceTitle = document.getElementById('experienceTitle');
-        const experienceDescription = document.getElementById('experienceDescription');
 
         // Store videos data
         let videos = [];
-        let filteredVideos = [];
 
-        // Fetch videos from YouTube channel
-        async function fetchVideos() {
+        // Fetch videos from YouTube playlist with pagination and retry logic
+        async function fetchVideos(pageToken = '', retries = 3) {
             try {
-                // Get the uploads playlist ID
-                const channelResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?key=${API_KEY}&id=${CHANNEL_ID}&part=contentDetails`);
-                const channelData = await channelResponse.json();
-                
-                const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
-                
-                // Get videos from the uploads playlist
-                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet&maxResults=${MAX_RESULTS}`);
-                const playlistData = await playlistResponse.json();
+                // Add cache-busting parameter
+                const cacheBuster = new Date().getTime();
+                const response = await fetch(
+                    `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}&pageToken=${pageToken}&cb=${cacheBuster}`
+                );
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
                 
                 // Extract video IDs
-                const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
+                const videoIds = data.items.map(item => item.snippet.resourceId.videoId).join(',');
                 
                 // Get video details
-                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics,contentDetails`);
+                const videosResponse = await fetch(
+                    `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics,contentDetails&maxResults=${MAX_RESULTS}&cb=${cacheBuster}`
+                );
+                if (!videosResponse.ok) {
+                    throw new Error(`HTTP error! status: ${videosResponse.status}`);
+                }
                 const videosData = await videosResponse.json();
                 
-                // Filter long videos (duration > 60 seconds)
-                videos = videosData.items
+                // Filter vlogs (videos with "vlog" in title or description) and duration > 30 seconds
+                const newVideos = videosData.items
                     .filter(video => {
+                        // Check if video is public and embeddable
+                        if (video.status && (!video.status.embeddable || video.status.privacyStatus !== 'public')) {
+                            console.log(`Excluded video (ID: ${video.id}): Not public or not embeddable`);
+                            return false;
+                        }
                         const duration = video.contentDetails.duration;
                         const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
                         const hours = parseInt(match[1]) || 0;
                         const minutes = parseInt(match[2]) || 0;
                         const seconds = parseInt(match[3]) || 0;
-                        return (hours * 3600 + minutes * 60 + seconds) > 60;
+                        const isLongVideo = (hours * 3600 + minutes * 60 + seconds) > 30; // Relaxed to 30 seconds
+                        const isVlog = video.snippet.title.toLowerCase().includes('vlog') || 
+                                      video.snippet.description.toLowerCase().includes('vlog') ||
+                                      video.snippet.title.toLowerCase().includes('vlogging') ||
+                                      video.snippet.description.toLowerCase().includes('vlogging');
+                        if (!isVlog) {
+                            console.log(`Excluded video (ID: ${video.id}): Not a vlog - Title: ${video.snippet.title}`);
+                        }
+                        if (!isLongVideo) {
+                            console.log(`Excluded video (ID: ${video.id}): Duration too short (${duration})`);
+                        }
+                        return isLongVideo && isVlog;
                     })
                     .map(video => ({
                         id: video.id,
@@ -634,22 +516,43 @@
                         views: parseInt(video.statistics.viewCount)
                     }));
 
-                // Initial display
-                filteredVideos = [...videos];
-                displayVideos(filteredVideos);
+                // Add new videos to the global videos array
+                videos = [...videos, ...newVideos];
                 
-                // Hide loader
-                loader.style.display = 'none';
+                // Debug: Log fetched and filtered videos
+                console.log(`Fetched ${data.items.length} videos, Filtered ${newVideos.length} vlogs, Total vlogs: ${videos.length}`);
+
+                // Handle pagination
+                if (data.nextPageToken) {
+                    await fetchVideos(data.nextPageToken, retries);
+                } else {
+                    // Display videos after all pages are fetched
+                    displayVideos(videos);
+                    // Hide loader
+                    loader.style.display = 'none';
+                }
                 
             } catch (error) {
-                console.error('Error fetching videos:', error);
-                loader.innerHTML = '<p class="loading-text">Failed to load lectures. Please try again later.</p>';
+                console.error('Error fetching vlogs:', error);
+                if (retries > 0) {
+                    console.log(`Retrying... (${retries} attempts left)`);
+                    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds before retry
+                    await fetchVideos(pageToken, retries - 1);
+                } else {
+                    loader.innerHTML = '<p class="loading-text">Failed to load vlogs. Please check your API key or try again later.</p>';
+                }
             }
         }
 
         // Display videos in the grid
         function displayVideos(videosToDisplay) {
-            videosContainer.innerHTML = '';
+            videosGrid.innerHTML = '';
+            
+            if (videosToDisplay.length === 0) {
+                videosGrid.innerHTML = '<p class="loading-text">No vlogs found. Please ensure videos are public and contain "vlog" in the title or description.</p>';
+                console.log('No vlogs matched the filter criteria.');
+                return;
+            }
             
             videosToDisplay.forEach(video => {
                 const videoCard = document.createElement('div');
@@ -671,17 +574,15 @@
                 `;
                 
                 videoCard.addEventListener('click', () => {
-                    // Update main player with YouTube embed
-                    mainPlayer.innerHTML = `
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${video.id}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `;
-                    // Update title and description
-                    experienceTitle.textContent = video.title;
-                    experienceDescription.textContent = video.description;
+                    // Open video directly on YouTube
+                    window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
                 });
                 
-                videosContainer.appendChild(videoCard);
+                videosGrid.appendChild(videoCard);
             });
+            
+            // Debug: Log displayed videos
+            console.log(`Displayed ${videosToDisplay.length} vlogs`);
         }
 
         // Format views number
@@ -704,74 +605,18 @@
             });
         }
 
-        // Search functionality
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            
-            if (searchTerm === '') {
-                filteredVideos = [...videos];
-                applyCategoryFilter(document.querySelector('.ziyarat-nav-btn.ziyarat-active').getAttribute('data-category'));
-                return;
-            }
-            
-            filteredVideos = videos.filter(video => 
-                video.title.toLowerCase().includes(searchTerm) || 
-                video.description.toLowerCase().includes(searchTerm)
-            );
-            
-            applyCategoryFilter(document.querySelector('.ziyarat-nav-btn.ziyarat-active').getAttribute('data-category'));
-        });
-
-        // Sorting functionality
-        sortButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                sortButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const sortBy = button.getAttribute('data-sort');
-                
-                if (sortBy === 'date') {
-                    filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
-                } else if (sortBy === 'popular') {
-                    filteredVideos.sort((a, b) => b.views - a.views);
-                }
-                
-                displayVideos(filteredVideos);
-            });
-        });
-
-        // Category filter functionality
-        navButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                navButtons.forEach(btn => btn.classList.remove('ziyarat-active'));
-                button.classList.add('ziyarat-active');
-                
-                applyCategoryFilter(button.getAttribute('data-category'));
-            });
-        });
-
-        function applyCategoryFilter(category) {
-            let tempVideos = [...filteredVideos];
-            
-            if (category === 'makkah') {
-                tempVideos = tempVideos.filter(video => 
-                    video.title.toLowerCase().includes('makkah') || 
-                    video.description.toLowerCase().includes('makkah') ||
-                    video.title.toLowerCase().includes('mecca') || 
-                    video.description.toLowerCase().includes('mecca')
-                );
-            } else if (category === 'medina') {
-                tempVideos = tempVideos.filter(video => 
-                    video.title.toLowerCase().includes('medina') || 
-                    video.description.toLowerCase().includes('medina')
-                );
-            }
-            
-            displayVideos(tempVideos);
+        // View All button click handler
+        function viewAllClick() {
+            console.log('View All button clicked');
+            // Placeholder for future functionality
+            window.location.href = '#'; // Update with actual URL if provided
         }
 
         // Initialize the page
-        document.addEventListener('DOMContentLoaded', fetchVideos);
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Fetching videos from playlist:', PLAYLIST_ID);
+            fetchVideos();
+        });
 
         // Footer accordion functionality
         document.addEventListener('DOMContentLoaded', function() {

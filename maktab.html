@@ -6,7 +6,6 @@
     <title>Zuhd Maktab - After-school Islamic Classes</title>
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
-    <!-- Remove invalid stylesheet link to /lecture.html -->
     <!-- GSAP core + ScrollTrigger CDN -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -16,411 +15,692 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
         body {
             font-family: "Serotiva-Light";
-            /* background-color: white; */
-            /* color: black; */
+
         }
 
         .banner-text {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: white;
-    max-width: 800px;
-    margin-top: 60px;
-    border-radius: 15px;
-}
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 90%;
+            margin: clamp(40px, 10vw, 60px) auto 0;
+            border-radius: 15px;
+            padding: clamp(15px, 5vw, 20px);
+        }
 
-/* .curriculum-section{
-    background-color: var(--deep-green);
-    width: 100%;
-} */
+        .curriculum-heading {
+            color: var(--gold);
+        }
 
-.curriculum-heading {
-    color: var(--gold);
-}
+        .curriculum-item {
+            background: #ffffff; 
+            padding: clamp(15px, 5vw, 25px);
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.08); 
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05); 
+            margin-bottom: clamp(30px, 8vw, 80px);
+        }
 
-.curriculum-item {
-    background: #ffffff; 
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.08); 
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05); 
-    margin-bottom: 100px;
-}
+        .curriculum-item .curriculum-subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 900;
+            color: var(--deep-green); 
+            margin-bottom: 12px;
+        }
 
-.curriculum-item .curriculum-subtitle {
-    font-size: 25px;
-    font-weight: 900;
-    color: var(--deep-green); 
-    margin-bottom: 12px;
-}
+        .curriculum-item p {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            line-height: 1.6;
+            color: #444;
+        }
 
-.curriculum-item p {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #444;
-}
+        .curriculum-item:hover {
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
 
-.curriculum-item:hover {
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
-    transform: translateY(-4px);
-}
+        .calendar-downloads-section {
+            padding: clamp(30px, 8vw, 60px) clamp(10px, 5vw, 20px);
+            /* background-color: #1a3c34;  */
+        }
 
-.calendar-downloads-section {
-    padding: 60px 20px;
-}
+        .section-heading-center-green-alt {
+            color: var(--gold);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+            margin-top: clamp(40px, 10vw, 80px);
+            margin-bottom: 15px;
+        }
 
-.calendar-downloads-section {
-    color: var(--gold);
-    font-size: 2rem;
-    text-align: center;
-        margin-top: 80px;
-    margin-bottom: 15px;
-}
- .section-heading-center-green-alt {
-    color: var(--gold);
-    font-size: 2rem;
-    text-align: center;
-        margin-top: 80px;
-    margin-bottom: 15px;
-}
-.section-heading-center-green-alt1{
-     color: var(--deep-green);
-    font-size: 2rem;
-    text-align: center;
-        margin-top: 60px;
-    margin-bottom: 15px;
-}
+        .section-heading-center-green-alt1 {
+            color: var(--deep-green);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+            margin-top: clamp(30px, 8vw, 60px);
+            margin-bottom: 15px;
+        }
 
-.calendar-description {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ebe8e8;
-    max-width: 700px;
-    line-height: 1.6;
-}
+        .calendar-description {
+            text-align: center;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #ebe8e8;
+            width: 100%;
+            /* max-width: 90%; */
+            /* margin: 0 auto; */
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
 
-.calendar-content {
-    display: flex;
-    gap: 40px20px;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        .calendar-content {
+            display: flex;
+            gap: clamp(15px, 5vw, 30px);
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-.calendar-image-wrapper {
-    flex: 1 1 350px;
-    text-align: center;
-}
+        .calendar-image-wrapper {
+            flex: 1 1 300px;
+            text-align: center;
+        }
 
-.calendar-image {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
+        .calendar-image {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
 
-.calendar-image:hover {
-    transform: scale(1.03);
-}
+        .calendar-image:hover {
+            transform: scale(1.03);
+        }
 
-.calendar-download-area {
-    flex: 1 1 350px;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
-}
+        .calendar-download-area {
+            flex: 1 1 300px;
+            background: white;
+            padding: clamp(15px, 5vw, 25px);
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+        }
 
-.calendar-download-area p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #444;
-}
+        .calendar-download-area p {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+            color: #444;
+        }
 
-.calendar-download-title {
-    font-size: 1.3rem;
-    color: var(--deep-green);
-}
+        .calendar-download-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--deep-green);
+        }
 
-.calendar-download-text {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    color: #666;
-}
+        .calendar-download-text {
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            margin-bottom: 15px;
+            color: #666;
+        }
 
-.download-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--deep-green);
-    color: white;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
+        .download-button {
+            display: inline-block;
+            padding: clamp(8px, 2vw, 10px) clamp(15px, 4vw, 20px);
+            background-color: var(--deep-green);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
 
-.download-button:hover {
-    background-color: var(--gold);
-    color: var(--deep-green);
-}
+        .download-button:hover {
+            background-color: var(--gold);
+            color: var(--deep-green);
+        }
+
+        .content-wrapper {
+            padding: clamp(40px, 10vw, 80px) clamp(10px, 5vw, 20px);
+            width: 100%;
+            margin-top: -130px;
+            background-color: #ffffff;
+        }
+
+        .content-container {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 70px;
+            text-align: center;
+        }
+
+        .content-title1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--deep-green);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .content-description1 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #444;
+            line-height: 1.7;
+            max-width: 90%;
+            margin: 0 auto 40px;
+        }
+
+        .services-layout {
+            display: flex;
+            justify-content: center;
+            gap: clamp(15px, 5vw, 25px);
+            flex-wrap: wrap;
+        }
+
+        .service-box {
+            background: #fff;
+            padding: clamp(15px, 5vw, 25px);
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+            flex: 1 1 280px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            color: var(--deep-green);
+            margin-bottom: 15px;
+            font-size: clamp(2rem, 6vw, 2.5rem);
+        }
+
+        .service-name {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-weight: 700;
+            color: var(--deep-green);
+            margin-bottom: 10px;
+        }
+
+        .service-info {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: clamp(40px, 8vw, 40px) clamp(100px, 5vw, 20px);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .about-content { 
+            flex: 1;
+        }
+
+        .about-content .section-heading {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 800;
+            color: var(--deep-green);
+            margin-bottom: 20px;
+        }
+
+        .about-content .section-paragraph {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .about-image-wrapper {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .about-image {
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .about-image:hover {
+            transform: none !important;
+        }
+
+        .teachers-venues-section {
+            /* background-color: #1a3c34;  */
+        }
+
+        .teachers-content .section-heading-white {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .teachers-content .section-paragraph-white {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            line-height: 1.8;
+            color: #ececec;
+            margin-bottom: 15px;
+        }
+
+        .section-heading-center-white {
+            text-align: center;
+            color: var(--gold); 
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            border-radius: 6px;
+        }
+
+        .rules-description {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            line-height: 1.8;
+            color: #ececec; 
+             width: 100%;
+            margin: 0 auto 30px; 
+            text-align: center;
+            padding: 0 10px;
+            font-weight: 400;
+        }
+
+        .main-images-rules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(10px, 4vw, 30px);
+            justify-content: center;
+        }
+
+        .rules-image-wrapper {
+            flex: 1 1 250px;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .rules-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .pdf-download-btn {
+            display: inline-block;
+            padding: clamp(6px, 2vw, 10px) clamp(10px, 3vw, 20px);
+            background-color: var(--gold);
+            color: var(--deep-green);
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+      .download-button,
+        .pdf-download-btn{
+            background-color: var(--gold);
+            color: var(--deep-green);
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            padding: clamp(15px, 2vw, 10px) clamp(15px, 4vw, 20px);
+            transition: alprimary-btnl 0.3s ease;
+            width: 90%;
+            text-align: center;
+        }
+        .primary-btn {
+             display: block;
+      width: max-content;
+      margin: 40px auto 0; /* More top margin */
+      padding: 14px 35px; /* Larger padding */
+      background: var(--secondary);
+      color: var(--gold);
+      border: none;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem; 
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2); /* Added shadow */
+        }
+        .primary-btn:hover {
+             background: var(--gold);
+      color: var(--deep-green);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35); /* Stronger hover shadow */
+        }
+
+        /* .primary-btn:hover, */
+        .download-button:hover,
+        .pdf-download-btn:hover{
+            background-color: var(--deep-green); 
+            color: var(--gold); 
+            transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35);
+        }
 
 
-.content-wrapper {
-    /* padding: 80px 20px; */
-    padding-bottom: 80px;
-    padding-top: 200px;
-    padding-left: 20px;
-    padding-right: 20px;
-      width: 100%;
-      margin-top: -120px;
-    background-color: #ffffff;
-}
+        /* .footer {
+            background-color: #1a3c34; 
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 5vw, 20px);
+        }
 
-.content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.content-title1 {
-    font-size: 2.5rem;
-    color: var(--deep-green);
-    font-weight: 800;
-    margin-bottom: 15px;
-}
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(15px, 5vw, 30px);
+            justify-content: space-between;
+        }
 
-.content-description1 {
-    font-size: 1.2rem;
-    color: #444;
-    line-height: 1.7;
-    max-width: 800px;
-    margin: 0 auto 40px;
-}
+        .footer-column {
+            flex: 1 1 200px;
+        }
 
-.services-layout {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: none;
+            transition: max-height 0.3s ease;
+        }
 
-.service-box {
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
-    flex: 1 1 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
-}
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
 
-.service-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
-}
+        .footer-column ul li a {
+            color: #ececec;
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
 
-.service-icon {
-    color: var(--deep-green);
-    margin-bottom: 15px;
-}
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
 
-.service-name {
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    color: var(--deep-green);
-    margin-bottom: 10px;
-}
+        .footer-logo img {
+            max-width: 100%;
+            height: auto;
+        }
 
-.service-info {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-}
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: clamp(20px, 5vw, 40px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
 
-/* .about-section {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    justify-content: center;
-    max-width: 1200px;
-    padding: 40px 20px;
-} */
-.about-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff; /* Yellow */
-    padding: 40px 100px;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-}
+        .footer-links a {
+            color: #ececec;
+            text-decoration: none;
+            margin-left: clamp(10px, 3vw, 15px);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
 
-.about-content { 
-    flex: 1;
-}
+        .footer-links a:hover {
+            color: var(--gold);
+        } */
 
-.about-content .section-heading {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--deep-green);
-    margin-bottom: 20px;
-}
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .banner-text {
+                padding: 15px;
+                margin-top: 30px;
+            }
 
-.about-content .section-paragraph {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 15px;
-}
+            .banner-text h1 {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
 
-.about-image-wrapper {
-    flex: 1;
-    text-align: center;
-}
+            .banner-text h3 {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
 
-.about-image {
- width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
-}
-.about-image {
-    transform: none !important;
-    transition: none !important;
-}
-.about-image:hover {
-    transform: none !important;
-}
+            .banner-text h4 {
+                font-size: clamp(0.8rem, 3vw, 1rem);
+            }
+            .pdf-download-container{
+                margin-top: 0;
+            }
+            .calendar-image{
+                margin-left: 15px;
+            }
 
-.teachers-content .section-heading-white {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--gold);
-    margin-bottom: 20px;
-    text-align: left;
-}
+            .content-wrapper {
+                padding: 40px 15px;
+            }
 
-.teachers-content .section-paragraph-white {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #ececec;
-    margin-bottom: 15px;
-}
+            .content-title1 {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
 
-.section-heading-center-white {
-    text-align: center;
-    color: var(--gold); 
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 10px 0;
-    border-radius: 6px;
-}
-.rules-description {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #ececec; 
-    max-width: 800px;
-    margin: 0 auto 25px; 
-    text-align: center;
-    padding: 0 15px;
-    font-weight: 400;
-}
+            .content-description1 {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
 
-.primary-btn,
-.download-button,
-.pdf-download-btn,
-.newsletter-form button {
-    background-color: var(--gold);
-    color: var(--deep-green);
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
-    transition: all 0.3s ease;
-}
+            .services-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
 
-.primary-btn:hover,
-.download-button:hover,
-.pdf-download-btn:hover,
-.newsletter-form button:hover {
-    background-color: var(--deep-green); 
-    color: var(--gold); 
-}
+            .service-box {
+                flex: 1 1 100%;
+                padding: 20px;
+            }
 
-/* Responsive button adjustments */
-@media (max-width: 768px) {
-    .primary-btn,
-    .download-button,
-    .pdf-download-btn,
-    .newsletter-form button {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-    }
-       .section-heading-center-white {
-        font-size: 1.6rem;
-        padding: 8px 0;
-    }
-    .rules-description {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-        .teachers-content {
-        padding: 20px;
-        text-align: center;
-        max-width: 100%;
-    }
-    .teachers-content .section-heading-white {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-    .teachers-content .section-paragraph-white {
-        font-size: 1rem;
-    }
-    .about-section {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-content {
-        order: 2;
-    }
-    .about-image-wrapper {
-        order: 1;
-    }
-    .content-title1 {
-        font-size: 2rem;
-    }
-    .content-description1 {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-       .curriculum-item {
-        padding: 18px;
-    }
-    .curriculum-item .curriculum-subtitle {
-        font-size: 18px;
-    }
-    .calendar-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .calendar-download-area {
-        text-align: center;
-    }
-}
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 15px;
+            }
+
+            .about-content {
+                order: 2;
+                padding: 20px;
+            }
+
+            .about-image-wrapper {
+                order: 1;
+                max-width: 90%;
+            }
+
+            .curriculum-section {
+                padding: 30px 15px;
+            }
+
+            .curriculum-item {
+                padding: 15px;
+                margin-bottom: 30px;
+            }
+
+            .curriculum-item .curriculum-subtitle {
+                font-size: clamp(1rem, 3.5vw, 1.2rem);
+            }
+
+            .teachers-venues-section {
+                padding: 30px 15px;
+            }
+
+            .teachers-content {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .teachers-content .section-heading-white {
+                font-size: clamp(1.3rem, 4vw, 1.8rem);
+                text-align: center;
+            }
+
+            .teachers-content .section-paragraph-white {
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
+            }
+
+            .calendar-downloads-section {
+                padding: 30px 15px;
+            }
+
+            .calendar-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .calendar-image-wrapper {
+                max-width: 90%;
+            }
+
+            .calendar-download-area {
+                padding: 15px;
+            }
+
+            .rules-regulations-section {
+                padding: 20px 10px;
+            }
+
+            .rules-description {
+                margin-bottom: 20px;
+                padding: 0 5px;
+            }
+
+            .main-images-rules {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .rules-image-wrapper {
+                max-width: 90%;
+                padding: 0 5px;
+            }
+
+            .pdf-download-btn {
+                padding: clamp(5px, 2vw, 10px) clamp(10px, 3vw, 20px);
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-column:not(.footer-logo):not(.newsletter) {
+                cursor: pointer;
+            }
+
+            .footer-column:not(.footer-logo):not(.newsletter) ul {
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            .footer-column.active ul {
+                max-height: 500px; 
+            }
+
+            .footer-column h3 {
+                margin-bottom: 10px;
+                font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+            }
+
+            .footer-column ul li a {
+                font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .footer-links a {
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-text {
+                padding: 10px;
+                margin-top: 20px;
+            }
+
+            .banner-text h1 {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
+            }
+
+            .banner-text h3 {
+                font-size: clamp(0.9rem, 3.5vw, 1rem);
+            }
+
+            .banner-text h4 {
+                font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+            }
+
+            .primary-btn,
+            .download-button,
+            .pdf-download-btn,
+            .newsletter-form button {
+                font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+                padding: 10px;
+            }
+
+            .rules-regulations-section {
+                padding: 15px 5px;
+            }
+
+            .rules-description {
+                font-size: clamp(0.8rem, 2vw, 1.1rem);
+                margin-bottom: 15px;
+                padding: 0;
+            }
+
+            .rules-image-wrapper {
+                max-width: 85%;
+                padding: 0;
+            }
+
+            .pdf-download-btn {
+                padding: clamp(4px, 1.5vw, 8px) clamp(8px, 2.5vw, 15px);
+                font-size: clamp(0.7rem, 2vw, 0.9rem);
+            }
+        }
     </style>
 </head>
 <body>
@@ -432,12 +712,11 @@
         <div class="banner-overlay"></div>
         <div class="banner-text">
             <h1 class="main-heading">ZUHD MAKTAB</h1>
-            <h3 class="sub-heading">After School Classes for Boys & Girls  </h3>
-            <h4 class="sub-heading2"> <span>MON - THR
-| 6:45 PM - 8:15 PM
-200$
-Per School Term</span></h4>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd28zYx4yYo1FRDzKutAoKG8c49nIL6sVuGy6oLAedu_IwwHA/viewform">  <button class="primary-btn" onclick="scrollToAction()">ENROLL NOW</button></a>
+            <h3 class="sub-heading">After School Classes for Boys & Girls</h3>
+            <h4 class="sub-heading2"><span>MON - THR | 6:45 PM - 8:15 PM | 200$ Per School Term</span></h4>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd28zYx4yYo1FRDzKutAoKG8c49nIL6sVuGy6oLAedu_IwwHA/viewform">
+                <button class="primary-btn" onclick="scrollToAction()">ENROLL NOW</button>
+            </a>
         </div>
     </section>
     <!-- Content Section -->
@@ -484,7 +763,6 @@ Per School Term</span></h4>
             </div>
         </div>   
     </section>
-    <!-- About Maktab Section -->
     <!-- About Section -->
     <section class="about-section">
         <div class="about-content">
@@ -553,16 +831,6 @@ Per School Term</span></h4>
             </p>
         </div>
     </section>
-    <!-- Community Building Section -->
-    <!-- <section class="community-section">
-        <h2 class="section-heading-center-green">Fostering a Strong Community</h2>
-        <p class="section-paragraph community-description">
-            Beyond academic learning, our classes play a crucial role in fostering a strong sense of community among
-            Muslim families. By attending Maktab, children and teenagers connect with their peers, building lasting
-            friendships and a supportive network. They also develop meaningful relationships with older community members
-            who serve as invaluable mentors and role models, guiding them on their spiritual journey.
-        </p>
-    </section> -->
     <!-- Calendar & Downloads Section -->
     <section class="calendar-downloads-section">
         <h2 class="section-heading-center-green-alt">Academic Calendar</h2>
@@ -626,31 +894,12 @@ Per School Term</span></h4>
             </div>
         </div>
     </section>
-    <!-- <div class="banner">
-        <div class="decorative-elements">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-        </div>
-        
-        <div class="banner-content">
-            <h2 class="channel-name">1 Million Subscribers</h2>
-            <p class="update-text">New Updates Coming</p>
-            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
-        </div>
-    </div> -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
                     <div class="logo-main"><img src="/images/logo.png" alt="logo"></div>
-                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.
-
-
-</p>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                 </div>
                 <div class="footer-column">
                     <h3>ABOUT ACADEMY</h3>
@@ -686,26 +935,19 @@ Per School Term</span></h4>
                         <input type="email" placeholder="Your Email" required>
                         <button type="submit">SUBMIT</button>
                     </form>
-                    <!-- Social Links -->
                     <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
                         <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
-                            <img src="/facebook.png" alt="">
+                            <img src="/facebook.png" alt="Facebook">
                         </a>
                         <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
-                            <img src="/instagram.png" alt="instagram">
+                            <img src="/instagram.png" alt="Instagram">
                         </a>
                         <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
-                            <img src="/tik-tok.png" alt="">
+                            <img src="/tik-tok.png" alt="TikTok">
                         </a>
                         <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
-                            <img src="/youtube.png" alt="">
+                            <img src="/youtube.png" alt="YouTube">
                         </a>
-                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn" style="font-size: 24px; color: #0077b5;">
-                            <img src="/linkedin.png" alt="">
-                        </a>
-                        <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter" style="font-size: 24px; color: #1DA1F2;">
-                            <img src="/twitter-alt-square.png" alt="">
-                        </a> -->
                     </div>
                 </div>
             </div>
@@ -725,145 +967,73 @@ Per School Term</span></h4>
     <script>
         // Mobile Footer Accordion Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all footer columns (excluding logo and newsletter)
             const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
             
             footerColumns.forEach(column => {
                 const header = column.querySelector('h3');
+                const ul = column.querySelector('ul');
                 
-                if (header) {
+                if (header && ul) {
                     header.addEventListener('click', function() {
-                        // Check if we're on mobile (you can adjust this breakpoint as needed)
                         if (window.innerWidth <= 768) {
-                            // Toggle active class
                             column.classList.toggle('active');
-                            
-                            // Optional: Close other sections (accordion behavior)
-                            // footerColumns.forEach(otherColumn => {
-                            //     if (otherColumn !== column) {
-                            //         otherColumn.classList.remove('active');
-                            //     }
-                            // });
+                            if (column.classList.contains('active')) {
+                                ul.style.maxHeight = ul.scrollHeight + 'px';
+                            } else {
+                                ul.style.maxHeight = '0';
+                            }
                         }
                     });
                 }
             });
-            
-            // Handle window resize to reset accordion on larger screens
+
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 768) {
                     footerColumns.forEach(column => {
                         column.classList.remove('active');
+                        const ul = column.querySelector('ul');
+                        if (ul) ul.style.maxHeight = null;
                     });
                 }
             });
         });
+
         // Existing functions
         function linkClick(item) {
             console.log('Link clicked:', item);
-            // Add your analytics or tracking code here
         }
+
         function socialClick(platform) {
             console.log('Social link clicked:', platform);
-            // Add your analytics or tracking code here
         }
+
         function submitNewsletter(event) {
             event.preventDefault();
             const email = event.target.querySelector('input[type="email"]').value;
             console.log('Newsletter submitted with email:', email);
-            
-            // Add your newsletter submission logic here
-            // Example:
-            // fetch('/api/newsletter', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email: email })
-            // });
-            
-            // Show success message
             alert('Thank you for subscribing!');
             event.target.reset();
         }
-        // Add loading effect when images load
+
+        // Image load effect
         document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.rules-image');
-            
+            const images = document.querySelectorAll('.rules-image, .calendar-image, .about-image, .teachers-image');
             images.forEach(img => {
                 img.addEventListener('load', function() {
                     this.parentElement.style.setProperty('--loaded', '1');
                 });
             });
         });
-        // Smooth scroll animation for better UX
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
-        // footer 
-        // Mobile Footer Accordion Functionality
-        document.addEventListener("DOMContentLoaded", () => {
-            // Get all footer columns (excluding logo and newsletter)
-            const footerColumns = document.querySelectorAll(".footer-column:not(.footer-logo):not(.newsletter)")
-            footerColumns.forEach((column) => {
-                const header = column.querySelector("h3")
-                const ul = column.querySelector("ul")
-                if (header && ul) {
-                    header.addEventListener("click", () => {
-                        // Check if we're on mobile (you can adjust this breakpoint as needed)
-                        if (window.innerWidth <= 768) {
-                            // Toggle active class on the column
-                            column.classList.toggle("active")
-                            // Set max-height for smooth transition
-                            if (column.classList.contains("active")) {
-                                ul.style.maxHeight = ul.scrollHeight + "px"
-                            } else {
-                                ul.style.maxHeight = "0"
-                            }
-                        }
-                    })
-                }
-            })
-            // Handle window resize to reset accordion on larger screens
-            window.addEventListener("resize", () => {
-                if (window.innerWidth > 768) {
-                    footerColumns.forEach((column) => {
-                        column.classList.remove("active")
-                        const ul = column.querySelector("ul")
-                        if (ul) {
-                            ul.style.maxHeight = null // Remove inline style to let CSS take over
-                        }
-                    })
-                }
-            })
-        })
-        // Existing functions
-        function linkClick(item) {
-            console.log("Link clicked:", item)
-            // Add your analytics or tracking code here
-        }
-        function socialClick(platform) {
-            console.log("Social link clicked:", platform)
-            // Add your analytics or tracking code here
-        }
-        function submitNewsletter(event) {
-            event.preventDefault()
-            const email = event.target.querySelector('input[type="email"]').value
-            console.log("Newsletter submitted with email:", email)
-            // Add your newsletter submission logic here
-            // Example:
-            // fetch('/api/newsletter', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email: email })
-            // });
-            // Show success message
-            alert("Thank you for subscribing!")
-            event.target.reset()
-        }
     </script>
     <script src="navbar.js"></script>
     <script src="script.js"></script>

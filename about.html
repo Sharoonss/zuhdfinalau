@@ -17,7 +17,6 @@
 
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
         /* :root {
@@ -29,13 +28,41 @@
 
         .header-content {
             margin-top: 80px;
+            text-align: center;
+            padding: 20px;
         }
 
-     .zuhd-about-container {
-            /* max-width: 1200px; */
+        .zuhd-header-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-background {
             width: 100%;
- 
-            padding: 100px 80px;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .header-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--light-text);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--light-text);
+            opacity: 0.9;
+        }
+
+        .zuhd-about-container {
+            width: 100%;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 6vw, 80px);
             position: relative;
             background: #f9f9f9;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -45,7 +72,7 @@
         .zuhd-vision-section {
             background: linear-gradient(135deg, rgba(13, 59, 46, 0.95), rgba(13, 59, 46, 0.9));
             border-radius: 15px;
-            padding: 50px;
+            padding: clamp(30px, 6vw, 50px);
             margin: 0 0 60px 0;
             position: relative;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -55,6 +82,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s ease-out;
+            will-change: opacity, transform;
         }
 
         .zuhd-vision-section.visible {
@@ -76,17 +104,17 @@
         }
 
         .zuhd-section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 30px;
             position: relative;
             display: inline-block;
             color: var(--gold);
             font-weight: 600;
         }
-        
-       .ourFun {
-            font-size: 2.5rem;
-            margin-bottom: 60px;
+
+        .ourFun {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: clamp(30px, 5vw, 40px);
             position: relative;
             display: inline-block;
             color: var(--deep-green);
@@ -94,18 +122,8 @@
             text-align: center;
             width: 100%;
         }
-               .ourFun::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-            border-radius: 3px;
-        }
 
+        .ourFun::after,
         .zuhd-section-title::after {
             content: "";
             position: absolute;
@@ -119,14 +137,13 @@
         }
 
         .zuhd-vision-text1 {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             line-height: 1.8;
             max-width: 800px;
             margin: auto;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             font-weight: 300;
-            position: relative;
-             color: #fcfcfc;
+            color: #fcfcfc;
             z-index: 2;
         }
 
@@ -139,15 +156,16 @@
         .about-section {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: clamp(20px, 4vw, 40px);
             margin-bottom: 60px;
-            padding: 30px;
+            padding: clamp(20px, 4vw, 30px);
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s ease-out;
+            will-change: opacity, transform;
         }
 
         .about-section.visible {
@@ -159,50 +177,37 @@
             flex-direction: row-reverse;
         }
 
-        .about-image {
+        .about-image,
+        .about-image-f {
             flex: 1;
             max-width: 40%;
             overflow: hidden;
             border-radius: 15px;
         }
-           .about-image-f {
-            flex: 1;
-            max-width: 40%;
-            overflow: hidden;
-            border-radius: 15px;
-        }
-                  .about-image-f img {
+
+        .about-image img,
+        .about-image-f img {
             width: 100%;
-            /* height: 100%; */
+            max-height: 500px;
             object-fit: cover;
             border-radius: 15px;
             transition: transform 0.5s ease;
         }
 
-        .about-image img {
-            width: 100%;
-            /* height: 100%; */
-            object-fit: cover;
-            border-radius: 15px;
-            transition: transform 0.5s ease;
-        }
-
-
-        .about-image img:hover {
-            transform: scale(1.05);
-        }
-
+        .about-image img:hover,
         .about-image-f img:hover {
             transform: scale(1.05);
         }
+
         .about-content {
             flex: 1;
-            padding: 20px;
+            padding: clamp(10px, 3vw, 20px);
+            text-align: left;
         }
 
         .about-content h3 {
             color: var(--deep-green);
-            font-size: 1.7rem;
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
             margin-bottom: 15px;
             font-weight: 500;
         }
@@ -210,20 +215,21 @@
         .about-content p {
             color: #444;
             line-height: 1.7;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             margin-bottom: 15px;
         }
 
         .additional-lines {
             text-align: center;
             margin: 40px 0;
-            padding: 30px;
+            padding: clamp(20px, 4vw, 30px);
             background: rgba(201, 161, 69, 0.1);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s ease-out;
+            will-change: opacity, transform;
         }
 
         .additional-lines.visible {
@@ -233,90 +239,116 @@
 
         .additional-lines p {
             color: var(--deep-green);
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             margin: 10px 0;
         }
-            .course1 {
-            font-size: 1.1rem;
 
-        }
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .zuhd-about-container {
-                padding: 20px;
-            }
-
-            .about-section, .about-section.reverse {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .about-image {
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .about-content {
-                padding: 0;
-                text-align: center;
-            }
+        /* Why Zuhd Academy Section */
+        .zuhd-container {
+            background: var(--deep-green);
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+            color: white;
         }
 
-        @media (max-width: 768px) {
-            .zuhd-vision-section {
-                padding: 30px;
-            }
-
-            .zuhd-section-title {
-                font-size: 2rem;
-            }
-
-            .zuhd-vision-text1 {
-                font-size: 1rem;
-            }
-
-            .about-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .about-content h3 {
-                font-size: 1.3rem;
-            }
+        .tawheed-heading {
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: clamp(20px, 4vw, 40px);
+            font-size: clamp(2rem, 4vw, 2.5rem);
         }
 
-        @media (max-width: 576px) {
-            .zuhd-about-container {
-                margin: 30px auto;
-            }
-
-            .additional-lines {
-                padding: 20px;
-            }
-
-            .additional-lines p {
-                font-size: 1rem;
-            }
+        .ilm-section {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 3vw, 20px);
+            margin-bottom: clamp(30px, 5vw, 60px);
         }
 
-                .course1{
-            font-size: 1rem;
+        .hadith-content {
+            flex: 1;
+            padding: clamp(10px, 3vw, 20px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
         }
 
+        .hadith-content p {
+            line-height: 1.8;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .sunnah-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .sunnah-image img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Courses Section */
+        .madrasah-section {
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+        }
+
+        .courses-bismillah {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: clamp(20px, 4vw, 40px);
+        }
+
+        .dars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(15px, 3vw, 20px);
+            padding: 0 clamp(10px, 3vw, 20px);
+        }
+
+        .fiqh-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: clamp(15px, 3vw, 20px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .fiqh-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--deep-green);
+            margin-bottom: 10px;
+        }
+
+        .course1 {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
         .zuhd-timeline-section {
             max-width: 1200px;
             margin: 0 auto;
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
         }
 
         .zuhd-section-title2 {
             text-align: center;
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--gold);
-            margin: 40px 0;
+            margin: clamp(20px, 4vw, 40px) 0;
         }
 
         .zuhd-timeline-container {
             position: relative;
-            margin-top: 50px;
+            margin-top: clamp(30px, 5vw, 50px);
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -346,33 +378,19 @@
             animation: zuhdFadeInUp 0.6s ease-out forwards;
         }
 
-        .zuhd-timeline-item:nth-child(2) {
-            animation-delay: 1.5s;
-        }
-
-        .zuhd-timeline-item:nth-child(3) {
-            animation-delay: 1.8s;
-        }
-
-        .zuhd-timeline-item:nth-child(4) {
-            animation-delay: 2.1s;
-        }
-
-        .zuhd-timeline-item:nth-child(5) {
-            animation-delay: 2.4s;
-        }
-
-        .zuhd-timeline-item:nth-child(6) {
-            animation-delay: 2.7s;
-        }
+        .zuhd-timeline-item:nth-child(2) { animation-delay: 1.5s; }
+        .zuhd-timeline-item:nth-child(3) { animation-delay: 1.8s; }
+        .zuhd-timeline-item:nth-child(4) { animation-delay: 2.1s; }
+        .zuhd-timeline-item:nth-child(5) { animation-delay: 2.4s; }
+        .zuhd-timeline-item:nth-child(6) { animation-delay: 2.7s; }
 
         .zuhd-timeline-dot {
-            width: 18px;
-            height: 18px;
+            width: clamp(14px, 2vw, 18px);
+            height: clamp(14px, 2vw, 18px);
             background-color: var(--gold);
             border: 3px solid var(--deep-green);
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             position: relative;
             transform: scale(0);
             transition: all 0.3s ease;
@@ -380,27 +398,14 @@
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
-        .zuhd-timeline-item:nth-child(2) .zuhd-timeline-dot {
-            animation-delay: 1.8s;
-        }
+        .zuhd-timeline-item:nth-child(2) .zuhd-timeline-dot { animation-delay: 1.8s; }
+        .zuhd-timeline-item:nth-child(3) .zuhd-timeline-dot { animation-delay: 2.1s; }
+        .zuhd-timeline-item:nth-child(4) .zuhd-timeline-dot { animation-delay: 2.4s; }
+        .zuhd-timeline-item:nth-child(5) .zuhd-timeline-dot { animation-delay: 2.7s; }
+        .zuhd-timeline-item:nth-child(6) .zuhd-timeline-dot { animation-delay: 3s; }
 
-        .zuhd-timeline-item:nth-child(3) .zuhd-timeline-dot {
-            animation-delay: 2.1s;
-        }
-
-        .zuhd-timeline-item:nth-child(4) .zuhd-timeline-dot {
-            animation-delay: 2.4s;
-        }
-
-        .zuhd-timeline-item:nth-child(5) .zuhd-timeline-dot {
-            animation-delay: 2.7s;
-        }
-
-        .zuhd-timeline-item:nth-child(6) .zuhd-timeline-dot {
-            animation-delay: 3s;
-        }
-
-        .zuhd-timeline-dot:hover {
+        .zuhd-timeline-dot:hover,
+        .zuhd-timeline-dot:active {
             background-color: var(--deep-green);
             border-color: var(--gold);
             transform: scale(1.3);
@@ -413,26 +418,79 @@
         }
 
         .zuhd-timeline-content {
-            padding: 0 5px;
+            padding: 0 clamp(5px, 2vw, 10px);
         }
 
         .zuhd-timeline-year {
-            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
             font-weight: 700;
             color: var(--gold);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
         .zuhd-timeline-description {
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.8rem, 2vw, 1rem);
             color: #e0e0e0;
             line-height: 1.6;
             background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
+            padding: clamp(8px, 2vw, 10px);
             border-radius: 8px;
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 215, 0, 0.2);
+            /* Fallback for browsers that don't support backdrop-filter */
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        @supports (backdrop-filter: blur(10px)) {
+            .zuhd-timeline-description {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+            background: var(--deep-green);
+            color: white;
+        }
+
+        .footer-column h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: clamp(10px, 3vw, 15px);
+        }
+
+        .footer-column ul li a {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        .newsletter p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .newsletter-form input {
+            padding: clamp(8px, 2vw, 10px);
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .newsletter-form button {
+            padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .social-links {
+            gap: clamp(10px, 2vw, 15px);
+        }
+
+        .social-links img {
+            width: clamp(24px, 5vw, 30px);
+            height: auto;
+        }
+
+        .footer-bottom {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
         /* Animations */
@@ -458,19 +516,127 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .zuhd-about-container {
+                padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+            }
+
+            .about-section,
+            .about-section.reverse {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-image,
+            .about-image-f {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .about-image img,
+            .about-image-f img {
+                max-height: 350px;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .about-content {
+                padding: 0;
+                text-align: center;
+            }
+        }
+
         @media (max-width: 768px) {
-            .zuhd-section-title2 {
-                font-size: 2rem;
+            .zuhd-header-section .header-content h1 {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+            }
+
+            .zuhd-header-section .header-content p {
+                font-size: clamp(0.9rem, 2.5vw, 1rem);
+            }
+
+            .zuhd-vision-section {
+                padding: clamp(20px, 4vw, 30px);
+            }
+
+            .zuhd-section-title,
+            .ourFun {
+                font-size: clamp(1.8rem, 3.5vw, 2rem);
+                margin-bottom: 20px;
+            }
+
+            .zuhd-vision-text1 {
+                font-size: clamp(0.9rem, 2vw, 1rem);
+                margin-bottom: 20px;
+            }
+
+            .about-content h3 {
+                font-size: clamp(1.2rem, 2.5vw, 1.3rem);
+            }
+
+            .about-content p {
+                font-size: clamp(0.9rem, 2vw, 1rem);
+            }
+
+            .additional-lines {
+                padding: clamp(15px, 3vw, 20px);
+            }
+
+            .additional-lines p {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .ilm-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .sunnah-image {
+                order: -1;
+                max-width: 100%;
+            }
+
+            .sunnah-image img {
+                max-height: 250px;
+            }
+
+            .hadith-content p {
+                font-size: clamp(0.9rem, 2vw, 1rem);
+            }
+
+            .courses-bismillah {
+                font-size: clamp(1.8rem, 3.5vw, 2rem);
+            }
+
+            .dars-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .fiqh-card {
+                padding: 15px;
+            }
+
+            .course-title {
+                font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            }
+
+            .course1 {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
             }
 
             .zuhd-timeline-section {
-                padding: 0;
+                padding: 0 clamp(10px, 3vw, 20px);
+            }
+
+            .zuhd-section-title2 {
+                font-size: clamp(1.8rem, 3.5vw, 2rem);
             }
 
             .zuhd-timeline-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 40px;
+                gap: 30px;
             }
 
             .zuhd-timeline-line {
@@ -482,11 +648,95 @@
             }
 
             .zuhd-timeline-dot {
-                width: 20px;
-                height: 20px;
+                width: clamp(12px, 2vw, 16px);
+                height: clamp(12px, 2vw, 16px);
             }
         }
 
+        @media (max-width: 576px) {
+            .zuhd-about-container {
+                padding: clamp(15px, 4vw, 20px);
+            }
+
+            .zuhd-header-section .header-content h1 {
+                font-size: clamp(1.5rem, 3.5vw, 2rem);
+            }
+
+            .zuhd-header-section .header-content p {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .zuhd-vision-section {
+                padding: clamp(15px, 3vw, 20px);
+            }
+
+            .zuhd-section-title,
+            .ourFun {
+                font-size: clamp(1.5rem, 3vw, 1.8rem);
+            }
+
+            .zuhd-vision-text1 {
+                font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            }
+
+            .about-image img,
+            .about-image-f img {
+                max-height: 300px;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .about-content h3 {
+                font-size: clamp(1.1rem, 2vw, 1.2rem);
+            }
+
+            .about-content p {
+                font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            }
+
+            .additional-lines {
+                padding: clamp(10px, 2vw, 15px);
+                margin: clamp(20px, 4vw, 30px) 0;
+            }
+
+            .additional-lines p {
+                font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            }
+
+            .sunnah-image img {
+                max-height: 200px;
+            }
+
+            .hadith-content p {
+                font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            }
+
+            .courses-bismillah {
+                font-size: clamp(1.5rem, 3vw, 1.8rem);
+            }
+
+            .course-title {
+                font-size: clamp(1rem, 2vw, 1.2rem);
+            }
+
+            .course1 {
+                font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            }
+
+            .zuhd-section-title2 {
+                font-size: clamp(1.5rem, 3vw, 1.8rem);
+            }
+
+            .zuhd-timeline-year {
+                font-size: clamp(0.9rem, 2vw, 1.2rem);
+            }
+
+            .zuhd-timeline-description {
+                font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            }
+        }
+
+        /* Remove transform transitions for founder images */
         .zuhd-founder-card,
         .zuhd-founder-image-container,
         .zuhd-founder-image {
@@ -495,65 +745,7 @@
         }
 
         .zuhd-founder-image:active {
-            transform: rotate(0deg) !important;
-        }
-
-        /* Zuhd Container Styles */
-        .zuhd-container {
-            background: var(--deep-green);
-            padding: 40px 20px;
-            color: white;
-        }
-
-        .tawheed-heading {
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .ilm-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .hadith-content {
-            flex: 1;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-        }
-
-        .hadith-content p {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .wisdom-quote {
-            font-style: italic;
-        }
-
-        .sunnah-image {
-            flex: 1;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .sunnah-image img {
-            width: 100%;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .ilm-section {
-                flex-direction: column;
-            }
-
-            .sunnah-image {
-                order: -1;
-            }
+            transform: none !important;
         }
     </style>
 </head>
@@ -584,16 +776,15 @@
                 At Zuhd Academy, we offer a wide range of courses, including Quranic studies, Hadith studies, Islamic history, Islamic jurisprudence, and much more. Our courses are taught by experienced and knowledgeable instructors who have dedicated their lives to the study and practice of Islam.
             </p>
         </section>
-         <h2 class="ourFun">OUR FOUNDERS</h2>
+        <h2 class="ourFun">OUR FOUNDERS</h2>
         <!-- Founder 1 Section -->
         <section class="about-section reverse">
-
             <div class="about-content">
                 <h3>Ustadh Saad Al-Hashmi</h3>
                 <p>Born in Jeddah, Saudi Arabia. Pursued Islamic studies primarily in the UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber, specialising in Hanbali Fiqh. Studied with Syrian scholars in the UAE through the Taibah Foundation and UAE Awqaf, as well as other notable ulema across various sciences of the deen.</p>
                 <p>Alongside his pursuit of sacred knowledge, Ustadh Saad is an entrepreneur running multiple businesses. He co-founded Zuhd Guidance and Zuhd Store with the vision to benefit the community, support Islamic education, and strengthen the ummah’s connection to knowledge. He plays a key role in establishing the Maktab at Point Cook and has been instrumental in bringing leading scholars from around the world to Australia, fostering learning, unity, and inspiration.</p>
             </div>
-                        <div class="about-image-f">
+            <div class="about-image-f">
                 <img src="founder1.png" alt="Ustadh Saad Al-Hashmi">
             </div>
         </section>
@@ -603,8 +794,6 @@
             <p>They combine modern expertise with traditional wisdom to inspire and educate.</p>
             <p>Join us to embark on a transformative journey of faith and learning.</p>
         </div>
-
-
         <!-- Founder 2 Section -->
         <section class="about-section">
             <div class="about-image">
@@ -612,7 +801,7 @@
             </div>
             <div class="about-content">
                 <h3>Dr. Sami Al-Hashmi</h3>
-                <p>Born in Vienna, Austria.Earned a Master’s in Dental Surgery from the University of Otago, New Zealand. Received a full academic scholarship for his studies. Participated in community dental programs and outreach initiatives.</p>
+                <p>Born in Vienna, Austria. Earned a Master’s in Dental Surgery from the University of Otago, New Zealand. Received a full academic scholarship for his studies. Participated in community dental programs and outreach initiatives.</p>
                 <p>Blended clinical training with public health service. While practicing dentistry, pursued Islamic Studies at WISE University in Jordan. Balanced medical expertise with spiritual education. Bridges science and faith through a compassionate, holistic approach.</p>
             </div>
         </section>
@@ -794,24 +983,21 @@
         document.addEventListener('DOMContentLoaded', function () {
             const timelineItems = document.querySelectorAll('.zuhd-timeline-item');
             timelineItems.forEach(item => {
-                item.addEventListener('mouseenter', function () {
+                item.addEventListener('click', function () {
                     const dot = this.querySelector('.zuhd-timeline-dot');
                     const year = this.querySelector('.zuhd-timeline-year');
-                    dot.style.transform = 'scale(1.5)';
+                    dot.style.transform = 'scale(1.3)';
                     year.style.color = 'var(--gold)';
                     year.style.textShadow = '0 0 20px rgba(255, 215, 0, 0.8)';
-                });
-                item.addEventListener('mouseleave', function () {
-                    const dot = this.querySelector('.zuhd-timeline-dot');
-                    const year = this.querySelector('.zuhd-timeline-year');
-                    dot.style.transform = 'scale(1)';
-                    year.style.color = 'var(--gold)';
-                    year.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.3)';
+                    setTimeout(() => {
+                        dot.style.transform = 'scale(1)';
+                        year.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.3)';
+                    }, 300);
                 });
             });
 
             // Intersection Observer for animations
-            const sections = document.querySelectorAll('.zuhd-vision-section, .about-section, .additional-lines');
+            const sections = document.querySelectorAll('.zuhd-vision-section, .about-section, .additional-lines, .fade-in-barakah');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
