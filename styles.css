@@ -194,7 +194,7 @@ body {
   margin-bottom: clamp(8px, 2vw, 10px);
 }
 
-.sacred-action-btn {
+.sacred-action-btn{
   background: var(--sand-beige);
   color: var(--deep-green);
   border: none;
@@ -210,6 +210,23 @@ body {
   animation: fadeInUp 0.8s ease-out 0.6s forwards;
   margin-top: clamp(8px, 2vw, 10px);
 }
+.sacred-action-btn1{
+  background: var(--sand-beige);
+  color: var(--deep-green);
+  border: none;
+  padding: clamp(0.8rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 4px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  margin-top: 200px;
+}
+
 
 .sacred-action-btn:hover {
   background: var(--gold);
@@ -217,13 +234,19 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.sacred-action-btn1:hover{
+    background: var(--gold);
+  color: var(--deep-green);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-.community-slide .sacred-action-btn {
+.community-slide .sacred-action-btn1 .sacred-action-btn {
   background: var(--gold);
   color: var(--deep-green);
 }
 
-.guidance-slide .sacred-action-btn {
+.guidance-slide .sacred-action-btn .sacred-action-btn1 {
   background: var(--off-white);
 }
 
@@ -334,8 +357,8 @@ body {
 @media (max-width: 480px) {
 
     .spiritual-headline{
-        font-size: 2rem;
-        line-height: 35px;
+        font-size: 1rem;
+        /* line-height: 3px; */
     }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1633,7 +1656,7 @@ color:#0a2a1f;
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
-    margin-bottom:0px;
+    /* margin-bottom:0px; */
   }
   .story-slider-container{
     width:100%;
@@ -1648,7 +1671,10 @@ color:#0a2a1f;
   }
 
   .carousel-controls {
-    display: none;
+      position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
   }
 
   .instagram-header {
@@ -1671,7 +1697,7 @@ color:#0a2a1f;
     min-width: auto;
   }
   .guidance-slide1 {
-  background: url("/ZUHD AU New Banner-28.png") no-repeat center center;
+  background: url("/Banner/ZUHD AU New Banner-28.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1698,7 +1724,7 @@ color:#0a2a1f;
 /* Mobile adjustments */
 @media (max-width: 480px) {
       .guidance-slide1 {
-  background: url("/ZUHD AU New Banner-28.png") no-repeat center center;
+  background: url("/Banner/ZUHD AU New Banner-28.png") no-repeat center center;
   background-size: cover;
 }
   .category-filters {
@@ -1781,7 +1807,7 @@ color:#0a2a1f;
 }
 
 /* Focus and Accessibility */
-.sacred-action-btn:focus,
+.sacred-action-btn:focus,.sacred-action-btn1:focus,
 .filter-btn:focus,
 .social-icon:focus,
 .donation-primary-btn:focus,
