@@ -4222,10 +4222,11 @@ color:#0a2a1f;
 
 .zuhd-hero-title {
     /* font-size: clamp(3rem, 8vw, 6rem); */
-    font-weight: 300;
     color: var(--off-white);
     margin-bottom: 40px;
     letter-spacing: 2px;
+     font-family: "Serotiva-Black";
+     font-weight: 600;
     opacity: 0;
     animation: zuhdFadeInUp 1s ease-out forwards;
     animation-delay: 0.8s;
@@ -4421,7 +4422,8 @@ color:#0a2a1f;
 .zuhd-cause-name {
     font-size: 1.1rem;
     color: var(--deep-green);
-    font-weight: 600;
+      font-family: "Serotiva-Bold";
+    /* font-weight: 600; */
 }
 
 .zuhd-cause-toggle input[type="radio"] {
@@ -4471,7 +4473,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
     font-size: 1.3rem;
     color: var(--deep-green);
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 600;
+      font-family: "Serotiva-Bold";
+
 }
 
 .zuhd-amount-options {
@@ -4634,6 +4638,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 1px;
+      font-family: "Serotiva-Bold";
+
 }
 
 /* Modal */
