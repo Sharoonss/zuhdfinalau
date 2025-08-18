@@ -84,7 +84,7 @@
       width:95%;
       margin: 0 auto;
       position: relative;
-      padding: 0 30px;
+      /* padding: 0 30px; */
     }
     
     .videos-slider {
@@ -214,12 +214,6 @@
       font-size: 1.2rem;
     }
     
-     /* .slider-btn:hover {
-      background: #0F3D2E;
-      color: white;
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 8px 25px rgba(15, 61, 46, 0.3);
-    } */
     
     #prevVideosBtn {
       left: -30px;
@@ -276,17 +270,10 @@
       to { transform: rotate(360deg); }
     }
     
-    /* .loading-text {
-      margin-top: 20px;
-      text-align: center;
-      color: #0F3D2E;
-      font-weight: 500;
-    } */
-
 
        /* YouTube Shorts Section - Improved Styling */
     .main-shorts {
-      /* padding: 10px 20px;  */
+      padding: 20px 20px; 
       background: linear-gradient(rgba(15, 61, 46, 0.1), rgba(15, 61, 46, 0.05)); /* Softer gradient */
       position: relative;
       overflow: hidden;
@@ -299,11 +286,18 @@
       margin-bottom: 40px; /* More space below header */
       position: relative;
     }
-   
+
+    .section-title2{
+      margin-top: 50px;
+    }
+    .section-subtitle{
+      margin-bottom: 50px;
+    }
+
     .shorts-header h2 {
       font-size: 2.5rem; /* Slightly larger for emphasis */
       color: var(--primary);
-      margin-bottom: 15px;
+      /* margin-bottom: 15px; */
       position: relative;
       display: inline-block;
       font-weight: 700; /* Bolder text */
@@ -324,8 +318,8 @@
    
     .shorts-header p {
       color: var(--text);
-      max-width: 700px; /* Wider for better flow */
-      margin: 15px auto 0;
+      max-width: 700px; 
+      margin: 15px auto;
       font-size: 1.1rem; /* Slightly larger text */
       opacity: 0.85; /* Subtle fade for secondary text */
     }
@@ -335,7 +329,7 @@
       width: 95%;
       margin: 0 auto;
       position: relative;
-      padding: 0 30px; 
+      /* padding: 0 30px;  */
     }
    
     .shorts-slider {
@@ -451,7 +445,7 @@
       color: var(--gold);
       border: none;
       border-radius: 10px;
-      font-weight: 600;
+      font-weight: bold;
       font-size: 1.1rem; /* Larger text */
       cursor: pointer; 
       transition: all 0.3s ease;
@@ -646,10 +640,10 @@
         </div>
  
         <!-- Scroll Indicator -->
-        <div class="explore-prompt">
+        <!-- <div class="explore-prompt">
             <div>Scroll to explore</div>
             <div class="bounce-indicator">↓</div>
-        </div>
+        </div> -->
     </section>
 <div class="scroll-section">
         <div class="scroll-content">
@@ -897,24 +891,6 @@
         </div>
     </div>
     </div>
-  <!-- <section class="main-shorts">
-        <div class="shorts-container">
-            <h1 class="section-header">TRENDING SHORTS</h1>
-            <div class="content-slider" id="content-slider">
-            </div>
-            <div class="slider-navigation">
-                <button class="nav-btn" id="prev-btn" aria-label="Scroll left">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
-                </button>
-                <button class="nav-btn" id="next-btn" aria-label="Scroll right">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
-                </button>
-            </div>
-            <div class="slider-indicators" id="slider-indicators">
-            </div>
-        </div>
-    </section> -->
- 
  
  
 <section class="main-shorts">
@@ -946,119 +922,6 @@
  
  
  
- 
-            <!-- Quote and Blog Section -->
-           <!-- <div class="qotd-main">
- 
-           <div class="qotd-main-wrapper">
-        <div class="qotd-sidebar-panel">
-            <h2 class="qotd-main-heading">Quote of the Day</h2>
-            <p class="qotd-scholar-name">Ibn al-Qayyim</p>
-           
-            <h2 class="qotd-highlights-title">Blog Highlights</h2>
-            <div class="qotd-highlights-grid">
-                <div class="qotd-highlight-button" onclick="openInstagram()" title="Instagram">
-                     <i class="fa-brands fa-square-instagram"></i>
-                </div>
-                <div class="qotd-highlight-button" onclick="openBlog()" title="Blog">
-                    <i class="fa-solid fa-blog"></i>
-                </div>
-                <div class="qotd-highlight-button" onclick="openMore()" title="More">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-            </div>
-        </div>
-       
-        <div class="qotd-featured-card">
-            <div class="qotd-quote-symbol">❝❝</div>
-            <p class="qotd-wisdom-text">
-                The heart will not find complete happiness, until it is connected with Allah.
-            </p>
-            <p class="qotd-attribution-text">Ibn al-Qayyim</p>
-           
-            <div class="qotd-social-controls">
-                <div class="qotd-social-icon-circle" onclick="shareToInstagram()" title="Share to Instagram">
-                <i class="fa-brands fa-square-instagram"></i> </div>
-                <div class="qotd-social-icon-circle" onclick="shareGeneral()" title="Share">
-                    <i class="fa-solid fa-download"></i>
-                </div>
-                <button class="qotd-primary-share-btn" onclick="mainShare()">SHARE</button>
-            </div>
-        </div>
-    </div>
-        </div> -->
-         <!-- <div class="iq-container">
-        <div class="iq-left-section">
-            <div class="iq-header">
-                <h1 class="iq-title">QUOTE OF THE DAY</h1>
-                <p class="iq-author" id="iq-author">Loading...</p>
-            </div>
-            <div class="iq-share-buttons">
-                <button class="iq-share-btn iq-copy-btn" id="iq-copy-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    Share
-                </button>
-                <button class="iq-share-btn iq-link-btn" id="iq-link-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                    Share
-                </button>
-            </div>
-            <div class="iq-blog-highlights">
-                <h3>Blog Highlights</h3>
-                <div class="iq-highlight-buttons">
-                    <button class="iq-highlight-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21,15 16,10 5,21"></polyline>
-                        </svg>
-                    </button>
-                    <button class="iq-highlight-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </button>
-                    <button class="iq-highlight-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="iq-quote-card">
-            <div class="iq-quote-mark">"</div>
-            <div class="iq-quote-content">
-                <p class="iq-quote-text" id="iq-quote-text">Loading...</p>
-                <p class="iq-quote-source" id="iq-quote-source">Loading...</p>
-            </div>
-            <div class="iq-social-share">
-                <button class="iq-social-btn iq-instagram-btn" id="iq-instagram-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </button>
-                <button class="iq-social-btn iq-share-more-btn" id="iq-share-more-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                        <polyline points="16,6 12,2 8,6"></polyline>
-                        <line x1="12" y1="2" x2="12" y2="15"></line>
-                    </svg>
-                </button>
-                <button class="iq-share-main-btn" id="iq-share-main-btn">SHARE</button>
-            </div>
-        </div>
-    </div> -->
     <div class="iq-toast" id="iq-toast">
         <span id="iq-toast-message"></span>
     </div>

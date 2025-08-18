@@ -21,9 +21,6 @@
     <style>
         body {
             font-family: "Serotiva-Light";
-            /* background: linear-gradient(135deg, var(--sand-beige) 0%, #f0e8db 100%); */
-            /* min-height: 100vh;
-            padding: 40px 20px; */
         }
 
         .page-main {
@@ -31,15 +28,9 @@
             margin: 0 auto;
         }
 
-        .page-main {
-            width: 100%;
-            margin: 0 auto;
-        }
-
-       
         .scholars-section__intro {
             text-align: center;
-            margin: 100px 80px 40px;
+            margin: 60px 80px ;
             padding: 40px 30px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
@@ -89,21 +80,36 @@
             transform: translateY(20px);
         }
 
+        .cards-wrapper {
+            background: #ffffff;
+            padding: 30px;
+        }
+
+        .cards-wrapper .cards-container {
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            justify-content: space-between;
+            background-color: rgba(183, 233, 203, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+        }
+
         .cards-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             background-color: white;
-            padding-bottom: 60px;
-            margin-top: 60px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px 61px;
+            margin: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .card {
             text-align: center;
             margin: 15px;
             margin-bottom: 30px;
-            max-width: 350px;
+            max-width: 450px;
             flex: 1 1 300px;
         }
 
@@ -120,8 +126,20 @@
             background-color: var(--deep-green);
             color: white;
             padding: 10px;
+            max-width: 200px;
             font-weight: bold;
             font-size: 1.2rem;
+            border-radius: 5px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .scholar-name-main {
+            color: var(--deep-green);
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 100%;
             border-radius: 5px;
             margin-bottom: 10px;
         }
@@ -129,6 +147,7 @@
         .description {
             font-size: 14px;
             color: #333;
+            padding: 0px 45px;
             margin-bottom: 10px;
             line-height: 1.6;
         }
@@ -140,7 +159,6 @@
             text-decoration: underline;
             cursor: pointer;
             font-size: 14px;
-            /* outline: hidden; */
             font-weight: bold;
             transition: color 0.3s ease, transform 0.2s ease;
         }
@@ -159,31 +177,59 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.85);
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(10px);
             overflow-y: auto;
-            padding: 20px;
+            padding: 15px;
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #ffffff 0%, var(--sand-beige) 80%);
-            padding: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--sand-beige) 100%);
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             width: 90%;
             max-width: 700px;
+            max-height: 85vh;
             position: relative;
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 20px;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            transform: scale(0.95);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            overflow-y: auto;
         }
 
         .modal-content.show {
             transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            margin: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--deep-green);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         }
 
         .modal-content::before {
@@ -192,68 +238,93 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            /* background: var(--gold); */
+            height: 8px;
+            background: var(--gold);
             border-radius: 20px 20px 0 0;
         }
-.modal-content
+
         .modal-image {
             width: 100%;
             max-width: 250px;
             height: auto;
-            border-radius: 12px;
+            border-radius: 15px;
             object-fit: cover;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--deep-green);
         }
 
         #modalTitle {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: var(--deep-green);
             margin: 0;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             position: relative;
+            text-align: center;
         }
 
         #modalTitle::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 70px;
-            height: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
             background: var(--gold);
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
         #modalDescription {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #333;
             line-height: 1.8;
             font-weight: 300;
             margin: 0;
+            text-align: justify;
         }
 
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: var(--deep-green);
-            font-size: 32px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
+   .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  border: none;
 
-        .close:hover {
-            color: var(--gold);
-            transform: rotate(90deg);
-        }
+  display: flex;
+  align-items: center;   /* vertical centering */
+  justify-content: center; /* horizontal centering */
+
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.close i {
+  font-size: 20px;       /* adjust size */
+  color: var(--deep-green);
+  line-height: 1;        /* ensures no extra spacing */
+}
+
+.close:hover {
+  background: var(--deep-green);
+  transform: rotate(180deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.close:hover i {
+  color: #fff;
+}
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .scholars-section__intro {
-                margin: 60px 20px 30px;
+                margin: 40px 20px ;
                 padding: 20px;
             }
 
@@ -271,8 +342,13 @@
                 font-size: 0.9rem;
             }
 
-            .cards-container {
+            .cards-wrapper {
                 margin: 40px 15px;
+                padding: 15px;
+            }
+
+            .cards-container {
+                margin: 0;
                 padding: 15px;
             }
 
@@ -290,6 +366,10 @@
                 font-size: 1.1rem;
             }
 
+            .scholar-name-main {
+                font-size: 1.1rem;
+            }
+
             .description {
                 font-size: 0.9rem;
             }
@@ -298,9 +378,38 @@
                 font-size: 0.9rem;
             }
 
+            .modal {
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.9);
+                backdrop-filter: blur(12px);
+            }
+
             .modal-content {
                 padding: 20px;
-                max-width: 90%;
+                max-width: 95%;
+                max-height: 90vh;
+                border-radius: 15px;
+                gap: 15px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            }
+
+            .modal-content::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            .modal-content::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+            }
+
+            .modal-content::-webkit-scrollbar-thumb {
+                background: var(--deep-green);
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+            }
+
+            .modal-content::-webkit-scrollbar-thumb:hover {
+                background: var(--gold);
             }
 
             .modal-image {
@@ -313,17 +422,21 @@
 
             #modalDescription {
                 font-size: 1rem;
+                line-height: 1.6;
             }
 
             .close {
-                font-size: 28px;
+                font-size: 20px;
+                top: 10px;
+                right: 15px;
+                width: 38px;
+                height: 38px;
             }
-
         }
 
         @media (max-width: 480px) {
             .scholars-section__intro {
-                margin: 40px 15px 20px;
+                margin: 40px 15px ;
                 padding: 15px;
             }
 
@@ -340,8 +453,13 @@
                 font-size: 0.85rem;
             }
 
-            .cards-container {
+            .cards-wrapper {
                 margin: 30px 10px;
+                padding: 10px;
+            }
+
+            .cards-container {
+                margin: 0;
                 padding: 10px;
             }
 
@@ -351,23 +469,58 @@
 
             .placeholder-image {
                 max-width: 200px;
-                height: 200px;
+                height: 250px;
             }
 
             .scholar-name {
                 font-size: 1rem;
             }
 
+            .scholar-name-main {
+                font-size: 1rem;
+            }
+
             .description {
                 font-size: 0.85rem;
+                padding: 0px;
             }
 
             .learn-more {
                 font-size: 0.85rem;
             }
 
+            .modal {
+                padding: 5px;
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(14px);
+            }
+
             .modal-content {
                 padding: 15px;
+                max-width: 98%;
+                max-height: 92vh;
+                border-radius: 12px;
+                gap: 10px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .modal-content::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .modal-content::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 8px;
+            }
+
+            .modal-content::-webkit-scrollbar-thumb {
+                background: var(--deep-green);
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .modal-content::-webkit-scrollbar-thumb:hover {
+                background: var(--gold);
             }
 
             .modal-image {
@@ -380,10 +533,15 @@
 
             #modalDescription {
                 font-size: 0.9rem;
+                line-height: 1.5;
             }
 
             .close {
-                font-size: 24px;
+                font-size: 18px;
+                top: 8px;
+                right: 12px;
+                width: 34px;
+                height: 34px;
             }
         }
     </style>
@@ -417,83 +575,94 @@
         </div>
 
         <!-- Scholars Grid -->
-        <!-- Scholars Grid -->
-        <!-- Scholars Grid -->
-        <div class="cards-container">
-            <div class="card">
-                <img src="/scolor img/Mufti Aasim Rashid.jpg" alt="Mufti Aasim Rashid" class="placeholder-image">
-                <div class="scholar-name">Mufti Aasim Rashid</div>
-                <p class="description">Public education, seerah, contemporary issues, leadership
-                    Mufti Aasim Rashid is a Canadian scholar, author, and media presenter, and the founder of
-                    Al-Ihsan Educational Foundation...
-                </p>
-                <button class="learn-more" onclick="openModal('scholar1')">LEARN MORE</button>
-            </div>
-            <div class="card">
-                <img src="/scolor img/Mufti Khalid Shah Al-Hanbali.jpg" alt="Mufti Khalid Shah Al-Hanbali"
-                    class="placeholder-image">
-                <div class="scholar-name">Mufti Khalid Shah Al-Hanbali</div>
-                <p class="description">Hanbali fiqh & iftā’, Arabic, spiritual development
-Mufti Khalid Shah is a Melbourne-based scholar known for presenting classical Hanbali
-jurisprudence with clarity and balance...</p>
-                <button class="learn-more" onclick="openModal('scholar2')">LEARN MORE</button>
-            </div>
-            <div class="card">
-                <img src="/scolor img/Mufti Muhammad ibn Adam al-Kawthari.jpg" alt="Mufti Muhammad ibn Adam al-Kawthari"
-                    class="placeholder-image">
-                <div class="scholar-name">Mufti Muhammad ibn Adam al-Kawthari</div>
-                <p class="description">Hanafi fiqh, family law, finance, ethics
-Mufti Muhammad ibn Adam is a senior British scholar and the founder of Darul Iftaa
-Leicester...</p>
-                <button class="learn-more" onclick="openModal('scholar3')">LEARN MORE</button>
-            </div>
-            <div class="card">
-                <img src="/scolor img/Mufti Sulaiman Moola.jpg" alt="Mufti Sulaiman Moola" class="placeholder-image">
-                <div class="scholar-name">Mufti Sulaiman Moola</div>
-                <p class="description">Tafsīr, hadith, akhlāq, inspirational counsel
-Mufti Sulaiman Moola is a renowned South African scholar and international speaker whose
-eloquent reminders have inspired audiences across Africa, the UK, North America, Australia,
-and beyond...</p>
-                <button class="learn-more" onclick="openModal('scholar4')">LEARN MORE</button>
-            </div>
-            <div class="card">
-                <img src="/scolor img/Sheikh Abdul-Rahman Zyka.jpg" alt="Sheikh Abdul-Rahman Zyka"
-                    class="placeholder-image">
-                <div class="scholar-name">Sheikh Abdul-Rahman Zyka</div>
-                <p class="description">Qur’an, fiqh, ‘aqīdah, community education
-Sheikh Abdul-Rahman Zyka is an Australian imam and educator who studied Islamic law and
-principles for many years in the Middle East before returning to serve communities in
-Melbourne....</p>
-                <button class="learn-more" onclick="openModal('scholar5')">LEARN MORE</button>
-            </div>
-            <div class="card">
-                <img src="/scolor img/Sheikh Omar El-Banna.png" alt="Sheikh Omar El-Banna" class="placeholder-image">
-                <div class="scholar-name">Sheikh Omar El-Banna</div>
-                <p class="description">Da‘wah, youth engagement, Qur’an, family counselling
-Sheikh Omar El-Banna is a Sydney-based imam and community leader known for dynamic
-da‘wah and hands-on youth work. Alongside formal Islamic studies and Qur’an ijāzah....</p>
-                <button class="learn-more" onclick="openModal('scholar6')">LEARN MORE</button>
-            </div>
-            <div class="card">
-                <img src="/scolor img/Sheikh Yasir Al-Hanafi.jpg" alt="Sheikh Yasir Al-Hanafi"
-                    class="placeholder-image">
-                <div class="scholar-name">Sheikh Yasir Al-Hanafi</div>
-                <p class="description">Hanafi fiqh, tarbiyah, community leadership
-Sheikh Yasir Al-Hanafi is a UK-based imam and teacher who completed extensive ‘Ālimiyyah
-studies before taking up community roles focused on teaching, chaplaincy, and pastoral care....</p>
-                <button class="learn-more" onclick="openModal('scholar7')">LEARN MORE</button>
+        <div class="cards-wrapper">
+            <div class="cards-container">
+                <div class="card">
+                    <img src="/scolor img/Mufti Aasim Rashid.jpg" alt="Mufti Aasim Rashid" class="placeholder-image">
+                    <h2 class="scholar-name-main">Mufti Aasim Rashid</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Public education, seerah, contemporary issues, leadership
+                        Mufti Aasim Rashid is a Canadian scholar, author, and media presenter, and the founder of
+                        Al-Ihsan Educational Foundation...
+                    </p>
+                    <button class="learn-more" onclick="openModal('scholar1')">LEARN MORE</button>
+                </div>
+                <div class="card">
+                    <img src="/scolor img/Mufti Khalid Shah Al-Hanbali.jpg" alt="Mufti Khalid Shah Al-Hanbali"
+                        class="placeholder-image">
+                    <h2 class="scholar-name-main">Mufti Khalid Shah Al-Hanbali</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Hanbali fiqh & iftā’, Arabic, spiritual development
+                        Mufti Khalid Shah is a Melbourne-based scholar known for presenting classical Hanbali
+                        jurisprudence with clarity and balance...</p>
+                    <button class="learn-more" onclick="openModal('scholar2')">LEARN MORE</button>
+                </div>
+                <div class="card">
+                    <img src="/scolor img/Mufti Muhammad ibn Adam al-Kawthari.jpg" alt="Mufti Muhammad ibn Adam al-Kawthari"
+                        class="placeholder-image">
+                    <h2 class="scholar-name-main">Mufti Muhammad ibn Adam al-Kawthari</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Hanafi fiqh, family law, finance, ethics
+                        Mufti Muhammad ibn Adam is a senior British scholar and the founder of Darul Iftaa
+                        Leicester...</p>
+                    <button class="learn-more" onclick="openModal('scholar3')">LEARN MORE</button>
+                </div>
+                <div class="card">
+                    <img src="/scolor img/Mufti Sulaiman Moola.jpg" alt="Mufti Sulaiman Moola" class="placeholder-image">
+                    <h2 class="scholar-name-main">Mufti Sulaiman Moola</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Tafsīr, hadith, akhlāq, inspirational counsel
+                        Mufti Sulaiman Moola is a renowned South African scholar and international speaker whose
+                        eloquent reminders have inspired audiences across Africa, the UK, North America, Australia,
+                        and beyond...</p>
+                    <button class="learn-more" onclick="openModal('scholar4')">LEARN MORE</button>
+                </div>
+                <div class="card">
+                    <img src="/scolor img/Sheikh Abdul-Rahman Zyka.jpg" alt="Sheikh Abdul-Rahman Zyka"
+                        class="placeholder-image">
+                    <h2 class="scholar-name-main">Sheikh Abdul-Rahman Zyka</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Qur’an, fiqh, ‘aqīdah, community education
+                        Sheikh Abdul-Rahman Zyka is an Australian imam and educator who studied Islamic law and
+                        principles for many years in the Middle East before returning to serve communities in
+                        Melbourne....</p>
+                    <button class="learn-more" onclick="openModal('scholar5')">LEARN MORE</button>
+                </div>
+                <div class="card">
+                    <img src="/scolor img/Sheikh Omar El-Banna.png" alt="Sheikh Omar El-Banna" class="placeholder-image">
+                    <h2 class="scholar-name-main">Sheikh Omar El-Banna</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Da‘wah, youth engagement, Qur’an, family counselling
+                        Sheikh Omar El-Banna is a Sydney-based imam and community leader known for dynamic
+                        da‘wah and hands-on youth work. Alongside formal Islamic studies and Qur’an ijāzah....</p>
+                    <button class="learn-more" onclick="openModal('scholar6')">LEARN MORE</button>
+                </div>
+                <div class="card">
+                    <img src="/scolor img/Sheikh Yasir Al-Hanafi.jpg" alt="Sheikh Yasir Al-Hanafi"
+                        class="placeholder-image">
+                    <h2 class="scholar-name-main">Sheikh Yasir Al-Hanafi</h2>
+                    <div class="scholar-name">SCHOLAR</div>
+                    <p class="description">Hanafi fiqh, tarbiyah, community leadership
+                        Sheikh Yasir Al-Hanafi is a UK-based imam and teacher who completed extensive ‘Ālimiyyah
+                        studies before taking up community roles focused on teaching, chaplaincy, and pastoral care....</p>
+                    <button class="learn-more" onclick="openModal('scholar7')">LEARN MORE</button>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Scholar Details</h2>
-            <p id="modalDescription">Here are more details about the scholar...</p>
-        </div>
-    </div>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img id="modalImage" class="modal-image" src="" alt="Scholar Image">
+    <h2 id="modalTitle">Scholar Details</h2>
+    <p id="modalDescription">Here are more details about the scholar...</p>
+  </div>
+</div>
+
 
     <footer class="footer">
         <div class="footer-content">
@@ -578,34 +747,40 @@ studies before taking up community roles focused on teaching, chaplaincy, and pa
         </div>
     </footer>
     <script>
-
         const scholarDetails = {
             scholar1: {
                 name: "Mufti Aasim Rashid",
+                image: "/scolor img/Mufti Aasim Rashid.jpg",
                 details: "Public education, seerah, contemporary issues, leadership Mufti Aasim Rashid is a Canadian scholar, author, and media presenter, and the founder of Al-Ihsan Educational Foundation. He specialises in conveying traditional scholarship to modern audiences through structured courses, conferences, and online programs. His work spans seerah, spirituality, family life, and civic engagement, and he regularly trains community leaders and imams in communication and public service. With a warm, thoughtful style, he addresses current challenges facing Muslims and offers practical frameworks rooted in classical jurisprudence and spirituality. Through Al-Ihsan, he has helped thousands of students develop consistent learning habits and a deeper connection with Allah."
             },
             scholar2: {
                 name: "Mufti Khalid Shah Al-Hanbali",
+                image: "/scolor img/Mufti Khalid Shah Al-Hanbali.jpg",
                 details: "Hanbali fiqh & iftā’, Arabic, spiritual development Mufti Khalid Shah is a Melbourne-based scholar known for presenting classical Hanbali jurisprudence with clarity and balance. After completing advanced iftā’ studies, he continued specialisation in Hanbali texts and comparative fiqh, with a keen interest in creed, hadith methodology, and Arabic grammar. He teaches regular classes, delivers khutbahs, and provides pastoral counselling and fatwa guidance to families and youth. His teaching style centres on reviving Sunnah practice, evidential reasoning, and practical application—helping Muslims navigate contemporary questions while staying rooted in the methodology of Imām Aḥmad, Ibn Qudāmah, and later jurists. He also mentors students in Arabic and research skills and contributes to community projects across Australia."
             },
             scholar3: {
                 name: "Mufti Muhammad ibn Adam al-Kawthari",
+                image: "/scolor img/Mufti Muhammad ibn Adam al-Kawthari.jpg",
                 details: "Hanafi fiqh, family law, finance, ethics Mufti Muhammad ibn Adam is a senior British scholar and the founder of Darul Iftaa Leicester. Over two decades he has answered thousands of legal queries and authored widely read works on marriage, family life, personal devotion, and contemporary finance. His classes and writings aim to make the tradition accessible without compromising scholarly rigour, drawing on both classical Hanafi sources and the broader Sunni canon. He delivers seminars and retreats worldwide, mentors students of knowledge, and is frequently consulted for sensitive community matters. His gentle, text-driven approach has made him a trusted voice for Muslims seeking guidance grounded in Qur’an, Sunnah, and consensus."
             },
             scholar4: {
                 name: "Mufti Sulaiman Moola",
+                image: "/scolor img/Mufti Sulaiman Moola.jpg",
                 details: "Tafsīr, hadith, akhlāq, inspirational counsel Mufti Sulaiman Moola is a renowned South African scholar and international speaker whose eloquent reminders have inspired audiences across Africa, the UK, North America, Australia, and beyond. After memorising the Qur’an at a young age and completing higher Islamic studies, he devoted his life to teaching, community work, and motivational preaching. His talks weave Qur’anic exegesis, prophetic narrations, and stories of the pious into practical guidance on character, repentance, family bonds, and social responsibility. He continues to lecture globally, contribute to educational institutes, and mentor students, emphasising mercy, humility, and service."
             },
             scholar5: {
                 name: "Sheikh Abdul-Rahman Zyka",
+                image: "/scolor img/Sheikh Abdul-Rahman Zyka.jpg",
                 details: "Qur’an, fiqh, ‘aqīdah, community education Sheikh Abdul-Rahman Zyka is an Australian imam and educator who studied Islamic law and principles for many years in the Middle East before returning to serve communities in Melbourne. He teaches Qur’an (recitation and memorisation frameworks), foundational creed, and fiqh, and regularly hosts open Q&A circles that address everyday family and youth concerns. Sheikh Abdul-Rahman is known for clear explanations, a calm pastoral presence, and an emphasis on living the faith with excellence (iḥsān). Beyond teaching, he supports local mosques with program design, mentoring young leaders, and organising community classes that connect households to the Book of Allah and the prophetic way."
             },
             scholar6: {
                 name: "Sheikh Omar El-Banna",
+                image: "/scolor img/Sheikh Omar El-Banna.png",
                 details: "Da‘wah, youth engagement, Qur’an, family counselling Sheikh Omar El-Banna is a Sydney-based imam and community leader known for dynamic da‘wah and hands-on youth work. Alongside formal Islamic studies and Qur’an ijāzah, he brings a professional background that helps him connect faith with real-world challenges. He leads regular classes on creed and fiqh, runs mentoring circles, and supports families with marriage guidance and personal counselling. Sheikh Omar’s programs highlight love of the Qur’an, good character, and community service. He frequently collaborates with mosques and organisations nationwide to deliver retreats, outreach events, and practical workshops that nurture confident, compassionate Muslims."
             },
             scholar7: {
                 name: "Sheikh Yasir Al-Hanafi",
+                image: "/scolor img/Sheikh Yasir Al-Hanafi.jpg",
                 details: "Hanafi fiqh, tarbiyah, community leadership Sheikh Yasir Al-Hanafi is a UK-based imam and teacher who completed extensive ‘Ālimiyyah studies before taking up community roles focused on teaching, chaplaincy, and pastoral care.His lessons cover creed, worship, purification of the heart, and everyday fiqh, with a strong emphasis on tarbiyah—developing consistent prayer, sound manners, and service to others. Known for a clear, accessible teaching style, he works closely with families and youth, delivers khutbahs and short courses, and supports local initiatives that strengthen masjid life. His aim is to help believers practise the Hanafi tradition with understanding, wisdom, and balance."
             }
         };
@@ -680,13 +855,20 @@ studies before taking up community roles focused on teaching, chaplaincy, and pa
             const scholar = scholarDetails[scholarId];
             document.getElementById('modalTitle').textContent = scholar.name;
             document.getElementById('modalDescription').textContent = scholar.details;
+            document.getElementById('modalImage').src = scholar.image;
             document.getElementById('myModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.querySelector('.modal-content').classList.add('show');
+            }, 10);
         }
 
         function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.querySelector('.modal-content').classList.remove('show');
+            setTimeout(() => {
+                document.getElementById('myModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
         }
 
         // Close modal if clicked outside
@@ -727,28 +909,6 @@ studies before taking up community roles focused on teaching, chaplaincy, and pa
             });
         }
     </script>
-
-    <!-- <script>
-        function openModal(title) {
-            document.getElementById('modalTitle').textContent = title;
-            // You can customize the description based on the scholar if needed
-            document.getElementById('modalDescription').textContent = 'Detailed information about ' + title + '. Add more content here as needed.';
-            document.getElementById('myModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-
-        // Close modal if clicked outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('myModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script> -->
-
 
     <script src="navbar.js"></script>
 </body>
