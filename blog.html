@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Zuhd Maktab</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --gold: #c89b3c;
+            --beige: #f5f2e9;
+            --cream: #fffaf0;
+         --deep-green: #0f3d2e;
+
+        }
+        @font-face {
+  font-family: "Serotiva-Black";
+  src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Bold";
+  src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Light";
+  src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Regular";
+  src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* font-family: "Inter", sans-serif; */
+            background-color: var(--deep-green);
+            line-height: 1.6;
+        }
+
+        /* News Header Banner */
+        .news-banner {
+            position: relative;
+            height: 80vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .news-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download.png-dSA2qRr0yWyo1vChEA9F70m2GWvyJ6.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .news-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 0.1em;
+              font-family: "Serotiva-Black";
+              text-align: center;
+              width: 100%;
+
+        }
+
+        /* Blog Content Container */
+        .blog-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .blog-section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+              font-family: "Serotiva-Bold";
+
+        }
+
+        /* Blog Grid Layout */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Blog Post Cards */
+        .blog-post-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post-card:hover .blog-post-image {
+            transform: scale(1.05);
+        }
+
+        .blog-post-content {
+            padding: 1.5rem;
+        }
+
+        .blog-post-date {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .blog-post-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--deep-green);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+              font-family: "Serotiva-Bold";
+
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .read-more-btn:hover {
+            color: #a77f2e;
+        }
+
+        .read-more-btn::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-filter {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .category-filter:hover,
+        .category-filter.active {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .news-banner {
+                height: 50vh;
+                min-height: 300px;
+                padding: 0 1rem;
+            }
+
+            .news-title {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+                margin-left: 1rem;
+            }
+
+            .blog-content {
+                padding: 2rem 1rem;
+            }
+
+            .blog-section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-section {
+                gap: 0.5rem;
+            }
+
+            .category-filter {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news-banner {
+                height: 40vh;
+                min-height: 250px;
+            }
+
+            .news-title {
+                margin-left: 0.5rem;
+            }
+
+            .blog-post-content {
+                padding: 1rem;
+            }
+
+            .blog-post-title {
+                font-size: 1.1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="navbar"></div>
+    </nav>
+
+    <!-- News Banner -->
+    <div class="news-banner">
+        <h1 class="news-title">NEWS</h1>
+    </div>
+
+    <!-- Blog Content -->
+    <div class="blog-content">
+        <h2 class="blog-section-title"> Zuhd Islamic Latest Articles</h2>
+        
+        <!-- Filter Section -->
+        <!-- <div class="filter-section">
+            <button class="category-filter active" data-category="all">All</button>
+            <button class="category-filter" data-category="luxury">Luxury & Legacy</button>
+            <button class="category-filter" data-category="cultural">Cultural</button>
+            <button class="category-filter" data-category="heritage">Heritage</button>
+            <button class="category-filter" data-category="fashion">Fashion</button>
+        </div> -->
+
+        <!-- Blog Grid -->
+        <div class="blog-grid" id="blogGrid">
+            <article class="blog-post-card" data-category="luxury">
+                <img src="https://i.ibb.co/ymQmw9xX/10-Sunnahs-to-Revive-Daily-for-Spiritual-Growth.jpg" alt="Luxury Perfection" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Aug 19,2025</div>
+                    <h3 class="blog-post-title">10 Sunnahs to Revive Daily for Spiritual Growth</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-post-card" data-category="luxury">
+                <img src="https://i.ibb.co/BK620LcN/The-Power-of-Gratitude-Shukr-in-Islam.jpg" alt="Signature Keffiyeh" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Aug 19,2025 </div>
+                    <h3 class="blog-post-title">The Power of Gratitude (Shukr) in Islam </h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-post-card" data-category="cultural">
+                <img src="https://i.ibb.co/SD1Zszym/Consistency-in-Salah-Tips-for-the-Busy-Muslim.jpg" alt="Cultural Sophistication" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Aug 19,2025 </div>
+                    <h3 class="blog-post-title"> Consistency in Salah – Tips for the Busy Muslim </h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-post-card" data-category="heritage">
+                <img src="https://i.ibb.co/PvJ1QBM1/Social-Media-Adab-Protecting-Iman-Online.jpg" alt="Heritage Thread" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Aug 19, 2025</div>
+                    <h3 class="blog-post-title">Social Media-Adab Protecting Iman-Online</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <!-- <article class="blog-post-card" data-category="fashion">
+                <img src="/placeholder.svg?height=250&width=400" alt="Street Style" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Aug 05, 2024</div>
+                    <h3 class="blog-post-title">From Street to Sleek - Inside Zuhd's Bespoke Craftsmanship Process</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article> -->
+
+            <!-- <article class="blog-post-card" data-category="fashion">
+                <img src="/placeholder.svg?height=250&width=400" alt="Contemporary Style" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Aug 03, 2024</div>
+                    <h3 class="blog-post-title">Contemporary in Style, Supreme Loved Ones with a Zuhd Keffiyeh Hoodie</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-post-card" data-category="luxury">
+                <img src="/placeholder.svg?height=250&width=400" alt="Elegant Build" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Jul 30, 2024</div>
+                    <h3 class="blog-post-title">Elegant Build & Authentic - How to Style Your Keffiyeh Shawl for Any Occasion</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-post-card" data-category="cultural">
+                <img src="/placeholder.svg?height=250&width=400" alt="Summer Elegance" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Jul 28, 2024</div>
+                    <h3 class="blog-post-title">Summer Elegance - The Story Behind Zuhd's Iconic Keffiyeh Caps</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-post-card" data-category="heritage">
+                <img src="/placeholder.svg?height=250&width=400" alt="Elegance Every Thread" class="blog-post-image">
+                <div class="blog-post-content">
+                    <div class="blog-post-date">Jul 25, 2024</div>
+                    <h3 class="blog-post-title">Elegance in Every Thread - Discover the Black & White Keffiyeh Hoodie</h3>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>-->
+        </div> 
+    </div>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main">
+                        <img src="/images/logo.png" alt="ZUHD Logo">
+                    </div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>zuhd Academy</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column newsletter">
+                    <h3>Stay Connected to Guidance</h3>
+                    <p>Exclusive insights, new lectures & timeless reminders — direct to your inbox.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook">
+                            <img src="/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram">
+                            <img src="/instagram.png" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok">
+                            <img src="/tik-tok.png" alt="TikTok">
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
+                            <img src="/youtube.png" alt="YouTube">
+                        </a>
+                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn">
+                            <img src="/linkedin.png" alt="LinkedIn">
+                        </a> -->
+                        <!-- <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter">
+                            <img src="/twitter-alt-square.png" alt="Twitter">
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.category-filter');
+            const blogPosts = document.querySelectorAll('.blog-post-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter posts
+                    blogPosts.forEach(post => {
+                        if (category === 'all' || post.getAttribute('data-category') === category) {
+                            post.style.display = 'block';
+                            setTimeout(() => {
+                                post.style.opacity = '1';
+                                post.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            post.style.opacity = '0';
+                            post.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                post.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Newsletter form submission
+            window.submitNewsletter = function(event) {
+                event.preventDefault();
+                const email = event.target.querySelector('input[type="email"]').value;
+                alert(`Thank you for subscribing with email: ${email}`);
+                event.target.reset();
+            };
+
+            // Smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+    </script>
+    <script src="navbar.js"></script>
+</body>
+</html>
