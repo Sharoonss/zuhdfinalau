@@ -1,35 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 Sunnahs to Revive Daily for Spiritual Growth - Zuhd Maktab</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>10 Sunnahs to Revive Daily for Spiritual Growth | Zuhd Maktab</title>
+        <link rel="stylesheet" href="styles.css">
+
     <style>
-        :root {
+ :root {
             --gold: #c89b3c;
             --beige: #f5f2e9;
             --cream: #fffaf0;
-            --deep-green: #0f3d2e;
-        }
+         --deep-green: #0f3d2e;
 
-        @font-face {
-            font-family: "Serotiva-Black";
-            src: url(./font/OpenType-TT/Serotiva-Black.ttf);
         }
         @font-face {
-            font-family: "Serotiva-Bold";
-            src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
-        }
-        @font-face {
-            font-family: "Serotiva-Light";
-            src: url(./font/OpenType-TT/Serotiva-Light.ttf);
-        }
-        @font-face {
-            font-family: "Serotiva-Regular";
-            src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
-        }
+  font-family: "Serotiva-Black";
+  src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Bold";
+  src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Light";
+  src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Regular";
+  src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+}
 
         * {
             margin: 0;
@@ -38,368 +38,334 @@
         }
 
         body {
-            /* background-color: white;
-            font-family: Arial, sans-serif; */
+            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
             line-height: 1.6;
-            margin: 0;
-            /* padding: 20px; */
+            color: #0c0d0e;
         }
 
-        /* Blog Header Banner */
-        .blog-banner {
-            position: relative;
-            height:100vh;
-            min-height: 300px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 2rem;
+        .min-h-screen {
+            min-height: 100vh;
+            background-color: white;
         }
 
-        .blog-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download.png-dSA2qRr0yWyo1vChEA9F70m2GWvyJ6.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
+        /* Hero Banner */
+        .hero-banner {
+    position: relative;
+    height: 80vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://i.ibb.co/ymQmw9xX/10-Sunnahs-to-Revive-Daily-for-Spiritual-Growth.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* keep background lowest */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1; /* overlay above background */
+}
+
+.hero-title {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+    width:800px;
+    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.05em;
+    line-height:60px;
+    text-transform: uppercase;
+    z-index: 2; /* content above overlay */
+      font-family: "Serotiva-Black";
+
+}
+
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
         }
 
-        .blog-header-content {
-            text-align: center;
-            max-width: 800px;
-            color: #c89b3c;
-        }
-
-        .blog-date {
-            font-size: 0.9rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            font-family: "Serotiva-Regular";
-        }
-
-        .blog-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            font-family: "Serotiva-Black";
-            line-height: 1.2;
-        }
-
-        /* Blog Content */
-        .content {
+        /* Main Content */
+        .main-content {
             max-width:1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 4rem 1.5rem;
         }
 
-        h1, h2, h3 {
-            color: #c8b88a;
-            padding: 20px 0px;
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        p {
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .introduction {
-            background: var(--beige);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--gold);
-        }
-
-        .introduction h2 {
-            font-family: "Serotiva-Bold";
-            font-size: 1.5rem;
-            color: var(--deep-green);
+        .article-title {
+            font-size: 3rem;
+            font-weight:800;
+            color: #064e3b;
             margin-bottom: 1rem;
+            line-height: 1.2;
+              font-family: "Serotiva-Bold";
+
         }
 
-        .introduction p {
-            font-family: "Serotiva-Regular";
-            color: #333;
-            line-height: 1.7;
+        @media (min-width: 768px) {
+            .article-title {
+                font-size: 3rem;
+            }
         }
 
-        .sunnah-item {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+        .article-date {
+            color: #4b5563;
+            font-size: 1.125rem;
         }
 
-        .sunnah-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
         }
 
-        .sunnah-number {
-            background: var(--gold);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .section-title {
+            font-size: 2rem;
             font-weight: bold;
-            font-family: "Serotiva-Bold";
-            margin-right: 1rem;
+            color: #064e3b;
+            margin-bottom: 1.5rem;
+              font-family: "Serotiva-Bold";
+
         }
 
-        .sunnah-title {
-            font-family: "Serotiva-Bold";
-            font-size: 1.2rem;
-            color: var(--deep-green);
+        .section-content {
+            color: #1f2937;
+            line-height: 1.75;
         }
 
-        .sunnah-description {
-            font-family: "Serotiva-Regular";
-            color: #555;
+        .section-content p {
             margin-bottom: 1rem;
+            font-size: 20px;
+         line-height:30px;
+     font-family: "Serotiva-Regular";
         }
 
-        .hadith-section, .tip-section {
-            background: var(--cream);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 0.5rem 0;
-            font-family: "Serotiva-Regular";
-            font-size: 0.9rem;
+        /* Quick Reminders List */
+        .quick-list {
+            list-style: decimal;
+            list-style-position: inside;
+            padding-left: 1rem;
+            color: #1f2937;
+                 font-family: "Serotiva-Regular";
         }
 
-        .hadith-section {
-            border-left: 3px solid var(--gold);
-        }
-
-        .tip-section {
-            border-left: 3px solid var(--deep-green);
-        }
-
-        .conclusion {
-            background: var(--deep-green);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .conclusion h2 {
-            font-family: "Serotiva-Bold";
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-
-        .conclusion p {
-            font-family: "Serotiva-Regular";
-            line-height: 1.7;
-        }
-
-        .zuhd-branding {
-            background: var(--gold);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 1.5rem 0;
-        }
-
-        .zuhd-branding h3 {
-            font-family: "Serotiva-Bold";
+        .quick-list li {
             margin-bottom: 0.5rem;
+             font-family: "Serotiva-Regular";
+             font-size:20px;
         }
 
-        .zuhd-links {
+        /* Tip Cards */
+        .tip-cards {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .zuhd-link {
-            color: white;
-            text-decoration: none;
-            font-family: "Serotiva-Bold";
-            padding: 0.5rem 1rem;
-            border: 1px solid white;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .tip-card {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
         }
 
-        .zuhd-link:hover {
-            background: white;
-            color: var(--gold);
+        .tip-title {
+            font-weight: bold;
+            color: #064e3b;
+            font-size: 28px;
+            margin-bottom: 0.75rem;
+              font-family: "Serotiva-Bold";
+
         }
 
-        /* Back to Blog Button */
-        .back-to-blog {
+        .tip-description {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 18px;
+                 font-family: "Serotiva-Regular";
+
+        }
+
+        .verse-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #20492a;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+             font-family: "Serotiva-Regular";
+        }
+
+        .tip-box {
+            background-color: #dcfce7;
+            border-left: 4px solid #c5b17a;
+            padding: 1rem;
+              font-family: "Serotiva-Regular";
+
+        }
+
+        .verse-box strong,
+        .tip-box strong {
+            font-weight: bold;
+            font-size:20px;
+              font-family: "Serotiva-Regular";
+
+        }
+
+        /* Back Link */
+        .back-link-container {
             text-align: center;
-            margin: 2rem 0;
         }
 
-        .back-btn {
+        .back-link {
             display: inline-flex;
             align-items: center;
-            background: var(--deep-green);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 20px;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #0f3d2e;
+            color: #020202;
+            border-radius: 0.5rem;
             text-decoration: none;
-            font-family: "Serotiva-Bold";
+            transition: all 0.2s;
+         font-family: "Serotiva-regular";
+            
         }
 
-        .back-btn:hover {
-            background: var(--gold);
+        .back-link:hover {
+            background-color: #0f3d2e;
+            color: white;
         }
 
-        .back-btn::before {
-            content: '←';
-            margin-right: 0.5rem;
+        .arrow-icon {
+            width: 1rem;
+            height: 1rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .blog-banner {
-                height: 50vh;
-                min-height: 300px;
-                padding: 0 1rem;
-            }
-
-            .content {
-                padding: 20px 1rem;
-            }
-
-            .sunnah-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .sunnah-number {
-                margin-bottom: 0.5rem;
-            }
-
-            .zuhd-links {
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Links */
+        a {
+            color: #0f3d2e;
+            text-decoration: none;
+                      font-family: "Serotiva-regular";
         }
 
-        @media (max-width: 480px) {
-            .blog-banner {
-                height: 40vh;
-                min-height: 250px;
-            }
+        a:hover {
+            text-decoration: underline;
+        }
 
-            .content {
-                padding: 15px 1rem;
-            }
-
-            .sunnah-item {
-                padding: 1rem;
-            }
+        .conclusion-links a {
+            margin-left: 0.25rem;
         }
     </style>
 </head>
 <body>
-    <nav>
+     <nav>
         <div id="navbar"></div>
     </nav>
 
-    <!-- Blog Banner -->
-    <div class="blog-banner">
-        <div class="blog-header-content">
-            <div class="blog-date">August 19, 2025</div>
-            <h1 class="blog-title">10 Sunnahs to Revive Daily for Spiritual Growth</h1>
+    <div class="min-h-screen">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+             <h1 class="hero-title">10 Sunnahs to Revive Daily for Spiritual Growth</h1> 
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">
+                        10 Sunnahs to Revive Daily for Spiritual Growth
+                    </h1>
+                    <p class="article-date">
+                        <strong>Date:</strong> August 20, 2025
+                    </p>
+                </header>
+
+                <!-- Introduction -->
+                <section class="section">
+                    <h2 class="section-title">Introduction</h2>
+                    <div class="section-content">
+                        <p>
+                            In today's fast-paced world, we often forget that spiritual growth doesn't always come from big changes—it comes from the small, consistent Sunnahs that Prophet Muhammad ﷺ practiced daily. If you've ever felt the need to refresh your heart and strengthen your deen, start with these 10 simple Sunnahs—beautiful habits that can transform your every day into an act of worship.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Quick Reminders -->
+                <section class="section">
+                    <h2 class="section-title">Quick Reminders</h2>
+                    <ol class="quick-list">
+                        <li>Begin the Day with Bismillah</li>
+                        <li>Offer Two Rak'ahs Before Fajr</li>
+                        <li>Keep a Smile</li>
+                        <li>Say Salam First</li>
+                        <li>Eat with the Right Hand</li>
+                        <li>Use the Miswaak/Siwak</li>
+                        <li>Show Gratitude After Eating</li>
+                        <li>Sleep with Wudhu & Dua</li>
+                        <li>Visit the Sick</li>
+                        <li>Remember Allah through Dhikr</li>
+                    </ol>
+                </section>
+
+                <!-- Tips -->
+                <section class="tip-cards" id="tipCards">
+                    <!-- Tips will be generated by JavaScript -->
+                </section>
+
+                <!-- Conclusion -->
+                <section class="section">
+                    <h2 class="section-title">Conclusion</h2>
+                    <div class="section-content">
+                        <p>
+                            These 10 Sunnahs to revive daily are simple yet powerful steps toward building a heart full of peace and a life full of blessings. Imagine the reward of smiling, saying Salam, or making wudhu before sleep—small acts, but loved by Allah ﷻ. By holding onto these practices, we walk closer in the footsteps of the Prophet ﷺ and invite tranquility into our homes and hearts.
+                        </p>
+                        <p>
+                            Want to keep learning more Sunnahs and faith-inspired habits? Dive deeper into authentic Islamic knowledge, lifestyle inspiration, and practical reminders with Zuhd AU.
+                        </p>
+                        <p><strong>Brought to you by Zuhd AU – Faith-Inspired Lifestyle</strong></p>
+                        <p class="conclusion-links">
+                            Website: 
+                            <a href="https://www.zuhd.au/">www.zuhd.au</a>
+                            | YouTube: 
+                            <a href="https://www.youtube.com/@zuhdau">Zuhd AU Channel</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Back Link -->
+                <div class="back-link-container">
+                    <a href="/blog.html" class="back-link">
+                        <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to All Articles
+                    </a>
+                </div>
+            </article>
         </div>
     </div>
-
-    <!-- Blog Content -->
-    <div class="content">
-        <!-- <h1>10 Sunnahs to Revive Daily for Spiritual Growth</h1> -->
-        <p><strong>Date:</strong> August 19, 2025</p>
-
-        <h2>Introduction</h2>
-        <p>In today's fast-paced world, we often forget that spiritual growth doesn't always come from big changes—it comes from the small, consistent Sunnahs that Prophet Muhammad ﷺ practiced daily. If you've ever felt the need to refresh your heart and strengthen your deen, start with these 10 simple Sunnahs—beautiful habits that can transform your every day into an act of worship.</p>
-
-        <h3>1. Begin the Day with Bismillah</h3>
-        <p>Starting with "Bismillah" keeps our actions blessed and safe from Shaytaan.</p>
-        <p><strong>Hadith:</strong> The Prophet ﷺ said: "When any one of you eats, let him mention the name of Allah. If he forgets, let him say: Bismillah fi awwalihi wa akhirihi." (Tirmidhi, 1858)</p>
-        <p><strong>Tip:</strong> Say Bismillah before eating, working, or even sending a message.</p>
-
-        <h3>2. Offer Two Rak'ahs Before Fajr</h3>
-        <p>This Sunnah prayer is among the most emphasized.</p>
-        <p><strong>Hadith:</strong> Aisha (RA) reported: "The two rak'ahs before Fajr are better than this world and all that it contains." (Sahih Muslim, 725)</p>
-        <p><strong>Tip:</strong> Even if short on time, don't miss these two rak'ahs.</p>
-
-        <h3>3. Keep a Smile</h3>
-        <p>The Prophet ﷺ was known for his cheerful smile.</p>
-        <p><strong>Hadith:</strong> Abdullah ibn al-Harith (RA) said: "I never saw anyone who smiled more than the Messenger of Allah ﷺ." (Tirmidhi, 3641)</p>
-        <p><strong>Tip:</strong> A simple smile is charity—share it generously.</p>
-
-        <h3>4. Say Salam First</h3>
-        <p>Spreading Salam builds love and unity.</p>
-        <p><strong>Hadith:</strong> The Messenger of Allah ﷺ said: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you about something which, if you do it, you will love one another? Spread Salam among yourselves." (Sahih Muslim, 54)</p>
-        <p><strong>Tip:</strong> Be the first to greet—at home, work, or outside.</p>
-
-        <h3>5. Eat with the Right Hand</h3>
-        <p>The Prophet ﷺ always ate with his right hand.</p>
-        <p><strong>Hadith:</strong> Umar ibn Abi Salamah (RA) said: The Messenger of Allah ﷺ told me: "Say Bismillah, eat with your right hand, and eat from what is closest to you." (Sahih Bukhari, 5376; Sahih Muslim, 2022)</p>
-        <p><strong>Tip:</strong> A habit to practice at every meal.</p>
-
-        <h3>6. Use the Miswaak/Siwak</h3>
-        <p>Oral cleanliness was emphasized by the Prophet ﷺ.</p>
-        <p><strong>Hadith:</strong> The Messenger of Allah ﷺ said: "If I had not found it hard for my followers, I would have ordered them to use the Siwak before every prayer." (Sahih Bukhari, 887; Sahih Muslim, 252)</p>
-        <p><strong>Tip:</strong> Keep a Miswaak handy, or use a toothbrush with the Sunnah intention.</p>
-
-        <h3>7. Show Gratitude After Eating</h3>
-        <p>Thanking Allah increases blessings.</p>
-        <p><strong>Hadith:</strong> Anas (RA) reported: The Messenger of Allah ﷺ said: "Allah is pleased with His servant who eats something and praises Him for it, or drinks something and praises Him for it." (Sahih Muslim, 2734)</p>
-        <p><strong>Tip:</strong> Say Alhamdulillah after meals—teach it to children too.</p>
-
-        <h3>8. Sleep with Wudhu & Dua</h3>
-        <p>The Prophet ﷺ taught us to end the day with purity.</p>
-        <p><strong>Hadith:</strong> Al-Bara' ibn 'Azib (RA) reported: The Messenger of Allah ﷺ said: "When you go to bed, do wudhu as you do for prayer, then lie down on your right side and say the du'a…" (Sahih Bukhari, 247; Sahih Muslim, 2710)</p>
-        <p><strong>Tip:</strong> Recite Ayat-ul-Kursi and the last three Surahs before sleeping.</p>
-
-        <h3>9. Visit the Sick</h3>
-        <p>Visiting the sick is a Sunnah of compassion.</p>
-        <p><strong>Hadith:</strong> The Messenger of Allah ﷺ said: "Whoever visits a sick person, an announcer calls out: 'May you be pure, may your walk be blessed, and may you dwell in a home in Paradise.'" (Tirmidhi, 2008)</p>
-        <p><strong>Tip:</strong> A short visit, message, or call can uplift someone deeply.</p>
-
-        <h3>10. Remember Allah through Dhikr</h3>
-        <p>Dhikr brings peace and strengthens faith.</p>
-        <p><strong>Hadith:</strong> The Messenger of Allah ﷺ said: "Keep your tongue moist with the remembrance of Allah." (Tirmidhi, 3375)</p>
-        <p><strong>Tip:</strong> Repeat SubhanAllah, Alhamdulillah, Allahu Akbar during walks or chores.</p>
-
-        <h2>Conclusion</h2>
-        <p>These 10 Sunnahs to revive daily are simple yet powerful steps toward building a heart full of peace and a life full of blessings. Imagine the reward of smiling, saying Salam, or making wudhu before sleep—small acts, but loved by Allah ﷻ. By holding onto these practices, we walk closer in the footsteps of the Prophet ﷺ and invite tranquility into our homes and hearts.</p>
-
-        <p><strong>Want to keep learning more Sunnahs and faith-inspired habits?</strong> Dive deeper into authentic Islamic knowledge, lifestyle inspiration, and practical reminders with Zuhd AU.</p>
-
-        <p><strong>Brought to you by Zuhd AU – Faith-Inspired Lifestyle</strong></p>
-        <p>Website: <a href="https://www.zuhd.au/">https://www.zuhd.au/</a></p>
-        <p>YouTube: <a href="https://www.youtube.com/@zuhdau">Zuhd AU Channel</a></p>
-
-        <p><a href="news.html">← Back to All Articles</a></p>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
+<footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column footer-logo">
@@ -407,8 +373,7 @@
                         <img src="/images/logo.png" alt="ZUHD Logo">
                     </div>
                     <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
-                </div>
-
+                 </div>
                 <div class="footer-column">
                     <h3>zuhd Academy</h3>
                     <ul>
@@ -418,7 +383,7 @@
                         <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
                     </ul>
                 </div>
-
+ 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
@@ -427,7 +392,7 @@
                         <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
                     </ul>
                 </div>
-
+ 
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
@@ -438,7 +403,7 @@
                         <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
                 </div>
-
+ 
                 <div class="footer-column newsletter">
                     <h3>Stay Connected to Guidance</h3>
                     <p>Exclusive insights, new lectures & timeless reminders — direct to your inbox.</p>
@@ -459,10 +424,16 @@
                         <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
                             <img src="/youtube.png" alt="YouTube">
                         </a>
+                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn">
+                            <img src="/linkedin.png" alt="LinkedIn">
+                        </a> -->
+                        <!-- <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter">
+                            <img src="/twitter-alt-square.png" alt="Twitter">
+                        </a> -->
                     </div>
                 </div>
             </div>
-
+ 
             <div class="footer-bottom">
                 <div class="copyright">
                     © 2024 Zuhd Guidance All rights reserved.
@@ -476,25 +447,155 @@
             </div>
         </div>
     </footer>
-
     <script>
-        // Newsletter form submission
-        function submitNewsletter(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            alert(`Thank you for subscribing with email: ${email}`);
-            event.target.reset();
+        // Tip data
+        const tips = [
+            {
+                number: 1,
+                title: "Begin the Day with Bismillah",
+                description: "Starting with \"Bismillah\" keeps our actions blessed and safe from Shaytaan.",
+                verse: {
+                    type: "Hadith",
+                    text: "When any one of you eats, let him mention the name of Allah. If he forgets, let him say: Bismillah fi awwalihi wa akhirihi.",
+                    reference: "Tirmidhi, 1858"
+                },
+                tip: "Say Bismillah before eating, working, or even sending a message."
+            },
+            {
+                number: 2,
+                title: "Offer Two Rak'ahs Before Fajr",
+                description: "This Sunnah prayer is among the most emphasized.",
+                verse: {
+                    type: "Hadith",
+                    text: "The two rak'ahs before Fajr are better than this world and all that it contains.",
+                    reference: "Sahih Muslim, 725"
+                },
+                tip: "Even if short on time, don't miss these two rak'ahs."
+            },
+            {
+                number: 3,
+                title: "Keep a Smile",
+                description: "The Prophet ﷺ was known for his cheerful smile.",
+                verse: {
+                    type: "Hadith",
+                    text: "I never saw anyone who smiled more than the Messenger of Allah ﷺ.",
+                    reference: "Tirmidhi, 3641"
+                },
+                tip: "A simple smile is charity—share it generously."
+            },
+            {
+                number: 4,
+                title: "Say Salam First",
+                description: "Spreading Salam builds love and unity.",
+                verse: {
+                    type: "Hadith",
+                    text: "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you about something which, if you do it, you will love one another? Spread Salam among yourselves.",
+                    reference: "Sahih Muslim, 54"
+                },
+                tip: "Be the first to greet—at home, work, or outside."
+            },
+            {
+                number: 5,
+                title: "Eat with the Right Hand",
+                description: "The Prophet ﷺ always ate with his right hand.",
+                verse: {
+                    type: "Hadith",
+                    text: "Say Bismillah, eat with your right hand, and eat from what is closest to you.",
+                    reference: "Sahih Bukhari, 5376; Sahih Muslim, 2022"
+                },
+                tip: "A habit to practice at every meal."
+            },
+            {
+                number: 6,
+                title: "Use the Miswaak/Siwak",
+                description: "Oral cleanliness was emphasized by the Prophet ﷺ.",
+                verse: {
+                    type: "Hadith",
+                    text: "If I had not found it hard for my followers, I would have ordered them to use the Siwak before every prayer.",
+                    reference: "Sahih Bukhari, 887; Sahih Muslim, 252"
+                },
+                tip: "Keep a Miswaak handy, or use a toothbrush with the Sunnah intention."
+            },
+            {
+                number: 7,
+                title: "Show Gratitude After Eating",
+                description: "Thanking Allah increases blessings.",
+                verse: {
+                    type: "Hadith",
+                    text: "Allah is pleased with His servant who eats something and praises Him for it, or drinks something and praises Him for it.",
+                    reference: "Sahih Muslim, 2734"
+                },
+                tip: "Say Alhamdulillah after meals—teach it to children too."
+            },
+            {
+                number: 8,
+                title: "Sleep with Wudhu & Dua",
+                description: "The Prophet ﷺ taught us to end the day with purity.",
+                verse: {
+                    type: "Hadith",
+                    text: "When you go to bed, do wudhu as you do for prayer, then lie down on your right side and say the du'a…",
+                    reference: "Sahih Bukhari, 247; Sahih Muslim, 2710"
+                },
+                tip: "Recite Ayat-ul-Kursi and the last three Surahs before sleeping."
+            },
+            {
+                number: 9,
+                title: "Visit the Sick",
+                description: "Visiting the sick is a Sunnah of compassion.",
+                verse: {
+                    type: "Hadith",
+                    text: "Whoever visits a sick person, an announcer calls out: 'May you be pure, may your walk be blessed, and may you dwell in a home in Paradise.'",
+                    reference: "Tirmidhi, 2008"
+                },
+                tip: "A short visit, message, or call can uplift someone deeply."
+            },
+            {
+                number: 10,
+                title: "Remember Allah through Dhikr",
+                description: "Dhikr brings peace and strengthens faith.",
+                verse: {
+                    type: "Hadith",
+                    text: "Keep your tongue moist with the remembrance of Allah.",
+                    reference: "Tirmidhi, 3375"
+                },
+                tip: "Repeat SubhanAllah, Alhamdulillah, Allahu Akbar during walks or chores."
+            }
+        ];
+
+        // Function to create tip card HTML
+        function createTipCard(tip) {
+            const tipType = tip.tipType || 'tip';
+            const tipLabel = tipType === 'reflection' ? 'Reflection' : 'Tip';
+            
+            return `
+                <div class="tip-card">
+                    <div class="tip-title">
+                        ${tip.number}. ${tip.title}
+                    </div>
+                    <p class="tip-description">${tip.description}</p>
+                    
+                    <div class="verse-box">
+                        <strong>${tip.verse.type}:</strong> ${tip.verse.text} (${tip.verse.reference})
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>${tipLabel}:</strong> ${tip.tip}
+                    </div>
+                </div>
+            `;
         }
 
-        // Link click tracking functions
-        function linkClick(linkName) {
-            console.log('Link clicked:', linkName);
+        // Generate all tip cards
+        function generateTipCards() {
+            const tipCardsContainer = document.getElementById('tipCards');
+            const tipCardsHTML = tips.map(tip => createTipCard(tip)).join('');
+            tipCardsContainer.innerHTML = tipCardsHTML;
         }
 
-        function socialClick(platform) {
-            console.log('Social link clicked:', platform);
-        }
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', generateTipCards);
     </script>
-    <script src="navbar.js"></script>
+        <script src="navbar.js"></script>
+
 </body>
 </html>

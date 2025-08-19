@@ -3,113 +3,613 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated title to reflect new content -->
-    <title>Consistency in Salah – Tips for the Busy Muslim - Zuhd Maktab</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Consistency in Salah – Tips for the Busy Muslim | Zuhd Maktab</title>
     <style>
+
+ :root {
+            --gold: #c89b3c;
+            --beige: #f5f2e9;
+            --cream: #fffaf0;
+         --deep-green: #0f3d2e;
+
+        }
+        @font-face {
+  font-family: "Serotiva-Black";
+  src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Bold";
+  src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Light";
+  src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Regular";
+  src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
+            line-height: 1.6;
+            color: #0c0d0e;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+    position: relative;
+    height: 80vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://i.ibb.co/SD1Zszym/Consistency-in-Salah-Tips-for-the-Busy-Muslim.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* keep background lowest */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1; /* overlay above background */
+}
+
+.hero-title {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+    width:800px;
+    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.05em;
+    line-height:60px;
+    text-transform: uppercase;
+    z-index: 2; /* content above overlay */
+      font-family: "Serotiva-Black";
+
+}
+
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width:1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight:800;
+            color: #064e3b;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+              font-family: "Serotiva-Bold";
+
+        }
+
+        @media (min-width: 768px) {
+            .article-title {
+                font-size: 3rem;
+            }
+        }
+
+        .article-date {
+            color: #4b5563;
+            font-size: 1.125rem;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #064e3b;
+            margin-bottom: 1.5rem;
+              font-family: "Serotiva-Bold";
+
+        }
+
+        .section-content {
+            color: #1f2937;
+            line-height: 1.75;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+            font-size: 20px;
+         line-height:30px;
+     font-family: "Serotiva-Regular";
+
+
+
+        }
+
+        /* Quick Reminders List */
+        .quick-list {
+            list-style: decimal;
+            list-style-position: inside;
+            padding-left: 1rem;
+            color: #1f2937;
+                 font-family: "Serotiva-Regular";
+        }
+
+        .quick-list li {
+            margin-bottom: 0.5rem;
+             font-family: "Serotiva-Regular";
+             font-size:20px;
+        }
+
+        /* Tip Cards */
+        .tip-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tip-card {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            color: #064e3b;
+            font-size: 28px;
+            margin-bottom: 0.75rem;
+              font-family: "Serotiva-Bold";
+
+        }
+
+        .tip-description {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 18px;
+                 font-family: "Serotiva-Regular";
+
+        }
+
+        .verse-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #20492a;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+             font-family: "Serotiva-Regular";
+        }
+
+        .tip-box {
+            background-color: #dcfce7;
+            border-left: 4px solid #c5b17a;
+            padding: 1rem;
+              font-family: "Serotiva-Regular";
+
+        }
+
+        .verse-box strong,
+        .tip-box strong {
+            font-weight: bold;
+            font-size:20px;
+              font-family: "Serotiva-Regular";
+
+        }
+
+        /* Back Link */
+        .back-link-container {
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #0f3d2e;
+            color: #020202;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+         font-family: "Serotiva-regular";
+            
+        }
+
+        .back-link:hover {
+            background-color: #0f3d2e;
+            color: white;
+        }
+
+        .arrow-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Links */
+        a {
+            color: #0f3d2e;
+            text-decoration: none;
+                      font-family: "Serotiva-regular";
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .conclusion-links a {
+            margin-left: 0.25rem;
+        }
     </style>
 </head>
 <body>
-    <nav>
+     <nav>
         <div id="navbar"></div>
     </nav>
+    <div class="min-h-screen">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+             <h1 class="hero-title">  Consistency in Salah – Tips for the Busy Muslim</h1> 
+        </div>
 
-    <!-- Blog Banner -->
-    <div class="blog-banner">
-        <div class="blog-header-content">
-            <div class="blog-date">August 19, 2025</div>
-            <!-- Updated main heading -->
-            <h1 class="blog-title">Consistency in Salah – Tips for the Busy Muslim</h1>
+        <!-- Main Content -->
+        <div class="main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">
+                        Consistency in Salah – Tips for the Busy Muslim
+                    </h1>
+                    <p class="article-date">
+                        <strong>Date:</strong> August 20, 2025
+                    </p>
+                </header>
+
+                <!-- Introduction -->
+                <section class="section">
+                    <h2 class="section-title">Introduction</h2>
+                    <div class="section-content">
+                        <p>
+                            Life today moves fast—deadlines, work, studies, family commitments, and constant distractions often make
+                            it difficult to maintain regular Salah. Yet, Salah is not just a duty; it's the lifeline of a believer,
+                            the direct connection with Allah ﷻ, and the key to peace in a chaotic world.
+                        </p>
+                        <p>
+                            The Prophet Muhammad ﷺ showed us that even in the busiest moments—whether leading battles, traveling, or
+                            engaging in community affairs—he never compromised Salah. For the busy Muslim, consistency in Salah is
+                            about finding balance, discipline, and love for worship.
+                        </p>
+                        <p>
+                            Here are 10 practical tips, grounded in Qur'an and Sunnah, to help you stay consistent in Salah—no
+                            matter how busy life gets.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Quick Reminders -->
+                <section class="section">
+                    <h2 class="section-title">Quick Reminders</h2>
+                    <ol class="quick-list">
+                        <li>Prioritize Salah on time</li>
+                        <li>Remember Salah is the first accountability</li>
+                        <li>Create a fixed prayer routine</li>
+                        <li>Use reminders & Adhan apps</li>
+                        <li>Make du'a for consistency</li>
+                        <li>Pray Sunnah to strengthen habit</li>
+                        <li>Seek the mosque (for men) whenever possible</li>
+                        <li>Integrate Salah into your daily schedule</li>
+                        <li>Encourage family & friends</li>
+                        <li>Reflect on the rewards of Salah</li>
+                    </ol>
+                </section>
+
+                <!-- Tips -->
+                <section class="tip-cards" id="tipCards">
+                    <!-- Tips will be generated by JavaScript -->
+                </section>
+
+                <!-- Conclusion -->
+                <section class="section">
+                    <h2 class="section-title">Conclusion</h2>
+                    <div class="section-content">
+                        <p>
+                            Salah is not a burden—it's the believer's peace, strength, and source of success. In a busy world,
+                            consistency in Salah is a conscious choice to put Allah first, and when you do, everything else falls
+                            into place. Start small, stay steady, and remember that every prayer is a gift.
+                        </p>
+                        <p><strong>Brought to you by Zuhd AU – Faith-Inspired Lifestyle</strong></p>
+                        <p class="conclusion-links">
+                            Website: 
+                            <a href="https://www.zuhd.au/">www.zuhd.au</a>
+                            | YouTube: 
+                            <a href="https://www.youtube.com/@zuhdau">@zuhdau</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Back Link -->
+                <div class="back-link-container">
+                    <a href="/blog.html" class="back-link">
+                        <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to All Articles
+                    </a>
+                </div>
+            </article>
         </div>
     </div>
+<footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main">
+                        <img src="/images/logo.png" alt="ZUHD Logo">
+                    </div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                 </div>
+                <div class="footer-column">
+                    <h3>zuhd Academy</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column newsletter">
+                    <h3>Stay Connected to Guidance</h3>
+                    <p>Exclusive insights, new lectures & timeless reminders — direct to your inbox.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook">
+                            <img src="/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram">
+                            <img src="/instagram.png" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok">
+                            <img src="/tik-tok.png" alt="TikTok">
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
+                            <img src="/youtube.png" alt="YouTube">
+                        </a>
+                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn">
+                            <img src="/linkedin.png" alt="LinkedIn">
+                        </a> -->
+                        <!-- <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter">
+                            <img src="/twitter-alt-square.png" alt="Twitter">
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Tip data
+        const tips = [
+            {
+                number: 1,
+                title: "Prioritize Salah on Time",
+                description: "Salah is meant to be prayed within its prescribed time.",
+                verse: {
+                    type: "Qur'an",
+                    text: "Indeed, Salah has been decreed upon the believers a decree of specified times.",
+                    reference: "Surah An-Nisa 4:103"
+                },
+                tip: "Block Salah times in your calendar as you would for important meetings."
+            },
+            {
+                number: 2,
+                title: "Remember Salah is the First Accountability",
+                description: "On the Day of Judgment, Salah will be the first matter we are asked about.",
+                verse: {
+                    type: "Hadith",
+                    text: "The first matter that the slave will be brought to account for on the Day of Judgment is the Salah. If it is sound, then the rest of his deeds will be sound…",
+                    reference: "Tirmidhi, 413"
+                },
+                tip: "Protect your Salah, and Allah will protect your day.",
+                tipType: "reflection"
+            },
+            {
+                number: 3,
+                title: "Create a Fixed Prayer Routine",
+                description: "The Prophet ﷺ maintained Salah consistently regardless of circumstances.",
+                verse: {
+                    type: "Hadith",
+                    text: "The most beloved of deeds to Allah are those that are consistent, even if small.",
+                    reference: "Sahih Bukhari, 6465; Sahih Muslim, 783"
+                },
+                tip: "Fix specific times and places for Salah to build habit."
+            },
+            {
+                number: 4,
+                title: "Use Reminders & Adhan Apps",
+                description: "Technology can help us stay mindful.",
+                verse: {
+                    type: "Hadith",
+                    text: "The one who hears the call to prayer and does not respond, there is no prayer for him unless there is an excuse.",
+                    reference: "Tirmidhi, 217"
+                },
+                tip: "Install an Adhan app that reminds you even during work or study."
+            },
+            {
+                number: 5,
+                title: "Make Du'a for Consistency",
+                description: "Even prophets prayed for help in establishing Salah.",
+                verse: {
+                    type: "Qur'an",
+                    text: "My Lord, make me an establisher of prayer, and [many] from my descendants.",
+                    reference: "Surah Ibrahim 14:40"
+                },
+                tip: "After every Salah, ask Allah ﷻ to grant you consistency and focus."
+            },
+            {
+                number: 6,
+                title: "Pray Sunnah to Strengthen Habit",
+                description: "Praying Sunnah makes obligatory Salah easier to maintain.",
+                verse: {
+                    type: "Hadith",
+                    text: "Whoever prays twelve rak'ahs voluntarily in a day and night, a house will be built for him in Paradise.",
+                    reference: "Tirmidhi, 414"
+                },
+                tip: "Don't skip Sunnah prayers—they reinforce your spiritual discipline."
+            },
+            {
+                number: 7,
+                title: "Seek the Mosque (for Men) Whenever Possible",
+                description: "The Prophet ﷺ encouraged men to pray in congregation.",
+                verse: {
+                    type: "Hadith",
+                    text: "Prayer in congregation is twenty-seven times superior to prayer prayed alone.",
+                    reference: "Sahih Bukhari, 645; Sahih Muslim, 650"
+                },
+                tip: "If you can't reach the masjid, gather family for jama'ah at home."
+            },
+            {
+                number: 8,
+                title: "Integrate Salah into Your Daily Schedule",
+                description: "Companions prayed even while traveling or in busy markets.",
+                verse: {
+                    type: "Hadith",
+                    text: "The earth has been made a place of prayer and a means of purification for me.",
+                    reference: "Sahih Bukhari, 335; Sahih Muslim, 521"
+                },
+                tip: "Carry a travel prayer mat—pray anywhere, anytime."
+            },
+            {
+                number: 9,
+                title: "Encourage Family & Friends",
+                description: "Support from others helps in consistency.",
+                verse: {
+                    type: "Qur'an",
+                    text: "And enjoin Salah upon your family and be steadfast therein.",
+                    reference: "Surah Ta-Ha 20:132"
+                },
+                tip: "Set a family/group reminder to pray together."
+            },
+            {
+                number: 10,
+                title: "Reflect on the Rewards of Salah",
+                description: "Salah wipes away sins and raises ranks.",
+                verse: {
+                    type: "Hadith",
+                    text: "The five daily prayers are like a river flowing at your door in which one bathes five times a day.",
+                    reference: "Sahih Muslim, 667"
+                },
+                tip: "Every Salah is a chance to start fresh and cleanse your soul.",
+                tipType: "reflection"
+            }
+        ];
 
-    <!-- Blog Content -->
-    <div class="content">
-        <p><strong>Date:</strong> August 19, 2025</p>
+        // Function to create tip card HTML
+        function createTipCard(tip) {
+            const tipType = tip.tipType || 'tip';
+            const tipLabel = tipType === 'reflection' ? 'Reflection' : 'Tip';
+            
+            return `
+                <div class="tip-card">
+                    <div class="tip-title">
+                        ${tip.number}. ${tip.title}
+                    </div>
+                    <p class="tip-description">${tip.description}</p>
+                    
+                    <div class="verse-box">
+                        <strong>${tip.verse.type}:</strong> ${tip.verse.text} (${tip.verse.reference})
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>${tipLabel}:</strong> ${tip.tip}
+                    </div>
+                </div>
+            `;
+        }
 
-        <!-- Replaced entire content with new Salah consistency article -->
-        <h2>Introduction</h2>
-        <p>Life today moves fast—deadlines, work, studies, family commitments, and constant distractions often make it difficult to maintain regular Salah. Yet, Salah is not just a duty; it's the lifeline of a believer, the direct connection with Allah ﷻ, and the key to peace in a chaotic world.</p>
-        
-        <p>The Prophet Muhammad ﷺ showed us that even in the busiest moments—whether leading battles, traveling, or engaging in community affairs—he never compromised Salah. For the busy Muslim, consistency in Salah is about finding balance, discipline, and love for worship.</p>
-        
-        <p>Here are 10 practical tips, grounded in Qur'an and Sunnah, to help you stay consistent in Salah—no matter how busy life gets.</p>
+        // Generate all tip cards
+        function generateTipCards() {
+            const tipCardsContainer = document.getElementById('tipCards');
+            const tipCardsHTML = tips.map(tip => createTipCard(tip)).join('');
+            tipCardsContainer.innerHTML = tipCardsHTML;
+        }
 
-        <h2>🌙 Carousel Snapshot (Quick Reminders)</h2>
-        <ol>
-            <li>🕰️ Prioritize Salah on time</li>
-            <li>📖 Remember Salah is the first accountability</li>
-            <li>📍 Create a fixed prayer routine</li>
-            <li>⏰ Use reminders & Adhan apps</li>
-            <li>🤲 Make du'a for consistency</li>
-            <li>🚶 Pray Sunnah to strengthen habit</li>
-            <li>🕌 Seek the mosque (for men) whenever possible</li>
-            <li>💼 Integrate Salah into your daily schedule</li>
-            <li>👨‍👩‍👧 Encourage family & friends</li>
-            <li>🌙 Reflect on the rewards of Salah</li>
-        </ol>
-
-        <h3>1. 🕰️ Prioritize Salah on Time</h3>
-        <p>Salah is meant to be prayed within its prescribed time.</p>
-        <p><strong>Qur'an:</strong> "Indeed, Salah has been decreed upon the believers a decree of specified times." (Surah An-Nisa 4:103)</p>
-        <p><strong>Tip:</strong> Block Salah times in your calendar as you would for important meetings.</p>
-
-        <h3>2. 📖 Remember Salah is the First Accountability</h3>
-        <p>On the Day of Judgment, Salah will be the first matter we are asked about.</p>
-        <p><strong>Hadith:</strong> The Prophet ﷺ said: "The first matter that the slave will be brought to account for on the Day of Judgment is the Salah. If it is sound, then the rest of his deeds will be sound…" (Tirmidhi, 413)</p>
-        <p><strong>Reflection:</strong> Protect your Salah, and Allah will protect your day.</p>
-
-        <h3>3. 📍 Create a Fixed Prayer Routine</h3>
-        <p>The Prophet ﷺ maintained Salah consistently regardless of circumstances.</p>
-        <p><strong>Hadith:</strong> "The most beloved of deeds to Allah are those that are consistent, even if small." (Sahih Bukhari, 6465; Sahih Muslim, 783)</p>
-        <p><strong>Tip:</strong> Fix specific times and places for Salah to build habit.</p>
-
-        <h3>4. ⏰ Use Reminders & Adhan Apps</h3>
-        <p>Technology can help us stay mindful.</p>
-        <p><strong>Hadith:</strong> The Prophet ﷺ said: "The one who hears the call to prayer and does not respond, there is no prayer for him unless there is an excuse." (Tirmidhi, 217)</p>
-        <p><strong>Tip:</strong> Install an Adhan app that reminds you even during work or study.</p>
-
-        <h3>5. 🤲 Make Du'a for Consistency</h3>
-        <p>Even prophets prayed for help in establishing Salah.</p>
-        <p><strong>Qur'an:</strong> "My Lord, make me an establisher of prayer, and [many] from my descendants." (Surah Ibrahim 14:40)</p>
-        <p><strong>Tip:</strong> After every Salah, ask Allah ﷻ to grant you consistency and focus.</p>
-
-        <h3>6. 🚶 Pray Sunnah to Strengthen Habit</h3>
-        <p>Praying Sunnah makes obligatory Salah easier to maintain.</p>
-        <p><strong>Hadith:</strong> "Whoever prays twelve rak'ahs voluntarily in a day and night, a house will be built for him in Paradise." (Tirmidhi, 414)</p>
-        <p><strong>Tip:</strong> Don't skip Sunnah prayers—they reinforce your spiritual discipline.</p>
-
-        <h3>7. 🕌 Seek the Mosque (for Men) Whenever Possible</h3>
-        <p>The Prophet ﷺ encouraged men to pray in congregation.</p>
-        <p><strong>Hadith:</strong> "Prayer in congregation is twenty-seven times superior to prayer prayed alone." (Sahih Bukhari, 645; Sahih Muslim, 650)</p>
-        <p><strong>Tip:</strong> If you can't reach the masjid, gather family for jama'ah at home.</p>
-
-        <h3>8. 💼 Integrate Salah into Your Daily Schedule</h3>
-        <p>Companions prayed even while traveling or in busy markets.</p>
-        <p><strong>Hadith:</strong> The Prophet ﷺ said: "The earth has been made a place of prayer and a means of purification for me." (Sahih Bukhari, 335; Sahih Muslim, 521)</p>
-        <p><strong>Tip:</strong> Carry a travel prayer mat—pray anywhere, anytime.</p>
-
-        <h3>9. 👨‍👩‍👧 Encourage Family & Friends</h3>
-        <p>Support from others helps in consistency.</p>
-        <p><strong>Qur'an:</strong> "And enjoin Salah upon your family and be steadfast therein." (Surah Ta-Ha 20:132)</p>
-        <p><strong>Tip:</strong> Set a family/group reminder to pray together.</p>
-
-        <h3>10. 🌙 Reflect on the Rewards of Salah</h3>
-        <p>Salah wipes away sins and raises ranks.</p>
-        <p><strong>Hadith:</strong> The Prophet ﷺ said: "The five daily prayers are like a river flowing at your door in which one bathes five times a day." (Sahih Muslim, 667)</p>
-        <p><strong>Reflection:</strong> Every Salah is a chance to start fresh and cleanse your soul.</p>
-
-        <h2>🌟 Conclusion</h2>
-        <p>Salah is not a burden—it's the believer's peace, strength, and source of success. In a busy world, consistency in Salah is a conscious choice to put Allah first, and when you do, everything else falls into place. Start small, stay steady, and remember that every prayer is a gift.</p>
-
-        <p><strong>If you want to stay inspired with practical Islamic reminders and lifestyle guidance, connect with Zuhd AU for more.</strong></p>
-
-        <p><strong>Brought to you by Zuhd AU – Faith-Inspired Lifestyle</strong></p>
-        <p>Website: <a href="https://www.zuhd.au/">https://www.zuhd.au/</a></p>
-        <p>YouTube: <a href="https://www.youtube.com/@zuhdau">Zuhd AU Channel</a></p>
-
-        <p><a href="news.html">← Back to All Articles</a></p>
-    </div>
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', generateTipCards);
+    </script>
+        <script src="navbar.js"></script>
 
 </body>
 </html>
