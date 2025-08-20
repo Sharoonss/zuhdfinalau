@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Adab – Protecting Iman Online | Zuhd Maktab</title>
+        <link rel="stylesheet" href="styles.css">
+
+    <style>
+ :root {
+  --gold: #c89b3c;
+  --beige: #f5f2e9;
+  --cream: #fffaf0;
+  --deep-green: #0f3d2e;
+}
+
+@font-face {
+  font-family: "Serotiva-Black";
+  src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Bold";
+  src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Light";
+  src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Regular";
+  src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
+  line-height: 1.6;
+  color: #0c0d0e;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+  background-color: white;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  height: 80vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.ibb.co/SD1Zszym/Consistency-in-Salah-Tips-for-the-Busy-Muslim.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0; /* keep background lowest */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1; /* overlay above background */
+}
+
+.hero-title {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  padding: 0 1rem;
+  width: 800px;
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+  line-height: 60px;
+  text-transform: uppercase;
+  z-index: 2; /* content above overlay */
+  font-family: "Serotiva-Black";
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.article-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.article-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #064e3b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-family: "Serotiva-Bold";
+}
+
+@media (min-width: 768px) {
+  .article-title {
+    font-size: 3rem;
+  }
+}
+
+.article-date {
+  color: #4b5563;
+  font-size: 1.125rem;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #064e3b;
+  margin-bottom: 1.5rem;
+  font-family: "Serotiva-Bold";
+}
+
+.section-content {
+  color: #1f2937;
+  line-height: 1.75;
+}
+
+.section-content p {
+  margin-bottom: 1rem;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: "Serotiva-Regular";
+}
+
+/* Quick Reminders List */
+.quick-list {
+  list-style: decimal;
+  list-style-position: inside;
+  padding-left: 1rem;
+  color: #1f2937;
+  font-family: "Serotiva-Regular";
+}
+
+.quick-list li {
+  margin-bottom: 0.5rem;
+  font-family: "Serotiva-Regular";
+  font-size: 20px;
+}
+
+/* Tip Cards */
+.tip-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tip-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.tip-title {
+  font-weight: bold;
+  color: #064e3b;
+  font-size: 28px;
+  margin-bottom: 0.75rem;
+  font-family: "Serotiva-Bold";
+}
+
+.tip-description {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-family: "Serotiva-Regular";
+}
+
+.verse-box {
+  background-color: #dbeafe;
+  border-left: 4px solid #20492a;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-family: "Serotiva-Regular";
+}
+
+.tip-box {
+  background-color: #dcfce7;
+  border-left: 4px solid #c5b17a;
+  padding: 1rem;
+  font-family: "Serotiva-Regular";
+}
+
+.verse-box strong,
+.tip-box strong {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Serotiva-Regular";
+}
+
+/* Back Link */
+.back-link-container {
+  text-align: center;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #0f3d2e;
+  color: #020202;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: "Serotiva-regular";
+}
+
+.back-link:hover {
+  background-color: #0f3d2e;
+  color: white;
+}
+
+.arrow-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Links */
+a {
+  color: #0f3d2e;
+  text-decoration: none;
+  font-family: "Serotiva-regular";
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.conclusion-links a {
+  margin-left: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  .article-title {
+    font-size: 3rem;
+  }
+}
+
+/* Mobile Responsive Media Queries */
+
+/* Extra Small Devices (phones, 320px and up) */
+@media (max-width: 480px) {
+  /* Adding mobile-first responsive styles */
+  .hero-banner {
+    height: 60vh;
+    min-height: 300px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    width: 100%;
+    max-width: 300px;
+    line-height: 1.3;
+    padding: 0 0.5rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem;
+  }
+
+  .article-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-content p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0.75rem;
+  }
+
+  .quick-list li {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .tip-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tip-title {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+  }
+
+  .tip-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .verse-box,
+  .tip-box {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .verse-box strong,
+  .tip-box strong {
+    font-size: 16px;
+  }
+
+  .back-link {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+  }
+}
+
+/* Small Devices (landscape phones, 481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Styles for small landscape devices */
+  .hero-banner {
+    height: 70vh;
+    min-height: 350px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    width: 100%;
+    max-width: 500px;
+    line-height: 1.2;
+  }
+
+  .main-content {
+    padding: 3rem 1.25rem;
+  }
+
+  .article-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-content p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .quick-list li {
+    font-size: 18px;
+  }
+
+  .tip-title {
+    font-size: 24px;
+  }
+
+  .tip-description {
+    font-size: 17px;
+  }
+}
+
+/* Medium Devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Tablet-specific optimizations */
+  .hero-title {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .main-content {
+    max-width: 900px;
+    padding: 3.5rem 2rem;
+  }
+
+  .tip-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .article-title {
+    font-size: 2.75rem;
+  }
+}
+
+/* Large Devices (desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Desktop optimizations */
+  .main-content {
+    max-width: 1000px;
+  }
+
+  .tip-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Large desktop enhancements */
+  .tip-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .main-content {
+    padding: 5rem 2rem;
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Landscape phone optimizations */
+  .hero-banner {
+    height: 100vh;
+    min-height: 400px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+
+/* High DPI/Retina Display Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Retina display optimizations */
+  .hero-bg {
+    background-size: cover;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+    </style>
+</head>
+<body>
+     <nav>
+        <div id="navbar"></div>
+    </nav>
+
+    <div class="min-h-screen">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <h1 class="hero-title">Social Media Adab – Protecting Iman Online</h1> 
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">
+                        Social Media Adab – Protecting Iman Online
+                    </h1>
+                    <p class="article-date">
+                        <strong>Date:</strong> August 20, 2025
+                    </p>
+                </header>
+
+                <!-- Introduction -->
+                <section class="section">
+                    <h2 class="section-title"> Introduction</h2>
+                    <div class="section-content">
+                        <p>
+                            In today's digital age, social media has become a part of our daily lives—connecting us, informing us, and often distracting us. As Muslims, our responsibility doesn't end when we go online; in fact, it increases. Islam teaches us adab (etiquette) for every sphere of life, including how we use our tongues, eyes, and hands. Since social media amplifies all three, protecting our Iman online is more crucial than ever. By practicing prophetic guidance, we can ensure that our online presence is pleasing to Allah ﷻ and beneficial for others.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Quick Reminders -->
+                <section class="section">
+                    <h2 class="section-title"> Carousel Sunnahs & Lessons</h2>
+                    <ol class="quick-list">
+                        <li>Think Before You Post</li>
+                        <li>Guard Your Eyes from Haram Content</li>
+                        <li>Avoid Backbiting & Gossip</li>
+                        <li>Practice Modesty in Sharing</li>
+                        <li>Use Social Media for Dawah & Good</li>
+                        <li>Limit Screen Time & Prioritize Salah</li>
+                        <li>Make Du'a for Barakah in Online Use</li>
+                    </ol>
+                </section>
+
+                <!-- Tips -->
+                <section class="tip-cards" id="tipCards">
+                    <!-- Tips will be generated by JavaScript -->
+                </section>
+
+                <!-- Conclusion -->
+                <section class="section">
+                    <h2 class="section-title"> Conclusion</h2>
+                    <div class="section-content">
+                        <p>
+                            Social media can be a tool for reward or regret—the choice lies in how we use it. By following Qur'anic guidance and Sunnah, we can protect our Iman, inspire others, and leave behind a legacy of goodness instead of sins that continue after us. 🌙
+                        </p>
+                        <p>
+                             For more inspiring Islamic reminders, Sunnah practices, and lifestyle tips rooted in faith, explore Zuhd AU:
+                        </p>
+                        <p><strong>Brought to you by Zuhd AU – Faith-Inspired Lifestyle</strong></p>
+                        <p class="conclusion-links">
+                            🔗  Website: 
+                            <a href="https://www.zuhd.au/">https://www.zuhd.au/ zuhd.au</a>
+                            |  YouTube: 
+                            <a href="https://www.youtube.com/@zuhdau">https://www.youtube.com/@zuhdau</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Back Link -->
+                <div class="back-link-container">
+                    <a href="/news" class="back-link">
+                        <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to All Articles
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+<footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column footer-logo">
+                    <div class="logo-main">
+                        <img src="/images/logo.png" alt="ZUHD Logo">
+                    </div>
+                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                 </div>
+                <div class="footer-column">
+                    <h3>zuhd Academy</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+ 
+                <div class="footer-column newsletter">
+                    <h3>Stay Connected to Guidance</h3>
+                    <p>Exclusive insights, new lectures & timeless reminders — direct to your inbox.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">SUBMIT</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook">
+                            <img src="/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram">
+                            <img src="/instagram.png" alt="instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok">
+                            <img src="/tik-tok.png" alt="TikTok">
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
+                            <img src="/youtube.png" alt="YouTube">
+                        </a>
+                        <!-- <a href="https://www.linkedin.com/zuhd.au" class="social-link" onclick="socialClick('LinkedIn')" title="LinkedIn">
+                            <img src="/linkedin.png" alt="LinkedIn">
+                        </a> -->
+                        <!-- <a href="https://x.com/zuhd.au" class="social-link" onclick="socialClick('Twitter')" title="Twitter">
+                            <img src="/twitter-alt-square.png" alt="Twitter">
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const tips = [
+            {
+                number: 1,
+                title: " Think Before You Post",
+                description: " Before posting, ask: Is this beneficial? Does it please Allah?",
+                verse: {
+                    type: "Qur'an",
+                    text: "Not a word does he utter but there is a watcher by him ready (to record it).",
+                    reference: "Surah Qaf 50:18"
+                },
+                tip: " \"Whoever believes in Allah and the Last Day should speak good or remain silent.\" — (Sahih Bukhari, Sahih Muslim)"
+            },
+            {
+                number: 2,
+                title: " Guard Your Eyes from Haram Content",
+                description: " Limit exposure to inappropriate content—unfollow, mute, or block when necessary.",
+                verse: {
+                    type: "Qur'an",
+                    text: "Tell the believing men to lower their gaze and guard their private parts…",
+                    reference: "Surah An-Nur 24:30"
+                },
+                tip: " \"The glance is a poisoned arrow of Shaytan.\" — (Tirmidhi)"
+            },
+            {
+                number: 3,
+                title: "Avoid Backbiting & Gossip",
+                description: " Avoid commenting, sharing, or spreading negative talk online.",
+                verse: {
+                    type: "Qur'an",
+                    text: "And do not backbite one another. Would any of you like to eat the flesh of his dead brother? You would hate it.",
+                    reference: "Surah Al-Hujurat 49:12"
+                },
+                tip: " \"Backbiting is to mention about your brother that which he dislikes.\" — (Sahih Muslim)"
+            },
+            {
+                number: 4,
+                title: " Practice Modesty in Sharing",
+                description: " Share with humility, not for showing off likes, wealth, or blessings.",
+                verse: {
+                    type: "Qur'an",
+                    text: "Indeed, Allah does not like the arrogant and boastful.",
+                    reference: "Surah An-Nisa 4:36"
+                },
+                tip: " \"Modesty is a part of faith.\" — (Sahih Bukhari, Sahih Muslim)"
+            },
+            {
+                number: 5,
+                title: " Use Social Media for Dawah & Good",
+                description: " Use your platform for Qur'anic reminders, Hadith, charity causes, or positive messages.",
+                verse: {
+                    type: "Qur'an",
+                    text: "Invite to the way of your Lord with wisdom and good instruction…",
+                    reference: "Surah An-Nahl 16:125"
+                },
+                tip: " \"Convey from me, even if it is one verse.\" — (Sahih Bukhari)"
+            },
+            {
+                number: 6,
+                title: " Limit Screen Time & Prioritize Salah",
+                description: " Don't let scrolling delay your prayers—set reminders to log off when it's Salah time.",
+                verse: {
+                    type: "Qur'an",
+                    text: "Indeed, prayer has been decreed upon the believers a decree of specified times.",
+                    reference: "Surah An-Nisa 4:103"
+                },
+                tip: "\"The most beloved deed to Allah is to offer Salah at its proper time.\" — (Sahih Bukhari, Sahih Muslim)"
+            },
+            {
+                number: 7,
+                title: " Make Du'a for Barakah in Online Use",
+                description: " Ask Allah for guidance so your online time benefits you in dunya & akhirah.",
+                verse: {
+                    type: "Du'a from Qur'an",
+                    text: "My Lord, increase me in knowledge.",
+                    reference: "Surah Ta-Ha 20:114"
+                },
+                tip: " \"O Allah, make the Qur'an the spring of our hearts, the light of our chest, and the remover of our sadness.\" — (Musnad Ahmad, Sahih according to Albani)"
+            }
+        ];
+
+        // Function to create tip card HTML
+        function createTipCard(tip) {
+            const tipType = tip.tipType || 'tip';
+            const tipLabel = tipType === 'reflection' ? 'Reflection' : 'Tip';
+            
+            return `
+                <div class="tip-card">
+                    <div class="tip-title">
+                        ${tip.number}. ${tip.title}
+                    </div>
+                    <p class="tip-description">${tip.description}</p>
+                    
+                    <div class="verse-box">
+                        <strong>${tip.verse.type}:</strong> ${tip.verse.text} (${tip.verse.reference})
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>${tipLabel}:</strong> ${tip.tip}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate all tip cards
+        function generateTipCards() {
+            const tipCardsContainer = document.getElementById('tipCards');
+            const tipCardsHTML = tips.map(tip => createTipCard(tip)).join('');
+            tipCardsContainer.innerHTML = tipCardsHTML;
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', generateTipCards);
+    </script>
+        <script src="navbar.js"></script>
+
+</body>
+</html>
