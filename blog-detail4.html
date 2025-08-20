@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    <title>The Power of Gratitude (Shukr) in Islam | Zuhd Maktab</title>
+    <style>
+:root {
+  --gold: #c89b3c;
+  --beige: #f5f2e9;
+  --cream: #fffaf0;
+  --deep-green: #0f3d2e;
+}
+
+@font-face {
+  font-family: "Serotiva-Black";
+  src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Bold";
+  src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Light";
+  src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+}
+@font-face {
+  font-family: "Serotiva-Regular";
+  src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
+  line-height: 1.6;
+  color: #0c0d0e;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+  background-color: white;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  height: 80vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.ibb.co/SD1Zszym/Consistency-in-Salah-Tips-for-the-Busy-Muslim.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0; /* keep background lowest */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1; /* overlay above background */
+}
+
+.hero-title {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  padding: 0 1rem;
+  width: 800px;
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+  line-height: 60px;
+  text-transform: uppercase;
+  z-index: 2; /* content above overlay */
+  font-family: "Serotiva-Black";
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.article-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.article-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #064e3b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-family: "Serotiva-Bold";
+}
+
+@media (min-width: 768px) {
+  .article-title {
+    font-size: 3rem;
+  }
+}
+
+.article-date {
+  color: #4b5563;
+  font-size: 1.125rem;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #064e3b;
+  margin-bottom: 1.5rem;
+  font-family: "Serotiva-Bold";
+}
+
+.section-content {
+  color: #1f2937;
+  line-height: 1.75;
+}
+
+.section-content p {
+  margin-bottom: 1rem;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: "Serotiva-Regular";
+}
+
+/* Quick Reminders List */
+.quick-list {
+  list-style: decimal;
+  list-style-position: inside;
+  padding-left: 1rem;
+  color: #1f2937;
+  font-family: "Serotiva-Regular";
+}
+
+.quick-list li {
+  margin-bottom: 0.5rem;
+  font-family: "Serotiva-Regular";
+  font-size: 20px;
+}
+
+/* Tip Cards */
+.tip-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tip-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.tip-title {
+  font-weight: bold;
+  color: #064e3b;
+  font-size: 28px;
+  margin-bottom: 0.75rem;
+  font-family: "Serotiva-Bold";
+}
+
+.tip-description {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-family: "Serotiva-Regular";
+}
+
+.verse-box {
+  background-color: #dbeafe;
+  border-left: 4px solid #20492a;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-family: "Serotiva-Regular";
+}
+
+.tip-box {
+  background-color: #dcfce7;
+  border-left: 4px solid #c5b17a;
+  padding: 1rem;
+  font-family: "Serotiva-Regular";
+}
+
+.verse-box strong,
+.tip-box strong {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Serotiva-Regular";
+}
+
+/* Back Link */
+.back-link-container {
+  text-align: center;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #0f3d2e;
+  color: #020202;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: "Serotiva-regular";
+}
+
+.back-link:hover {
+  background-color: #0f3d2e;
+  color: white;
+}
+
+.arrow-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Links */
+a {
+  color: #0f3d2e;
+  text-decoration: none;
+  font-family: "Serotiva-regular";
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.conclusion-links a {
+  margin-left: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  .article-title {
+    font-size: 3rem;
+  }
+}
+
+/* Mobile Responsive Media Queries */
+
+/* Extra Small Devices (phones, 320px and up) */
+@media (max-width: 480px) {
+  /* Adding mobile-first responsive styles */
+  .hero-banner {
+    height: 60vh;
+    min-height: 300px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    width: 100%;
+    max-width: 300px;
+    line-height: 1.3;
+    padding: 0 0.5rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem;
+  }
+
+  .article-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-content p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0.75rem;
+  }
+
+  .quick-list li {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .tip-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tip-title {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+  }
+
+  .tip-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .verse-box,
+  .tip-box {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .verse-box strong,
+  .tip-box strong {
+    font-size: 16px;
+  }
+
+  .back-link {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+  }
+}
+
+/* Small Devices (landscape phones, 481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Styles for small landscape devices */
+  .hero-banner {
+    height: 70vh;
+    min-height: 350px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    width: 100%;
+    max-width: 500px;
+    line-height: 1.2;
+  }
+
+  .main-content {
+    padding: 3rem 1.25rem;
+  }
+
+  .article-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-content p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .quick-list li {
+    font-size: 18px;
+  }
+
+  .tip-title {
+    font-size: 24px;
+  }
+
+  .tip-description {
+    font-size: 17px;
+  }
+}
+
+/* Medium Devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Tablet-specific optimizations */
+  .hero-title {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .main-content {
+    max-width: 900px;
+    padding: 3.5rem 2rem;
+  }
+
+  .tip-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .article-title {
+    font-size: 2.75rem;
+  }
+}
+
+/* Large Devices (desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Desktop optimizations */
+  .main-content {
+    max-width: 1000px;
+  }
+
+  .tip-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Large desktop enhancements */
+  .tip-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .main-content {
+    padding: 5rem 2rem;
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Landscape phone optimizations */
+  .hero-banner {
+    height: 100vh;
+    min-height: 400px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+
+/* High DPI/Retina Display Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Retina display optimizations */
+  .hero-bg {
+    background-size: cover;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+    </style>
+</head>
+<body>
+     <nav>
+        <div id="navbar"></div>
+    </nav>
+
+    <div class="min-h-screen">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <h1 class="hero-title">The Power of Gratitude (Shukr) in Islam</h1> 
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">
+                        The Power of Gratitude (Shukr) in Islam
+                    </h1>
+                    <p class="article-date">
+                        <strong>Date:</strong> August 20, 2025
+                    </p>
+                </header>
+
+                <!-- Introduction -->
+                <section class="section">
+                    <h2 class="section-title">Introduction</h2>
+                    <div class="section-content">
+                        <p>
+                            Gratitude or Shukr is more than just saying Alhamdulillah. In Islam, it's a way of life, a constant reminder that everything we have is from Allah ﷻ. From the food we eat to the breath we take, every blessing deserves acknowledgment. The Qur'an and Sunnah highlight that true success lies in recognizing Allah's favors and thanking Him in both ease and hardship.
+                        </p>
+                        <p>
+                            When we live with gratitude, our hearts become lighter, our patience grows stronger, and our lives are filled with barakah. Let's explore the power of Shukr through Qur'anic verses, Hadith, and beautiful du'as that you can revive daily.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Quick Reminders -->
+                <section class="section">
+                    <h2 class="section-title"> Carousel Snapshot (Quick Reminders)</h2>
+                    <ol class="quick-list">
+                        <li> Shukr increases blessings</li>
+                        <li> Qur'an praises the people of gratitude</li>
+                        <li> Shukr is both words & actions</li>
+                        <li> Prophet ﷺ was the most grateful servant</li>
+                        <li> Gratitude even in hardship</li>
+                        <li>Daily du'as of Shukr</li>
+                        <li> Shukr protects from arrogance</li>
+                        <li> Night prayers & gratitude</li>
+                        <li> Gratitude towards people is part of faith</li>
+                        <li> Shukr brings peace to the heart</li>
+                    </ol>
+                </section>
+
+                <!-- Tips -->
+                <section class="tip-cards" id="tipCards">
+                    <!-- Tips will be generated by JavaScript -->
+                </section>
+
+                <!-- Conclusion -->
+                <section class="section">
+                    <h2 class="section-title"> Conclusion</h2>
+                    <div class="section-content">
+                        <p>
+                            Gratitude is not just an act—it's a lifestyle that transforms how we see the world. By practicing Shukr daily, we invite blessings, strengthen our faith, and find peace even in trials. The Prophet ﷺ showed us that gratitude is the path to closeness with Allah ﷻ, whether through prayer, patience, or words of praise.
+                        </p>
+                        <p>
+                             If you're ready to nurture a grateful heart and revive Sunnahs that fill your soul with peace, explore more reminders and inspirations with Zuhd AU.
+                        </p>
+                        <p><strong>✨ Let's revive the beauty of Shukr together—one du'a, one verse, one Sunnah at a time.</strong></p>
+                        <p class="conclusion-links">
+                            🔗  Website: 
+                            <a href="https://www.zuhd.au/">https://www.zuhd.au/</a>
+                            | ▶  YouTube: 
+                            <a href="https://www.youtube.com/@zuhdau">Zuhd AU Channel</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Back Link -->
+                <div class="back-link-container">
+                    <a href="/news" class="back-link">
+                        <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to All Articles
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        const tips = [
+            {
+                number: 1,
+                title: " Shukr Increases Blessings",
+                description: "Allah ﷻ promises that gratitude leads to more blessings.",
+                verse: {
+                    type: "Qur'an",
+                    text: "If you are grateful, I will surely increase you [in favor]. But if you deny, indeed, My punishment is severe.",
+                    reference: "Surah Ibrahim 14:7"
+                },
+                tip: "Keep a daily \"Alhamdulillah journal\" to record three blessings each night."
+            },
+            {
+                number: 2,
+                title: " Qur'an Praises the People of Gratitude",
+                description: "Gratitude is a quality of the righteous.",
+                verse: {
+                    type: "Qur'an",
+                    text: "And few of My servants are truly grateful.",
+                    reference: "Surah Saba 34:13"
+                },
+                tip: "Strive to be among the \"few\" who truly thank Allah ﷻ with heart, words, and deeds.",
+                tipType: "reflection"
+            },
+            {
+                number: 3,
+                title: " Shukr is Both Words & Actions",
+                description: "The Prophet ﷺ explained that gratitude isn't just spoken but shown through deeds.",
+                verse: {
+                    type: "Hadith",
+                    text: "The most beloved of actions to Allah are those done consistently, even if small.",
+                    reference: "Sahih Bukhari, 6465"
+                },
+                tip: "Show gratitude by praying regularly, helping others, and avoiding sins."
+            },
+            {
+                number: 4,
+                title: " Prophet ﷺ – The Most Grateful Servant",
+                description: "Despite being forgiven, the Prophet ﷺ worshiped extensively out of gratitude.",
+                verse: {
+                    type: "Hadith",
+                    text: "Aisha (RA) said: \"The Prophet ﷺ would stand [in prayer] at night until his feet swelled. I asked, 'Why do you do this when Allah has forgiven your past and future sins?' He replied, 'Should I not be a grateful servant?'\"",
+                    reference: "Sahih Bukhari, 1130; Sahih Muslim, 2820"
+                },
+                tip: "Gratitude isn't only for blessings—it's a lifelong attitude.",
+                tipType: "reflection"
+            },
+            {
+                number: 5,
+                title: " Gratitude Even in Hardship",
+                description: "The believer shows gratitude in ease and patience in trials.",
+                verse: {
+                    type: "Hadith",
+                    text: "The Prophet ﷺ said: \"How wonderful is the affair of the believer! Everything is good for him… If something good happens, he is grateful and that is good for him; if something bad happens, he is patient and that is good for him.\"",
+                    reference: "Sahih Muslim, 2999"
+                },
+                tip: "Say Alhamdulillah even when life feels tough—it's a shield for your heart."
+            },
+            {
+                number: 6,
+                title: " Daily Du'as of Shukr",
+                description: "Beautiful supplications to nurture gratitude daily.",
+                verse: {
+                    type: "Qur'an",
+                    text: "My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents, and to do righteousness that You approve of.",
+                    reference: "Surah An-Naml 27:19"
+                },
+                tip: "The Prophet ﷺ would say: \"O Allah, make me abundantly grateful to You, remembering You and humble before You.\" (Tirmidhi, 3370) - Repeat these du'as daily to nurture gratitude."
+            },
+            {
+                number: 7,
+                title: "Shukr Protects from Arrogance",
+                description: "Acknowledging Allah's blessings keeps us humble.",
+                verse: {
+                    type: "Hadith",
+                    text: "Whoever is not grateful to the people is not grateful to Allah.",
+                    reference: "Tirmidhi, 1954"
+                },
+                tip: "Thank people sincerely—it's part of thanking Allah.",
+                tipType: "reflection"
+            },
+            {
+                number: 8,
+                title: " Night Prayers & Gratitude",
+                description: "The Prophet ﷺ showed his gratitude with Qiyam-ul-Layl.",
+                verse: {
+                    type: "Hadith",
+                    text: "The closest a servant comes to his Lord is during the last part of the night.",
+                    reference: "Tirmidhi, 3579"
+                },
+                tip: "Wake up for even two rak'ahs of night prayer—an intimate moment of Shukr."
+            },
+            {
+                number: 9,
+                title: " Gratitude Towards People is Faith",
+                description: "Islam emphasizes thanking others as part of Iman.",
+                verse: {
+                    type: "Hadith",
+                    text: "He who does not thank people has not thanked Allah.",
+                    reference: "Tirmidhi, 1954"
+                },
+                tip: "Show gratitude to parents, teachers, and anyone who helps you."
+            },
+            {
+                number: 10,
+                title: " Shukr Brings Peace to the Heart",
+                description: "Dhikr and Shukr bring tranquility.",
+                verse: {
+                    type: "Qur'an",
+                    text: "Unquestionably, by the remembrance of Allah hearts are assured.",
+                    reference: "Surah Ar-Ra'd 13:28"
+                },
+                tip: "True peace is not in having more, but in appreciating what we already have.",
+                tipType: "reflection"
+            }
+        ];
+
+        // Function to create tip card HTML
+        function createTipCard(tip) {
+            const tipType = tip.tipType || 'tip';
+            const tipLabel = tipType === 'reflection' ? 'Reflection' : 'Tip';
+            
+            return `
+                <div class="tip-card">
+                    <div class="tip-title">
+                        ${tip.number}. ${tip.title}
+                    </div>
+                    <p class="tip-description">${tip.description}</p>
+                    
+                    <div class="verse-box">
+                        <strong>${tip.verse.type}:</strong> ${tip.verse.text} (${tip.verse.reference})
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>${tipLabel}:</strong> ${tip.tip}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate all tip cards
+        function generateTipCards() {
+            const tipCardsContainer = document.getElementById('tipCards');
+            const tipCardsHTML = tips.map(tip => createTipCard(tip)).join('');
+            tipCardsContainer.innerHTML = tipCardsHTML;
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', generateTipCards);
+    </script>
+        <script src="navbar.js"></script>
+
+</body>
+</html>
