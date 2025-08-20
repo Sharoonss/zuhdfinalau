@@ -449,51 +449,7 @@
             }
         }
 
-        /* Footer */
-        .footer {
-            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
-            background: var(--deep-green);
-            color: white;
-        }
-
-        .footer-column h3 {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: clamp(10px, 3vw, 15px);
-        }
-
-        .footer-column ul li a {
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-            color: var(--light-text);
-            line-height: 1.8;
-        }
-
-        .newsletter p {
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-        }
-
-        .newsletter-form input {
-            padding: clamp(8px, 2vw, 10px);
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-        }
-
-        .newsletter-form button {
-            padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-        }
-
-        .social-links {
-            gap: clamp(10px, 2vw, 15px);
-        }
-
-        .social-links img {
-            width: clamp(24px, 5vw, 30px);
-            height: auto;
-        }
-
-        .footer-bottom {
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-        }
-
+       
         /* Animations */
         @keyframes zuhdLineGrow {
             0% { transform: scaleX(0); }
@@ -906,68 +862,62 @@
         </div>
     </section> -->
 
-    <footer class="footer">
+   <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
-                <div class="footer-column footer-logo">
-                    <div class="logo-main">
-                        <img src="/images/logo.png" alt="ZUHD Logo">
-                    </div>
-                    <p class="logo-text">Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
-                </div>
                 <div class="footer-column">
-                    <h3>Zuhd Academy</h3>
+                    <h3>zuhd Academy</h3>
                     <ul>
-                        <li><a href="/about.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
-                        <li><a href="/lecture.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
-                        <li><a href="/maktab.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
-                        <li><a href="/" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                        <li><a href="/about-zuhd.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/zuhd-lectures.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/after-school-classes.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/terms.html" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">Zuhd Store</a></li>
+                        <li><a href="/store.html" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
                         <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
-                        <li><a href="/Ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                        <li><a href="/ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="/about.html" onclick="linkClick('Our Story')">Our Story</a></li>
-                        <li><a href="#" onclick="linkClick('Blog')">Blog</a></li>
-                        <li><a href="about.html" onclick="linkClick('About Us')">About Us</a></li>
-                        <li><a href="#" onclick="linkClick('Contact Us')">Contact Us</a></li>
-                        <li><a href="/qna.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                        <li><a href="/our-story.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="/blog.html" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="/about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="/contact.html" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/faq.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
                 </div>
                 <div class="footer-column newsletter">
-                    <h3>Stay Connected to Guidance</h3>
-                    <p>Exclusive insights, new lectures & timeless reminders — direct to your inbox.</p>
+                    <h3>Sign Up and Save</h3>
+                    <p>Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                     <form class="newsletter-form" onsubmit="submitNewsletter(event)">
-                        <input type="email" placeholder="Your Email" required>
-                        <button type="submit">SUBMIT</button>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">→</button>
                     </form>
-                    <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
-                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook" style="font-size: 24px; color: #3b5998;">
-                            <img src="/facebook.png" alt="Facebook">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram" style="font-size: 24px; color: #E1306C;">
-                            <img src="/instagram.png" alt="Instagram">
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram">
+                            <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok" style="font-size: 24px; color: #000;">
-                            <img src="/tik-tok.png" alt="TikTok">
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube" style="font-size: 24px; color: #FF0000;">
-                            <img src="/youtube.png" alt="YouTube">
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
+                            <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    © 2025 Zuhd Guidance All rights reserved.
+                    © 2024 Zuhd Guidance All rights reserved.
                 </div>
                 <div class="footer-links">
                     <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
@@ -978,7 +928,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Add interactive effects
         document.addEventListener('DOMContentLoaded', function () {
@@ -1010,43 +959,7 @@
             sections.forEach(section => observer.observe(section));
         });
 
-        // Mobile Footer Accordion Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const footerColumns = document.querySelectorAll('.footer-column:not(.footer-logo):not(.newsletter)');
-            footerColumns.forEach(column => {
-                const header = column.querySelector('h3');
-                if (header) {
-                    header.addEventListener('click', function () {
-                        if (window.innerWidth <= 768) {
-                            column.classList.toggle('active');
-                        }
-                    });
-                }
-            });
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 768) {
-                    footerColumns.forEach(column => column.classList.remove('active'));
-                }
-            });
-        });
-
-        // Existing functions
-        function linkClick(item) {
-            console.log('Link clicked:', item);
-        }
-
-        function socialClick(platform) {
-            console.log('Social link clicked:', platform);
-        }
-
-        function submitNewsletter(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            console.log('Newsletter submitted with email:', email);
-            alert('Thank you for subscribing!');
-            event.target.reset();
-        }
-
+        
         class ResponsiveVideoHandler {
             constructor() {
                 this.video = document.getElementById('headerVideo');
@@ -1132,6 +1045,52 @@
             } else {
                 preloadVideo('/Zuhd au Video Banner.mp4');
             }
+        }
+
+
+         // footer js 
+
+       // Mobile accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerColumns = document.querySelectorAll('.footer-column:not(.newsletter)');
+            
+            footerColumns.forEach(column => {
+                const header = column.querySelector('h3');
+                
+                header.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        column.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    footerColumns.forEach(column => {
+                        column.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+        // Analytics functions (placeholder implementations)
+        function linkClick(linkName) {
+            console.log('Link clicked:', linkName);
+            // Analytics tracking would go here
+        }
+
+        function socialClick(platform) {
+            console.log('Social media clicked:', platform);
+            // Analytics tracking would go here
+        }
+
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            console.log('Newsletter subscription:', email);
+            alert('Thank you for subscribing! (This is a demo)');
+            event.target.reset();
         }
     </script>
     <script src="navbar.js"></script>
