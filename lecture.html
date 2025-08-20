@@ -64,7 +64,7 @@
         .lectures-subtitle {
             font-size: 1.1rem;
             max-width: 700px;
-            margin: 24px auto; 
+            margin: 24px auto; /* Equal top and bottom spacing */
             opacity: 0.9;
             position: relative;
             z-index: 2;
@@ -95,7 +95,7 @@
         .section-header h1 {
             font-size: 2rem;
             color: var(--gold);
-            margin: 16px auto; 
+            margin: 16px auto; /* Equal top and bottom spacing */
             width: 90%;
             max-width: 800px;
         }
@@ -249,12 +249,12 @@
         .sort-btn {
             padding: 16px 24px;
             background: var(--gold);
-            border: 1px solid var(--gold);
-            color: var(--deep-green);
+            border: 1px solid #ddd;
+            color: #5a5a5a;
             font-size: 1rem;
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .sort-btn.active {
@@ -311,7 +311,7 @@
             font-weight: 700;
             color: var(--gold);
             text-align: center;
-            margin: 50px auto; 
+            margin: 30px auto; 
             width: 90%;
             max-width: 800px;
             position: relative;
@@ -380,7 +380,7 @@
         .islamic-playlists-section p {
             color: #333;
             max-width: 700px;
-            margin:  auto; /* Equal top and bottom spacing */
+                margin: 20px auto;
             font-size: 1.2rem;
             line-height: 1.6;
             text-align: center;
@@ -388,6 +388,7 @@
 
         .islamic-playlists-section h2 {
             color: var(--deep-green);
+
         }
 
         .islamic-pattern {
@@ -432,7 +433,10 @@
 
             .prophets-series-section h2,
             .abubakr-series-section h2,
-            .umar-series-section h2,
+            .umar-series-section h2 {
+                font-size: 2rem;
+                margin: 32px auto; /* Equal top and bottom spacing */
+            }
             .islamic-playlists-section h2 {
                 font-size: 2rem;
                 margin: 32px auto; /* Equal top and bottom spacing */
@@ -518,7 +522,7 @@
             .umar-series-section h2,
             .islamic-playlists-section h2 {
                 font-size: 1.6rem;
-                margin: 40px auto; /* Equal top and bottom spacing */
+                margin: 20px auto; /* Equal top and bottom spacing */
             }
 
             .islamic-playlists-section {
@@ -607,10 +611,6 @@
         .footer-column ul li a {
             color: #cccaca;
             font-size: 0.9rem;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--gold);
         }
 
         .footer-logo img {
@@ -958,7 +958,7 @@
         // Fetch videos from Prophets Series playlist
         async function fetchProphetsSeries() {
             try {
-                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PROPHETS_PLAYLIST_ID}&part=snippet&maxResults=50`);
+                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PROPHETS_PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}`);
                 const playlistData = await playlistResponse.json();
                 
                 if (!playlistData.items || playlistData.items.length === 0) {
@@ -967,7 +967,7 @@
                 
                 const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
                 
-                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=50`);
+                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=${MAX_RESULTS}`);
                 const videosData = await videosResponse.json();
                 
                 if (!videosData.items || videosData.items.length === 0) {
@@ -996,7 +996,7 @@
         // Fetch videos from Abu Bakr (RA) Seerah Series playlist
         async function fetchAbuBakrSeries() {
             try {
-                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${ABUBAKR_PLAYLIST_ID}&part=snippet&maxResults=50`);
+                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${ABUBAKR_PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}`);
                 const playlistData = await playlistResponse.json();
                 
                 if (!playlistData.items || playlistData.items.length === 0) {
@@ -1005,7 +1005,7 @@
                 
                 const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
                 
-                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=50`);
+                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=${MAX_RESULTS}`);
                 const videosData = await videosResponse.json();
                 
                 if (!videosData.items || videosData.items.length === 0) {
@@ -1034,7 +1034,7 @@
         // Fetch videos from Umar (RA) Seerah Series playlist
         async function fetchUmarSeries() {
             try {
-                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${UMAR_PLAYLIST_ID}&part=snippet&maxResults=50`);
+                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${UMAR_PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}`);
                 const playlistData = await playlistResponse.json();
                 
                 if (!playlistData.items || playlistData.items.length === 0) {
@@ -1043,7 +1043,7 @@
                 
                 const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
                 
-                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=50`);
+                const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,statistics&maxResults=${MAX_RESULTS}`);
                 const videosData = await videosResponse.json();
                 
                 if (!videosData.items || videosData.items.length === 0) {
