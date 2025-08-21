@@ -84,7 +84,7 @@ body {
 
 /* Hero Slider */
 .nourish-hero-carousel {
-  min-height: 100vh;
+  min-height:80vh;
   position: relative;
   overflow: hidden;
 }
@@ -94,7 +94,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height:80vh;
   opacity: 0;
   transform: translateX(100%);
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -113,31 +113,36 @@ body {
 .guidance-slide1 {
   background: url("/Banner/ZUHD\ AU\ New\ Banner-26.png") no-repeat center center;
   background-size: cover;
+    height:100%;
   background-position: center;
 }
 /* Slide Backgrounds */
 .hearts-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-01.jpg") no-repeat center center;
+  background: url("https://i.ibb.co/spks1NDv/09-Islamic-scholars-1920x500.png") no-repeat center center;
   background-size: cover;
   background-position: center;
+   height:100%;
 }
 
 .wisdom-slide {
   background: url("/ZUHD\ AU\ New\ Banner-02.jpg") no-repeat center center;
   background-size: cover;
   background-position: center;
+   height:100%;
 }
 
 .community-slide {
   background: url("/ZUHD\ AU\ New\ Banner-03.jpg") no-repeat center center;
   background-size: cover;
   background-position: center;
+   height:100%;
 }
 
 .guidance-slide {
   background: url("/ZUHD\ AU\ New\ Banner-04.jpg") no-repeat center center;
   background-size: cover;
   background-position: center;
+   height:100%;
 }
 
 .revive-content-grid {
