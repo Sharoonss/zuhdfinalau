@@ -179,7 +179,6 @@ body {
   animation: fadeInUp 0.8s ease-out 0.4s forwards;
   line-height: clamp(20px, 4vw, 25px);
 }
-
 .external-link:hover::after {
   opacity: 1;
 }
@@ -329,8 +328,8 @@ body {
 
 .explore-prompt {
   position: absolute;
-  bottom: 1rem;
-  right: 2rem;
+  bottom: 1px;
+  right: 10px;
   text-align: center;
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   color: inherit;
@@ -1333,6 +1332,7 @@ color:#0a2a1f;
 
 .section-subtitle {
   font-size:22px;
+  padding: 8px;
   color: var(--sand-beige);
   margin-bottom: clamp(15px, 4vw, 20px);
   /* font-weight: 300; */
@@ -1491,7 +1491,9 @@ color:#0a2a1f;
   gap: clamp(15px, 4vw, 20px);
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: clamp(35px, 4vw, 20px);
+  /* padding: clamp(35px, 4vw, 20px); */
+  padding-top: 35px;
+  padding-bottom: 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   justify-content: center;
@@ -1729,7 +1731,7 @@ color:#0a2a1f;
 /* Mobile adjustments */
 @media (max-width: 480px) {
       .guidance-slide1 {
-  background: url("/Banner/ZUHD AU New Banner-28.png") no-repeat center center;
+  background: url("https://i.ibb.co/DqP0Bp4/ZUHD-AU-New-Banner-28.jpg") no-repeat center center;
   background-size: cover;
 }
   .category-filters {
