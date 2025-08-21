@@ -324,8 +324,8 @@ body {
 
 .explore-prompt {
   position: absolute;
-  bottom: 1rem;
-  right: 2rem;
+  bottom: 1px;
+  right: 10px;
   text-align: center;
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   color: inherit;
@@ -1328,6 +1328,7 @@ color:#0a2a1f;
 
 .section-subtitle {
   font-size:22px;
+  padding: 8px;
   color: var(--sand-beige);
   margin-bottom: clamp(15px, 4vw, 20px);
   /* font-weight: 300; */
@@ -1486,7 +1487,9 @@ color:#0a2a1f;
   gap: clamp(15px, 4vw, 20px);
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: clamp(35px, 4vw, 20px);
+  /* padding: clamp(35px, 4vw, 20px); */
+  padding-top: 35px;
+  padding-bottom: 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   justify-content: center;
