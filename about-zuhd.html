@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Zuhd</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- GSAP core + ScrollTrigger CDN -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
 
     <!-- Your custom JS -->
     <script defer src="script.js"></script>
@@ -19,12 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        /* :root {
-            --deep-green: #0D3B2E;
-            --gold: #C9A145;
-            --light-gold: #E0C97A;
-            --light-text: #F5F5F5;
-        } */
+        
 
         .header-content {
             margin-top: 80px;
@@ -333,144 +324,6 @@
             line-height: 1.6;
         }
 
-        /* Timeline Section */
-        .zuhd-timeline-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
-        }
-
-        .zuhd-section-title2 {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--gold);
-            margin: clamp(20px, 4vw, 40px) 0;
-        }
-
-        .zuhd-timeline-container {
-            position: relative;
-            margin-top: clamp(30px, 5vw, 50px);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .zuhd-timeline-line {
-            position: absolute;
-            top: 25px;
-            left: 9.5%;
-            right: 9.5%;
-            height: 4px;
-            background: linear-gradient(to right, white, var(--gold), var(--gold), var(--gold));
-            transform-origin: left;
-            animation: zuhdLineGrow 2s ease-in-out forwards;
-            animation-delay: 1s;
-            transform: scaleX(0);
-            z-index: 1;
-            border-radius: 2px;
-        }
-
-        .zuhd-timeline-item {
-            position: relative;
-            width: 22%;
-            text-align: center;
-            opacity: 0;
-            z-index: 2;
-            animation: zuhdFadeInUp 0.6s ease-out forwards;
-        }
-
-        .zuhd-timeline-item:nth-child(2) { animation-delay: 1.5s; }
-        .zuhd-timeline-item:nth-child(3) { animation-delay: 1.8s; }
-        .zuhd-timeline-item:nth-child(4) { animation-delay: 2.1s; }
-        .zuhd-timeline-item:nth-child(5) { animation-delay: 2.4s; }
-        .zuhd-timeline-item:nth-child(6) { animation-delay: 2.7s; }
-
-        .zuhd-timeline-dot {
-            width: clamp(14px, 2vw, 18px);
-            height: clamp(14px, 2vw, 18px);
-            background-color: var(--gold);
-            border: 3px solid var(--deep-green);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            position: relative;
-            transform: scale(0);
-            transition: all 0.3s ease;
-            animation: zuhdScaleIn 0.4s ease-out forwards;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .zuhd-timeline-item:nth-child(2) .zuhd-timeline-dot { animation-delay: 1.8s; }
-        .zuhd-timeline-item:nth-child(3) .zuhd-timeline-dot { animation-delay: 2.1s; }
-        .zuhd-timeline-item:nth-child(4) .zuhd-timeline-dot { animation-delay: 2.4s; }
-        .zuhd-timeline-item:nth-child(5) .zuhd-timeline-dot { animation-delay: 2.7s; }
-        .zuhd-timeline-item:nth-child(6) .zuhd-timeline-dot { animation-delay: 3s; }
-
-        .zuhd-timeline-dot:hover,
-        .zuhd-timeline-dot:active {
-            background-color: var(--deep-green);
-            border-color: var(--gold);
-            transform: scale(1.3);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-        }
-
-        .zuhd-timeline-dot.zuhd-pulse {
-            animation: zuhdPulse 2s ease-in-out infinite;
-            animation-delay: 4s;
-        }
-
-        .zuhd-timeline-content {
-            padding: 0 clamp(5px, 2vw, 10px);
-        }
-
-        .zuhd-timeline-year {
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-
-        .zuhd-timeline-description {
-            font-size: clamp(0.8rem, 2vw, 1rem);
-            color: #e0e0e0;
-            line-height: 1.6;
-            background: rgba(255, 255, 255, 0.1);
-            padding: clamp(8px, 2vw, 10px);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            /* Fallback for browsers that don't support backdrop-filter */
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        @supports (backdrop-filter: blur(10px)) {
-            .zuhd-timeline-description {
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-            }
-        }
-
-       
-        /* Animations */
-        @keyframes zuhdLineGrow {
-            0% { transform: scaleX(0); }
-            100% { transform: scaleX(1); }
-        }
-
-        @keyframes zuhdFadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes zuhdScaleIn {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes zuhdPulse {
-            0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
-        }
 
         /* Responsive Design */
         @media (max-width: 992px) {

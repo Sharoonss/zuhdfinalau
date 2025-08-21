@@ -2615,9 +2615,9 @@ color:#0a2a1f;
 
     .lectures-main {
     padding-top: 100px;
-    min-height: 100vh;
+    min-height:85vh;
 
-    background-image: url('/images/150ppi/04\ Lectures.png'); /* Replace with your actual image path */
+    background-image: url('https://i.ibb.co/VcTJczHN/04-Lectures-1920x500.png'); /* Replace with your actual image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -4202,7 +4202,7 @@ color:#0a2a1f;
 /* Hero Section */
 .zuhd-hero-section {
     position: relative;
-    height: 100vh;
+    height:85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4869,13 +4869,13 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 }
 
 .ziyarat-header {
-    height: 100vh; /* Ensures full hero section */
+    height:85vh; /* Ensures full hero section */
     margin-bottom: 30px;
     opacity: 0;
     animation: ziyaratFadeInUp 1s ease-out forwards;
     animation-delay: 0.2s;
 
-    background-image: url('/images/150ppi/06\ Ziyarat.png'); /* Replace with your actual image path */
+    background-image: url('https://i.ibb.co/BHK5gBck/06-ziyarat-1920x500.png'); /* Replace with your actual image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -5390,8 +5390,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 /* maktab css  */
   /* Banner Section */
         .banner-wrapper {
-            height: 100vh;
-            background-image: url('/images/150ppi/05\ maktab.png');
+            height:85vh;
+            background-image: url('https://i.ibb.co/LXmcQp3T/05-Maktab-1920x500.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -6220,8 +6220,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
          
         /* Hero Section */
         .consultation-hero-section {
-            background: url("/images/150ppi/03\ Islamic\ Consultation.png") center center / cover no-repeat; /* Desktop background */
-            height: 100vh;
+            background: url("https://i.ibb.co/nsBpr52P/03-Islamic-consultation-1920x500.png") center center / cover no-repeat; /* Desktop background */
+            height:85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -9256,6 +9256,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             display: block;
             padding: 0.2rem 0;
             font-weight: 400;
+              font-family: "Serotiva-Regular";
+
         }
 
         .footer-column ul li a:hover {
@@ -9655,7 +9657,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           padding-right: 20px;
       }
       .section-heading-center-green {
-          font-family: 'Amiri', serif;
+          /* font-family: 'Amiri', serif; */
           font-size: 2.8rem;
           font-weight: 700;
           color: var(--primary-green);
@@ -11451,7 +11453,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 .iq-quote-mark {
   font-size: 4rem;
   color: #2c2c2c;
-  font-family: Georgia, serif;
+  /* font-family: Georgia, serif; */
   line-height: 1;
   margin-bottom: 20px;
 }
