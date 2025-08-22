@@ -88,7 +88,7 @@
         .section-header {
             text-align: center;
             margin-bottom: 60px;
-            margin-top: 80px;
+            margin-top: 40px;
             position: relative;
         }
 
@@ -397,8 +397,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30 0 C10 0 10 30 30 30 C50 30 50 60 30 60 M30 0 C50 0 50 30 30 30 C10 30 10 60 30 60' fill='none' stroke='%23C8B88A' stroke-width='2' stroke-opacity='0.6'/%3E%3Cpath d='M0 30 C0 10 30 10 30 30 C30 50 60 50 60 30 M0 30 C0 50 30 50 30 30 C30 10 60 10 60 30' fill='none' stroke='%23C8B88A' stroke-width='2' stroke-opacity='0.6'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='120' height='120' fill='url(%23grid)'/%3E%3C/svg%3E");
-            background-size: 120px 120px;
+background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8B88A' stroke-width='2' stroke-opacity='0.5'%3E%3Cpath d='M30 0L90 0L120 30L120 90L90 120L30 120L0 90L0 30Z'/%3E%3Cpath d='M60 20L100 60L60 100L20 60Z'/%3E%3C/g%3E%3C/svg%3E");
+background-size: 120px 120px;
+
+
+
             z-index: 0;
             animation: patternShift 20s linear infinite;
         }
@@ -572,6 +575,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBo
             font-weight: 500;
             font-size: 0.9rem;
         }
+        .banner-wrapper{
+            display: block;
+        }
 
       
     </style>
@@ -580,6 +586,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBo
     <nav>
         <div id="navbar"></div>
     </nav>
+     <section class="banner-wrapper">
     <main class="lectures-main">
         <div class="container">
             <!-- Lectures Header -->
@@ -589,6 +596,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBo
             </div>   
         </div>
     </main>
+    </section>
     <div class="main-content">
         <!-- Video Gallery -->
         <section class="video-gallery">
