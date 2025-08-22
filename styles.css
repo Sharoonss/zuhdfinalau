@@ -2361,7 +2361,7 @@ color:#0a2a1f;
     }
     
     .footer-column h3 {
-        font-size: 1rem;
+        font-size:30px;
     }
     
     .footer-column ul li a {
@@ -9175,7 +9175,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .footer-column h3 {
             color: var(--gold);
-            font-size: 22px;
+            font-size: 1rem;
             margin-bottom: 0;
             position: relative;
             font-weight: 600;
