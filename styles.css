@@ -2374,6 +2374,7 @@ color:#0a2a1f;
     
     .newsletter p {
         font-size: 0.85rem;
+        text-align: start;
     }
     
     .social-link {
@@ -2441,6 +2442,7 @@ color:#0a2a1f;
     .newsletter p {
         font-size: 0.8rem;
         margin-bottom: 0.75rem;
+        text-align: start;
     }
     
     .newsletter-form input,
@@ -9289,7 +9291,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .newsletter h3 {
             margin-bottom: 0.5rem;
-            padding: 10px 20px;
+            padding: 10px 0px;
             color: var(--gold);
             font-size: 18px;
             text-transform: uppercase;
@@ -9311,6 +9313,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
                 font-size: 18px;
                 margin-bottom: 1.5rem;
                 padding: 0;
+                text-align:start;
             }
         }
 
