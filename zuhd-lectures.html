@@ -62,7 +62,7 @@
         }
 
         .lectures-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 700px;
             margin: 24px auto; /* Equal top and bottom spacing */
             opacity: 0.9;
@@ -92,15 +92,15 @@
             position: relative;
         }
 
-        .section-header h1 {
-            font-size: 2rem;
+        .section-header h2 {
+            font-size: 2.5rem;
             color: var(--gold);
             margin: 16px auto; /* Equal top and bottom spacing */
             width: 90%;
             max-width: 800px;
         }
 
-        .section-header h1::after {
+        /* .section-header h1::after {
             content: "";
             position: absolute;
             bottom: -8px;
@@ -109,13 +109,13 @@
             width: 60px;
             height: 3px;
             background: var(--gold);
-        }
+        } */
 
         .section-header p {
-            color: #fcfcfc;
-            max-width: 700px;
-            margin: 24px auto; /* Equal top and bottom spacing */
-            font-size: 1rem;
+            color: #ffffff;
+            max-width: 600px;
+            margin: 0px auto 24px; /* Equal top and bottom spacing */
+            font-size: 1.2rem;
         }
 
         /* Video Grid Styles */
@@ -294,7 +294,7 @@
         .prophets-series-section h2,
         .abubakr-series-section h2,
         .umar-series-section h2{
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold);
             text-align: center;
@@ -307,9 +307,9 @@
 
 
 .islamic-playlists-section h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--gold);
+            font-size: 2.5rem;
+            /* font-weight: 700; */
+            /* color: #ffffff; */
             text-align: center;
             margin: 30px auto; 
             width: 90%;
@@ -318,7 +318,7 @@
             transition: color 0.3s ease;
         }
 
-        .prophets-series-section h2::after,
+        /* .prophets-series-section h2::after,
         .abubakr-series-section h2::after,
         .umar-series-section h2::after {
             content: "";
@@ -330,7 +330,7 @@
             height: 3px;
             background: var(--gold);
             transition: width 0.3s ease;
-        }
+        } */
 
 
 .islamic-playlists-section h2::after {
@@ -414,7 +414,7 @@ background-size: 120px 120px;
         /* Responsive Design */
         @media (max-width: 1024px) {
             .lectures-title {
-                font-size: 2.5rem;
+                font-size: 3rem;
                 margin: 20px auto; /* Equal top and bottom spacing */
             }
 
@@ -429,31 +429,31 @@ background-size: 120px 120px;
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
 
-            .section-header h1 {
-                font-size: 1.8rem;
+            .section-header h2 {
+                font-size: 2.5rem;
                 margin: 12px auto; /* Equal top and bottom spacing */
             }
 
             .prophets-series-section h2,
             .abubakr-series-section h2,
             .umar-series-section h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
                 margin: 32px auto; /* Equal top and bottom spacing */
             }
             .islamic-playlists-section h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
                 margin: 32px auto; /* Equal top and bottom spacing */
             }
         }
 
         @media (max-width: 768px) {
             .lectures-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
                 margin: 16px auto; /* Equal top and bottom spacing */
             }
 
             .lectures-subtitle {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 margin: 16px auto; /* Equal top and bottom spacing */
             }
 
@@ -479,7 +479,7 @@ background-size: 120px 120px;
             .abubakr-series-section h2,
             .umar-series-section h2,
             .islamic-playlists-section h2 {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
                 margin: 24px auto; /* Equal top and bottom spacing */
             }
 
@@ -489,7 +489,7 @@ background-size: 120px 120px;
             }
 
             .islamic-playlists-section p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 margin: 16px auto; /* Equal top and bottom spacing */
             }
         }
@@ -501,7 +501,7 @@ background-size: 120px 120px;
             }
 
             .lectures-subtitle {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
                 margin: 12px auto; /* Equal top and bottom spacing */
             }
 
@@ -512,8 +512,8 @@ background-size: 120px 120px;
                 grid-template-columns: 1fr;
             }
 
-            .section-header h1 {
-                font-size: 1.6rem;
+            .section-header h2 {
+                font-size: 2rem;
                 margin: 10px auto; /* Equal top and bottom spacing */
             }
             .section-header {
@@ -524,7 +524,7 @@ background-size: 120px 120px;
             .abubakr-series-section h2,
             .umar-series-section h2,
             .islamic-playlists-section h2 {
-                font-size: 1.6rem;
+                font-size: 2rem;
                 margin: 20px auto; /* Equal top and bottom spacing */
             }
 
@@ -534,7 +534,7 @@ background-size: 120px 120px;
             }
 
             .islamic-playlists-section p {
-                font-size: 1rem;
+                font-size: 1.1rem;
                 margin: 12px auto; /* Equal top and bottom spacing */
             }
 
@@ -571,9 +571,9 @@ background-size: 120px 120px;
         }
 
         .loading-text {
-            color: var(--primary-color);
+            color: red;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
         }
         .banner-wrapper{
             display: block;
@@ -601,7 +601,7 @@ background-size: 120px 120px;
         <!-- Video Gallery -->
         <section class="video-gallery">
             <div class="section-header">
-                <h1>The Importance of Prayer</h1>
+                <h2>The Importance of Prayer</h2>
                 <p>Learn about the significance of Salah in a Muslim's life</p>
             </div>
             

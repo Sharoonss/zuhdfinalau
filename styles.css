@@ -1174,7 +1174,7 @@ color:#0a2a1f;
 }
 
 .donation-main-heading {
-  font-family: "Serotiva-Black";
+  /* font-family: "Serotiva-Black"; */
   font-size: clamp(32px, 8vw, 48px);
   color: #f7efe5;
   margin-bottom: clamp(8px, 2vw, 10px);
@@ -1319,7 +1319,7 @@ color:#0a2a1f;
 }
 
 .section-title2 {
-  color: var(--off-white);
+  color: var(--gold);
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -2631,8 +2631,24 @@ color:#0a2a1f;
     align-items: center;
     text-align: center;
 }
+.events-main{
+     padding-top: 100px;
+    min-height:85vh;
 
-/* Dark overlay */
+    background-image: url('https://i.ibb.co/p6J1SHN1/02-Events-1920x500.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Dark overlay */lectures-main
 .lectures-main::before {
     content: "";
     position: absolute;
@@ -3454,6 +3470,7 @@ color:#0a2a1f;
         .header-content {
             position: relative;
             z-index: 2;
+            margin-top: 100px;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
@@ -3461,7 +3478,7 @@ color:#0a2a1f;
         .header-content h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            font-weight: bold;
+            /* font-weight: bold; */
         }
 
         .header-content p {
@@ -3500,11 +3517,11 @@ color:#0a2a1f;
             }
 
             .header-content h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .header-content p {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 padding: 0 20px;
             }
 
@@ -3522,11 +3539,11 @@ color:#0a2a1f;
         /* Additional responsive breakpoints */
         @media (max-width: 480px) {
             .header-content h1 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
 
             .header-content p {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -3637,8 +3654,7 @@ color:#0a2a1f;
 
 .tawheed-heading {
   text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 2.5rem;
   margin-bottom: 20px;
   letter-spacing: 2px;
 }
@@ -3690,7 +3706,7 @@ color:#0a2a1f;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
   .course1{
-    font-size:22px;
+    font-size:1.2rem;
     list-style: 30px;
     text-align: center;
   }
@@ -3706,7 +3722,7 @@ color:#0a2a1f;
     padding: 5px 0px;
 }
 .tawheed-heading  {
-    font-size: 2rem !important;
+    font-size: 2.5rem;
     padding: 0px;
   }
 
@@ -3716,7 +3732,7 @@ color:#0a2a1f;
   }
 
   .course1{
-    font-size: 19px;
+    font-size: 1.2rem;
     list-style: 25px;
     text-align: center;
   }
@@ -3732,7 +3748,7 @@ color:#0a2a1f;
 
         .courses-bismillah {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 40px;
             text-transform: uppercase;
         }
@@ -3819,7 +3835,7 @@ color:#0a2a1f;
     }
 
     .courses-bismillah {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom:15px;
     }
 
@@ -5432,8 +5448,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .sub-heading {
-            font-size:28px;
-             font-weight: 700; 
+            font-size:1.2rem;
+             /* font-weight: 700;  */
              width: 600px;
             letter-spacing: 0.1em;
             text-align: center;
@@ -5441,8 +5457,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             margin-bottom:20px;
         }
 .sub-heading2 {
-            font-size:28px;
-             font-weight: 700; 
+            font-size:1.2rem;
+             /* font-weight: 700;  */
           width: 600px;
             letter-spacing: 0.1em;
             /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
@@ -5450,13 +5466,13 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         .primary-btn {
             background-color: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid var(--gold);
             padding: 15px 35px;
             font-size: 1rem;
             font-weight: 600;
             letter-spacing: 0.15em;
             cursor: pointer;
-            border-radius: 0;
+            border-radius: 10px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             margin-top: 30px;
@@ -5464,7 +5480,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .primary-btn:hover {
             background-color: rgb(216, 208, 135);
-            color: var(--text-dark);
+            color: var(--deep-green);
         }
 
         .secondary-btn {
@@ -5829,13 +5845,13 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             }
             
             .sub-heading {
-                font-size:22px;
+                font-size:1.2rem;
                 letter-spacing: 0.15em;
                 width:100%;
                 /* padding:0px 120px; */
             }
             .sub-heading2{
-                font-size:22px;
+                font-size:1.2rem;
                  letter-spacing: 0.15em;
                 width:100%;
                 /* padding:0px 120px; */
@@ -5926,17 +5942,17 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         /* event css  */
          /* Events Header */
         .events-header {
-            background: var(--dark-green);
-            padding: 4rem 0 3rem;
+            /* background: var(--dark-green); */
+            /* padding: 4rem 0 3rem; */
             text-align: center;
             color: white;
         }
 
         .events-title {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            font-weight: 700;
+            font-size: 3rem;
+            /* font-weight: 700; */
             letter-spacing: 0.15em;
-            margin-bottom: 1rem;
+            /* margin-top: rem; */
             text-transform: uppercase;
         }
 
@@ -6194,9 +6210,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         @media (max-width: 480px) {
-            .events-header {
+            /* .events-header {
                 padding: 3rem 0 2rem;
-            }
+            } */
 
             .events-title {
                 font-size: 2rem;
@@ -6248,7 +6264,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .consultation-hero-content h1 {
-            /* font-size: 5rem; text-5xl */
+            font-size: 3rem; 
             margin-bottom: 1rem; /* mb-4 */
             letter-spacing: 2px; /* tracking-wide */
             color: var(--off-white);
@@ -6256,7 +6272,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .consultation-hero-content p {
-            font-size: 22px; /* text-lg */
+            font-size: 1.2rem; /* text-lg */
             margin-bottom:30; /* mb-4 */
             max-width: 600px; /* max-w-xl */
             margin-left: auto;
@@ -6604,9 +6620,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .consultation-banner-content h2 {
-            font-size:3rem;
+            font-size:2.5rem;
             margin-bottom: 1rem;
-            color: var(--off-white);
+            color: var(--gold);
         }
 
         .consultation-banner-content p {
@@ -6647,7 +6663,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         /* Doctor Section */
         .consultation-doctor-section {
-            padding: 80px 0;
+            padding: 40px 0;
         }
 
         .consultation-doctor-container {
@@ -6772,12 +6788,12 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         /* Mobile Responsive Design */
         @media (max-width: 768px) {
             .consultation-hero-content h1{
-                font-size: 2rem;
+                font-size: 2.5rem;
                     margin-bottom:10px;
             }
 
                 .consultation-hero-content p {
-            font-size: 22px; /* text-lg */
+            font-size: 1.2rem; /* text-lg */
             margin-bottom:20px; /* mb-4 */
             max-width: 600px; /* max-w-xl */
             margin-left: auto;
@@ -6889,13 +6905,13 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             background: var(--sand-beige);
         }
              .consultation-hero-content h1{
-                 font-size: 2rem;
+                 font-size: 2.5rem;
                     margin-bottom:10px;
                     line-height: 30px;
 
             }
 .consultation-banner-content p{
-    font-size: 19px;
+    font-size: 1.1rem;
 }
             .consultation-service-card p {
             color: #555557; /* text-gray-700 */
@@ -6919,7 +6935,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
     box-shadow: 0 4px 12px rgba(200, 184, 138, 0.3);
 }
           .consultation-hero-content p {
-            font-size:19px; /* text-lg */
+            font-size: 1.1rem; /* text-lg */
             margin-bottom:20px; /* mb-4 */
             max-width: 600px; /* max-w-xl */
             margin-left: auto;
@@ -7010,7 +7026,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             }
 
             .consultation-banner-content h2 {
-                font-size: 2rem !important;
+                font-size: 2rem ;
             }
             .consultation-service-card h3{
                 margin-bottom: 0px;
@@ -8631,12 +8647,12 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .main-heading1 {
-            margin-bottom: 2rem;
-            color: var(--off-white);
+            margin-bottom: 4rem;
+            color: var(--gold);
             position: relative;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
-
+/* 
         .main-heading1::after {
             content: '';
             position: absolute;
@@ -8647,7 +8663,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             height: 3px;
             background: linear-gradient(90deg, var(--gold), var(--sand-beige));
             border-radius: 2px;
-        }
+        } */
 
         .slider-wrapper {
             position: relative;
@@ -8923,14 +8939,14 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
   width: 100%;
 }
 
-.section-header {
-  font-size: 2rem; /* Equivalent to text-3xl */
-  font-weight: bold;
+/* .section-header {
+  font-size: 2rem; 
+
   color: var(--deep-green);
   text-align: center;
-  padding: 0px 0; /* Equivalent to mb-8 md:mb-12 */
+  padding: 0px 0; 
    margin-bottom: 32px; 
-}
+} */
 
 .content-slider {
   display: flex;

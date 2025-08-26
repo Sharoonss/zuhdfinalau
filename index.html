@@ -52,14 +52,16 @@
     .section-header h2 {
       font-size: 2.5rem;
       color: var(--deep-green);
-      margin-bottom: 15px;
+      /* margin-bottom: 15px; */
       position: relative;
       display: inline-block;
       font-weight: 700;
       letter-spacing: 0.5px;
     }
+
     
-    .section-header h2::after {
+    
+    /* .section-header h1::after {
       content: '';
       position: absolute;
       bottom: -10px;
@@ -69,13 +71,13 @@
       height: 4px;
       background-color: #C8B88A;
       border-radius: 2px;
-    }
+    } */
     
     .section-header p {
       color: #444;
       max-width: 700px;
-      margin: 15px auto 0;
-      font-size: 1.1rem;
+      margin: 0 auto ;
+      font-size: 1.2rem;
       opacity: 0.85;
     }
     
@@ -288,12 +290,23 @@
       margin-top: 50px;
     } */
     .section-subtitle{
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+      font-size: 1.2rem;
     }
 
     .shorts-header h2 {
       font-size: 2.5rem; /* Slightly larger for emphasis */
-      color: var(--primary);
+      color: var(--gold);
+      /* margin-bottom: 15px; */
+      position: relative;
+      display: inline-block;
+      font-weight: 700; /* Bolder text */
+      letter-spacing: 0.5px; /* Better readability */
+    }
+
+    .section-title2{
+font-size: 2.5rem; /* Slightly larger for emphasis */
+      color: var(--gold);
       /* margin-bottom: 15px; */
       position: relative;
       display: inline-block;
@@ -301,24 +314,24 @@
       letter-spacing: 0.5px; /* Better readability */
     }
    
-    .shorts-header h2::after {
+    /* .shorts-header h2::after {
       content: '';
       position: absolute;
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px; /* Wider underline */
-      height: 4px; /* Thicker underline */
+      width: 100px; 
+      height: 4px;
       background-color: var(--secondary);
-      border-radius: 2px; /* Rounded edges */
-    }
+      border-radius: 2px; 
+    } */
    
     .shorts-header p {
-      color: var(--text);
+      color: #ffffff;
       max-width: 700px; 
-      margin: 15px auto;
-      font-size: 1.1rem; /* Slightly larger text */
-      opacity: 0.85; /* Subtle fade for secondary text */
+      margin: 0px auto 15px;
+      font-size: 1.2rem; 
+      /* opacity: 0.85;  */
     }
    
     .shorts-slider-container {
@@ -441,6 +454,7 @@
       background: var(--secondary);
       color: var(--gold);
       border: none;
+      border: 1px solid var(--gold);
       border-radius: 10px;
       font-weight: bold;
       font-size: 1.1rem; /* Larger text */
@@ -484,6 +498,9 @@
    
     @media (max-width: 480px) {
       .shorts-header h2 {
+        font-size: 2rem;
+      }
+      .section-title2 {
         font-size: 2rem;
       }
      
@@ -713,7 +730,7 @@
   </section>
  
   <div class="partners-section">
-        <h1 class="section-title2">OUR PARTNERS</h1>
+        <h2 class="section-title2">OUR PARTNERS</h2>
         <p class="section-subtitle">Built on Islamic principles, trusted by leading organizations</p>
        
         <div class="slider-container1">
@@ -797,7 +814,7 @@
 <section class="main-shorts">
     <div class="shorts-header">
       <h2>Trending Shorts</h2>
-      <p>Daily Islamic reminders in short, impactful videos</p>
+      <p class="section-subtitle">Daily Islamic reminders in short, impactful videos</p>
     </div>
    
     <div class="shorts-slider-container">

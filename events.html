@@ -16,42 +16,33 @@
         }
 
        .events-header {
-    background-color: var(--deep-green); /* fallback color */
-    color: white;
-    padding: 10rem 3rem;
-    text-align: center;
-
-    /* Background image */
-    background-image: url('https://i.ibb.co/p6J1SHN1/02-Events-1920x500.png');
-    background-size: cover;      /* Makes it responsive */
-    background-position: center; /* Keeps image centered */
-    background-repeat: no-repeat;
+    /* background-color: var(--deep-green);  */
+     color: white;
+            text-align: center;
+            padding: 80px 16px;
+            position: relative;
+            background-color: var(--primary-color);
+            overflow: hidden;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .events-header {
-        padding: 6rem 1rem 2rem; /* Less padding for mobile */
+        padding: 6rem 1rem 2rem; 
         background-position: top; /* Show top of image on small screens */
     }
 }
 
 @media (max-width: 480px) {
-    .events-header {
+    /* .events-header {
         padding: 6rem 0rem 1.5rem;
-        /* background-size: contain; Contain image for very small screens */
+        background-size: contain; 
         background-position: center top;
-    }
+    } */
     .events-title {
             font-size: 2em;
         }
 }
-
-        .events-title {
-            font-size: 3em;
-            margin: 0;
-        }
-
         .events-subtitle {
             font-size: 1.2em;
             margin: 10px 0 20px;
@@ -122,10 +113,9 @@
 
         .upcoming-title {
             text-align: center; 
-            font-size: 1.8em;
+            font-size: 2.5rem;
             margin-bottom: 25px;
             color: var(--deep-green);
-            font-weight: 600;
             padding-top: 20px;
         }
 
@@ -174,10 +164,9 @@
         }
 
         .event-info h3 {
-            font-size: 1.4em;
+            font-size: 1.7rem;
             margin: 0 0 10px;
-            color: #0b5d1e;
-            font-weight: 600;
+            color: var(--deep-green);
         }
 
         .event-date, .event-location {
@@ -348,11 +337,11 @@
         /* Additional Responsive Styles */
         @media (max-width: 768px) {
             .events-header {
-                padding: 8rem 2rem 3rem;
+                padding: 9rem 2rem 3rem;
             }
 
             .events-title {
-                font-size: 2.5em;
+                font-size: 2.5rem;
             }
 
             .events-subtitle {
@@ -378,7 +367,7 @@
             }
 
             .upcoming-title {
-                /* font-size: 1.5em; */
+                font-size: 2.5em;
                 margin-bottom: 20px;
                 /* padding-top: 15px; */
             }
@@ -444,9 +433,9 @@
         }
 
         @media (max-width: 480px) {
-            .events-header {
+            /* .events-header {
                 padding: 6rem 1rem 2rem;
-            }
+            } */
 
             .events-title {
                 font-size: 2em;
@@ -457,7 +446,7 @@
             }
 
             .upcoming-title {
-                font-size: 1.3em;
+                font-size: 2em;
             }
 
             .event-card {
@@ -497,13 +486,18 @@
                 padding: 15px;
             }
         }
+        .banner-wrapper{
+            display: block;
+        }
     </style>
 </head>
-<body>
+<!-- <> -->
     <nav>
         <div id="navbar"></div>
     </nav>    
     <!-- Events Header -->
+     <section class="banner-wrapper">
+     <main class="events-main">
     <div class="events-header">
         <h1 class="events-title">EVENTS</h1>
         <p class="events-subtitle">Upcoming islamic classes, workshops, and gatherings.</p>
@@ -518,6 +512,8 @@
             <button class="filter-btn" onclick="filterEvents()">FILTER</button>
         </div>
     </div>
+    </main>
+    </section>
 
     <!-- Events Content -->
     <div class="events-content">
