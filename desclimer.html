@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Added custom Serotiva font family definitions */
+        @font-face {
+            font-family: "Serotiva-Black";
+            src: url(./font/OpenType-TT/Serotiva-Black.ttf);
+        }
+        @font-face {
+            font-family: "Serotiva-Bold";
+            src: url(./font/OpenType-TT/Serotiva-Bold.ttf);
+        }
+        @font-face {
+            font-family: "Serotiva-Light";
+            src: url(./font/OpenType-TT/Serotiva-Light.ttf);
+        }
+        @font-face {
+            font-family: "Serotiva-Regular";
+            src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
+        }
+/* Responsive Typography */
+h1 {
+  font-family: "Serotiva-Black";
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: clamp(1px, 0.5vw, 2px);
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+}
+
+h2,
+h3 {
+  font-family: "Serotiva-Bold";
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.3;
+ color: white;
+    text-transform: uppercase;
+}
+
+p {
+  font-family: "Serotiva-Regular";
+  font-size:22px;
+  line-height:30px;
+    color: white;
+
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Added CSS custom properties for color scheme */
+        :root {
+            --deep-green: #0f3d2e;
+            --sand-beige: #f7efe5;
+            --off-white: #fefefe;
+            --gold: #c8b88a;
+        }
+
+        body {
+            /* Updated to use Serotiva-Regular font and CSS custom properties */
+            background-color: #0f3d2e;
+             padding: 20px; 
+             min-height: 100vh; 
+        }
+
+        .container {
+            max-width:1200px;
+             margin: 0 auto; 
+          background-color: #0f3d2e;
+             padding: 30px 0px; 
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 150px 0px;
+        }
+
+        .header h1 {
+            font-family: "Serotiva-Black";
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #ffffff;
+        } 
+
+         .header p {
+           
+            font-size: 22px;
+            line-height: 30px;
+            color: #ffffff;
+            font-weight: 300;
+        } 
+
+        .section {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            /* Updated icon background to use gold color */
+            background-color: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .icon svg {
+            width: 20px;
+            height: 20px;
+            /* Updated icon color to deep green */
+            fill: var(--deep-green);
+        }
+
+        .content {
+            flex: 1;
+        }
+
+         .content h2 {
+            font-family: "Serotiva-Bold";
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            line-height: 1.3;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #ffffff;
+        } 
+
+        .content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content li {
+            margin-bottom: 12px;
+            /* Updated to use Serotiva-Regular with specific font size */
+            font-family: "Serotiva-Regular";
+            font-size: 22px;
+            line-height: 30px;
+            color: #ffffff;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            /* Updated bullet color to gold */
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .final-note {
+            margin-top: 50px;
+            padding-top: 30px;
+            /* Updated border color to gold */
+            border-top: 1px solid var(--gold);
+        }
+
+        .final-note h3 {
+            /* Updated to use Serotiva-Bold with responsive typography */
+            font-family: "Serotiva-Bold";
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            line-height: 1.3;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .final-note p {
+            /* Updated to use Serotiva-Regular with specific font size */
+            font-family: "Serotiva-Regular";
+            font-size: 22px;
+            line-height: 30px;
+            color: #ffffff;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 30px 0px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .header p {
+                font-size: 18px;
+                line-height: 26px;
+            }
+
+            .section {
+                gap: 15px;
+                margin-bottom: 35px;
+            }
+
+            .icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .icon svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .content li {
+                font-size: 18px;
+                line-height: 26px;
+                margin-bottom: 10px;
+            }
+
+            .final-note h3 {
+                font-size: 1.1rem;
+            }
+
+            .final-note p {
+                font-size: 18px;
+                line-height: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 15px;
+            }
+
+            .section {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0px 20px;
+            }
+
+            .icon {
+                align-self: flex-start;
+            }
+
+            .content {
+                padding-left: 0;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+            }
+
+            .header p {
+                font-size: 18px;
+                line-height: 24px;
+                padding: 0px 20px;
+            }
+
+            .content li {
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            .final-note p {
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+
+        /* Smooth animations */
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Navigation -->
+     <nav>
+      <div id="navbar"></div>
+   </nav>
+    <div class="container">
+        <div class="header">
+            <h1>DISCLAIMER</h1>
+            <p>Our responsibility in sourcing, references & educational intent.</p>
+        </div>
+
+        <div class="section">
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+            </div>
+            <div class="content">
+                <h2>Qur'an & Hadith References</h2>
+                <ul>
+                    <li>All Qur'anic verses are sourced with standard numbering systems.</li>
+                    <li>Translations are provided for accessibility, yet depending the narrator. For peace, making, residue meanings, we encourage Bait Mahal display).</li>
+                    <li>Hadith materials are taken from authenticated collections (eg. Sahih al-Bukhari, Sahih Muslim).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9C15 10.1 14.1 11 13 11S11 10.1 11 9V7.5L5 7V9C5 10.1 4.1 11 3 11S1 10.1 1 9V7C1 5.9 1.9 5 3 5H21C22.1 5 23 5.9 23 7V9C23 10.1 22.1 11 21 11S19 10.1 19 9ZM12 13.5C14.21 13.5 16 15.29 16 17.5V22H8V17.5C8 15.29 9.79 13.5 12 13.5Z"/>
+                </svg>
+            </div>
+            <div class="content">
+                <h2>Scholarly Sources</h2>
+                <ul>
+                    <li>Where interpretations or commentary provided, these are graded scholars or principles that are based on be reputable teachings of qualified scholars.</li>
+                    <li>Any opinions or submissive standpoints, mainstream sums scholarship and the principles of 'Ilm al-Jarh wa'l-ta'dil.</li>
+                    <li>Including scholars' names, features or writings does not imply endorsement taken from their knowledge in specific areas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5,3H7V5H5V10A2,2 0 0,0 7,12H10V10A2,2 0 0,0 8,8V3A2,2 0 0,1 10,1H14A2,2 0 0,1 16,3V8A2,2 0 0,0 14,10V12H17A2,2 0 0,0 19,10V5H17V3H19V10A4,4 0 0,1 15,14H13V22H11V14H9A4,4 0 0,1 5,10V3Z"/>
+                </svg>
+            </div>
+            <div class="content">
+                <h2>Educational Purpose Only</h2>
+                <ul>
+                    <li>All content on this platform is for educational and spiritual benefit or should not be advisor or as substitute for direct consultation with qualified scholars in matters of Islamic jurisprudence.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="final-note">
+            <h3>Final Note</h3>
+            <p>Zuhd Guidance strives to present knowledge with sincerity. If you initial any feedback or that corrections.</p>
+        </div>
+    </div>
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3>zuhd Academy</h3>
+                    <ul>
+                        <li><a href="/about-zuhd.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/zuhd-lectures.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/after-school-classes.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/terms.html" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/store.html" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/our-story.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="/blog.html" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="/about.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="/contact.html" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/faq.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column newsletter">
+                     <h3>Stay Connected to Guidance</h3>
+                    <p>Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">→</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to sections
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Add click effect to icons
+            const icons = document.querySelectorAll('.icon');
+            
+            icons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    this.style.transition = 'transform 0.1s ease';
+                    
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+
+            // Smooth reveal animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections for scroll animations
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+                 <script src="navbar.js"></script>
+
+</body>
+</html>

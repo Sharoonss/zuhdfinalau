@@ -76,199 +76,9 @@ body {
   width: auto;
 }
 
-.deen-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 2rem);
-}
-
-/* Hero Slider */
-.nourish-hero-carousel {
-  min-height:80vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.faith-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height:80vh;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  display: flex;
-  align-items: center;
-}
-
-.faith-slide.slide-active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.faith-slide.slide-previous {
-  transform: translateX(-100%);
-}
-.guidance-slide1 {
-  background: url("/Banner/ZUHD\ AU\ New\ Banner-26.png") no-repeat center center;
-  background-size: cover;
-    height:100%;
-  background-position: center;
-}
-/* Slide Backgrounds */
-.hearts-slide {
-  background: url("https://i.ibb.co/spks1NDv/09-Islamic-scholars-1920x500.png") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-   height:100%;
-}
-
-.wisdom-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-02.jpg") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-   height:100%;
-}
-
-.community-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-03.jpg") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-   height:100%;
-}
-
-.guidance-slide {
-  background: url("/ZUHD\ AU\ New\ Banner-04.jpg") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-   height:100%;
-}
-
-.revive-content-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 6vw, 4rem);
-  align-items: center;
-  width: 100%;
-  padding: 0 clamp(1rem, 3vw, 2rem);
-}
-
-.islamic-narrative {
-  animation: slideInLeft 1s ease-out 0.3s both;
-}
-
-.spiritual-headline {
-  line-height: clamp(35px, 8vw, 55px);
-  margin-bottom: clamp(8px, 2vw, 12px);
-}
-
-.spiritual-headline span {
-  display: block;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.spiritual-headline span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.enlighten-description {
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
-  line-height: clamp(20px, 4vw, 25px);
-}
-.external-link:hover::after {
-  opacity: 1;
-}
-
-.highlight-colored {
-  font-size: clamp(24px, 6vw, 32px);
-  font-weight: 800;
-  color: #c59510;
-  line-height: clamp(30px, 7vw, 40px);
-  margin-bottom: clamp(8px, 2vw, 10px);
-}
-
-.tagline {
-  font-size: clamp(20px, 5vw, 26px);
-  font-family: "Serotiva-Bold";
-  color: #ddd;
-  margin-bottom: clamp(8px, 2vw, 10px);
-}
-
-.sacred-action-btn{
-  background: var(--sand-beige);
-  color: var(--deep-green);
-  border: none;
-  padding: clamp(0.8rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  border-radius: 4px;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
-  margin-top: clamp(8px, 2vw, 10px);
-}
-.sacred-action-btn1{
-  background: var(--sand-beige);
-  color: var(--deep-green);
-  border: none;
-  padding: clamp(0.8rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  border-radius: 4px;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
-  margin-top: 200px;
-}
-
-
-.sacred-action-btn:hover {
-  background: var(--gold);
-  color: var(--deep-green);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.sacred-action-btn1:hover{
-    background: var(--gold);
-  color: var(--deep-green);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.community-slide .sacred-action-btn1 .sacred-action-btn {
-  background: var(--gold);
-  color: var(--deep-green);
-}
-
-.guidance-slide .sacred-action-btn .sacred-action-btn1 {
-  background: var(--off-white);
-}
-
-.scholar-visual {
-  position: relative;
-  animation: slideInRight 1s ease-out 0.5s both;
-}
-
-.scholar-visual img {
-  width: 100%;
-  height: clamp(300px, 50vw, 500px);
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
 
 /* Slider Controls */
-.carousel-navigator {
+/* .carousel-navigator {
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -340,7 +150,7 @@ body {
 .bounce-indicator {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   animation: bounce 2s infinite;
-}
+} */
 
 /* Content Section */
 .content-section1 {
@@ -2278,7 +2088,10 @@ color:#0a2a1f;
         gap: 1rem;
         text-align: center;
     }
-    
+      .newsletter h3 {
+        text-align: start;
+        font-size: 0.95rem;
+    }
     .footer-links {
         flex-wrap: wrap;
         justify-content: center;
@@ -2375,6 +2188,7 @@ color:#0a2a1f;
     .newsletter p {
         font-size: 0.85rem;
         text-align: start;
+        padding: 0px;
     }
     
     .social-link {
@@ -2436,6 +2250,7 @@ color:#0a2a1f;
     }
     
     .newsletter h3 {
+        text-align: start;
         font-size: 0.95rem;
     }
     
@@ -2443,6 +2258,7 @@ color:#0a2a1f;
         font-size: 0.8rem;
         margin-bottom: 0.75rem;
         text-align: start;
+        padding: 0px;
     }
     
     .newsletter-form input,
@@ -5418,7 +5234,17 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             align-items: center;
             justify-content: center;
         }
-
+ .banner-wrapper1 {
+            height:85vh;
+            background-image: url('https://i.ibb.co/spks1NDv/09-Islamic-scholars-1920x500.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .banner-overlay {
             position: absolute;
             top: 0;
@@ -6257,7 +6083,21 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
     background: rgba(26, 112, 62, 0.5); /* Or use #0f3d2e80 */
     z-index: 1;
 }
-        .consultation-hero-section > * {
+      
+  .consultation-hero-section1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 112, 62, 0.5); /* Or use #0f3d2e80 */
+    z-index: 1;
+}
+   
+.consultation-hero-section > * {
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem; /* px-4 */
+        }
+        .consultation-hero-section1 > * {
             position: relative;
             z-index: 2;
             padding: 0 1rem; /* px-4 */
@@ -6270,8 +6110,15 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             color: var(--off-white);
             line-height: 48px; /* leading-[85px] */
         }
+   .consultation-hero-content1 h1 {
+            font-size: 3rem; 
+            margin-bottom: 1rem; /* mb-4 */
+            letter-spacing: 2px; /* tracking-wide */
+            color: var(--off-white);
+            line-height: 48px; /* leading-[85px] */
+        }
 
-        .consultation-hero-content p {
+        .consultation-hero-content1 p {
             font-size: 1.2rem; /* text-lg */
             margin-bottom:30; /* mb-4 */
             max-width: 600px; /* max-w-xl */
@@ -6279,6 +6126,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             margin-right: auto;
             line-height: 30px; /* leading-8 */
             color: var(--sand-beige);
+            text-align: center;
         }
 
         .consultation-cta-button {
@@ -6792,6 +6640,11 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
                     margin-bottom:10px;
             }
 
+              .consultation-hero-content1 h1{
+                font-size: 2.5rem;
+                    margin-bottom:10px;
+            }
+
                 .consultation-hero-content p {
             font-size: 1.2rem; /* text-lg */
             margin-bottom:20px; /* mb-4 */
@@ -6801,7 +6654,15 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             line-height: 30px; /* leading-8 */
             color: var(--sand-beige);
         }
-
+   .consultation-hero-content1 p {
+            font-size: 1.2rem; /* text-lg */
+            margin-bottom:20px; /* mb-4 */
+            max-width: 600px; /* max-w-xl */
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 30px; /* leading-8 */
+            color: var(--sand-beige);
+        }
             .consultation-doctor-section {
                 padding: 60px 0;
             }
@@ -6909,7 +6770,14 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
                     margin-bottom:10px;
                     line-height: 30px;
 
+            }   .consultation-hero-content1 h1{
+                 font-size: 2.5rem;
+                    margin-bottom:10px;
+                    line-height: 45px;
+                    text-align: center;
+
             }
+
 .consultation-banner-content p{
     font-size: 1.1rem;
 }
@@ -7059,7 +6927,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
       .qna-header {
-    height: 100vh;
+    height:85vh;
     text-align: center;
     margin-bottom: 40px;
 
@@ -7088,9 +6956,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 .qna-title {
     position: relative;
     z-index: 2;
-
-    font-size: 7rem;
-    font-weight: 300;
+    font-size: 3rem;
+    font-weight: 900;
     color: white;
     margin-bottom: 10px;
     letter-spacing: 1px;
@@ -9132,7 +8999,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            padding: 0 1rem;
+            padding: 0 20px;
         }
 
         .footer-top {
@@ -9320,7 +9187,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             opacity: 0.8;
             margin-bottom: 20px;
             line-height: 1.4;
-            padding: 0px 20px;
+            padding: 0px 0px;
             color: var(--cream);
         }
 
@@ -9338,7 +9205,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             flex-direction: column;
             gap: 0.75rem;
             margin-bottom: 1.5rem;
-            padding: 0 20px;
+            padding: 0 0px;
         }
 
         @media (min-width: 769px) {
@@ -9401,7 +9268,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             gap: 0.5rem;
             margin-top: 1rem;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content:start;
         }
 
         @media (min-width: 769px) {
