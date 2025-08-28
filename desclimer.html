@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disclaimer</title>
-<link rel="stylesheet" href="styles.css?v=2"/>
+    <link rel="stylesheet" href="styles.css?v=2"/>
     <style>
         /* Added custom Serotiva font family definitions */
         @font-face {
@@ -23,33 +23,32 @@
             font-family: "Serotiva-Regular";
             src: url(./font/OpenType-TT/Serotiva-Regular.ttf);
         }
-/* Responsive Typography */
-h1 {
-  font-family: "Serotiva-Black";
-  font-weight: 900;
-  font-size: 3rem;
-  letter-spacing: clamp(1px, 0.5vw, 2px);
-  line-height: 1.2;
-  color: white;
-  text-transform: uppercase;
-}
+        /* Responsive Typography */
+        h1 {
+            font-family: "Serotiva-Black";
+            font-weight: 900;
+            font-size: 3rem;
+            letter-spacing: clamp(1px, 0.5vw, 2px);
+            line-height: 1.2;
+            color: white;
+            text-transform: uppercase;
+        }
 
-h2,
-h3 {
-  font-family: "Serotiva-Bold";
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  line-height: 1.3;
- color: white;
-    text-transform: uppercase;
-}
+        h2,
+        h3 {
+            font-family: "Serotiva-Bold";
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            line-height: 1.3;
+            color: white;
+            text-transform: uppercase;
+        }
 
-p {
-  font-family: "Serotiva-Regular";
-  font-size:22px;
-  line-height:30px;
-    color: white;
-
-}
+        p {
+            font-family: "Serotiva-Regular";
+            font-size:22px;
+            line-height:30px;
+            color: white;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -67,41 +66,32 @@ p {
         body {
             /* Updated to use Serotiva-Regular font and CSS custom properties */
             background-color: #0f3d2e;
-             padding: 20px; 
-             min-height: 100vh; 
+            min-height: 100vh; 
         }
 
-        .container {
-            max-width:1200px;
-             margin: 0 auto; 
-          background-color: #0f3d2e;
-             padding: 30px 0px; 
+        .container-main {
+            margin: 0 auto; 
+            background-color: #0f3d2e;
+            padding: 0; 
+            max-width: 1200px;
+
         }
 
         .header {
+            /* Made banner full width by removing container constraints */
             text-align: center;
-            margin-bottom: 50px;
-            padding: 150px 0px;
+            /* margin-bottom: 50px; */
+            padding:220px 0px;
+            position: relative;
+            background: url("https://i.ibb.co/pBKjDDrG/DISCLAIMER.png") no-repeat center center/cover;
+            width: 100vw;
+            height:85vh;
+            margin-left: calc(-50vw + 50%);
         }
 
-        .header h1 {
-            font-family: "Serotiva-Black";
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: #ffffff;
-        } 
-
-         .header p {
-           
-            font-size: 22px;
-            line-height: 30px;
-            color: #ffffff;
-            font-weight: 300;
-        } 
-
         .section {
-            margin-bottom: 40px;
+            padding: 40px 0px;
+            /* margin-bottom: 40px; */
             display: flex;
             align-items: flex-start;
             gap: 20px;
@@ -121,8 +111,8 @@ p {
         }
 
         .icon svg {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 30px;
             /* Updated icon color to deep green */
             fill: var(--deep-green);
         }
@@ -131,7 +121,7 @@ p {
             flex: 1;
         }
 
-         .content h2 {
+        .content h2 {
             font-family: "Serotiva-Bold";
             font-size: clamp(1.3rem, 4vw, 1.5rem);
             line-height: 1.3;
@@ -195,21 +185,19 @@ p {
         /* Mobile Responsive Design */
         @media (max-width: 768px) {
             body {
-                padding: 15px;
+                padding: 0; /* Removed padding for mobile full width */
             }
 
-            .container {
-                padding: 30px 0px;
+            .container-main {
+                padding: 0; /* Removed padding for mobile full width */
             }
 
-            .header h1 {
-                font-size: 2rem;
-                letter-spacing: 2px;
-            }
-
-            .header p {
-                font-size: 18px;
-                line-height: 26px;
+            .header {
+                padding: 100px 20px;
+                background: url("https://i.ibb.co/21kNjRg5/DISCLAIMER-Mob.png") no-repeat center center/cover;
+                /* Maintain full width on mobile */
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
             }
 
             .section {
@@ -218,13 +206,13 @@ p {
             }
 
             .icon {
-                width: 35px;
-                height: 35px;
+                width: 60px;
+                height:60px;
             }
 
             .icon svg {
-                width: 18px;
-                height: 18px;
+                width: 60px;
+                height:35px;
             }
 
             .content h2 {
@@ -248,8 +236,16 @@ p {
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 25px 15px;
+            .header {
+                padding: 120px 15px;
+                background: url("https://i.ibb.co/21kNjRg5/DISCLAIMER-Mob.png") no-repeat center center/cover;
+                /* Maintain full width on small mobile */
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+            }
+
+            .container-main {
+                padding: 0;
             }
 
             .section {
@@ -305,71 +301,126 @@ p {
                 transform: translateY(0);
             }
         }
+
+        /* Added banner styles */
+        .banner {
+            background: linear-gradient(135deg, var(--gold) 0%, #d4c49a 100%);
+            color: var(--deep-green);
+            padding: 12px 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            font-family: "Serotiva-Bold";
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(200, 184, 138, 0.3);
+            animation: bannerSlideIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: bannerShine 3s infinite;
+        }
+
+        @keyframes bannerSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bannerShine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
 <body>
-     <!-- Navigation -->
-     <nav>
-      <div id="navbar"></div>
-   </nav>
-    <div class="container">
-        <div class="header">
+    <!-- Navigation -->
+    <nav>
+        <div id="navbar"></div>
+    </nav>
+       <div class="header">
             <h1>DISCLAIMER</h1>
             <p>Our responsibility in sourcing, references & educational intent.</p>
         </div>
 
-        <div class="section">
-            <div class="icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                </svg>
-            </div>
-            <div class="content">
-                <h2>Qur'an & Hadith References</h2>
-                <ul>
-                    <li>All Qur'anic verses are sourced with standard numbering systems.</li>
-                    <li>Translations are provided for accessibility, yet depending the narrator. For peace, making, residue meanings, we encourage Bait Mahal display).</li>
-                    <li>Hadith materials are taken from authenticated collections (eg. Sahih al-Bukhari, Sahih Muslim).</li>
-                </ul>
-            </div>
-        </div>
+    <div class="container-main">
+     
+        <!-- Added padding back to content sections -->
+        <!-- <div style="padding: 30px 20px;"> -->
+            <!-- Added banner to main hero section -->
+            <!-- <div class="banner">
+                ⚠️ Important Notice: Please Read Carefully
+            </div> -->
 
-        <div class="section">
-            <div class="icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9C15 10.1 14.1 11 13 11S11 10.1 11 9V7.5L5 7V9C5 10.1 4.1 11 3 11S1 10.1 1 9V7C1 5.9 1.9 5 3 5H21C22.1 5 23 5.9 23 7V9C23 10.1 22.1 11 21 11S19 10.1 19 9ZM12 13.5C14.21 13.5 16 15.29 16 17.5V22H8V17.5C8 15.29 9.79 13.5 12 13.5Z"/>
-                </svg>
+            <div class="section">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h2>Qur'an & Hadith References</h2>
+                    <ul>
+                        <li>All Qur'anic verses are sourced with standard numbering systems.</li>
+                        <li>Translations are provided for accessibility, yet depending the narrator. For peace, making, residue meanings, we encourage Bait Mahal display).</li>
+                        <li>Hadith materials are taken from authenticated collections (eg. Sahih al-Bukhari, Sahih Muslim).</li>
+                    </ul>
+                </div>
             </div>
-            <div class="content">
-                <h2>Scholarly Sources</h2>
-                <ul>
-                    <li>Where interpretations or commentary provided, these are graded scholars or principles that are based on be reputable teachings of qualified scholars.</li>
-                    <li>Any opinions or submissive standpoints, mainstream sums scholarship and the principles of 'Ilm al-Jarh wa'l-ta'dil.</li>
-                    <li>Including scholars' names, features or writings does not imply endorsement taken from their knowledge in specific areas.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="section">
-            <div class="icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M5,3H7V5H5V10A2,2 0 0,0 7,12H10V10A2,2 0 0,0 8,8V3A2,2 0 0,1 10,1H14A2,2 0 0,1 16,3V8A2,2 0 0,0 14,10V12H17A2,2 0 0,0 19,10V5H17V3H19V10A4,4 0 0,1 15,14H13V22H11V14H9A4,4 0 0,1 5,10V3Z"/>
-                </svg>
+            <div class="section">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9C15 10.1 14.1 11 13 11S11 10.1 11 9V7.5L5 7V9C5 10.1 4.1 11 3 11S1 10.1 1 9V7C1 5.9 1.9 5 3 5H21C22.1 5 23 5.9 23 7V9C23 10.1 22.1 11 21 11S19 10.1 19 9ZM12 13.5C14.21 13.5 16 15.29 16 17.5V22H8V17.5C8 15.29 9.79 13.5 12 13.5Z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h2>Scholarly Sources</h2>
+                    <ul>
+                        <li>Where interpretations or commentary provided, these are graded scholars or principles that are based on be reputable teachings of qualified scholars.</li>
+                        <li>Any opinions or submissive standpoints, mainstream sums scholarship and the principles of 'Ilm al-Jarh wa'l-ta'dil.</li>
+                        <li>Including scholars' names, features or writings does not imply endorsement taken from their knowledge in specific areas.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="content">
-                <h2>Educational Purpose Only</h2>
-                <ul>
-                    <li>All content on this platform is for educational and spiritual benefit or should not be advisor or as substitute for direct consultation with qualified scholars in matters of Islamic jurisprudence.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="final-note">
-            <h3>Final Note</h3>
-            <p>Zuhd Guidance strives to present knowledge with sincerity. If you initial any feedback or that corrections.</p>
+            <div class="section">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5,3H7V5H5V10A2,2 0 0,0 7,12H10V10A2,2 0 0,0 8,8V3A2,2 0 0,1 10,1H14A2,2 0 0,1 16,3V8A2,2 0 0,0 14,10V12H17A2,2 0 0,0 19,10V5H17V3H19V10A4,4 0 0,1 15,14H13V22H11V14H9A4,4 0 0,1 5,10V3Z"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h2>Educational Purpose Only</h2>
+                    <ul>
+                        <li>All content on this platform is for educational and spiritual benefit or should not be advisor or as substitute for direct consultation with qualified scholars in matters of Islamic jurisprudence.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="final-note">
+                <h3>Final Note</h3>
+                <p>Zuhd Guidance strives to present knowledge with sincerity. If you initial any feedback or that corrections.</p>
+            </div>
         </div>
     </div>
- <footer class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-column">
@@ -400,7 +451,7 @@ p {
                     </ul>
                 </div>
                 <div class="footer-column newsletter">
-                     <h3>Stay Connected to Guidance</h3>
+                    <h3>Stay Connected to Guidance</h3>
                     <p>Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
                     <form class="newsletter-form" onsubmit="submitNewsletter(event)">
                         <input type="email" placeholder="Enter your email" required>
@@ -487,7 +538,6 @@ p {
             });
         });
     </script>
-                 <script src="navbar.js"></script>
-
+    <script src="navbar.js"></script>
 </body>
 </html>
