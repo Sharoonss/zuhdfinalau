@@ -76,7 +76,7 @@
       justify-content: center;
       gap: 40px;
       margin-top: -40px;
-      padding: 0 20px 0px;
+      padding: 0 20px 15px;
       flex-wrap: wrap;
     }
 
@@ -96,14 +96,14 @@
     .card:nth-child(2) { animation-delay: 0.4s; }
 
     .card svg {
-      font-size: 26px;
-      margin-bottom: 12px;
+      width: 52px;
+      height: 62px;
     }
 
     .card h3 {
-      font-size: 1.7rem;
+      font-size: 2rem;
       margin-bottom: 10px;
-      color: #222;
+      color: var(--deep-green);
     }
 
     .card p {
@@ -119,14 +119,15 @@
 
     /* ===== FOUNDERS ===== */
     .founders {
-      padding: 0px 20px 60px;
+      padding: 1px 10px 60px;
       text-align: center;
+      background-color: var(--deep-green);
     }
 
     .founders h2 {
       font-size: 2.3rem;
-      color: var(--deep-green);
-      margin: 70px auto;
+      color: var(--gold);
+      margin: 50px auto;
     }
 
     .founder-container {
@@ -195,84 +196,6 @@
 
     .founder-card a:hover {
       color: var(--gold);
-    }
-
-    /* ===== TIMELINE ===== */
-    .journey {
-      padding: 60px 20px;
-      text-align: center;
-      background-color: #fdfaf6;
-    }
-
-    .journey h2 {
-      font-size: 2.5rem;
-      margin-bottom: 50px;
-      color: var(--deep-green);
-    }
-
-    .timeline {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #d9b68b;
-      z-index: 1;
-    }
-
-    .step {
-      position: relative;
-      text-align: center;
-      width: 18%;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-
-    .step.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .step .circle {
-      width: 40px;
-      height: 40px;
-      background: #d9b68b;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto 10px auto;
-      font-size: 18px;
-      color: #fff;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .step h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #555;
-    }
-
-    .step p {
-      font-size: 13px;
-      color: #777;
-      line-height: 1.4;
     }
 
     /* ===== MODAL (Updated Styling with Scroll) ===== */
@@ -393,13 +316,267 @@
       background: #c8b88a;
     }
 
+    /* ===== JOURNEY ===== */
+    .container {
+      max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    }
+    
+    .journey header {
+      text-align: center;
+  margin-bottom: 3rem;
+  /* padding: 1.5em; */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 800px;
+    }
+    
+    .journey h2 {
+      font-size: 2.5rem;
+      color: var(--deep-green);
+      margin-top: 1.5rem;
+    }
+    
+    /* .subtitle {
+      font-size: 1.2rem;
+      color: #5a7f3c;
+      font-weight: 500;
+    } */
+    
+    /* Vertical Timeline for Mobile */
+    .vertical-timeline {
+      display: block;
+      position: relative;
+      padding: 2rem 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0px auto 20px;
+    }
+    
+    .vertical-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: var(--deep-green);
+      border-radius: 10px;
+    }
+    
+    .vertical-item {
+      display: flex;
+      margin-bottom: 40px;
+      position: relative;
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .vertical-dot {
+      width: 26px;
+      height: 26px;
+      background: var(--deep-green);
+      border: 4px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--deep-green);
+      z-index: 2;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .vertical-content {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-left: 0;
+      width: 80%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .vertical-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Horizontal Timeline for Desktop */
+    .horizontal-timeline {
+      display: none;
+      position: relative;
+      padding: 80px 0 40px 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .horizontal-timeline::before {
+      content: '';
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--deep-green);
+      border-radius: 10px;
+    }
+    
+    .horizontal-items {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 0 5%;
+      width: 100%;
+    }
+    
+    .horizontal-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 18%;
+      text-align: center;
+    }
+    
+    .horizontal-dot {
+      width: 26px;
+      height: 26px;
+      background: var(--deep-green);
+      border: 4px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--deep-green);
+      z-index: 2;
+      margin-top: -10px;
+    }
+    
+    .horizontal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+    }
+    
+    .horizontal-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .year {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--deep-green);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .year i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .description {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #444;
+    }
+    
+    /* footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 1.5rem;
+      color: #5a7f3c;
+      font-weight: 500;
+      width: 100%;
+    } */
+    
+    /* Responsive design */
+    @media screen and (min-width: 992px) {
+      .vertical-timeline {
+        display: none;
+      }
+      
+      .horizontal-timeline {
+        display: block;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .journey h2 {
+        font-size: 2.2rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .year {
+        font-size: 1.2rem;
+      }
+      .founders {
+        padding-bottom: 50px;
+      }
+      
+      .description {
+        font-size: 0.9rem;
+      }
+      
+      .vertical-content {
+        padding: 1.2rem;
+        /* margin-top: 50px; */
+        /* margin-left: 50px; */
+      }
+      .vertical-timeline::before {
+        left: 10px;
+        transform: translateX(-50%);
+      }
+      .vertical-dot {
+        left: 10px;
+        transform: translateX(-50%);
+      }
+      
+      .horizontal-item {
+        width: 20%;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .vertical-content {
+        width: 90%;
+        margin-top: 60px;
+      }
+      
+      .vertical-timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .vertical-dot {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .horizontal-item {
+        width: 22%;
+      }
+    }
 
     /* ===== Responsive ===== */
     @media (max-width: 992px) {
-      .timeline { flex-direction: column; align-items: center; }
-      .timeline::before { width: 2px; height: 100%; left: 50%; top: 0; bottom: 0; right: auto; }
-      .step { width: 100%; margin-bottom: 50px; text-align: left; padding-left: 40px; }
-      .step .circle { margin: 0 0 10px -22px; }
       .founder-container { gap: 30px; }
     }
 
@@ -408,19 +585,17 @@
       .card { min-width: 90%; max-width: 90%; padding: 30px 15px; }
       .founder-container { flex-direction: column; align-items: center; gap: 60px; }
       .founder-card { max-width: 90%; padding: 25px 15px; }
-      .founder-card img { width: 200px; height: 200px; margin-top: -100px; }
-      .founders h2 { font-size: 2rem; margin: 50px auto; }
+      .founder-card img { width: 200px; height: 200px; margin-top: 0; }
+      .founders h2 { font-size: 2rem; margin: 30px auto 50px; }
       .header { padding: 100px 15px; }
       .header h1 { font-size: 2.2rem; }
       .header p { font-size: 1.1rem; }
-      .journey { padding: 40px 15px; }
-      .journey h2 { font-size: 2.2rem; margin-bottom: 40px; }
+      .journey { padding: 10px 0px 40px;   text-align: center; font-size: 1rem; }
       .modal-content { padding: 25px 15px; }
       .modal-img { width: 150px; height: 150px; }
       .modal-scroll { max-height: calc(80vh - 220px); }
     }
-
-    @media (max-width: 600px) {
+    /* @media (max-width: 600px) {
       .header { padding: 80px 10px; }
       .header h1 { font-size: 1.8rem; }
       .header p { font-size: 1rem; }
@@ -433,38 +608,31 @@
       .founder-card h4 { font-size: 1.1rem; }
       .founder-card p { font-size: 1rem; }
       .journey h2 { font-size: 1.8rem; }
-      .step h4 { font-size: 14px; }
-      .step p { font-size: 12px; }
       .modal-content { width: 95%; padding: 20px; margin: 10% auto; }
       .modal-img { width: 140px; height: 140px; }
       .modal-content h2 { font-size: 1.5rem; }
       .modal-content p { font-size: 1rem; }
       .modal-scroll { max-height: calc(80vh - 200px); }
-    }
+    } */
 
     @media (max-width: 480px) {
       .header button { padding: 8px 18px; font-size: 14px; }
-      .timeline::before { left: 22px; }
-      .step { padding-left: 50px; }
-      .step .circle { margin-left: -52px; }
       .mission-vision { gap: 20px; padding: 0 10px; }
       .card { padding: 25px 10px; min-width: 100%; }
-      .founder-card img { width: 180px; height: 180px; margin-top: -90px; }
-      .timeline { padding: 0 10px; }
+      .founder-card img { width: 180px; height: 180px; margin-top: 0px; }
       .modal-img { width: 130px; height: 130px; }
       .modal-scroll { max-height: calc(80vh - 190px); }
     }
 
-    @media (max-width: 360px) {
+    /* @media (max-width: 360px) {
       .header { padding: 60px 5px; }
       .header h1 { font-size: 1.6rem; }
       .card { padding: 20px 10px; }
       .founder-card { padding: 15px 10px; }
       .modal-content { padding: 15px 10px; }
-      .step { margin-bottom: 40px; }
       .modal-img { width: 120px; height: 120px; }
       .modal-scroll { max-height: calc(80vh - 180px); }
-    }
+    } */
   </style>
 </head>
 <body>
@@ -482,33 +650,32 @@
   <div class="mission-vision">
     <div class="card">
       <!-- Mosque Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ff0000" viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#c8b88a" viewBox="0 0 24 24">
         <path d="M12 2l4 4v2h-8V6l4-4zm-6 8h12v12H6V10zm2 2v8h2v-8H8zm6 0v8h2v-8h-2z"/>
       </svg>
       <h3>Our Mission</h3>
       <p>At Zuhd Guidance, our mission is to provide authentic, accessible, and transformative Islamic
-knowledge for Muslims worldwide. In an age of constant distraction, we aim to create a
-trusted platform rooted in Qur’an and Sunnah — where seekers can learn, reflect, and grow
-closer to Allah ‫ﷻ‬.
-We believe that knowledge is more than information. It is light, guidance, and a trust. Our
-goal is to share that light in ways that inspire reflection and action in everyday life — through
-lectures, quotes, vlogs, and blogs that speak to hearts and strengthen faith.</p>
+      knowledge for Muslims worldwide. In an age of constant distraction, we aim to create a
+      trusted platform rooted in Qur’an and Sunnah — where seekers can learn, reflect, and grow
+      closer to Allah ‫ﷻ‬.
+      We believe that knowledge is more than information. It is light, guidance, and a trust. Our
+      goal is to share that light in ways that inspire reflection and action in everyday life — through
+      lectures, quotes, vlogs, and blogs that speak to hearts and strengthen faith.</p>
     </div>
     <div class="card">
       <!-- Star Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ff0000" viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#c8b88a" viewBox="0 0 24 24">
         <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
       </svg>
       <h3>Our Vision</h3>
       <p>To become the leading digital Islamic content platform that bridges tradition with
-technology, uniting scholars, seekers, and communities globally.
-We envision a space where:
- <li>Authentic knowledge is accessible to everyone. </li>
-<li>Scholars share timeless wisdom with modern audiences.</li>
-<li>Communities engage, learn, and grow together.</li>
-<li>The next generation finds safe, inspiring digital guidance.</li>
-
-</p>
+      technology, uniting scholars, seekers, and communities globally.
+      We envision a space where:
+       <li>Authentic knowledge is accessible to everyone. </li>
+      <li>Scholars share timeless wisdom with modern audiences.</li>
+      <li>Communities engage, learn, and grow together.</li>
+      <li>The next generation finds safe, inspiring digital guidance.</li>
+      </p>
     </div>
   </div>
 
@@ -522,10 +689,10 @@ We envision a space where:
         <h3>Ustadh Saad Al-Hashmi</h3>
         <h4>Founder</h4>
         <p>Born in Jeddah, Saudi Arabia, Ustadh Saad Al-Hashmi pursued Islamic studies primarily in the
-UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber,
-specialising in Hanbali Fiqh. He also studied with Syrian scholars through the Taibah
-Foundation and the UAE Awqaf, as well as other notable ʿulema across various sciences of
-the deen.</p>
+        UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber,
+        specialising in Hanbali Fiqh. He also studied with Syrian scholars through the Taibah
+        Foundation and the UAE Awqaf, as well as other notable ʿulema across various sciences of
+        the deen.</p>
         <a href="javascript:void(0);" onclick="document.getElementById('modal-saad').style.display='flex'">Read More ></a>
       </div>
       
@@ -534,72 +701,105 @@ the deen.</p>
         <h3>Dr. Sami Al-Hashmi</h3>
         <h4>Co-Founder</h4>
         <p>Born in Vienna, Austria, Dr. Sami Al-Hashmi earned a Master’s in Dental Surgery from the
-University of Otago, New Zealand, where he graduated on a full academic scholarship.
-Alongside clinical training, he actively engaged in community dental programs and public
-health initiatives, embodying a commitment to service beyond his profession.</p>
+        University of Otago, New Zealand, where he graduated on a full academic scholarship.
+        Alongside clinical training, he actively engaged in community dental programs and public
+        health initiatives, embodying a commitment to service beyond his profession.</p>
         <a href="javascript:void(0);" onclick="document.getElementById('modal-sami').style.display='flex'">Read More ></a>
       </div>
-
     </div>
   </div>
-  <!-- TIMELINE -->
-  <div class="journey">
-    <h2>The Zuhd Journey</h2>
-    <div class="timeline">
-      <div class="step">
-        <div class="circle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M4 4h16l-1 5H5L4 4zm1 7h14v9H5v-9z"/>
-          </svg>
-        </div>
-        <h4>2014-2016</h4>
-        <p>Zuhd Store launches</p>
-      </div>
 
-      <div class="step">
-        <div class="circle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM4 12a8 8 0 0116 0H4z"/>
-          </svg>
+  <div class="container">
+    <header class="journey">
+      <h2>The Zuhd Journey</h2>
+      <!-- <p class="subtitle">From humble beginnings to serving the Ummah globally</p> -->
+    </header>
+    
+    <!-- Vertical Timeline for Mobile -->
+    <div class="vertical-timeline">
+      <div class="vertical-item">
+        <div class="vertical-dot"></div>
+        <div class="vertical-content">
+          <div class="year"><i class="fas fa-calendar-alt"></i> 2014–2016</div>
+          <p class="description">Zuhd Store launches with a vision to provide authentic Islamic products.</p>
         </div>
-        <h4>2017-2018</h4>
-        <p>Global growth & artisans</p>
       </div>
-
-      <div class="step">
-        <div class="circle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M10 15l6-3-6-3v6z"/>
-          </svg>
+      
+      <div class="vertical-item">
+        <div class="vertical-dot"></div>
+        <div class="vertical-content">
+          <div class="year"><i class="fas fa-globe"></i> 2017–2018</div>
+          <p class="description">Global expansion begins, partnering with artisans across the Muslim world.</p>
         </div>
-        <h4>Zuhd Guidance</h4>
-        <p>YT Public channel hits 1M+ subscribers</p>
       </div>
-
-      <div class="step">
-        <div class="circle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M7 17h3l2-6V7H7v4h3l-3 6zm7 0h3l2-6V7h-5v4h3l-3 6z"/>
-          </svg>
+      
+      <div class="vertical-item">
+        <div class="vertical-dot"></div>
+        <div class="vertical-content">
+          <div class="year"><i class="fas fa-lightbulb"></i> Zuhd Guidance</div>
+          <p class="description">YS Plube channel to IM - subscribers. Sharing Islamic knowledge.</p>
         </div>
-        <h4>2024</h4>
-        <p>Carousels, reels, quotes</p>
       </div>
-
-      <div class="step">
-        <div class="circle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 
-            1.34-3 3 1.34 3 3 3zm-8 0c1.66 
-            0 3-1.34 3-3S9.66 5 8 5 5 
-            6.34 5 8s1.34 3 3 3zm0 2c-2.33 
-            0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 
-            0c-.29 0-.62.02-.97.05C16.66 14.16 18 
-            15.05 18 16.5V20h4v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
-          </svg>
+      
+      <div class="vertical-item">
+        <div class="vertical-dot"></div>
+        <div class="vertical-content">
+          <div class="year"><i class="fas fa-images"></i> 2024</div>
+          <p class="description">Introduction of Carousels and reflective quotes to inspire the community.</p>
         </div>
-        <h4>Today</h4>
-        <p>Serving the Ummah globally</p>
+      </div>
+      
+      <div class="vertical-item">
+        <div class="vertical-dot"></div>
+        <div class="vertical-content">
+          <div class="year"><i class="fas fa-star"></i> Today</div>
+          <p class="description">Serving the Ummah globally with quality products and content.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Horizontal Timeline for Desktop -->
+    <div class="horizontal-timeline">
+      <div class="horizontal-items">
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="year"><i class="fas fa-calendar-alt"></i> 2014–2016</div>
+            <p class="description">Zuhd Store launches with a vision to provide authentic Islamic products.</p>
+          </div>
+        </div>
+        
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="year"><i class="fas fa-globe"></i> 2017–2018</div>
+            <p class="description">Global expansion begins, partnering with artisans across the Muslim world.</p>
+          </div>
+        </div>
+        
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="year"><i class="fas fa-lightbulb"></i> Zuhd Guidance</div>
+            <p class="description">YS Plube channel to IM - subscribers. Sharing Islamic knowledge.</p>
+          </div>
+        </div>
+        
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="year"><i class="fas fa-images"></i> 2024</div>
+            <p class="description">Introduction of Carousels and reflective quotes to inspire the community.</p>
+          </div>
+        </div>
+        
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="year"><i class="fas fa-star"></i> Today</div>
+            <p class="description">Serving the Ummah globally with quality products and content.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -613,18 +813,18 @@ health initiatives, embodying a commitment to service beyond his profession.</p>
         <h2>Ustadh Saad Al-Hashmi</h2>
         <div class="golden-divider"></div>
         <p>Born in Jeddah, Saudi Arabia, Ustadh Saad Al-Hashmi pursued Islamic studies primarily in the
-UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber,
-specialising in Hanbali Fiqh. He also studied with Syrian scholars through the Taibah
-Foundation and the UAE Awqaf, as well as other notable ʿulema across various sciences of
-the deen.
-Alongside his pursuit of sacred knowledge, Ustadh Saad is an entrepreneur and community
-leader. He co-founded Zuhd Guidance and Zuhd Store with a vision to benefit the
-community, support Islamic education, and strengthen the Ummah’s connection to
-knowledge and identity.
-He has played a key role in establishing the Maktab at Point Cook in Melbourne, nurturing
-the next generation with strong Islamic foundations. Ustadh Saad has also been instrumental
-in bringing leading international scholars to Australia, fostering unity, learning, and
-inspiration across communities. His leadership ensures Zuhd remains a mission-driven movement that blends faith, creativity, and community service.</p>
+        UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber,
+        specialising in Hanbali Fiqh. He also studied with Syrian scholars through the Taibah
+        Foundation and the UAE Awqaf, as well as other notable ʿulema across various sciences of
+        the deen.
+        Alongside his pursuit of sacred knowledge, Ustadh Saad is an entrepreneur and community
+        leader. He co-founded Zuhd Guidance and Zuhd Store with a vision to benefit the
+        community, support Islamic education, and strengthen the Ummah’s connection to
+        knowledge and identity.
+        He has played a key role in establishing the Maktab at Point Cook in Melbourne, nurturing
+        the next generation with strong Islamic foundations. Ustadh Saad has also been instrumental
+        in bringing leading international scholars to Australia, fostering unity, learning, and
+        inspiration across communities. His leadership ensures Zuhd remains a mission-driven movement that blends faith, creativity, and community service.</p>
       </div>
     </div>
   </div>
@@ -637,18 +837,18 @@ inspiration across communities. His leadership ensures Zuhd remains a mission-dr
         <h2>Dr. Sami Al-Hashmi</h2>
         <div class="golden-divider"></div>
         <p>Born in Vienna, Austria, Dr. Sami Al-Hashmi earned a Master’s in Dental Surgery from the
-University of Otago, New Zealand, where he graduated on a full academic scholarship.
-Alongside clinical training, he actively engaged in community dental programs and public
-health initiatives, embodying a commitment to service beyond his profession.
-While practicing dentistry, Dr. Sami deepened his spiritual journey by pursuing Islamic
-studies at WISE University in Jordan, building a foundation in traditional knowledge. His
-ability to balance modern medical expertise with sacred learning enables him to bridge
-science and faith with a holistic, compassionate approach.
-As a co-founder of Zuhd Guidance, Dr. Sami ensures that the platform’s content remains
-authentic, scholarly, and accessible, guiding audiences with integrity and care. His dual
-background in healthcare and Islamic studies positions him uniquely to lead with both
-intellect and heart, reinforcing Zuhd’s mission of empowering the Ummah through
-knowledge and action.</p>
+        University of Otago, New Zealand, where he graduated on a full academic scholarship.
+        Alongside clinical training, he actively engaged in community dental programs and public
+        health initiatives, embodying a commitment to service beyond his profession.
+        While practicing dentistry, Dr. Sami deepened his spiritual journey by pursuing Islamic
+        studies at WISE University in Jordan, building a foundation in traditional knowledge. His
+        ability to balance modern medical expertise with sacred learning enables him to bridge
+        science and faith with a holistic, compassionate approach.
+        As a co-founder of Zuhd Guidance, Dr. Sami ensures that the platform’s content remains
+        authentic, scholarly, and accessible, guiding audiences with integrity and care. His dual
+        background in healthcare and Islamic studies positions him uniquely to lead with both
+        intellect and heart, reinforcing Zuhd’s mission of empowering the Ummah through
+        knowledge and action.</p>
       </div>
     </div>
   </div>
@@ -677,8 +877,44 @@ knowledge and action.</p>
         }
       }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add animation to timeline items
+      const verticalItems = document.querySelectorAll('.vertical-item');
+      const horizontalItems = document.querySelectorAll('.horizontal-item');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains('vertical-item')) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            } else {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      verticalItems.forEach(item => {
+        item.style.opacity = 0;
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(item);
+      });
+      
+      horizontalItems.forEach(item => {
+        item.style.opacity = 0;
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(item);
+      });
+    });
   </script>
 
   <script src="navbar.js"></script>
+  <script src="/cacheBuster.js"></script>
+
 </body>
 </html>
