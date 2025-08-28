@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Serotiva-Light";
+      background: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background-color: var(--deep-green);
+      color: #ffffff;
+      text-align: center;
+      padding: 130px 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      margin: 10px 0 25px;
+      color: #ffffff;
+    }
+
+    .header button {
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 10px 22px;
+      color: var(--gold);
+      border-radius: 5px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .header button:hover {
+      background: var(--gold);
+      color: var(--deep-green);
+    }
+
+    /* ===== MISSION & VISION ===== */
+    .mission-vision {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: -40px;
+      padding: 0 20px 0px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #fdfaf6;
+      flex: 1;
+      min-width: 460px;
+      max-width: 550px;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      animation: fadeInUp 1s ease;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+
+    .card svg {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    .card li{
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* ===== FOUNDERS ===== */
+    .founders {
+      padding: 0px 20px 60px;
+      text-align: center;
+    }
+
+    .founders h2 {
+      font-size: 2.3rem;
+      color: var(--deep-green);
+      margin: 70px auto;
+    }
+
+    .founder-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .founder-card {
+      background: #fdfaf6;
+      padding: 30px 25px;
+      border-radius: 12px;
+      max-width: 550px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .founder-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .founder-card img {
+      width: 230px;
+      height: 230px;
+      margin-top: -100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #eee;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .founder-card h3 {
+      font-size: 1.7rem;
+      margin: 10px 0 5px;
+      color: var(--deep-green);
+    }
+
+    .founder-card h4 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #666;
+      margin: 5px 0 15px;
+    }
+
+    .founder-card p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .founder-card a {
+      display: block;
+      text-align: right;
+      font-size: 14px;
+      font-weight: bold;
+      color: #184D47;
+      text-decoration: none;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .founder-card a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== TIMELINE ===== */
+    .journey {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #fdfaf6;
+    }
+
+    .journey h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--deep-green);
+    }
+
+    .timeline {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #d9b68b;
+      z-index: 1;
+    }
+
+    .step {
+      position: relative;
+      text-align: center;
+      width: 18%;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .step .circle {
+      width: 40px;
+      height: 40px;
+      background: #d9b68b;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 10px auto;
+      font-size: 18px;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .step h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #555;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    /* ===== MODAL (Updated Styling with Scroll) ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 35px 25px;
+      border-radius: 20px;
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      animation: scaleIn 0.35s ease;
+      max-height: 80vh; /* Restrict modal height */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Founder Image */
+    .modal-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px auto;
+      border: 5px solid #eee;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 35px; /* Fixed position at top with padding */
+      z-index: 2;
+    }
+
+    /* Scrollable Content Container */
+    .modal-scroll {
+      overflow-y: auto;
+      max-height: calc(80vh - 250px); /* Adjust based on image and padding */
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    /* Founder Name */
+    .modal-content h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #184D47; /* deep green */
+      margin-bottom: 8px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Golden Divider */
+    .modal-divider {
+      width: 60px;
+      height: 3px;
+      background: #d9b68b;
+      margin: 12px auto 22px;
+      border-radius: 3px;
+    }
+
+    /* Founder Bio */
+    .modal-content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.7;
+      text-align: justify;
+      margin: 0 10px;
+    }
+    .golden-divider {
+      border: none;
+      height: 3px;                /* line ki motai */
+      width: 80%;                 /* kitna lamba ho divider */
+      margin: 20px auto;           /* center align */
+      background: linear-gradient(to right, transparent, #c8b88a, transparent);
+      border-radius: 50px;         /* thodi golai */
+    }
+
+    /* Close Button */
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #666;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color: #184D47;
+      transform: scale(1.2);
+    }
+
+    /* Scrollbar Styling */
+    .modal-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+    .modal-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .modal-scroll::-webkit-scrollbar-thumb {
+      background: #d9b68b;
+      border-radius: 10px;
+    }
+    .modal-scroll::-webkit-scrollbar-thumb:hover {
+      background: #c8b88a;
+    }
+
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      .timeline { flex-direction: column; align-items: center; }
+      .timeline::before { width: 2px; height: 100%; left: 50%; top: 0; bottom: 0; right: auto; }
+      .step { width: 100%; margin-bottom: 50px; text-align: left; padding-left: 40px; }
+      .step .circle { margin: 0 0 10px -22px; }
+      .founder-container { gap: 30px; }
+    }
+
+    @media (max-width: 768px) {
+      .mission-vision { flex-direction: column; align-items: center; gap: 30px; }
+      .card { min-width: 90%; max-width: 90%; padding: 30px 15px; }
+      .founder-container { flex-direction: column; align-items: center; gap: 60px; }
+      .founder-card { max-width: 90%; padding: 25px 15px; }
+      .founder-card img { width: 200px; height: 200px; margin-top: -100px; }
+      .founders h2 { font-size: 2rem; margin: 50px auto; }
+      .header { padding: 100px 15px; }
+      .header h1 { font-size: 2.2rem; }
+      .header p { font-size: 1.1rem; }
+      .journey { padding: 40px 15px; }
+      .journey h2 { font-size: 2.2rem; margin-bottom: 40px; }
+      .modal-content { padding: 25px 15px; }
+      .modal-img { width: 150px; height: 150px; }
+      .modal-scroll { max-height: calc(80vh - 220px); }
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 80px 10px; }
+      .header h1 { font-size: 1.8rem; }
+      .header p { font-size: 1rem; }
+      .card h3 { font-size: 1.5rem; }
+      .card p, .card li { font-size: 1rem; }
+      .founders { padding: 0 10px 40px; }
+      .founders h2 { font-size: 1.8rem; margin: 40px auto; }
+      .founder-card { padding: 20px 15px; }
+      .founder-card h3 { font-size: 1.5rem; }
+      .founder-card h4 { font-size: 1.1rem; }
+      .founder-card p { font-size: 1rem; }
+      .journey h2 { font-size: 1.8rem; }
+      .step h4 { font-size: 14px; }
+      .step p { font-size: 12px; }
+      .modal-content { width: 95%; padding: 20px; margin: 10% auto; }
+      .modal-img { width: 140px; height: 140px; }
+      .modal-content h2 { font-size: 1.5rem; }
+      .modal-content p { font-size: 1rem; }
+      .modal-scroll { max-height: calc(80vh - 200px); }
+    }
+
+    @media (max-width: 480px) {
+      .header button { padding: 8px 18px; font-size: 14px; }
+      .timeline::before { left: 22px; }
+      .step { padding-left: 50px; }
+      .step .circle { margin-left: -52px; }
+      .mission-vision { gap: 20px; padding: 0 10px; }
+      .card { padding: 25px 10px; min-width: 100%; }
+      .founder-card img { width: 180px; height: 180px; margin-top: -90px; }
+      .timeline { padding: 0 10px; }
+      .modal-img { width: 130px; height: 130px; }
+      .modal-scroll { max-height: calc(80vh - 190px); }
+    }
+
+    @media (max-width: 360px) {
+      .header { padding: 60px 5px; }
+      .header h1 { font-size: 1.6rem; }
+      .card { padding: 20px 10px; }
+      .founder-card { padding: 15px 10px; }
+      .modal-content { padding: 15px 10px; }
+      .step { margin-bottom: 40px; }
+      .modal-img { width: 120px; height: 120px; }
+      .modal-scroll { max-height: calc(80vh - 180px); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div id="navbar"></div>
+  </nav>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>ABOUT US</h1>
+    <p>Knowledge. Guidance. Community.</p>
+    <button>Explore Lectures</button>
+  </div>
+
+  <!-- MISSION & VISION -->
+  <div class="mission-vision">
+    <div class="card">
+      <!-- Mosque Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ff0000" viewBox="0 0 24 24">
+        <path d="M12 2l4 4v2h-8V6l4-4zm-6 8h12v12H6V10zm2 2v8h2v-8H8zm6 0v8h2v-8h-2z"/>
+      </svg>
+      <h3>Our Mission</h3>
+      <p>At Zuhd Guidance, our mission is to provide authentic, accessible, and transformative Islamic
+knowledge for Muslims worldwide. In an age of constant distraction, we aim to create a
+trusted platform rooted in Qur’an and Sunnah — where seekers can learn, reflect, and grow
+closer to Allah ‫ﷻ‬.
+We believe that knowledge is more than information. It is light, guidance, and a trust. Our
+goal is to share that light in ways that inspire reflection and action in everyday life — through
+lectures, quotes, vlogs, and blogs that speak to hearts and strengthen faith.</p>
+    </div>
+    <div class="card">
+      <!-- Star Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ff0000" viewBox="0 0 24 24">
+        <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
+      </svg>
+      <h3>Our Vision</h3>
+      <p>To become the leading digital Islamic content platform that bridges tradition with
+technology, uniting scholars, seekers, and communities globally.
+We envision a space where:
+ <li>Authentic knowledge is accessible to everyone. </li>
+<li>Scholars share timeless wisdom with modern audiences.</li>
+<li>Communities engage, learn, and grow together.</li>
+<li>The next generation finds safe, inspiring digital guidance.</li>
+
+</p>
+    </div>
+  </div>
+
+  <!-- FOUNDERS -->
+  <div class="founders">
+    <h2>Our Founders</h2>
+    <div class="founder-container">
+      
+      <div class="founder-card">
+        <img src="founder1.png" alt="Saad">
+        <h3>Ustadh Saad Al-Hashmi</h3>
+        <h4>Founder</h4>
+        <p>Born in Jeddah, Saudi Arabia, Ustadh Saad Al-Hashmi pursued Islamic studies primarily in the
+UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber,
+specialising in Hanbali Fiqh. He also studied with Syrian scholars through the Taibah
+Foundation and the UAE Awqaf, as well as other notable ʿulema across various sciences of
+the deen.</p>
+        <a href="javascript:void(0);" onclick="document.getElementById('modal-saad').style.display='flex'">Read More ></a>
+      </div>
+      
+      <div class="founder-card">
+        <img src="Photo 18-07-2025, 15 39 30.jpg" alt="Sami">
+        <h3>Dr. Sami Al-Hashmi</h3>
+        <h4>Co-Founder</h4>
+        <p>Born in Vienna, Austria, Dr. Sami Al-Hashmi earned a Master’s in Dental Surgery from the
+University of Otago, New Zealand, where he graduated on a full academic scholarship.
+Alongside clinical training, he actively engaged in community dental programs and public
+health initiatives, embodying a commitment to service beyond his profession.</p>
+        <a href="javascript:void(0);" onclick="document.getElementById('modal-sami').style.display='flex'">Read More ></a>
+      </div>
+
+    </div>
+  </div>
+  <!-- TIMELINE -->
+  <div class="journey">
+    <h2>The Zuhd Journey</h2>
+    <div class="timeline">
+      <div class="step">
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
+            <path d="M4 4h16l-1 5H5L4 4zm1 7h14v9H5v-9z"/>
+          </svg>
+        </div>
+        <h4>2014-2016</h4>
+        <p>Zuhd Store launches</p>
+      </div>
+
+      <div class="step">
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM4 12a8 8 0 0116 0H4z"/>
+          </svg>
+        </div>
+        <h4>2017-2018</h4>
+        <p>Global growth & artisans</p>
+      </div>
+
+      <div class="step">
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
+            <path d="M10 15l6-3-6-3v6z"/>
+          </svg>
+        </div>
+        <h4>Zuhd Guidance</h4>
+        <p>YT Public channel hits 1M+ subscribers</p>
+      </div>
+
+      <div class="step">
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
+            <path d="M7 17h3l2-6V7H7v4h3l-3 6zm7 0h3l2-6V7h-5v4h3l-3 6z"/>
+          </svg>
+        </div>
+        <h4>2024</h4>
+        <p>Carousels, reels, quotes</p>
+      </div>
+
+      <div class="step">
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
+            <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 
+            1.34-3 3 1.34 3 3 3zm-8 0c1.66 
+            0 3-1.34 3-3S9.66 5 8 5 5 
+            6.34 5 8s1.34 3 3 3zm0 2c-2.33 
+            0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 
+            0c-.29 0-.62.02-.97.05C16.66 14.16 18 
+            15.05 18 16.5V20h4v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+          </svg>
+        </div>
+        <h4>Today</h4>
+        <p>Serving the Ummah globally</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <div id="modal-saad" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal-saad').style.display='none'">&times;</span>
+      <img src="founder1.png" alt="Saad" class="modal-img">
+      <div class="modal-scroll">
+        <h2>Ustadh Saad Al-Hashmi</h2>
+        <div class="golden-divider"></div>
+        <p>Born in Jeddah, Saudi Arabia, Ustadh Saad Al-Hashmi pursued Islamic studies primarily in the
+UAE and Jordan, learning under esteemed scholars such as Dr. Sheikh Musa Furber,
+specialising in Hanbali Fiqh. He also studied with Syrian scholars through the Taibah
+Foundation and the UAE Awqaf, as well as other notable ʿulema across various sciences of
+the deen.
+Alongside his pursuit of sacred knowledge, Ustadh Saad is an entrepreneur and community
+leader. He co-founded Zuhd Guidance and Zuhd Store with a vision to benefit the
+community, support Islamic education, and strengthen the Ummah’s connection to
+knowledge and identity.
+He has played a key role in establishing the Maktab at Point Cook in Melbourne, nurturing
+the next generation with strong Islamic foundations. Ustadh Saad has also been instrumental
+in bringing leading international scholars to Australia, fostering unity, learning, and
+inspiration across communities. His leadership ensures Zuhd remains a mission-driven movement that blends faith, creativity, and community service.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-sami" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal-sami').style.display='none'">&times;</span>
+      <img src="Photo 18-07-2025, 15 39 30.jpg" alt="Sami" class="modal-img">
+      <div class="modal-scroll">
+        <h2>Dr. Sami Al-Hashmi</h2>
+        <div class="golden-divider"></div>
+        <p>Born in Vienna, Austria, Dr. Sami Al-Hashmi earned a Master’s in Dental Surgery from the
+University of Otago, New Zealand, where he graduated on a full academic scholarship.
+Alongside clinical training, he actively engaged in community dental programs and public
+health initiatives, embodying a commitment to service beyond his profession.
+While practicing dentistry, Dr. Sami deepened his spiritual journey by pursuing Islamic
+studies at WISE University in Jordan, building a foundation in traditional knowledge. His
+ability to balance modern medical expertise with sacred learning enables him to bridge
+science and faith with a holistic, compassionate approach.
+As a co-founder of Zuhd Guidance, Dr. Sami ensures that the platform’s content remains
+authentic, scholarly, and accessible, guiding audiences with integrity and care. His dual
+background in healthcare and Islamic studies positions him uniquely to lead with both
+intellect and heart, reinforcing Zuhd’s mission of empowering the Ummah through
+knowledge and action.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Animation and Modal Close -->
+  <script>
+    const steps = document.querySelectorAll(".step");
+    function checkSteps() {
+      const triggerBottom = window.innerHeight * 0.85;
+      steps.forEach(step => {
+        const stepTop = step.getBoundingClientRect().top;
+        if (stepTop < triggerBottom) {
+          step.classList.add("visible");
+        }
+      });
+    }
+    window.addEventListener("scroll", checkSteps);
+    window.addEventListener("load", checkSteps);
+
+    // Close modal on outside click
+    window.onclick = function(event) {
+      const modals = document.getElementsByClassName('modal');
+      for (let i = 0; i < modals.length; i++) {
+        if (event.target === modals[i]) {
+          modals[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <script src="navbar.js"></script>
+</body>
+</html>
