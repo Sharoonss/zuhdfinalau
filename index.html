@@ -1,13 +1,2097 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=/home.html"> 
-    <title>ZUHD GUIDANCE - Redirecting</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZUHD GUIDANCE – Islamic Education</title>
+  <!-- Styles -->
+<link rel="stylesheet" href="styles.css?v=2"/>
+  <link rel="stylesheet" href="/lecture.html">
+  <!-- GSAP core + ScrollTrigger CDN -->
+  <!-- Your custom JS -->
+  <script defer src="script.js"></script>
+  <!-- Fonts & Icons -->
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 </head>
-<body>
-    <h1>Redirecting to ZUHD GUIDANCE Home Page...</h1>
-    <p>If not redirected, click <a href="/home.html">here</a>.</p>
+
+   <style>
+    body{
+            font-family: "Serotiva-Light";
+        }
+        a {
+            font-family: "Serotiva-Light";
+        }
+        .revive-content-grid{
+          margin-top: 80px;
+        }
+ /* Top Videos Section */
+    .top-videos-section {
+      padding: 0px 20px 50px;
+      background-color: rgb(255, 255, 255);
+      /* background: linear-gradient(rgba(15, 61, 46, 0.05), rgba(15, 61, 46, 0.05)); */
+      position: relative;
+      overflow: hidden;
+      /* border-top: 1px solid rgba(15, 61, 46, 0.1); */
+      /* border-bottom: 1px solid rgba(15, 61, 46, 0.1); */
+    }
+    
+    .section-header {
+      text-align: center;
+      margin: 40px auto;
+      position: relative;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--deep-green);
+      /* margin-bottom: 15px; */
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    
+    
+    /* .section-header h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background-color: #C8B88A;
+      border-radius: 2px;
+    } */
+    
+    .section-header p {
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto ;
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+    
+    .videos-slider-container {
+      /* max-width: 1200px; */
+      width:95%;
+      margin: 0 auto;
+      position: relative;
+      /* padding: 0 30px; */
+    }
+    
+    .videos-slider {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px 0;
+      scrollbar-width: none;
+    }
+    
+    .videos-slider::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .video-card {
+      min-width: 300px;
+      width: 300px;
+      /* background: white; */
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35);
+    }
+    
+    .video-thumbnail {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    
+    .video-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .video-card:hover .video-thumbnail img {
+      transform: scale(1.05);
+    }
+    
+    .video-play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(15, 61, 46, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .video-card:hover .video-play-icon {
+      opacity: 1;
+    }
+    
+    .video-play-icon i {
+      color: white;
+      font-size: 1.8rem;
+      margin-left: 5px;
+    }
+    
+    .video-info {
+      padding: 20px;
+      background: white;
+    }
+    
+    .video-info h3 {
+      font-size: 1.2rem;
+      color: #0F3D2E;
+      margin-bottom: 10px;
+      height: 3.2em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      transition: color 0.3s ease;
+    }
+    
+    
+    .video-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    
+    .video-views {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 55px;
+      height: 55px;
+      /* background: white; */
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+    
+    
+    #prevVideosBtn {
+      left: -30px;
+    }
+    
+    #nextVideosBtn {
+      right: -30px;
+    }
+   
+    .view-all-btn-video {
+      display: block;
+      width: max-content;
+      margin: 40px auto 0;
+      padding: 14px 35px;
+      background: var(--deep-green);
+      color: var(--gold);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2);
+    }
+    
+    .view-all-btn-video:hover {
+      background: #e1d2a4;
+      color: var(--deep-green);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35);
+    }
+    
+    /* Loading animation */
+    .videos-loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      width: 100%;
+    }
+    
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(15, 61, 46, 0.582);
+      border-top-color: #0F3D2E;
+      border-radius: 50%;
+      animation: spin 0.5s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+
+       /* YouTube Shorts Section - Improved Styling */
+    .main-shorts {
+      padding: 20px 20px; 
+      background: linear-gradient(rgba(15, 61, 46, 0.1), rgba(15, 61, 46, 0.05)); /* Softer gradient */
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(15, 61, 46, 0.1); /* Subtle border for section separation */
+      border-bottom: 1px solid rgba(15, 61, 46, 0.1);
+    }
+   
+    .shorts-header {
+      text-align: center;
+      margin-bottom: 40px; /* More space below header */
+      position: relative;
+    }
+/* aaaaaagi */
+    /* .section-title2{
+      margin-top: 50px;
+    } */
+    .section-subtitle{
+      margin-bottom: 40px;
+      font-size: 1.2rem;
+    }
+
+    .shorts-header h2 {
+      font-size: 2.5rem; /* Slightly larger for emphasis */
+      color: var(--gold);
+      /* margin-bottom: 15px; */
+      position: relative;
+      display: inline-block;
+      font-weight: 700; /* Bolder text */
+      letter-spacing: 0.5px; /* Better readability */
+    }
+
+    .section-title2{
+font-size: 2.5rem; /* Slightly larger for emphasis */
+      color: var(--gold);
+      /* margin-bottom: 15px; */
+      position: relative;
+      display: inline-block;
+      font-weight: 700; /* Bolder text */
+      letter-spacing: 0.5px; /* Better readability */
+    }
+   
+    /* .shorts-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px; 
+      height: 4px;
+      background-color: var(--secondary);
+      border-radius: 2px; 
+    } */
+   
+    .shorts-header p {
+      color: #ffffff;
+      max-width: 700px; 
+      margin: 0px auto 15px;
+      font-size: 1.2rem; 
+      /* opacity: 0.85;  */
+    }
+   
+    .shorts-slider-container {
+      /* max-width: 1200px; */
+      width: 95%;
+      margin: 0 auto;
+      position: relative;
+      /* padding: 0 30px;  */
+    }
+   
+    .shorts-slider {
+      display: flex;
+      gap: 25px; /* Increased gap for better separation */
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px 0;
+      scrollbar-width: none; /* Firefox */
+    }
+   
+    .shorts-slider::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+   
+    .short-card {
+      min-width: 300px;
+      width: 300px;
+      /* background: rgb(211, 25, 25); */
+      border-radius: 16px; /* Softer corners */
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); /* Deeper shadow for depth */
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.3s ease; /* Smoother transitions */
+      position: relative;
+      cursor: pointer; /* Indicate interactivity */
+    }
+   
+    .short-card:hover {
+      transform: translateY(-10px) scale(1.02); /* Slight scale on hover for engagement */
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18); /* Enhanced shadow on hover */
+      opacity: 0.95; /* Subtle fade effect */
+    }
+   
+    .short-card iframe {
+      width: 100%;
+      height: 330px;
+      border: none;
+      border-radius: 16px 16px 0 0; /* Match card radius */
+      aspect-ratio: 9/16; /* Ensure vertical aspect ratio for shorts */
+    }
+   
+    .short-info {
+      padding: 20px; /* More padding for comfort */
+      background: #ffffff;
+    }
+   
+    .short-info h3 {
+      font-size: 1.2rem; /* Slightly larger title */
+      color: #444;
+      margin-bottom: 10px;
+      height: 3.2em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      transition: color 0.3s ease; /* Smooth color change */
+    }  
+   
+    .short-info .short-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem; /* Slightly larger meta text */
+      color: #555; /* Darker gray for contrast */
+    }
+   
+    .short-views {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+   
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); 
+      width: 55px; /* Slightly larger buttons */
+      height: 55px;
+      /* background: var(--gold); */
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1.2rem; /* Larger icons */
+    }
+   
+    .slider-btn:hover {
+      /* background: var(--primary); */
+      /* color: white; */
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 8px 25px rgba(15, 61, 46, 0.3); /* Enhanced hover shadow */
+    }
+   
+    #prevBtn {
+      left: -30px; /* Adjusted position */
+    }
+   
+    #nextBtn {
+      right: -30px; /* Adjusted position */
+    }
+   
+    .view-all-btn {
+      display: block;
+      width: max-content;
+      margin: 40px auto 20px; /* More top margin */
+      padding: 14px 35px; /* Larger padding */
+      background: var(--secondary);
+      color: var(--gold);
+      border: none;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem; /* Larger text */
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2); /* Added shadow */
+    }
+   
+    .view-all-btn:hover {
+      background: var(--gold);
+      color: var(--deep-green);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35); /* Stronger hover shadow */
+    }
+   
+    @media (max-width: 768px) {
+      .short-card {
+        min-width: 280px;
+        width: 280px;
+      }
+     
+      .short-card iframe {
+        height: 500px;
+      }
+     
+      .slider-btn {
+        width: 45px;
+        height: 45px;
+      }
+     
+      #prevBtn {
+        left: -20px;
+      }
+     
+      #nextBtn {
+        right: -20px;
+      }
+    }
+   
+    @media (max-width: 480px) {
+      .shorts-header h2 {
+        font-size: 2rem;
+      }
+      .section-title2 {
+        font-size: 2rem;
+      }
+     
+      .short-card {
+        min-width: 260px;
+        width: 260px;
+      }
+     
+      .short-card iframe {
+        height: 460px;
+      }
+      .explore-prompt{
+        font-size: 10px;
+      }
+    }
+   
+    /* Loading animation - Improved */
+    .shorts-loader {
+      display: flex;
+      flex-direction: column; /* Stack spinner and text */
+      justify-content: center;
+      align-items: center;
+      height: 530px;
+      width: 100%;
+    }
+   
+    .spinner {
+      width: 60px; /* Larger spinner */
+      height: 60px;
+      border: 6px solid rgba(15, 61, 46, 0.1);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+   
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+   
+    .loading-text {
+      margin-top: 20px;
+      text-align: center;
+      color: red;
+      font-weight: 500;
+    }
+   </style>
+ <body>
+    <!-- Navigation -->
+     <nav>
+      <div id="navbar"></div>
+   </nav>
+    <!-- Hero Section -->
+     <div class="zuhd-header-section">
+        <video class="video-background" autoplay muted loop playsinline poster="" id="headerVideo">
+            <source src="/Zuhd au Video Banner.mp4" type="video/mp4" media="(min-width: 769px)" id="desktopSource">
+            <source src="/Zuhd au Video Banner - Portrait.mp4" type="video/mp4" media="(max-width: 768px)" id="mobileSource">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-fallback"></div>
+        <div class="header-content">
+            <h1>ZUHD GUIDANCE</h1>
+            <p>Islamic Knowledge. Real Conversations</p>
+        </div>
+    </div>
+    
+<div class="scroll-section">
+        <div class="scroll-content">
+            <div class="marquee-track">
+                <div class="item">
+                    <img src="/Icon-01.png" alt="📊"> 1M+ SUBSCRIBERS ON YOUTUBE
+                </div>
+                <div class="item">
+                    <img src="/Icon-02.png" alt="🌐"> TRUSTED BY GLOBAL ULAMA
+                </div>
+                <div class="item">
+                    <img src="/Icon-03.png" alt="📸"> DAILY INSTAGRAM CAROUSELS
+                </div>
+                <div class="item">
+                    <img src="/Icon-04.png" alt="🤝"> COMMUNITY OUTREACH
+                </div>
+                <div class="item">
+                    <img src="/Icon-01.png" alt=""> 1M+ SUBSCRIBERS ON YOUTUBE
+                </div>
+                <div class="item">
+                    <img src="/Icon-02.png" alt=""> TRUSTED BY GLOBAL ULAMA
+                </div>
+                <div class="item">
+                    <img src="/Icon-03.png" alt=""> DAILY INSTAGRAM CAROUSELS
+                </div>
+                <div class="item">
+                    <img src="/Icon-04.png" alt=""> COMMUNITY OUTREACH & ZIYAM
+                </div>
+            </div>
+            <div class="marquee-track">
+                <div class="item">
+                    <img src="images/Icon-01.png" alt="📊"> 1M+ SUBSCRIBERS ON YOUTUBE
+                </div>
+                <div class="item">
+                    <img src="images/Icon-02.png" alt="🌐"> TRUSTED BY GLOBAL ULAMA
+                </div>
+                <div class="item">
+                    <img src="images/Icon-03.png" alt="📸"> DAILY INSTAGRAM CAROUSELS
+                </div>
+                <div class="item">
+                    <img src="images/Icon-04.png" alt="🤝"> COMMUNITY OUTREACH & ZIYAM
+                </div>
+                <div class="item">
+                    <img src="images/Icon-01.png" alt=""> 1M+ SUBSCRIBERS ON YOUTUBE
+                </div>
+                <div class="item">
+                    <img src="images/Icon-02.png" alt=""> TRUSTED BY GLOBAL ULAMA
+                </div>
+                <div class="item">
+                    <img src="images/Icon-03.png" alt=""> DAILY INSTAGRAM CAROUSELS
+                </div>
+                <div class="item">
+                    <img src="images/Icon-04.png" alt=""> COMMUNITY OUTREACH & ZIYAM
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- uspas -->
+    <!-- ups section -->
+<div class="main-upss">
+    <div class="section-title2">
+    </div>
+    <div class="story-slider-container">
+        <div class="story-slider" id="storySlider">
+ 
+            <div class="story-card" data-story="1">
+                <video
+                    class="story-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+1">
+                    <source src="/01-Authentic Knowledge from Qualified Scholars.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="story-info">
+                    <div class="story-title">Authentic Knowledge from Qualified Scholars</div>
+                    <div class="story-description">Trusted Islamic teachings you can rely on.</div>
+                </div>
+            </div>
+ 
+            <div class="story-card" data-story="3">
+                <video
+                    class="story-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+2">
+                    <source src="/03-Supporting Global Ummah Initiatives.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="story-info">
+                    <div class="story-title">Supporting Global Ummah Initiatives</div>
+                    <div class="story-description">Every view helps amplify the voices of the Ummah</div>
+                </div>
+            </div>
+ 
+            <div class="story-card" data-story="4">
+                <video
+                    class="story-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+3">
+                    <source src="/04-Designed for All Ages & Every Stage.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="story-info">
+                    <div class="story-title">Designed for All Ages & Every Stage</div>
+                    <div class="story-description">Content that resonates with every member of the family.</div>
+                </div>
+            </div>
+ 
+            <div class="story-card" data-story="5">
+                <video
+                    class="story-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+4">
+                    <source src="/05-Innovation in Islamic Learning.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="story-info">
+                    <div class="story-title">Innovation in Islamic Learning</div>
+                    <div class="story-description">Modern Islamic education with cutting-edge technology</div>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+</div>
+    <!-- Content Section -->
+ 
+  <!-- Main Slider Container -->
+   <!-- Top Videos Section -->
+  <section class="top-videos-section">
+    <div class="section-header">
+      <h2>The Zuhd Series</h2>
+      <p>Islamic Knowledge. Real Conversations</p>
+    </div>
+    
+    <div class="videos-slider-container">
+      <button id="prevVideosBtn" class="slider-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <div id="videosSlider" class="videos-slider">
+        <div class="videos-loader">
+          <div class="spinner"></div>
+          <p class="loading-text">Loading Islamic videos...</p>
+        </div>
+      </div>
+      
+      <button id="nextVideosBtn" class="slider-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    
+    <a href="https://www.youtube.com/@zuhdau/videos" target="_blank" class="view-all-btn-video">
+      View All Videos <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+    </a>
+  </section>
+ 
+  <div class="partners-section">
+        <h2 class="section-title2">OUR PARTNERS</h2>
+        <p class="section-subtitle">Built on Islamic principles, trusted by leading organizations</p>
+       
+        <div class="slider-container1">
+            <div class="slider-track" id="sliderTrack">
+                <a href="https://www.zamzamacademy.com/" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/TxyzvBzX/LOGOS-04.jpg" alt="DIO Partner 2" />
+                    </div>
+                    <div class="partner-name">Zam Zam Academy</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+                <a href="https://www.safaracademy.org/#1" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/kgWYdxC5/LOGOS-06.jpg" alt="DIO Partner 4" />
+                    </div>
+                    <div class="partner-name">Safar Academy</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+ 
+                <a href="https://www.whitethread.org/" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/pBDdGcbM/LOGOS-07.jpg" alt="DIO Partner 5" />
+                    </div>
+                    <div class="partner-name">Whitethread</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+ 
+                <a href="https://daruliftaa.com/" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/dJPH6nMB/LOGOS-08.jpg" alt="DIO Partner 6" />
+                    </div>
+                    <div class="partner-name">Darul Iftaa</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+ 
+                <a href="https://courses.whitethread.org/bundles/rayyan-course-subscription" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/ymBZmgR2/LOGOS-09.jpg" alt="DIO Partner 7" />
+                    </div>
+                    <div class="partner-name">Rayyan Courses</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+ 
+                <a href="https://www.facebook.com/daarularqamaustralia/" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/390KrWKw/LOGOS-03.jpg" alt="DIO Partner 8" />
+                    </div>
+                    <div class="partner-name">Daarul Arqam</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+
+                <a href="https://nurulilm.com/" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/gL0mmjTb/52906f4c-484d-48b5-9917-c2be3ae0b05c-t.jpg" alt="DIO Partner 7" />
+                        </div>
+                    <div class="partner-name">NUR UL ILM INSTITUTE</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+                  <a href="https://hiddenhumanity.org/#:~:text=Hidden%20Humanity%E2%80%99s%20mission%20is%20to%20serve%20those%20in,source%20of%20relief%20to%20their%20most%20basic%20needs." target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/cXYz04NK/Hidden-Humanity-Logo.jpg" alt="DIO Partner 7" />
+                        </div>
+                    <div class="partner-name">Hidden-Humanity</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+                  <a href="https://courses.whitethread.org/bundles/rayyan-course-subscription" target="_blank" rel="noopener noreferrer" class="partner-card islamic-card external-link">
+                    <div class="partner-logo">
+                        <img src="https://i.ibb.co/ymBZmgR2/LOGOS-09.jpg" alt="DIO Partner 7" />
+                    </div>
+                    <div class="partner-name">Rayyan Courses</div>
+                    <div class="partner-type">Partner Organization</div>
+                    <div class="click-hint">Visit →</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="main-banner">
+<div class="banner">
+     
+        <div class="banner-content">
+            <h2 class="channel-name">1 Million Subscribers</h2>
+            <p class="update-text">New Updates Coming</p>
+            <a href="https://www.youtube.com/@zuhdau/videos" class="subscribe-btn">Subscribe Our YouTube Channel</a>
+        </div>
+    </div>
+    </div>
+ 
+ 
+<section class="main-shorts">
+    <div class="shorts-header">
+      <h2>Trending Shorts</h2>
+      <p class="section-subtitle">Daily Islamic reminders in short, impactful videos</p>
+    </div>
+   
+    <div class="shorts-slider-container">
+      <button id="prevBtn" class="slider-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+     
+      <div id="shortsSlider" class="shorts-slider">
+        <div class="shorts-loader">
+          <div class="spinner"></div>
+        </div>
+      </div>
+     
+      <button id="nextBtn" class="slider-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+   
+    <a href="https://www.youtube.com/@zuhdau/shorts" target="_blank" class="view-all-btn">
+      View All Shorts <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+    </a>
+  </section>
+ 
+ 
+ 
+    <div class="iq-toast" id="iq-toast">
+        <span id="iq-toast-message"></span>
+    </div>
+ 
+     <!-- Instagram Posts Section -->
+      <div class="instagram-main" >
+           
+<div class="elfsight-app-a7f6f23b-52e3-4550-b35d-8844a780d55a" data-elfsight-app-lazy></div>
+               
+            </div>
+ </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3>zuhd Academy</h3>
+                    <ul>
+                        <li><a href="/about-zuhd.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
+                        <li><a href="/zuhd-lectures.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
+                        <li><a href="/after-school-classes.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
+                        <li><a href="/terms.html" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/store.html" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
+                        <li><a href="/ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="/about-zuhd.html" onclick="linkClick('Our Story')">Our Story</a></li>
+                        <li><a href="/blog.html" onclick="linkClick('Blog')">Blog</a></li>
+                        <li><a href="/about-zuhd.html" onclick="linkClick('About Us')">About Us</a></li>
+                        <li><a href="/contact.html" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/faq.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column newsletter">
+                    <h3>Stay Connected to Guidance</h3>
+                    <p>Be the first to receive Islamic guidance, inspiring articles, and special offers—only from ZUHD.</p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">→</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zuhd.au" class="social-link" onclick="socialClick('Facebook')" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/zuhd_au" class="social-link" onclick="socialClick('Instagram')" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@zuhd.store" class="social-link" onclick="socialClick('TikTok')" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@zuhdau" class="social-link" onclick="socialClick('YouTube')" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Zuhd Guidance All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+     // Video playlist functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const playlistItems = document.querySelectorAll('.playlist-item');
+    const mainVideoPlayer = document.getElementById('main-video-player');
+    const playlistContainer = document.querySelector('.playlist-videos');
+ 
+    // Load latest video from ZuhdAU YouTube channel
+    // const YOUTUBE_API_KEY = 'YOUR_API_KEY';
+    // const CHANNEL_ID = 'UCBJzMaa2_fYqNnEOJvg4J0RQ'; // ZuhdAU Channel ID
+ 
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=1`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.items && data.items.length) {
+                const latest = data.items[0];
+                const latestId = latest.id.videoId;
+                const latestTitle = latest.snippet.title;
+                mainVideoPlayer.src = `https://www.youtube.com/embed/${latestId}?rel=0&autoplay=1`;
+                mainVideoPlayer.title = latestTitle;
+            }
+        })
+        .catch(err => {
+            console.error('Failed to load latest video:', err);
+        });
+ 
+    // Video item click handler
+    function handleVideoClick(item) {
+        document.querySelectorAll('.playlist-item:not([style*="display: none"])').forEach(playlistItem => {
+            playlistItem.classList.remove('active');
+        });
+        item.classList.add('active');
+ 
+        const videoId = item.getAttribute('data-video-id');
+        const videoTitle = item.getAttribute('data-title');
+ 
+        const newSrc = `https://www.youtube.com/embed/${videoId}`;
+        mainVideoPlayer.src = newSrc;
+        mainVideoPlayer.title = videoTitle;
+    }
+ 
+    // Add click event to all playlist items
+    playlistItems.forEach(item => {
+        item.addEventListener('click', function () {
+            handleVideoClick(this);
+        });
+    });
+ 
+    // Category filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+ 
+            const selectedCategory = this.getAttribute('data-filter');
+            playlistContainer.classList.add('loading');
+ 
+            setTimeout(() => {
+                filterVideosByCategory(selectedCategory);
+                playlistContainer.classList.remove('loading');
+            }, 150);
+        });
+    });
+ 
+    // Filter videos by category
+    function filterVideosByCategory(category) {
+        const allVideos = document.querySelectorAll('.playlist-item');
+        let hasVisibleVideos = false;
+        let firstVisibleVideo = null;
+ 
+        allVideos.forEach(video => {
+            const videoCategory = video.getAttribute('data-category');
+            if (videoCategory === category) {
+                video.style.display = 'flex';
+                hasVisibleVideos = true;
+                if (!firstVisibleVideo) {
+                    firstVisibleVideo = video;
+                }
+            } else {
+                video.style.display = 'none';
+                video.classList.remove('active');
+            }
+        });
+ 
+        showEmptyState(!hasVisibleVideos, category);
+ 
+        if (firstVisibleVideo) {
+            handleVideoClick(firstVisibleVideo);
+        }
+    }
+ 
+    // Show/hide empty state
+    function showEmptyState(show, category) {
+        const existingEmptyState = document.querySelector('.empty-state');
+        if (existingEmptyState) {
+            existingEmptyState.remove();
+        }
+ 
+        if (show) {
+            const emptyStateDiv = document.createElement('div');
+            emptyStateDiv.className = 'empty-state';
+            emptyStateDiv.innerHTML = `
+                <p>No videos available in ${getCategoryDisplayName(category)} category.</p>
+                <p>Please check back later for new content.</p>
+            `;
+            playlistContainer.appendChild(emptyStateDiv);
+        }
+    }
+ 
+    // Get display name for category
+    function getCategoryDisplayName(category) {
+        const categoryNames = {
+            'seerah': 'Seerah Series',
+            'palestine': 'Palestine Series',
+            'parenting': 'Parenting & Tarbiyah',
+            'spiritual': 'Spiritual Growth'
+        };
+        return categoryNames[category] || category;
+    }
+ 
+    // Initialize with default category
+    filterVideosByCategory('seerah');
+});
+ 
+ 
+class IslamicHeroCarousel {
+    constructor() {
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll('.faith-slide');
+        this.indicators = document.querySelectorAll('.slide-indicator');
+        this.prevBtn = document.querySelector('.arrow-previous');
+        this.nextBtn = document.querySelector('.arrow-next');
+        this.carousel = document.querySelector('.nourish-hero-carousel');
+        this.totalSlides = this.slides.length;
+        this.autoSlideInterval = null;
+ 
+        if (this.slides.length && this.carousel) {
+            this.init();
+        } else {
+            console.warn("Carousel or slides not found. Please check your HTML structure.");
+        }
+    }
+ 
+    init() {
+        // Add event listeners
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => this.goToSlide(index));
+        });
+ 
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.previousSlide());
+        }
+ 
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextSlide());
+        }
+ 
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.previousSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
+ 
+        // Touch navigation for mobile
+        this.addTouchNavigation();
+ 
+        // Start auto-slide
+        this.startAutoSlide();
+ 
+        // Pause auto-slide on hover
+        this.carousel.addEventListener('mouseenter', () => this.stopAutoSlide());
+        this.carousel.addEventListener('mouseleave', () => this.startAutoSlide());
+    }
+ 
+    goToSlide(slideIndex) {
+        if (this.slides.length === 0) return;
+ 
+        this.slides[this.currentSlide].classList.remove('slide-active');
+        this.slides[this.currentSlide].classList.add('slide-previous');
+        if (this.indicators[this.currentSlide]) {
+            this.indicators[this.currentSlide].classList.remove('indicator-active');
+        }
+ 
+        this.currentSlide = slideIndex;
+ 
+        this.slides[this.currentSlide].classList.remove('slide-previous');
+        this.slides[this.currentSlide].classList.add('slide-active');
+        if (this.indicators[this.currentSlide]) {
+            this.indicators[this.currentSlide].classList.add('indicator-active');
+        }
+ 
+        setTimeout(() => {
+            this.slides.forEach(slide => {
+                if (!slide.classList.contains('slide-active')) {
+                    slide.classList.remove('slide-previous');
+                }
+            });
+        }, 800);
+    }
+ 
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+        this.goToSlide(nextIndex);
+    }
+ 
+    previousSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+        this.goToSlide(prevIndex);
+    }
+ 
+    startAutoSlide() {
+        this.autoSlideInterval = setInterval(() => {
+            this.nextSlide();
+        }, 5000); // changed to 3 seconds
+    }
+ 
+    stopAutoSlide() {
+        if (this.autoSlideInterval) {
+            clearInterval(this.autoSlideInterval);
+            this.autoSlideInterval = null;
+        }
+    }
+ 
+    addTouchNavigation() {
+        let startX, startY, dist, threshold = 150;
+        let isHorizontalSwipe = false;
+ 
+        if (!this.carousel) return;
+ 
+        this.carousel.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            isHorizontalSwipe = false;
+        });
+ 
+        this.carousel.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - startX);
+            const deltaY = Math.abs(touch.clientY - startY);
+           
+            // Only prevent scrolling if it's a horizontal swipe
+            if (deltaX > deltaY && deltaX > 10) {
+                isHorizontalSwipe = true;
+                e.preventDefault();
+            }
+        });
+ 
+        this.carousel.addEventListener('touchend', (e) => {
+            if (isHorizontalSwipe) {
+                const touch = e.changedTouches[0];
+                dist = touch.clientX - startX;
+ 
+                if (Math.abs(dist) > threshold) {
+                    if (dist > 0) {
+                        this.previousSlide();
+                    } else {
+                        this.nextSlide();
+                    }
+                }
+            }
+        });
+    }
+}
+ 
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new IslamicHeroCarousel();
+});
+ 
+// Placeholder functions for existing functionality
+function openInstagram() {
+    window.open('https://www.instagram.com/zuhd_au/', '_blank');
+}
+ 
+function openBlog() {
+    console.log('Blog functionality to be implemented');
+}
+ 
+function openMore() {
+    console.log('More functionality to be implemented');
+}
+ 
+function shareToInstagram() {
+    console.log('Share to Instagram functionality');
+}
+ 
+function shareGeneral() {
+    console.log('General share functionality');
+}
+ 
+function mainShare() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'ZUHD Guidance - Quote of the Day',
+            text: 'The heart will not find complete happiness, until it is connected with Allah. - Ibn al-Qayyim',
+            url: window.location.href
+        });
+    } else {
+        console.log('Share functionality');
+    }
+}
+ 
+function handleDonation() {
+    console.log('Donation functionality');
+}
+ 
+function handleLearnMore() {
+    console.log('Learn more functionality');
+}
+ 
+function submitNewsletter(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value;
+    console.log('Newsletter subscription:', email);
+    alert('Thank you for subscribing to our newsletter!');
+}
+ 
+function linkClick(linkName) {
+    console.log('Link clicked:', linkName);
+}
+ 
+function socialClick(platform) {
+    console.log('Social link clicked:', platform);
+}
+ 
+   const videoLibrary = {
+            seerah: {
+                id: "0YSpZsDr678",
+                title: "From Mistake to Mercy: Lessons from Prophet Adam (A.S)",
+                url: "https://www.youtube.com/embed/OHFKeG1eStw",
+            },
+            palestine: {
+                id: "dQw4w9WgXcQ",
+                title: "Palestine Series - Understanding the Struggle",
+                url: "https://www.youtube.com/embed/cRuWvVsNozo",
+            },
+            parenting: {
+                id: "jNQXAC9IVRw",
+                title: "Parenting & Tarbiyah - Raising Righteous Children",
+                url: "https://www.youtube.com/embed/yOa1Lh0_xWk?list=PLA-ylo0o2Z5lbYF2mfsUstvcYU_3sBmCD",
+            },
+            series1: {
+                id: "y6120QOlsfU1",
+                title: "The Rise of Umar RA: From Fearless Fighter to Guided Flame",
+                url: "https://www.youtube.com/embed/aaj1aclhfAc",
+            },
+            series2: {
+                id: "y6120QOlsfU2",
+                title: "Ramadan Reflections: Day 1 - Awakening the Heart with Dr. Sami Al-Hashmi",
+                url: "https://www.youtube.com/embed/ncUqIMQQB60?list=PLA-ylo0o2Z5mse-S-f7xfpuiUnp75IuBL",
+            },
+            series3: {
+                id: "y6120QOlsfU3",
+                title: "Walking the Path of the Prophet (ﷺ): Madina's Sacred Sites",
+                url: "https://www.youtube.com/embed/fzgrTls3hwQ?list=PLA-ylo0o2Z5kzo9QcShJ-cmzStW7Ma6YC",
+            },
+        }
+ 
+        // Video categories array for navigation
+        const videoCategories = ["seerah", "palestine", "parenting", "series1", "series2", "series3"]
+        let currentVideoIndex = 0
+ 
+        // Initialize the application
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeVideoPlayer()
+            setupScrollObserver()
+            setupVideoNavigation()
+            setupNavigationControls()
+            updateVideoCounter()
+        })
+ 
+        // Initialize video player functionality
+        function initializeVideoPlayer() {
+            const topicButtons = document.querySelectorAll(".topic-btn")
+ 
+            topicButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    const category = this.getAttribute("data-filter")
+                    currentVideoIndex = index
+                    updateSelectedButton(this)
+                    changeVideoEnhanced(category)
+                    updateVideoCounter()
+                })
+            })
+        }
+ 
+        // Setup Intersection Observer for scroll-triggered animations
+        function setupScrollObserver() {
+            const khutbahWrapper = document.querySelector(".khutbah-wrapper")
+ 
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px",
+            }
+ 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible")
+                    }
+                })
+            }, observerOptions)
+ 
+            if (khutbahWrapper) {
+                observer.observe(khutbahWrapper)
+            }
+        }
+ 
+        // Setup video navigation arrows
+        function setupVideoNavigation() {
+            const videoNavPrev = document.getElementById("videoNavPrev")
+            const videoNavNext = document.getElementById("videoNavNext")
+ 
+            if (videoNavPrev) {
+                videoNavPrev.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    navigateVideo("prev")
+                })
+            }
+ 
+            if (videoNavNext) {
+                videoNavNext.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    navigateVideo("next")
+                })
+            }
+        }
+ 
+        // Setup navigation controls (mobile)
+        function setupNavigationControls() {
+            const prevButton = document.getElementById("prevVideo")
+            const nextButton = document.getElementById("nextVideo")
+ 
+            if (prevButton) {
+                prevButton.addEventListener("click", () => navigateVideo("prev"))
+            }
+ 
+            if (nextButton) {
+                nextButton.addEventListener("click", () => navigateVideo("next"))
+            }
+        }
+ 
+        // Navigate between videos
+        function navigateVideo(direction) {
+            const totalVideos = videoCategories.length
+ 
+            if (direction === "next") {
+                currentVideoIndex = (currentVideoIndex + 1) % totalVideos
+            } else {
+                currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos
+            }
+ 
+            const category = videoCategories[currentVideoIndex]
+            const button = document.querySelector(`[data-filter="${category}"]`)
+ 
+            if (button) {
+                updateSelectedButton(button)
+                changeVideoEnhanced(category)
+                updateVideoCounter()
+            }
+        }
+ 
+        // Update video counter
+        function updateVideoCounter() {
+            const currentIndexElement = document.getElementById("currentVideoIndex")
+            const totalVideosElement = document.getElementById("totalVideos")
+ 
+            if (currentIndexElement) {
+                currentIndexElement.textContent = currentVideoIndex + 1
+            }
+ 
+            if (totalVideosElement) {
+                totalVideosElement.textContent = videoCategories.length
+            }
+ 
+            // Update navigation button states
+            updateNavigationButtons()
+        }
+ 
+        // Update navigation button states
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById("prevVideo")
+            const nextButton = document.getElementById("nextVideo")
+            const videoNavPrev = document.getElementById("videoNavPrev")
+            const videoNavNext = document.getElementById("videoNavNext")
+ 
+            const isFirst = currentVideoIndex === 0
+            const isLast = currentVideoIndex === videoCategories.length - 1
+ 
+            if (prevButton) {
+                prevButton.disabled = isFirst
+            }
+ 
+            if (nextButton) {
+                nextButton.disabled = isLast
+            }
+ 
+            if (videoNavPrev) {
+                videoNavPrev.disabled = isFirst
+            }
+ 
+            if (videoNavNext) {
+                videoNavNext.disabled = isLast
+            }
+        }
+ 
+        // Enhanced video change function
+        function changeVideoEnhanced(category) {
+            const videoPlayer = document.getElementById("khutbah-video-player")
+            const videoContainer = document.querySelector(".video-frame-container")
+            const loadingOverlay = document.getElementById("loadingOverlay")
+            const videoTitle = document.getElementById("currentVideoTitle")
+            const selectedVideo = videoLibrary[category]
+ 
+            if (!selectedVideo || !videoPlayer) {
+                console.error("Video data or player not found for category:", category)
+                return
+            }
+ 
+            // Show loading state
+            if (loadingOverlay) {
+                loadingOverlay.classList.add("active")
+            }
+ 
+            videoContainer.classList.add("loading")
+ 
+            // Create new iframe
+            const newIframe = document.createElement("iframe")
+            newIframe.id = "khutbah-video-player"
+            newIframe.src = selectedVideo.url
+            newIframe.title = selectedVideo.title
+            newIframe.frameBorder = "0"
+            newIframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            newIframe.referrerPolicy = "strict-origin-when-cross-origin"
+            newIframe.allowFullscreen = true
+ 
+            // Handle iframe load
+            newIframe.onload = () => {
+                setTimeout(() => {
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.remove("active")
+                    }
+                    videoContainer.classList.remove("loading")
+                    videoContainer.classList.add("animate")
+ 
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        videoContainer.classList.remove("animate")
+                    }, 500)
+                }, 300)
+            }
+ 
+            // Replace iframe
+            videoPlayer.parentNode.replaceChild(newIframe, videoPlayer)
+ 
+            // Update video title
+            if (videoTitle) {
+                videoTitle.textContent = selectedVideo.title
+            }
+ 
+            // Add haptic feedback on mobile (if supported)
+            if (navigator.vibrate) {
+                navigator.vibrate(50)
+            }
+        }
+ 
+        // Update selected button
+        function updateSelectedButton(clickedButton) {
+            const allButtons = document.querySelectorAll(".topic-btn")
+            allButtons.forEach((btn) => btn.classList.remove("selected"))
+            clickedButton.classList.add("selected")
+        }
+ 
+        // Legacy function for backward compatibility
+        function changeVideo(category) {
+            changeVideoEnhanced(category)
+        }
+ 
+        // Keyboard navigation support
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+                navigateVideo("prev")
+            } else if (e.key === "ArrowRight") {
+                navigateVideo("next")
+            }
+        })
+ 
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            // Recalculate any responsive elements if needed
+            updateNavigationButtons()
+        })
+ 
+        // Preload next video for better performance
+        function preloadNextVideo() {
+            const nextIndex = (currentVideoIndex + 1) % videoCategories.length
+            const nextCategory = videoCategories[nextIndex]
+            const nextVideo = videoLibrary[nextCategory]
+ 
+            if (nextVideo) {
+                const link = document.createElement("link")
+                link.rel = "prefetch"
+                link.href = nextVideo.url
+                document.head.appendChild(link)
+            }
+        }
+ 
+        // Call preload function when video changes
+        document.addEventListener("videoChanged", preloadNextVideo)
+ 
+        // shorts js
+document.addEventListener("DOMContentLoaded", () => {
+  const shortsData = [
+    {
+      id: 1,
+      src: "https://www.youtube.com/embed/9ALQ3m1A0Ec?autoplay=1&mute=1&controls=0&loop=1&playlist=9ALQ3m1A0Ec",
+      title: "Why Gaza Happened: The Truth No One Wants to Hear",
+      description: "Exploring the complex historical and political factors behind the Gaza conflict",
+      type: "iframe",
+    },
+    {
+      id: 2,
+      src: "https://www.youtube.com/embed/B3GwEeGyucs?autoplay=1&mute=1&controls=0&loop=1&playlist=B3GwEeGyucs",
+      title: "One Quote That Could Change Your Life",
+      description: "Discover powerful wisdom that can transform your perspective and mindset",
+      type: "iframe",
+    },
+    {
+      id: 3,
+      src: "https://www.youtube.com/embed/y5xhcyWI7Po?autoplay=1&mute=1&controls=0&loop=1&playlist=y5xhcyWI7Po",
+      title: "This Is What the Strongest Faith Looks Like",
+      description: "A life-changing reminder about the power and essence of true faith",
+      type: "iframe",
+    },
+    {
+      id: 4,
+      src: "https://www.youtube.com/embed/eGfnXUhwK6U?autoplay=1&mute=1&controls=0&loop=1&playlist=eGfnXUhwK6U",
+      title: "The Confusion of Our Time: Truth Has Become Strange",
+      description: "Mufti Abdur Rahman Mangera discusses navigating truth in modern times",
+      type: "iframe",
+    },
+    {
+      id: 5,
+      src: "https://www.youtube.com/embed/fw-BGeoz9kk",
+      type: "iframe", // FIXED
+      title: "The Danger of Dividing the Ummah – Sect Disputes Are Haram!",
+      description: "Sect Disputes Are Haram"
+    },
+    {
+      id: 6,
+      src: "https://www.youtube.com/embed/DlFjFh5zE54",
+      type: "iframe", // FIXED
+      title: "Who is ALLAH ﷻ?",
+      description: "A Reminder That Will Shake Your Heart"
+    }
+  ];
+ 
+  const contentSlider = document.getElementById("content-slider");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const sliderIndicators = document.getElementById("slider-indicators");
+ 
+  let currentIndex = 0;
+ 
+  function renderMediaCards() {
+    contentSlider.innerHTML = "";
+    shortsData.forEach((short) => {
+      const mediaCard = document.createElement("div");
+      mediaCard.classList.add("media-card");
+      mediaCard.dataset.story = short.id;
+ 
+      let mediaElement;
+      if (short.type === "video") {
+        mediaElement = document.createElement("video");
+        mediaElement.classList.add("video-content");
+        mediaElement.src = short.src;
+        mediaElement.autoplay = true;
+        mediaElement.muted = true;
+        mediaElement.loop = true;
+        mediaElement.playsInline = true;
+        mediaElement.poster = "/placeholder.svg?height=400&width=280";
+        mediaElement.innerHTML = "Your browser does not support the video tag.";
+      } else {
+        mediaElement = document.createElement("iframe");
+        mediaElement.classList.add("video-frame");
+        mediaElement.src = short.src;
+        mediaElement.title = short.title;
+        mediaElement.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+        mediaElement.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        mediaElement.setAttribute("allowfullscreen", "");
+      }
+ 
+      const cardInfo = document.createElement("div");
+      cardInfo.classList.add("card-info");
+ 
+      const contentTitle = document.createElement("div");
+      contentTitle.classList.add("content-title");
+      contentTitle.textContent = short.title;
+ 
+      const contentDescription = document.createElement("div");
+      contentDescription.classList.add("content-description");
+      contentDescription.textContent = short.description;
+ 
+      cardInfo.appendChild(contentTitle);
+      cardInfo.appendChild(contentDescription);
+      mediaCard.appendChild(mediaElement);
+      mediaCard.appendChild(cardInfo);
+      contentSlider.appendChild(mediaCard);
+    });
+  }
+ 
+  function renderDotIndicators() {
+    sliderIndicators.innerHTML = "";
+    shortsData.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot-indicator");
+      if (index === currentIndex) {
+        dot.classList.add("active");
+      }
+      dot.addEventListener("click", () => {
+        const cardWidth = contentSlider.children[0].clientWidth + 20;
+        contentSlider.scrollTo({
+          left: index * cardWidth,
+          behavior: "smooth",
+        });
+      });
+      sliderIndicators.appendChild(dot);
+    });
+  }
+ 
+  function updateActiveDot() {
+    if (contentSlider.children.length === 0) return;
+ 
+    const { scrollLeft, scrollWidth, clientWidth } = contentSlider;
+    const totalCards = shortsData.length;
+    const cardWidth = (scrollWidth - (totalCards - 1) * 20) / totalCards;
+    const newIndex = Math.round(scrollLeft / cardWidth);
+ 
+    if (newIndex !== currentIndex) {
+      currentIndex = newIndex;
+      renderDotIndicators();
+    }
+  }
+ 
+  const scrollLeft = () => {
+    if (contentSlider.children.length === 0) return;
+    const cardWidth = contentSlider.children[0].clientWidth + 20;
+    contentSlider.scrollBy({ left: -cardWidth, behavior: "smooth" });
+  };
+ 
+  const scrollRight = () => {
+    if (contentSlider.children.length === 0) return;
+    const cardWidth = contentSlider.children[0].clientWidth + 20;
+    contentSlider.scrollBy({ left: cardWidth, behavior: "smooth" });
+  };
+ 
+  prevBtn.addEventListener("click", scrollLeft);
+  nextBtn.addEventListener("click", scrollRight);
+  contentSlider.addEventListener("scroll", updateActiveDot);
+ 
+  renderMediaCards();
+  renderDotIndicators();
+});
+ 
+//  // Mobile Footer Accordion Functionality
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Get all footer columns (excluding logo and newsletter)
+//   const footerColumns = document.querySelectorAll(".footer-column:not(.footer-logo):not(.newsletter)")
+ 
+//   footerColumns.forEach((column) => {
+//     const header = column.querySelector("h3")
+//     const ul = column.querySelector("ul")
+ 
+//     if (header && ul) {
+//       header.addEventListener("click", () => {
+//         // Check if we're on mobile (you can adjust this breakpoint as needed)
+//         if (window.innerWidth <= 768) {
+//           // Toggle active class on the column
+//           column.classList.toggle("active")
+ 
+//           // Set max-height for smooth transition
+//           if (column.classList.contains("active")) {
+//             ul.style.maxHeight = ul.scrollHeight + "px"
+//           } else {
+//             ul.style.maxHeight = "0"
+//           }
+//         }
+//       })
+//     }
+//   })
+ 
+//   // Handle window resize to reset accordion on larger screens
+//   window.addEventListener("resize", () => {
+//     if (window.innerWidth > 768) {
+//       footerColumns.forEach((column) => {
+//         column.classList.remove("active")
+//         const ul = column.querySelector("ul")
+//         if (ul) {
+//           ul.style.maxHeight = null // Remove inline style to let CSS take over
+//         }
+//       })
+//     }
+//   })
+// })
+ 
+// // Existing functions
+// function linkClick(item) {
+//   console.log("Link clicked:", item)
+//   // Add your analytics or tracking code here
+// }
+ 
+// function socialClick(platform) {
+//   console.log("Social link clicked:", platform)
+//   // Add your analytics or tracking code here
+// }
+ 
+// function submitNewsletter(event) {
+//   event.preventDefault()
+//   const email = event.target.querySelector('input[type="email"]').value
+//   console.log("Newsletter submitted with email:", email)
+ 
+//   // Add your newsletter submission logic here
+//   // Example:
+//   // fetch('/api/newsletter', {
+//   // method: 'POST',
+//   // headers: { 'Content-Type': 'application/json' },
+//   // body: JSON.stringify({ email: email })
+//   // });
+ 
+//   // Show success message
+//   alert("Thank you for subscribing!")
+//   event.target.reset()
+// }
+  // YouTube API configuration
+    // const API_KEY = "AIzaSyDH2HM_h4PsMZ270QUVQ5OvOPk9BsPrgbg";
+    // const CHANNEL_ID = "UCV3HG9Ph_XQ1gIK-gEyScmQ";
+    const shortsSlider = document.getElementById("shortsSlider");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+   
+    // Function to load YouTube shorts
+    async function loadShorts() {
+      try {
+        // Display loading state
+        shortsSlider.innerHTML = `
+          <div class="shorts-loader">
+            <div class="spinner"></div>
+            <p class="loading-text">Loading Islamic shorts...</p>
+          </div>
+        `;
+       
+        // Get the uploads playlist ID
+        const channelRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${API_KEY}`);
+        const channelData = await channelRes.json();
+       
+        if (!channelData.items || channelData.items.length === 0) {
+          throw new Error("Channel not found");
+        }
+       
+        const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+       
+        // Get the latest videos from the uploads playlist
+        const videosRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=20&playlistId=${uploadsPlaylistId}&key=${API_KEY}`);
+        const videosData = await videosRes.json();
+       
+        if (!videosData.items || videosData.items.length === 0) {
+          throw new Error("No videos found");
+        }
+       
+        // Filter and get the first 10 shorts
+        let shorts = [];
+        for (let item of videosData.items) {
+          const vidId = item.contentDetails.videoId;
+         
+          // Get video duration to determine if it's a short
+          const detailsRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${vidId}&key=${API_KEY}`);
+          const detailsData = await detailsRes.json();
+         
+          if (detailsData.items && detailsData.items.length > 0) {
+            const duration = detailsData.items[0].contentDetails.duration;
+           
+            // Check if video is a short (duration less than 70 seconds)
+            const match = duration.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
+            const minutes = match[1] ? parseInt(match[1]) : 0;
+            const seconds = match[2] ? parseInt(match[2]) : 0;
+           
+            if (minutes === 0 && seconds > 0 && seconds < 70) {
+              shorts.push({
+                id: vidId,
+                title: item.snippet.title,
+                thumbnail: item.snippet.thumbnails.medium.url,
+                publishDate: new Date(item.snippet.publishedAt).toLocaleDateString()
+              });
+             
+              if (shorts.length === 10) break; // Only get 10 shorts
+            }
+          }
+        }
+       
+        // Display shorts in the slider
+        if (shorts.length > 0) {
+          renderShorts(shorts);
+        } else {
+          throw new Error("No shorts found");
+        }
+      } catch (error) {
+        console.error("Error loading shorts:", error);
+        shortsSlider.innerHTML = `
+          <div class="shorts-loader">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #e74c3c; margin-bottom: 15px;"></i>
+            <p class="loading-text">Unable to load shorts. Please try again later.</p>
+          </div>
+        `;
+      }
+    }
+   
+    // Function to render shorts in the slider
+    function renderShorts(shorts) {
+      shortsSlider.innerHTML = '';
+     
+      shorts.forEach(short => {
+        const shortCard = document.createElement('div');
+        shortCard.className = 'short-card';
+        shortCard.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${short.id}?autoplay=0&mute=1&modestbranding=1&rel=0"
+            title="${short.title}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <div class="short-info">
+            <h3>${short.title}</h3>
+            <div class="short-meta">
+              <span class="short-date">${short.publishDate}</span>
+              <span class="short-views">
+                <i class="fas fa-eye"></i> 24K
+              </span>
+            </div>
+          </div>
+        `;
+        shortsSlider.appendChild(shortCard);
+      });
+    }
+   
+    // Slider navigation
+    prevBtn.addEventListener('click', () => {
+      shortsSlider.scrollBy({
+        left: -320,
+        behavior: 'smooth'
+      });
+    });
+   
+    nextBtn.addEventListener('click', () => {
+      shortsSlider.scrollBy({
+        left: 320,
+        behavior: 'smooth'
+      });
+    });
+   
+    // Load shorts when the page loads
+    document.addEventListener('DOMContentLoaded', loadShorts);
+
+
+        // YouTube API configuration
+    const API_KEY = "AIzaSyDH2HM_h4PsMZ270QUVQ5OvOPk9BsPrgbg";
+    const CHANNEL_ID = "UCV3HG9Ph_XQ1gIK-gEyScmQ";
+    const videosSlider = document.getElementById("videosSlider");
+    const prevVideosBtn = document.getElementById("prevVideosBtn");
+    const nextVideosBtn = document.getElementById("nextVideosBtn");
+    
+    // Function to load YouTube videos
+    async function loadVideos() {
+      try {
+        // Display loading state
+        videosSlider.innerHTML = `
+          <div class="videos-loader">
+            <div class="spinner"></div>
+            <p class="loading-text">Loading Islamic videos...</p>
+          </div>
+        `;
+        
+        // Get the uploads playlist ID
+        const channelRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${API_KEY}`);
+        const channelData = await channelRes.json();
+        
+        if (!channelData.items || channelData.items.length === 0) {
+          throw new Error("Channel not found");
+        }
+        
+        const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+        
+        // Get the latest videos from the uploads playlist
+        const videosRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=20&playlistId=${uploadsPlaylistId}&key=${API_KEY}`);
+        const videosData = await videosRes.json();
+        
+        if (!videosData.items || videosData.items.length === 0) {
+          throw new Error("No videos found");
+        }
+        
+        // Filter to get the first 10 long videos (over 70 seconds)
+        let longVideos = [];
+        for (let item of videosData.items) {
+          const vidId = item.contentDetails.videoId;
+          
+          // Get video duration to determine if it's a long video
+          const detailsRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${vidId}&key=${API_KEY}`);
+          const detailsData = await detailsRes.json();
+          
+          if (detailsData.items && detailsData.items.length > 0) {
+            const duration = detailsData.items[0].contentDetails.duration;
+            
+            // Check if video is a long video (duration over 70 seconds)
+            const match = duration.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
+            const minutes = match[1] ? parseInt(match[1]) : 0;
+            const seconds = match[2] ? parseInt(match[2]) : 0;
+            const totalSeconds = minutes * 60 + seconds;
+            
+            if (totalSeconds > 70) {
+              longVideos.push({
+                id: vidId,
+                title: item.snippet.title,
+                thumbnail: item.snippet.thumbnails.high ? item.snippet.thumbnails.high.url : item.snippet.thumbnails.medium.url,
+                publishDate: new Date(item.snippet.publishedAt).toLocaleDateString(),
+                duration: formatDuration(minutes, seconds)
+              });
+              
+              if (longVideos.length === 10) break; // Only get 10 videos
+            }
+          }
+        }
+        
+        // Display videos in the slider
+        if (longVideos.length > 0) {
+          renderVideos(longVideos);
+        } else {
+          throw new Error("No long videos found");
+        }
+      } catch (error) {
+        console.error("Error loading videos:", error);
+        videosSlider.innerHTML = `
+          <div class="videos-loader">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #e74c3c; margin-bottom: 15px;"></i>
+            <p class="loading-text">Unable to load videos. Please try again later.</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Format duration as MM:SS
+    function formatDuration(minutes, seconds) {
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    // Function to render videos in the slider
+    function renderVideos(videos) {
+      videosSlider.innerHTML = '';
+      
+      videos.forEach(video => {
+        const videoCard = document.createElement('div');
+        videoCard.className = 'video-card';
+        videoCard.innerHTML = `
+          <div class="video-thumbnail">
+            <img src="${video.thumbnail}" alt="${video.title}">
+            <div class="video-play-icon">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="video-info">
+            <h3>${video.title}</h3>
+            <div class="video-meta">
+              <span class="video-date">${video.publishDate}</span>
+              <span class="video-duration">${video.duration}</span>
+              <span class="video-views">
+                <i class="fas fa-eye"></i> 24K
+              </span>
+            </div>
+          </div>
+        `;
+        
+        // Add click event to open video
+        videoCard.addEventListener('click', () => {
+          window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
+        });
+        
+        videosSlider.appendChild(videoCard);
+      });
+    }
+    
+    // Slider navigation
+    prevVideosBtn.addEventListener('click', () => {
+      videosSlider.scrollBy({
+        left: -320,
+        behavior: 'smooth'
+      });
+    });
+    
+    nextVideosBtn.addEventListener('click', () => {
+      videosSlider.scrollBy({
+        left: 320,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Load videos when the page loads
+    document.addEventListener('DOMContentLoaded', loadVideos);
+
+    // footer js 
+
+       // Mobile accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerColumns = document.querySelectorAll('.footer-column:not(.newsletter)');
+            
+            footerColumns.forEach(column => {
+                const header = column.querySelector('h3');
+                
+                header.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        column.classList.toggle('active');
+                    }
+                });
+            });
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    footerColumns.forEach(column => {
+                        column.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+        // Analytics functions (placeholder implementations)
+        function linkClick(linkName) {
+            console.log('Link clicked:', linkName);
+            // Analytics tracking would go here
+        }
+
+        function socialClick(platform) {
+            console.log('Social media clicked:', platform);
+            // Analytics tracking would go here
+        }
+
+        function submitNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            console.log('Newsletter subscription:', email);
+            alert('Thank you for subscribing! (This is a demo)');
+            event.target.reset();
+        }
+       </script>
+ 
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+             <script src="navbar.js"></script>
 </body>
 </html>
