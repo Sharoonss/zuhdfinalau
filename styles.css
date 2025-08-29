@@ -4157,7 +4157,7 @@ color:#0a2a1f;
 
 /* Payment Section */
 .zuhd-payment-section {
-    padding: 80px 20px;
+    padding: 70px 20px;
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, var(--deep-green) 0%, #0a2f22 100%);
