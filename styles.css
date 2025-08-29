@@ -3229,7 +3229,7 @@ color:#0a2a1f;
 
    .zuhd-header-section {
             width: 100%;
-            height: 100vh;
+            height:80vh;
             text-align: center;
             opacity: 0;
             animation: zuhdFadeInDown 1s ease-out forwards;
@@ -5235,8 +5235,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 /* maktab css  */
   /* Banner Section */
-        .banner-wrapper {
-            height:85vh;
+        .banner-wrapper3{
+            height:80vh;
             background-image: url('https://i.ibb.co/LXmcQp3T/05-Maktab-1920x500.png');
             background-size: cover;
             background-position: center;
@@ -5257,7 +5257,15 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             align-items: center;
             justify-content: center;
         }
-        .banner-overlay {
+        .banner-overlay3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:rgba(10, 59, 10, 0.479);
+        }
+ .banner-overlay1 {
             position: absolute;
             top: 0;
             left: 0;
@@ -6798,11 +6806,15 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
              .consultation-hero-content h1{
                  font-size: 2rem;
                     margin-bottom:10px;
+<<<<<<< HEAD
+                    line-height: 45px;
+=======
                     /* line-height: 30px; */
             }  
             .consultation-hero-content1 p{
                 font-size: 1.1rem;
             }
+>>>>>>> cbdf7296ac342a1f87ac4318378a2b95c7089bda
 
             .consultation-cta-button{
                 padding: 15px 15px;
@@ -11722,3 +11734,126 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
                 min-width: calc(50% - 20px);
             }
         }
+        .banner-wrapper4 { 
+    height: 80vh;
+    background-image: url('https://i.ibb.co/BHK5gBck/06-ziyarat-1920x500.png');
+    background-size: cover;   /* keeps it responsive */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;       /* centers text horizontally */
+    color: #fff;              /* make sure text is visible */
+    padding: 0 15px;          /* responsive padding */
+}
+
+/* Dark overlay */
+.banner-overlay4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 59, 10, 0.55);
+    z-index: 1;  /* sits behind content */
+}
+
+/* Content on top */
+.ziyarat-title {
+    position: relative;
+    z-index: 2;   /* sits above overlay */
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+    .banner-wrapper4 {
+        height: 50vh;
+        background-size: cover;
+    }
+    .ziyarat-title {
+        font-size: 2rem;
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    .banner-wrapper4 {
+        height: 40vh;
+    }
+    .ziyarat-title {
+        font-size: 1.5rem;
+    }
+}
+  @media (max-width: 480px) {
+        /* .main-container {
+                padding: 0 10px;
+            } */
+.banner-wrapper3 {
+        height: 60vh;
+    }
+        .banner-text {
+          padding: 10px;
+          margin-top: 20px;
+        }
+
+        .banner-text h1 {
+          font-size: clamp(2rem, 5vw, 1.8rem);
+        }
+
+        .banner-text h3 {
+          font-size: clamp(0.9rem, 3.5vw, 1rem);
+        }
+
+        .banner-text h4 {
+          font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        }
+        .section-heading {
+          padding: 0px;
+        }
+        .teachers-image {
+          margin: 20px auto 0px;
+        }
+
+        .curriculum-section {
+          margin: 0;
+        }
+        .section-heading-center-green-alt{
+            margin: 20px auto;
+        }
+        .calendar-description{
+            margin-bottom: 50px;
+        }
+
+        .primary-btn,
+        .download-button,
+        .pdf-download-btn,
+        .newsletter-form button {
+          font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+          padding: 10px;
+        }
+
+        .rules-regulations-section {
+          padding: 0px 5px;
+          margin: 50px auto;
+        }
+
+        .rules-description {
+          font-size: clamp(0.8rem, 2vw, 1.1rem);
+          margin: 0 auto 30px;
+          padding: 0px 20px;
+        }
+
+        .rules-image-wrapper {
+          max-width: 85%;
+          padding: 0;
+        }
+
+        .pdf-download-btn {
+          padding: clamp(4px, 1.5vw, 8px) clamp(8px, 2.5vw, 15px);
+          font-size: clamp(0.7rem, 2vw, 0.9rem);
+        }
+      }
