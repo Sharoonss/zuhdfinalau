@@ -113,7 +113,7 @@
 
       .section-heading-center-green-alt1 {
         color: var(--deep-green);
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         margin-bottom: 10px;
         text-align: center;
         /* margin-top: clamp(30px, 8vw, 60px);
@@ -371,53 +371,76 @@
       .rules-regulations-section {
         padding: 0;
       }
-      .main-images-rules {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto 70px;
-        padding: 0px 30px;
-        gap: clamp(10px, 4vw, 30px);
-        justify-content: center;
-      }
+     .main-images-rules {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 70px;
+  padding: 0 20px; /* Reduced padding for better fit on mobile */
+  gap: clamp(15px, 4vw, 20px); /* Adjusted gap for tighter spacing on smaller screens */
+  justify-content: center;
+  align-items: stretch; /* Ensures consistent height for items */
+}
+     .rules-image-wrapper {
+  flex: 1 1 300px; /* Allow items to grow but set a reasonable minimum width */
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack image, label, and button vertically */
+  align-items: center; /* Center content horizontally */
+  gap: 10px; /* Space between image, label, and button */
+}
+     .rules-image {
+  width: 100%;
+  /* height: auto; */
+  max-height: 300px; /* Limit image height to prevent excessive scaling */
+  object-fit: cover; /* Ensure images scale nicely without distortion */
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-      .rules-image-wrapper {
-        flex: 1 1 250px;
-        text-align: center;
-        max-width: 100%;
-      }
+      .pdf-download-container {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
 
-      .rules-image {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-      }
+.pdf-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between icon and text */
+  /* margin-top: 10px; */
+  padding: 20px 20px ;
+  background-color: var(--gold);
+  color: var(--deep-green);
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px; /* Limit button width for better proportionality */
+  text-align: center;
+  font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+}
+      .pdf-download-btn:hover {
+  background-color: var(--deep-green);
+  color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(15, 61, 46, 0.35);
+}
 
-      .pdf-download-btn {
-        display: inline-block;
-        padding: clamp(6px, 2vw, 10px) clamp(10px, 3vw, 20px);
-        background-color: var(--gold);
-        color: var(--deep-green);
-        border-radius: 6px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        width: 100%;
-        text-align: center;
-      }
+.pdf-download-btn .pdf-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--deep-green);
+  transition: fill 0.3s ease;
+}
 
-      .download-button,
-      .pdf-download-btn {
-        background-color: var(--gold);
-        color: var(--deep-green);
-        font-weight: 600;
-        border: none;
-        border-radius: 6px;
-        padding: clamp(15px, 2vw, 10px) clamp(15px, 4vw, 20px);
-        transition: all 0.3s ease;
-        width: 90%;
-        text-align: center;
-      }
+.pdf-download-btn:hover .pdf-icon {
+  fill: var(--gold);
+}
 
       .primary-btn {
         display: block;
@@ -447,15 +470,15 @@
       }
       .rules-image {
   width: 100%;
-  height: auto;
+  /* height: auto; */
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
 }
 
 .rules-image:hover {
-  transform: scale(1.05); /* Slightly larger zoom */
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
       /* Responsive adjustments */
@@ -467,6 +490,9 @@
         .banner-text {
           padding: 15px;
           margin-top: 30px;
+        }
+        .about-content .section-paragraph{
+          font-size: 1.2rem;
         }
 
         .banner-text h1 {
@@ -521,7 +547,7 @@
 
         .about-content {
           order: 2;
-          padding: 20px;
+          padding: 10px;
         }
         .rules-regulations-section {
           padding: 0;
@@ -548,9 +574,9 @@
           margin-bottom: 30px;
         }
 
-        /* .curriculum-item .curriculum-subtitle {
-                font-size: clamp(1rem, 3.5vw, 1.2rem);
-            } */
+        .curriculum-item .curriculum-subtitle {
+                font-size: 1.5rem;
+            }
 
         .teachers-venues-section {
           padding: 0px 15px;
@@ -562,13 +588,13 @@
         }
 
         .teachers-content .section-heading-white {
-          /* font-size: clamp(1.3rem, 4vw, 1.8rem); */
+          font-size: 2.5rem;
           /* font-weight: 2000; */
           text-align: center;
         }
 
         .teachers-content .section-paragraph-white {
-          /* font-size: clamp(0.8rem, 2.5vw, 1rem); */
+          font-size: 1.2rem;
         }
 
         .calendar-downloads-section {
@@ -599,19 +625,26 @@
         .section-heading-center-white{
             margin: 0 auto;
         }
-        .main-images-rules {
-          flex-direction: column;
-          gap: 15px;
-        }
+       .main-images-rules {
+    flex-direction: column;
+    gap: 20px; /* Slightly larger gap for clarity */
+    padding: 0 15px;
+  }
+        .image-label {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
 
-        .rules-image-wrapper {
-          max-width: 90%;
-          padding: 0 5px;
-        }
-
+  font-weight: 600;
+  margin: 10px 0;
+}
+.rules-image-wrapper {
+    flex: 1 1 100%; /* Full width on mobile */
+    max-width: 100%; /* Ensure it doesn't exceed container */
+  }
         .pdf-download-btn {
-          padding: clamp(5px, 2vw, 10px) clamp(10px, 3vw, 20px);
-        }
+    max-width: 220px; /* Smaller button width for mobile */
+    padding: clamp(6px, 2vw, 8px) clamp(10px, 3vw, 12px);
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  }
       }
 
       @media (max-width: 480px) {
@@ -623,20 +656,36 @@
           padding: 10px;
           margin-top: 20px;
         }
-
+        .content-title1{
+          font-size: 2rem;
+        }
         .banner-text h1 {
           font-size: clamp(2rem, 5vw, 1.8rem);
+        }
+        .about-content .section-heading {
+          font-size: 2rem;
         }
 
         .banner-text h3 {
           font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
+          .about-content .section-paragraph{
+          font-size: 1.1rem;
+        }
         .banner-text h4 {
           font-size: clamp(0.7rem, 2.5vw, 0.9rem);
         }
+        .teachers-content .section-heading-white{
+          font-size: 2rem;
+        }
+        .section-heading-center-white{
+          font-size: 2rem;
+        }
         .section-heading {
           padding: 0px;
+          font-size: 2rem;
+          margin-top: 0px;
         }
         .teachers-image {
           margin: 20px auto 0px;
@@ -647,10 +696,13 @@
         }
         .section-heading-center-green-alt{
             margin: 20px auto;
+            font-size: 2rem;
         }
         .calendar-description{
             margin-bottom: 50px;
+            font-size: 1.1rem;
         }
+
 
         .primary-btn,
         .download-button,
@@ -659,12 +711,29 @@
           font-size: clamp(0.8rem, 2.5vw, 0.9rem);
           padding: 10px;
         }
+         .teachers-content .section-paragraph-white {
+          font-size: 1.1rem;
+        }
 
+        .main-images-rules {
+    padding: 0 10px; /* Further reduced padding */
+    gap: 15px;
+  }
+.rules-image {
+    /* max-height: 200px;  */
+  }
+  .image-label {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+  }
         .rules-regulations-section {
           padding: 0px 5px;
           margin: 50px auto;
         }
-
+.pdf-download-btn {
+    max-width: 200px; /* Even smaller button for tiny screens */
+    padding: clamp(5px, 1.5vw, 7px) clamp(8px, 2.5vw, 10px);
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+  }
         .rules-description {
           font-size: clamp(0.8rem, 2vw, 1.1rem);
           margin: 0 auto 30px;
@@ -672,9 +741,8 @@
         }
 
         .rules-image-wrapper {
-          max-width: 85%;
-          padding: 0;
-        }
+    gap: 8px; /* Tighter spacing for smaller screens */
+  }
 
         .pdf-download-btn {
           padding: clamp(4px, 1.5vw, 8px) clamp(8px, 2.5vw, 15px);

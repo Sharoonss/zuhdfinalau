@@ -1141,9 +1141,9 @@ color:#0a2a1f;
 }
 
 .section-subtitle {
-  font-size:22px;
+  font-size: 1.2rem;
   padding: 8px;
-  color: var(--sand-beige);
+  /* color: var(--sand-beige); */
   margin-bottom: clamp(15px, 4vw, 20px);
   /* font-weight: 300; */
 }
@@ -1789,7 +1789,7 @@ color:#0a2a1f;
     background: linear-gradient(45deg, #C8B88A, #d4c49a);
     color: #0F3D2E;
     padding: 12px 30px;
-    border-radius: 25px;
+    border-radius: 15px;
     text-decoration: none;
     font-weight: bold;
     font-size: clamp(0.8rem, 2vw, 1rem);
@@ -1808,7 +1808,8 @@ color:#0a2a1f;
 .subscribe-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(200, 184, 138, 0.5);
-    background: linear-gradient(45deg, #d4c49a, #C8B88A);
+    background: var(--deep-green);
+    color: var(--gold);
     border-color: #F7EFE5;
 }
 
@@ -2301,7 +2302,8 @@ color:#0a2a1f;
     overflow: hidden;
     display: flex;
     align-items: center;
-    margin: 2rem auto;
+    /* margin: 2rem auto; */
+    padding: 100px 7px;
     justify-content: center;
     box-shadow: 0 10px 30px rgba(15, 61, 46, 0.3);
     border: 1px solid #c8b88ab2;
@@ -2350,6 +2352,7 @@ color:#0a2a1f;
     
     .subscribe-btn {
         padding: 6px 12px;
+        font-weight: bold;
         font-size: 0.75rem;
     }
 }
@@ -3312,7 +3315,7 @@ color:#0a2a1f;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%23104710"/><text x="50%" y="50%" text-anchor="middle" fill="white" font-size="48" font-family="Arial">ZUHD GUIDANCE</text></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%23104710"/><text x="50%" y="50%" text-anchor="middle" fill="white" font-size="48" >ZUHD GUIDANCE</text></svg>');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -3377,8 +3380,8 @@ color:#0a2a1f;
 /* Vision Section */
 
 .zuhd-section-title{
-    font-size: 3rem;
-    color: #0a2f22;
+    font-size: 2.5rem;
+    /* color: #0a2f22; */
     text-align:center;
     margin-top:40px;
     text-transform:uppercase;
@@ -3390,15 +3393,15 @@ color:#0a2a1f;
     text-transform:uppercase;
 }
 .zuhd-vision-text1 {
-    font-size:22px;
+    font-size:1.2rem;
     line-height: 30px;
-    color: #0a2f22;
+    /* color: #0a2f22; */
     max-width: 1200px;
     opacity: 0;
     animation: zuhdFadeInUp 0.8s ease-out forwards;
     animation-delay: 1.3s;
     text-align:center;
-    margin-bottom:100px;
+    margin-bottom:50px;
 }
 
 /* Founders Section */
@@ -3498,7 +3501,7 @@ color:#0a2a1f;
 }
 
 .hadith-content p {
-  font-size:22px;
+  font-size: 1.2rem;
   line-height: 30px;
   color: #ffffff;
 }
@@ -3512,7 +3515,7 @@ color:#0a2a1f;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px 5px;
 }
 
 .sunnah-image img {
@@ -3543,7 +3546,7 @@ color:#0a2a1f;
   }
 
   .hadith-content p{
-    font-size: 19px;
+    font-size: 1.1rem;
     line-height: 25px;
   }
 
@@ -3591,9 +3594,9 @@ color:#0a2a1f;
         }
 
         .course-title {
-            font-size: 28px;
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #ffffff;
+            /* color: #ffffff; */
          text-align:center;
 
         }
@@ -3605,14 +3608,14 @@ color:#0a2a1f;
 
 }
 .zuhd-vision-text{
-    font-size:19px;
+    font-size:1.2rem;
     padding: 0px 10px;
     text-align: center;
     line-height: 25px;
 }
 .zuhd-section-title3 {
     font-size: 2rem;
-    color: #0a2f22;
+    /* color: #0a2f22; */
     text-align: center;
     padding: 10px 0px;
 }
@@ -3641,7 +3644,7 @@ color:#0a2a1f;
         }
      .hadith-content {
         font-size: 19px;
-        padding: 0px 10px;
+        padding: 10px 10px;
         line-height: 25px;
     } 
 
@@ -3657,10 +3660,12 @@ color:#0a2a1f;
 
     .fiqh-card {
         padding: 20px;
+        /* margin-right: 10px; */
+        /* text-align: center; */
     }
 
     .course-title {
-        font-size:25px;
+        font-size:1.5rem;
     }
 
     .zuhd-container,
@@ -3877,6 +3882,7 @@ color:#0a2a1f;
 @media (max-width: 480px) {
 .zuhd-section-title2{
         display:none;
+        font-size: 2rem;
 
 }
 .zuhd-timeline-container {
@@ -3898,6 +3904,9 @@ color:#0a2a1f;
     .zuhd-about-container {
         padding: 60px 10px;
     }
+     .hadith-content p{
+    font-size: 1rem;
+}
 
     /* .zuhd-header-section {
         margin-bottom: 40px;
@@ -3908,6 +3917,9 @@ color:#0a2a1f;
         margin-bottom: 10px;
     }
 
+    .tawheed-heading{
+        font-size: 2rem;
+    }
     .zuhd-founder-card {
         gap: 15px;
     }
@@ -6055,6 +6067,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             .events-subtitle {
                 font-size: 0.9rem;
             }
+             /* .consultation-islamic-button {
+                padding: 15px 15px;
+             } */
 
             .event-details {
                 padding: 1.5rem;
@@ -6088,7 +6103,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(26, 112, 62, 0.5); /* Or use #0f3d2e80 */
+    background: rgba(26, 112, 62, 0.322); 
     z-index: 1;
 }
       
@@ -6105,6 +6120,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             z-index: 2;
             padding: 0 1rem; /* px-4 */
         }
+        .consultation-hero-section{
+                        width: 100%;
+        }
         .consultation-hero-section1 > * {
             position: relative;
             z-index: 2;
@@ -6119,7 +6137,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             line-height: 48px; /* leading-[85px] */
         }
    .consultation-hero-content1 h1 {
-            font-size: 3rem; 
+            font-size: 2.5rem; 
             margin-bottom: 1rem; /* mb-4 */
             letter-spacing: 2px; /* tracking-wide */
             color: var(--off-white);
@@ -6127,6 +6145,16 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .consultation-hero-content1 p {
+            font-size: 1.2rem; /* text-lg */
+            margin-bottom:30; /* mb-4 */
+            max-width: 600px; /* max-w-xl */
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 30px; /* leading-8 */
+            /* color: var(--sand-beige); */
+            text-align: center;
+        }
+        .consultation-hero-content p {
             font-size: 1.2rem; /* text-lg */
             margin-bottom:30; /* mb-4 */
             max-width: 600px; /* max-w-xl */
@@ -6172,7 +6200,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .consultation-section-title {
             text-align: center;
-            font-size: 3rem; /* text-4xl */
+            font-size: 2.5rem; /* text-4xl */
             margin-bottom: 3rem; /* mb-12 */
             color: var(--deep-green);
         }
@@ -6233,7 +6261,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         .consultation-service-card p {
             color: #555557; /* text-gray-700 */
             line-height: 30px; /* leading-8 */
-            font-size: 22px; /* text-lg */
+            font-size: 1.2rem; /* text-lg */
         }
 
         .consultation-service-content {
@@ -6249,13 +6277,13 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .consultation-banner-content h2 {
-            font-size: 3rem; /* text-4xl */
+            font-size: 2.5rem; /* text-4xl */
             margin-bottom: 1rem; /* mb-4 */
             color: var(--off-white);
         }
 
         .consultation-banner-content p {
-            font-size: 22px; /* text-lg */
+            font-size: 1.2rem; /* text-lg */
             margin-bottom: 2rem; /* mb-8 */
             color: var(--sand-beige);
             max-width: 1000px; /* max-w-5xl */
@@ -6388,7 +6416,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         } */
  /* Services Section */
         .consultation-services-section {
-            padding: 80px 0;
+            padding: 150px 0 70px;
+            margin-top: -130px;
             background: var(--sand-beige);
         }
 
@@ -6400,8 +6429,8 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .consultation-section-title {
             text-align: center;
-            font-size:3rem;
-            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 5rem;
             color: var(--deep-green);
         }
 
@@ -6454,14 +6483,14 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             font-size: 1.5rem;
             margin-bottom: 8px;
             color: var(--deep-green);
-            font-weight: 600;
+            /* font-weight: 600; */
         }
 
-        .consultation-service-card p {
+        /* .consultation-service-card p {
             color: #555557;
             line-height:30px;
              font-size:22px; 
-        }
+        } */
 
         .consultation-service-content {
             flex: 1;
@@ -6482,7 +6511,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         .consultation-banner-content p {
-            font-size:22px;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             color: var(--sand-beige);
             max-width: 1000px;
@@ -6764,6 +6793,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             }
             .consultation-service-card h3{
                 margin-bottom: 0px;
+                font-size: 1.5rem;
             }
         }
 
@@ -6774,12 +6804,32 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             background: var(--sand-beige);
         }
              .consultation-hero-content h1{
-                 font-size: 2.5rem;
+                 font-size: 2rem;
                     margin-bottom:10px;
+<<<<<<< HEAD
                     line-height: 45px;
+=======
+                    /* line-height: 30px; */
+            }  
+            .consultation-hero-content1 p{
+                font-size: 1.1rem;
+            }
+>>>>>>> cbdf7296ac342a1f87ac4318378a2b95c7089bda
 
-            }   .consultation-hero-content1 h1{
-                 font-size: 2.5rem;
+            .consultation-cta-button{
+                padding: 15px 15px;
+            }
+
+             .consultation-islamic-button {
+                padding: 15px;
+             }
+            .consultation-hero-content{
+                padding-top: 50px;
+            }
+            
+            
+            .consultation-hero-content1 h1{
+                 font-size: 2rem;
                     margin-bottom:10px;
                     line-height: 45px;
                     text-align: center;
@@ -6792,7 +6842,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             .consultation-service-card p {
             color: #555557; /* text-gray-700 */
             line-height:25px; /* leading-8 */
-            font-size:19px; /* text-lg */
+            font-size:1rem; /* text-lg */
         }
 
 .consultation-service-icon {
@@ -6906,6 +6956,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             }
             .consultation-service-card h3{
                 margin-bottom: 0px;
+                font-size: 1.2rem;
             }
         }
 
@@ -8709,6 +8760,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             .main-heading1 {
                 font-size: 2rem;
                 margin-bottom: 10px;
+                padding: 0px 7px;
             }
             .offer-container {
                 padding: 1rem 0;
@@ -8805,7 +8857,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         /* Shorts Section */
 .main-shorts {
   padding: 10px 0; /* Equivalent to py-8 md:py-12 lg:py-16 */
-  background-color: white;
+  /* background-color: white; */
     margin: auto;
 
 }
@@ -8989,7 +9041,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 @media (min-width: 1024px) {
   /* lg breakpoint */
   .section-header {
-    font-size: 3rem; /* lg:text-5xl */
+    font-size: 2.5rem; /* lg:text-5xl */
   }
 }
 
@@ -9095,7 +9147,7 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         /* Mobile accordion arrow */
         .footer-column:not(.newsletter) h3::before {
-            font-family: "Font Awesome 5 Free";
+            /* font-family: "Font Awesome 5 Free"; */
             font-weight: 900;
             content: "\f078";
             position: static;
@@ -9746,15 +9798,15 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         }
 
         /* PDF Download Button */
-        .pdf-download-container {
+        /* .pdf-download-container {
             margin-top: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-        }
+        } */
 
-        .pdf-download-btn {
+        /* .pdf-download-btn {
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -9773,9 +9825,9 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
             letter-spacing: 1px;
             margin-bottom: 30px;
             margin-top:20px;
-        }
+        } */
 
-        .pdf-download-btn:hover {
+        /* .pdf-download-btn:hover {
             background: #d4c99a;
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(200, 184, 138, 0.4);
@@ -9783,54 +9835,54 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
         .pdf-download-btn:active {
             transform: translateY(-1px);
-        }
+        } */
 
-        .pdf-icon {
+        /* .pdf-icon {
             width: 24px;
             height: 24px;
             fill: currentColor;
-        }
+        } */
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .rules-regulations-section {
+            /* .rules-regulations-section {
                 padding: 60px 15px;
-            }
+            } */
 
             .section-heading-center-white {
                 font-size: 2.2rem;
                 margin-bottom: 20px;
             }
-
+/* 
             .rules-description {
                 font-size: 18px;
                 margin-bottom: 30px;
-            }
+            } */
 
-            .main-images-rules {
+            /* .main-images-rules {
                 flex-direction: column;
                 gap: 25px;
                 margin-bottom: 40px;
-            }
-
+            } */
+/* 
             .rules-image {
                 height: 300px;
                 object-fit: contain;
-            }
-
+            } */
+/* 
             .pdf-download-container {
                 flex-direction: column;
                 gap: 15px;
                 margin-top: 30px;
-            }
+            } */
 
-            .pdf-download-btn {
+            /* .pdf-download-btn {
                 padding: 12px 25px;
                 font-size: 16px;
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
-            }
+            } */
         }
 
         @media (max-width: 480px) {
@@ -9838,29 +9890,29 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
                 font-size: 1.8rem;
             }
 
-            .rules-description {
+            /* .rules-description {
                 font-size: 16px;
                 padding: 0 10px;
-            }
-
+            } */
+/* 
             .rules-image {
                 height: 250px;
                 border-radius: 15px;
-            }
+            } */
 
-            .rules-image-wrapper {
+            /* .rules-image-wrapper {
                 border-radius: 15px;
-            }
+            } */
 
-            .pdf-download-btn {
+            /* .pdf-download-btn {
                 padding: 10px 20px;
                 font-size: 14px;
-            }
+            } */
 
-            .pdf-icon {
+            /* .pdf-icon {
                 width: 20px;
                 height: 20px;
-            }
+            } */
         }
 
         /* Additional Enhancement - Image Labels */
