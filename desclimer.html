@@ -51,6 +51,8 @@
             font-family: "Serotiva-Regular";
             font-size: 22px; /* Set desktop font size to 22px */
             line-height: 1.6;
+            font-size: 1.2rem;
+            line-height:30px;
             color: white;
             margin-bottom: 1rem;
         }
@@ -82,6 +84,11 @@
             /* min-height: 100vh; */
             font-family: "Serotiva-Regular";
         }
+         .header h1{
+                font-size: 2.5rem;
+                margin-top: 100px;
+            }
+
 
         /* Improved container structure with better max-width and centering */
         .container-main {
@@ -95,6 +102,10 @@
         .header {
             text-align: center;
             padding: clamp(8rem, 15vh, 12rem) var(--container-padding);
+
+            /* margin-bottom: 50px; */
+            /* padding:220px 0px; */
+
             position: relative;
             background: linear-gradient(rgba(15, 61, 46, 0.4), rgba(15, 61, 46, 0.4)), 
                         url("https://i.ibb.co/pBKjDDrG/DISCLAIMER.png") no-repeat center center/cover;
@@ -138,7 +149,9 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-
+        /* .header p{
+            margin-top: 100px;
+        } */
         .section {
             padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
             display: flex;
@@ -284,10 +297,37 @@
                 width: 60px;
                 height: 60px;
             }
+            .header p {
+                font-size: 1.2rem;
+            }
 
             .icon svg {
                 width: 30px;
                 height: 30px;
+                width: 60px;
+                height:35px;
+            }
+            .header h1{
+                font-size: 2.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .content li {
+                font-size: 18px;
+                line-height: 26px;
+                margin-bottom: 10px;
+            }
+
+            .final-note h3 {
+                font-size: 1.1rem;
+            }
+
+            .final-note p {
+                font-size: 18px;
+                line-height: 26px;
             }
         }
 
@@ -327,6 +367,17 @@
             .content {
                 padding-left: 0;
                 width: 100%;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .header p {
+                font-size: 1rem;
+                line-height: 24px;
+                padding: 0px 20px;
             }
 
             .content li {
