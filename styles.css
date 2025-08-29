@@ -6806,15 +6806,12 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
              .consultation-hero-content h1{
                  font-size: 2rem;
                     margin-bottom:10px;
-<<<<<<< HEAD
                     line-height: 45px;
-=======
                     /* line-height: 30px; */
             }  
             .consultation-hero-content1 p{
                 font-size: 1.1rem;
             }
->>>>>>> cbdf7296ac342a1f87ac4318378a2b95c7089bda
 
             .consultation-cta-button{
                 padding: 15px 15px;
