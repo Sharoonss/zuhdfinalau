@@ -79,13 +79,13 @@
 
         /* Section Styles */
         .video-gallery, 
-        .prophets-series-section, 
+        .seerah-series-section, 
         .abubakr-series-section, 
         .umar-series-section {
             padding: 0px 25px;
         }
 
-        .section-header {
+        /* .section-header {
             text-align: center;
             margin-bottom: 60px;
             margin-top: 40px;
@@ -95,10 +95,10 @@
         .section-header h2 {
             font-size: 2.5rem;
             color: var(--gold);
-            margin: 16px auto; /* Equal top and bottom spacing */
+            margin: 16px auto; 
             width: 90%;
             max-width: 800px;
-        }
+        } */
 
         /* .section-header h1::after {
             content: "";
@@ -111,16 +111,16 @@
             background: var(--gold);
         } */
 
-        .section-header p {
+        /* .section-header p {
             color: #ffffff;
             max-width: 600px;
-            margin: 0px auto 24px; /* Equal top and bottom spacing */
+            margin: 0px auto 24px; 
             font-size: 1.2rem;
-        }
+        } */
 
         /* Video Grid Styles */
         .videos-container, 
-        .prophets-series-container, 
+        .seerah-series-container, 
         .abubakr-series-container, 
         .umar-series-container {
             display: grid;
@@ -182,6 +182,7 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 12px;
+            padding-bottom: 70px;
             color: #fcfcfc;
             height: 3em;
             overflow: hidden;
@@ -291,7 +292,7 @@
         }
 
         /* Section Headings */
-        .prophets-series-section h2,
+        .seerah-series-section h2,
         .abubakr-series-section h2,
         .umar-series-section h2{
             font-size: 2.5rem;
@@ -318,7 +319,7 @@
             transition: color 0.3s ease;
         }
 
-        /* .prophets-series-section h2::after,
+        /* .seerah-series-section h2::after,
         .abubakr-series-section h2::after,
         .umar-series-section h2::after {
             content: "";
@@ -346,7 +347,7 @@
         }
 
 
-        .prophets-series-section h2:hover::after,
+        .seerah-series-section h2:hover::after,
         .abubakr-series-section h2:hover::after,
         .umar-series-section h2:hover::after {
             width: 80px;
@@ -423,18 +424,18 @@ background-size: 120px 120px;
             }
 
             .videos-container, 
-            .prophets-series-container, 
+            .seerah-series-container, 
             .abubakr-series-container, 
             .umar-series-container {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
 
-            .section-header h2 {
+            /* .section-header h2 {
                 font-size: 2.5rem;
-                margin: 12px auto; /* Equal top and bottom spacing */
-            }
+                margin: 12px auto; 
+            } */
 
-            .prophets-series-section h2,
+            .seerah-series-section h2,
             .abubakr-series-section h2,
             .umar-series-section h2 {
                 font-size: 2.5rem;
@@ -475,7 +476,7 @@ background-size: 120px 120px;
                 margin: 0 auto;
             }
 
-            .prophets-series-section h2,
+            .seerah-series-section h2,
             .abubakr-series-section h2,
             .umar-series-section h2,
             .islamic-playlists-section h2 {
@@ -506,21 +507,21 @@ background-size: 120px 120px;
             }
 
             .videos-container, 
-            .prophets-series-container, 
+            .seerah-series-container, 
             .abubakr-series-container, 
             .umar-series-container {
                 grid-template-columns: 1fr;
             }
 
-            .section-header h2 {
+            /* .section-header h2 {
                 font-size: 2rem;
-                margin: 10px auto; /* Equal top and bottom spacing */
-            }
-            .section-header {
+                margin: 10px auto; 
+            } */
+            /* .section-header {
         padding: 5px 0px;
-    }
+    } */
 
-            .prophets-series-section h2,
+            .seerah-series-section h2,
             .abubakr-series-section h2,
             .umar-series-section h2,
             .islamic-playlists-section h2 {
@@ -600,21 +601,10 @@ background-size: 120px 120px;
     <div class="main-content">
         <!-- Video Gallery -->
         <section class="video-gallery">
-            <div class="section-header">
+            <!-- <div class="section-header">
                 <h2>The Importance of Prayer</h2>
                 <p>Learn about the significance of Salah in a Muslim's life</p>
-            </div>
-            
-            <div class="controls-container">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Search lectures...">
-                </div>
-                <div class="sorting">
-                    <button class="sort-btn active" data-sort="date">Newest</button>
-                    <button class="sort-btn" data-sort="popular">Most Popular</button>
-                </div>
-            </div>
+            </div> -->
             
             <div class="loader" id="loader">
                 <div class="loader-spinner"></div>
@@ -640,14 +630,14 @@ background-size: 120px 120px;
             </div>
         </section>
 
-        <!-- Prophets Series Section -->
-        <section class="prophets-series-section">
-            <h2>THE PROPHETS SERIES</h2>
-            <div class="loader" id="prophetsLoader">
+        <!-- Seerah Series Section -->
+        <section class="seerah-series-section">
+            <h2>The Seerah Series Rasulallah (SAW)</h2>
+            <div class="loader" id="seerahLoader">
                 <div class="loader-spinner"></div>
-                <p class="loading-text">Loading Prophets Series...</p>
+                <p class="loading-text">Loading Seerah Series...</p>
             </div>
-            <div class="prophets-series-container" id="prophetsSeriesContainer">
+            <div class="seerah-series-container" id="seerahSeriesContainer">
                 <!-- Playlist videos will be inserted here by JavaScript -->
             </div>
         </section>
@@ -699,6 +689,7 @@ background-size: 120px 120px;
                         <li><a href="/store.html" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
                         <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
                         <li><a href="/ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
+                        <li><a href="/desclimer.html" onclick="linkClick('Disclaimer')">Disclaimer</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -752,17 +743,15 @@ background-size: 120px 120px;
         const API_KEY = "AIzaSyDH2HM_h4PsMZ270QUVQ5OvOPk9BsPrgbg";
         const CHANNEL_ID = "UCV3HG9Ph_XQ1gIK-gEyScmQ";
         const MAX_RESULTS = 8;
-        const PROPHETS_PLAYLIST_ID = "PLA-ylo0o2Z5m8WQQAG_q0QggLTpRCYM87";
+        const SEERAH_PLAYLIST_ID = "PLA-ylo0o2Z5kAdM_RyjN_0Volk4pX-Uiu";
         const ABUBAKR_PLAYLIST_ID = "PLA-ylo0o2Z5nocSj07ccnJIB8Sax4FFT-";
         const UMAR_PLAYLIST_ID = "PLA-ylo0o2Z5kgcbLS9pSvhwI5EB2sUN5q";
         
         // DOM elements
         const videosContainer = document.getElementById('videosContainer');
         const loader = document.getElementById('loader');
-        const searchInput = document.getElementById('searchInput');
-        const sortButtons = document.querySelectorAll('.sort-btn');
-        const prophetsSeriesContainer = document.getElementById('prophetsSeriesContainer');
-        const prophetsLoader = document.getElementById('prophetsLoader');
+        const seerahSeriesContainer = document.getElementById('seerahSeriesContainer');
+        const seerahLoader = document.getElementById('seerahLoader');
         const abubakrSeriesContainer = document.getElementById('abubakrSeriesContainer');
         const abubakrLoader = document.getElementById('abubakrLoader');
         const umarSeriesContainer = document.getElementById('umarSeriesContainer');
@@ -771,7 +760,7 @@ background-size: 120px 120px;
         // Store videos data
         let videos = [];
         let filteredVideos = [];
-        let prophetsVideos = [];
+        let seerahVideos = [];
         let abubakrVideos = [];
         let umarVideos = [];
         
@@ -823,14 +812,14 @@ background-size: 120px 120px;
             }
         }
         
-        // Fetch videos from Prophets Series playlist
-        async function fetchProphetsSeries() {
+        // Fetch videos from Seerah Series playlist
+        async function fetchSeerahSeries() {
             try {
-                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${PROPHETS_PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}`);
+                const playlistResponse = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${SEERAH_PLAYLIST_ID}&part=snippet&maxResults=${MAX_RESULTS}`);
                 const playlistData = await playlistResponse.json();
                 
                 if (!playlistData.items || playlistData.items.length === 0) {
-                    throw new Error('No videos found in Prophets Series playlist.');
+                    throw new Error('No videos found in Seerah Series playlist.');
                 }
                 
                 const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
@@ -839,10 +828,10 @@ background-size: 120px 120px;
                 const videosData = await videosResponse.json();
                 
                 if (!videosData.items || videosData.items.length === 0) {
-                    throw new Error('No video details found for Prophets Series.');
+                    throw new Error('No video details found for Seerah Series.');
                 }
                 
-                prophetsVideos = videosData.items.map(video => ({
+                seerahVideos = videosData.items.map(video => ({
                     id: video.id,
                     title: video.snippet.title,
                     description: video.snippet.description,
@@ -851,13 +840,13 @@ background-size: 120px 120px;
                     views: parseInt(video.statistics.viewCount)
                 }));
                 
-                displayProphetsSeries(prophetsVideos);
+                displaySeerahSeries(seerahVideos);
                 
-                prophetsLoader.style.display = 'none';
+                seerahLoader.style.display = 'none';
                 
             } catch (error) {
-                console.error('Error fetching Prophets Series videos:', error);
-                prophetsLoader.innerHTML = '<p class="loading-text">Failed to load The Prophets Series. Please try again later.</p>';
+                console.error('Error fetching Seerah Series videos:', error);
+                seerahLoader.innerHTML = '<p class="loading-text">Failed to load The Seerah Series. Please try again later.</p>';
             }
         }
         
@@ -968,9 +957,9 @@ background-size: 120px 120px;
             });
         }
         
-        // Display Prophets Series videos in the grid
-        function displayProphetsSeries(videosToDisplay) {
-            prophetsSeriesContainer.innerHTML = '';
+        // Display Seerah Series videos in the grid
+        function displaySeerahSeries(videosToDisplay) {
+            seerahSeriesContainer.innerHTML = '';
             
             videosToDisplay.forEach(video => {
                 const videoCard = document.createElement('div');
@@ -995,7 +984,7 @@ background-size: 120px 120px;
                     window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
                 });
                 
-                prophetsSeriesContainer.appendChild(videoCard);
+                seerahSeriesContainer.appendChild(videoCard);
             });
         }
         
@@ -1081,46 +1070,10 @@ background-size: 120px 120px;
             });
         }
         
-        // Search functionality
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            
-            if (searchTerm === '') {
-                filteredVideos = [...videos];
-                displayVideos(filteredVideos);
-                return;
-            }
-            
-            filteredVideos = videos.filter(video => 
-                video.title.toLowerCase().includes(searchTerm) || 
-                video.description.toLowerCase().includes(searchTerm)
-            );
-            
-            displayVideos(filteredVideos);
-        });
-        
-        // Sorting functionality
-        sortButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                sortButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const sortBy = button.getAttribute('data-sort');
-                
-                if (sortBy === 'date') {
-                    filteredVideos.sort((a, b) => new Date(b.date) - new Date(a.date));
-                } else if (sortBy === 'popular') {
-                    filteredVideos.sort((a, b) => b.views - a.views);
-                }
-                
-                displayVideos(filteredVideos);
-            });
-        });
-        
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             fetchVideos();
-            fetchProphetsSeries();
+            fetchSeerahSeries();
             fetchAbuBakrSeries();
             fetchUmarSeries();
 
